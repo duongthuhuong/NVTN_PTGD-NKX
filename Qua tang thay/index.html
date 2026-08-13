@@ -1,232 +1,97 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gửi Thầy Ngô Khánh Xạ | Nhân viên Tài năng PVEP</title>
+  <title>Quà tặng thầy - Nhân viên Tài năng PVEP</title>
 
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    background: linear-gradient(
-        135deg,
-        #edf5f1 0%,
-        #f8f5ec 50%,
-        #edf5f1 100%
-    );
-
-    font-family: Arial, Helvetica, sans-serif;
-    color: #214f46;
-}
-
-/* Thanh trên */
-
-.topbar {
-    width: 100%;
-    padding: 18px 30px;
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-}
-
-.back {
-    text-decoration: none;
-    color: #267263;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.back:hover {
-    color: #b17b20;
-}
-
-
-/* Phần tiêu đề */
-
-.intro {
-    text-align: center;
-    padding: 45px 20px 28px;
-}
-
-.intro .small {
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: #73968d;
-    margin-bottom: 10px;
-}
-
-.intro h1 {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: normal;
-    font-size: 42px;
-    color: #164e43;
-}
-
-.intro p {
-    margin: 12px 0 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-size: 19px;
-    color: #8b692a;
-}
-
-
-/* Khung ảnh */
-
-.poem-container {
-    width: 92%;
-    max-width: 900px;
-    margin: 0 auto 55px;
-    padding: 12px;
-
-    background: white;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 15px 45px rgba(36,82,70,0.15);
-}
-
-.poem-container img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-
-/* Lời kết */
-
-.message {
-    width: 90%;
-    max-width: 760px;
-    margin: 0 auto 55px;
-    text-align: center;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 18px;
-    font-style: italic;
-    line-height: 1.8;
-
-    color: #46675f;
-}
-
-.message::before {
-    content: "♡";
-    display: block;
-    font-size: 28px;
-    color: #b68731;
-    margin-bottom: 10px;
-}
-
-
-/* Footer */
-
-footer {
-    text-align: center;
-    padding: 28px 20px;
-
-    background: #174f44;
-    color: rgba(255,255,255,0.9);
-
-    font-size: 13px;
-    letter-spacing: 1px;
-}
-
-
-/* Điện thoại */
-
-@media (max-width: 600px) {
-
-    .intro {
-        padding-top: 30px;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    .intro h1 {
-        font-size: 31px;
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f7f2e8;
+      font-family: Arial, sans-serif;
     }
 
-    .intro p {
-        font-size: 17px;
+    /* Thanh phía trên */
+    .topbar {
+      width: 100%;
+      padding: 16px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    .poem-container {
-        width: 96%;
-        padding: 6px;
+    .back {
+      display: inline-block;
+      text-decoration: none;
+      color: #174a7e;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 10px 16px;
+      border: 1px solid #174a7e;
+      border-radius: 8px;
     }
 
-}
+    .back:hover {
+      background: #174a7e;
+      color: white;
+    }
 
-</style>
+    /* Khu vực bài thơ */
+    .poem {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 25px 15px 50px;
+    }
+
+    .poem img {
+      display: block;
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 600px) {
+      .poem {
+        padding: 10px 5px 30px;
+      }
+
+      .topbar {
+        padding: 10px;
+      }
+
+      .back {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <div class="topbar">
+    <a class="back" href="../index.html">
+      ← Quay lại trang chính
+    </a>
+  </div>
 
-<div class="topbar">
-
-<a class="back" href="../">
-← QUAY VỀ HÀNH TRÌNH HỌC TẬP
-</a>
-
-</div>
-
-
-
-<div class="intro">
-
-<div class="small">
-CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
-</div>
-
-<h1>
-🌿 Một món quà gửi Thầy
-</h1>
-
-<p>
-Lưu lại một hành trình – và một người thầy tận lòng dẫn lối
-</p>
-
-</div>
-
-
-
-<div class="poem-container">
-
-<img
-src="bai-tho-tang-thay.png"
-alt="Gửi Thầy Ngô Khánh Xạ - Người tận lòng dẫn lối"
->
-
-</div>
-
-
-
-<div class="message">
-
-Mỗi bài học khép lại, một con đường mở ra.<br>
-Xin cảm ơn người thầy đã tận lòng dẫn lối.
-
-</div>
-
-
-
-<footer>
-
-NHÓM NHÂN VIÊN TÀI NĂNG PVEP
-<br><br>
-Đồng hành cùng PTGĐ Ngô Khánh Xạ
-
-</footer>
-
+  <div class="poem">
+    <img
+      src="Tri%20%C3%A2n%20th%E1%BA%A7y%20Ng%C3%B4%20Kh%C3%A1nh%20X%E1%BA%A1(13).png"
+      alt="Gửi Thầy Ngô Khánh Xạ - Người tận lòng dẫn lối">
+  </div>
 
 </body>
 </html>
