@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Quà tặng thầy - Nhân viên Tài năng PVEP</title>
+  <title>Quà tặng thầy Ngô Khánh Xạ</title>
 
   <style>
     * {
@@ -14,66 +14,63 @@
     body {
       margin: 0;
       padding: 0;
-      background: #f7f2e8;
+      background: #f6f1e8;
       font-family: Arial, sans-serif;
     }
 
-    /* Thanh phía trên */
     .topbar {
       width: 100%;
-      padding: 16px 20px;
-      background: #ffffff;
+      padding: 15px 25px;
+      background: white;
       border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     .back {
-      display: inline-block;
       text-decoration: none;
-      color: #174a7e;
-      font-weight: bold;
+      color: #1769aa;
       font-size: 16px;
-      padding: 10px 16px;
-      border: 1px solid #174a7e;
-      border-radius: 8px;
+      font-weight: bold;
     }
 
-    .back:hover {
-      background: #174a7e;
-      color: white;
-    }
-
-    /* Khu vực bài thơ */
-    .poem {
+    .page {
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      text-align: center;
       padding: 25px 15px 50px;
     }
 
-    .poem img {
-      display: block;
-      width: 100%;
-      max-width: 1100px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    h1 {
+      color: #17356b;
+      margin: 10px 0 5px;
+      font-size: 34px;
     }
 
-    @media (max-width: 600px) {
-      .poem {
-        padding: 10px 5px 30px;
+    .subtitle {
+      color: #ad791b;
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .poem-image {
+      display: block;
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 25px;
       }
 
-      .topbar {
-        padding: 10px;
+      .subtitle {
+        font-size: 17px;
       }
 
-      .back {
-        font-size: 14px;
+      .page {
+        padding: 15px 8px 30px;
       }
     }
   </style>
@@ -82,15 +79,23 @@
 <body>
 
   <div class="topbar">
-    <a class="back" href="../index.html">
-      ← Quay lại trang chính
-    </a>
+    <a class="back" href="../">← Về trang chính</a>
   </div>
 
-  <div class="poem">
+  <div class="page">
+
+    <h1>QUÀ TẶNG THẦY</h1>
+
+    <div class="subtitle">
+      Gửi Thầy Ngô Khánh Xạ – người tận lòng dẫn lối
+    </div>
+
     <img
-      src="Tri%20%C3%A2n%20th%E1%BA%A7y%20Ng%C3%B4%20Kh%C3%A1nh%20X%E1%BA%A1(13).png"
-      alt="Gửi Thầy Ngô Khánh Xạ - Người tận lòng dẫn lối">
+      class="poem-image"
+      src="Tri ân thầy Ngô Khánh Xạ(13).png"
+      alt="Bài thơ tri ân thầy Ngô Khánh Xạ"
+    >
+
   </div>
 
 </body>
