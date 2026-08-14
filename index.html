@@ -9,20 +9,31 @@
 <style>
 
 /* =========================================================
-   01. RESET + BIẾN MÀU
+   01. HỆ MÀU
 ========================================================= */
 
 :root{
-    --navy:#06263c;
-    --navy-dark:#031827;
-    --green:#66c94c;
-    --green-soft:#8bdc72;
+    --pvep-green:#62c947;
+    --pvep-green-light:#8ee171;
+
+    --navy:#05283f;
+    --navy-deep:#031a2b;
+
     --white:#ffffff;
-    --text-dark:#16382f;
-    --muted:#6a7c76;
-    --glass:rgba(5,38,56,.74);
-    --border:rgba(255,255,255,.16);
+
+    --text:#183c32;
+    --muted:#62756e;
+
+    --glass-dark:rgba(3,31,49,.74);
+    --glass-light:rgba(255,255,255,.96);
+
+    --line:rgba(255,255,255,.20);
 }
+
+
+/* =========================================================
+   02. RESET
+========================================================= */
 
 *{
     margin:0;
@@ -36,14 +47,21 @@ body{
     height:100%;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     overflow:hidden;
+
     font-family:
         Arial,
         "Helvetica Neue",
         Helvetica,
         sans-serif;
-    background:var(--navy-dark);
+
+    background:var(--navy-deep);
+
     color:white;
 }
 
@@ -52,127 +70,198 @@ a{
     font:inherit;
 }
 
-
-/* =========================================================
-   02. APP
-========================================================= */
-
-.app{
-    position:relative;
-    width:100vw;
-    height:100vh;
-    min-height:650px;
-    overflow:hidden;
+button{
+    border:0;
 }
 
 
 /* =========================================================
-   03. ẢNH NỀN
-   Ảnh đứng yên hoàn toàn
+   03. APP
+========================================================= */
+
+.app{
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    min-height:640px;
+
+    overflow:hidden;
+
+    isolation:isolate;
+}
+
+
+/* =========================================================
+   04. BACKGROUND
+
+   Chỉ là ảnh nền.
+   Không còn chữ/menu nằm chết trong ảnh.
 ========================================================= */
 
 .background{
     position:absolute;
     inset:0;
 
+    z-index:-3;
+
     background-image:
         url("assets/images/cover-nvtn-final.png");
 
     background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center center;
 
-    z-index:0;
+    /*
+      Ảnh được dùng như ảnh nền thực sự.
+      Có thể crop một phần rất nhỏ tùy màn hình,
+      nhưng không ảnh hưởng chữ/menu vì chữ/menu là HTML.
+    */
+    background-size:cover;
+
+    /*
+      Đẩy trọng tâm sang phải để giữ giàn khoan.
+    */
+    background-position:64% center;
+
+    transform:scale(1.01);
 }
 
 
-/* Lớp phủ mềm để chữ nổi nhưng không chia đôi ảnh */
+/* Lớp phủ mềm, không chia đôi ảnh */
 
-.background::after{
+.background::before{
     content:"";
+
     position:absolute;
     inset:0;
 
     background:
         linear-gradient(
             90deg,
-            rgba(3,27,44,.84) 0%,
-            rgba(3,29,47,.68) 22%,
-            rgba(3,31,48,.43) 42%,
-            rgba(3,31,48,.17) 60%,
-            rgba(3,31,48,.04) 78%,
-            rgba(3,31,48,0) 100%
+            rgba(2,25,41,.88) 0%,
+            rgba(2,28,45,.78) 18%,
+            rgba(2,31,47,.58) 36%,
+            rgba(2,31,47,.30) 53%,
+            rgba(2,31,47,.10) 70%,
+            rgba(2,31,47,.02) 100%
+        );
+}
+
+
+/* Một lớp tối rất nhẹ toàn màn */
+
+.background::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.10)
         );
 }
 
 
 /* =========================================================
-   04. HEADER
+   05. HEADER
 ========================================================= */
 
 .header{
     position:absolute;
+
     top:0;
     left:0;
     right:0;
 
-    height:140px;
+    z-index:40;
+
+    height:138px;
 
     display:flex;
     align-items:center;
 
-    padding:28px 5.4%;
-
-    z-index:30;
+    padding:
+        24px
+        5.3%;
 }
+
 
 .brand{
     display:flex;
     align-items:center;
 
     opacity:0;
-    transform:translateY(-14px);
+
+    transform:
+        translateY(-14px);
 
     animation:
-        fadeDown .75s ease .05s forwards;
+        fadeDown
+        .75s
+        cubic-bezier(.2,.8,.2,1)
+        .05s
+        forwards;
 }
 
+
 .logo{
-    width:92px;
+    width:88px;
     height:auto;
+
     display:block;
+
+    filter:
+        drop-shadow(
+            0 3px 10px
+            rgba(0,0,0,.12)
+        );
 }
+
 
 .brand-divider{
     width:1px;
-    height:76px;
+    height:75px;
 
-    margin:0 22px;
+    margin:
+        0
+        22px;
 
     background:
         rgba(255,255,255,.78);
 }
 
+
 .brand-name{
     font-size:29px;
+    line-height:1;
+
     font-weight:800;
-    letter-spacing:.7px;
+
+    letter-spacing:.8px;
+
+    color:white;
 }
 
+
 .brand-company{
-    margin-top:7px;
+    margin-top:9px;
 
     font-size:16px;
+
     font-weight:400;
-    letter-spacing:.7px;
+
+    letter-spacing:.65px;
 
     color:
-        rgba(255,255,255,.92);
+        rgba(255,255,255,.91);
 }
 
 
 /* =========================================================
-   05. VIEW
+   06. VIEW SYSTEM
 ========================================================= */
 
 .view{
@@ -182,133 +271,209 @@ a{
     z-index:10;
 
     opacity:0;
+
     visibility:hidden;
+
     pointer-events:none;
 
     transition:
-        opacity .35s ease,
-        visibility .35s ease;
+        opacity .38s ease,
+        visibility .38s ease;
 }
+
 
 .view.active{
     opacity:1;
+
     visibility:visible;
+
     pointer-events:auto;
 }
 
 
 /* =========================================================
-   06. HOME - KHỐI NỘI DUNG
+   07. HOME HERO
 ========================================================= */
 
 .hero{
     position:absolute;
 
-    left:5.4%;
+    left:5.3%;
     top:48%;
 
-    transform:translateY(-50%);
+    transform:
+        translateY(-50%);
 
-    width:min(680px,45vw);
+    width:
+        min(
+            680px,
+            44vw
+        );
 
-    z-index:20;
+    z-index:25;
 }
+
 
 .program{
-    color:var(--green);
+    margin-bottom:22px;
 
-    font-size:28px;
+    color:
+        var(--pvep-green);
+
+    font-size:
+        clamp(
+            21px,
+            1.7vw,
+            28px
+        );
+
     font-weight:800;
 
-    letter-spacing:.3px;
-
-    margin-bottom:24px;
+    letter-spacing:.5px;
 
     opacity:0;
-    transform:translateX(-18px);
+
+    transform:
+        translateX(-20px);
 
     animation:
-        fadeLeft .65s ease .20s forwards;
+        fadeLeft
+        .65s
+        ease
+        .20s
+        forwards;
 }
 
-.title{
+
+.hero-title{
     color:white;
 
     font-size:
-        clamp(58px,5.2vw,84px);
+        clamp(
+            56px,
+            5.25vw,
+            86px
+        );
 
-    line-height:.96;
+    line-height:.94;
 
     font-weight:800;
-    letter-spacing:1.4px;
+
+    letter-spacing:1.2px;
 
     text-transform:uppercase;
 
     text-shadow:
-        0 3px 14px
-        rgba(0,0,0,.22);
+        0 3px 16px
+        rgba(0,0,0,.25);
 
     opacity:0;
-    transform:translateX(-22px);
+
+    transform:
+        translateX(-24px);
 
     animation:
-        fadeLeft .72s ease .30s forwards;
+        fadeLeft
+        .75s
+        cubic-bezier(.2,.8,.2,1)
+        .30s
+        forwards;
 }
+
 
 .green-line{
-    width:min(520px,100%);
+    width:
+        min(
+            520px,
+            100%
+        );
+
     height:3px;
 
-    margin:25px 0 20px;
+    margin:
+        26px
+        0
+        19px;
 
-    background:var(--green);
+    background:
+        var(--pvep-green);
 
-    transform-origin:left center;
-    transform:scaleX(0);
+    transform-origin:
+        left center;
+
+    transform:
+        scaleX(0);
 
     animation:
-        lineGrow .72s ease .70s forwards;
+        lineGrow
+        .76s
+        ease
+        .72s
+        forwards;
 }
 
+
 .values{
+    margin-bottom:17px;
+
     color:white;
 
     font-size:
-        clamp(20px,1.55vw,26px);
+        clamp(
+            18px,
+            1.48vw,
+            25px
+        );
 
     letter-spacing:.7px;
 
     white-space:nowrap;
 
-    margin-bottom:18px;
-
     opacity:0;
 
     animation:
-        fadeIn .65s ease .84s forwards;
+        fadeIn
+        .65s
+        ease
+        .86s
+        forwards;
 }
 
+
 .mentor{
+    max-width:650px;
+
+    margin-bottom:11px;
+
     color:white;
 
     font-size:
-        clamp(17px,1.26vw,21px);
+        clamp(
+            16px,
+            1.22vw,
+            20px
+        );
 
     line-height:1.5;
-    font-weight:500;
 
-    margin-bottom:12px;
+    font-weight:500;
 
     opacity:0;
 
     animation:
-        fadeIn .65s ease .98s forwards;
+        fadeIn
+        .65s
+        ease
+        1s
+        forwards;
 }
+
 
 .years{
     color:white;
 
-    font-size:21px;
+    font-size:20px;
+
     font-weight:800;
 
     letter-spacing:2px;
@@ -316,105 +481,144 @@ a{
     opacity:0;
 
     animation:
-        fadeIn .65s ease 1.10s forwards;
+        fadeIn
+        .65s
+        ease
+        1.12s
+        forwards;
 }
 
 
 /* =========================================================
-   07. NÚT KHÁM PHÁ
+   08. KHÁM PHÁ HÀNH TRÌNH
 ========================================================= */
 
 .explore{
     position:absolute;
 
     left:50%;
-    bottom:115px;
+    bottom:112px;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    z-index:25;
+    z-index:35;
 
-    border:0;
-    background:transparent;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    background:none;
 
     color:white;
 
     cursor:pointer;
-    text-align:center;
 
     opacity:0;
 
     animation:
-        fadeIn .7s ease 1.18s forwards;
+        fadeIn
+        .75s
+        ease
+        1.22s
+        forwards;
 }
+
 
 .explore-circle{
     width:46px;
     height:46px;
 
-    margin:0 auto 10px;
-
-    border:
-        2px solid var(--green);
-
-    border-radius:50%;
-
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:24px;
+    margin-bottom:9px;
+
+    border:
+        2px solid
+        var(--pvep-green);
+
+    border-radius:50%;
+
+    font-size:23px;
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
 
     animation:
-        arrowFloat 1.8s
-        ease-in-out infinite;
+        arrowFloat
+        1.9s
+        ease-in-out
+        infinite;
 }
 
+
+.explore:hover
+.explore-circle{
+    background:
+        rgba(98,201,71,.16);
+}
+
+
 .explore-text{
-    font-size:15px;
+    color:white;
+
+    font-size:14px;
+
     font-weight:800;
-    letter-spacing:.5px;
+
+    letter-spacing:.7px;
 }
 
 
 /* =========================================================
-   08. MENU HTML THẬT
+   09. MENU HTML THẬT
 ========================================================= */
 
 .main-nav{
     position:absolute;
 
-    left:5.4%;
-    right:5.4%;
-    bottom:28px;
+    left:5.3%;
+    right:5.3%;
+    bottom:25px;
 
-    z-index:30;
+    z-index:40;
 
     display:grid;
+
     grid-template-columns:
         repeat(5,1fr);
 
-    gap:24px;
+    gap:26px;
 
     opacity:0;
 
     animation:
-        fadeIn .7s ease 1.28s forwards;
+        fadeIn
+        .75s
+        ease
+        1.32s
+        forwards;
 }
+
 
 .nav-btn{
     position:relative;
 
-    min-height:46px;
+    min-height:48px;
 
     display:flex;
     align-items:baseline;
 
     gap:9px;
 
-    padding:8px 2px;
+    padding:
+        8px
+        2px
+        11px;
 
-    border:0;
     background:transparent;
 
     color:white;
@@ -428,22 +632,36 @@ a{
         opacity .25s ease;
 }
 
+
 .nav-number{
+    color:white;
+
     font-size:20px;
+
     font-weight:800;
 
     transition:
-        color .25s ease;
+        color .25s ease,
+        text-shadow .25s ease;
 }
 
+
 .nav-label{
+    color:
+        rgba(255,255,255,.93);
+
     font-size:14px;
+
     font-weight:600;
 
     letter-spacing:.4px;
 
     white-space:nowrap;
+
+    transition:
+        color .25s ease;
 }
+
 
 .nav-btn::after{
     content:"";
@@ -456,149 +674,208 @@ a{
     width:0;
     height:2px;
 
-    background:var(--green);
+    background:
+        var(--pvep-green);
+
+    box-shadow:
+        0 0 12px
+        rgba(98,201,71,.30);
 
     transition:
         width .30s ease;
 }
 
+
 .nav-btn:hover{
-    transform:translateY(-3px);
+    transform:
+        translateY(-4px);
 }
 
-.nav-btn:hover .nav-number{
-    color:var(--green);
+
+.nav-btn:hover
+.nav-number{
+    color:
+        var(--pvep-green);
+
+    text-shadow:
+        0 0 15px
+        rgba(98,201,71,.28);
 }
+
+
+.nav-btn:hover
+.nav-label{
+    color:white;
+}
+
 
 .nav-btn:hover::after{
-    width:60px;
+    width:64px;
 }
 
 
 /* =========================================================
-   09. MÀN HÌNH DASHBOARD
+   10. DASHBOARD
 ========================================================= */
 
 .dashboard{
     padding:
-        155px 5.4%
-        42px;
+        152px
+        5.3%
+        38px;
 
     background:
-        rgba(2,20,32,.68);
+        rgba(2,20,33,.70);
 
     backdrop-filter:
-        blur(6px);
+        blur(7px);
 }
+
 
 .dashboard-shell{
     width:100%;
     height:100%;
 
-    max-width:1500px;
+    max-width:1520px;
+
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-        220px 1fr;
+        224px
+        1fr;
 
     gap:28px;
 }
 
 
 /* =========================================================
-   10. SIDEBAR
+   11. SIDEBAR
 ========================================================= */
 
 .sidebar{
     height:100%;
 
-    padding:25px 17px;
+    padding:
+        24px
+        17px;
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(255,255,255,.14);
 
     border-radius:18px;
 
     background:
-        rgba(4,33,49,.72);
+        rgba(4,32,49,.72);
 
     backdrop-filter:
-        blur(10px);
+        blur(12px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.12);
 }
+
 
 .home-btn{
     width:100%;
 
-    padding:13px 14px;
+    margin-bottom:21px;
 
-    border:0;
+    padding:
+        13px
+        14px;
+
     border-radius:10px;
 
     background:
-        rgba(102,201,76,.16);
+        rgba(98,201,71,.17);
 
     color:white;
-
-    cursor:pointer;
 
     font-weight:800;
 
     text-align:left;
 
-    margin-bottom:20px;
+    cursor:pointer;
 
-    transition:.25s;
+    transition:
+        background .25s ease,
+        transform .25s ease;
 }
+
 
 .home-btn:hover{
     background:
-        rgba(102,201,76,.28);
+        rgba(98,201,71,.29);
+
+    transform:
+        translateX(2px);
 }
+
 
 .side-menu{
     display:flex;
+
     flex-direction:column;
 
     gap:7px;
 }
 
+
 .side-btn{
     width:100%;
 
-    padding:12px 13px;
+    padding:
+        12px
+        13px;
 
-    border:0;
     border-radius:9px;
 
-    background:transparent;
+    background:
+        transparent;
 
     color:
         rgba(255,255,255,.76);
 
     cursor:pointer;
+
     text-align:left;
 
-    transition:.25s;
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
 }
 
-.side-btn:hover,
+
+.side-btn:hover{
+    color:white;
+
+    background:
+        rgba(255,255,255,.07);
+
+    transform:
+        translateX(2px);
+}
+
+
 .side-btn.active{
     color:white;
 
     background:
-        rgba(255,255,255,.09);
-}
+        rgba(255,255,255,.10);
 
-.side-btn.active{
     border-left:
-        3px solid var(--green);
+        3px solid
+        var(--pvep-green);
 }
 
 
 /* =========================================================
-   11. CONTENT PANEL
+   12. CONTENT PANEL
 ========================================================= */
 
 .content-panel{
@@ -606,109 +883,178 @@ a{
 
     overflow:auto;
 
-    padding:42px 48px;
-
-    border-radius:20px;
+    padding:
+        42px
+        48px
+        45px;
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius:21px;
 
     background:
-        rgba(250,253,251,.97);
+        rgba(249,253,251,.97);
 
-    color:var(--text-dark);
+    color:
+        var(--text);
 
     box-shadow:
         0 28px 80px
-        rgba(0,0,0,.24);
-
-    animation:
-        panelIn .36s ease;
+        rgba(0,0,0,.22);
 }
 
+
+.content-animate{
+    animation:
+        panelIn
+        .38s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
 .section-kicker{
-    color:var(--green);
+    margin-bottom:8px;
+
+    color:
+        var(--pvep-green);
 
     font-size:17px;
+
     font-weight:800;
 
     letter-spacing:1px;
-
-    margin-bottom:8px;
 }
+
 
 .content-panel h1{
+    margin-bottom:19px;
+
     color:#075e49;
 
-    font-size:40px;
-
-    margin-bottom:20px;
+    font-size:
+        clamp(
+            31px,
+            3vw,
+            42px
+        );
 }
 
-.lead{
-    max-width:900px;
 
-    color:#4d625b;
+.lead{
+    max-width:930px;
+
+    margin-bottom:31px;
+
+    color:#4f625c;
 
     font-size:18px;
 
     line-height:1.8;
-
-    margin-bottom:30px;
 }
 
 
 /* =========================================================
-   12. GIỚI THIỆU
+   13. GIỚI THIỆU
 ========================================================= */
 
 .intro-grid{
-    margin-top:30px;
+    margin-top:29px;
 
     display:grid;
+
     grid-template-columns:
         repeat(3,1fr);
 
     gap:18px;
 }
 
-.info-card{
-    padding:25px;
 
-    border-radius:16px;
+.info-card{
+    position:relative;
+
+    padding:27px;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        #edf3ef;
+
+    border-radius:17px;
 
     background:white;
 
     box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.07);
+        0 9px 27px
+        rgba(0,0,0,.065);
+
+    transition:
+        transform .28s ease,
+        box-shadow .28s ease;
 }
 
-.info-card .num{
-    color:var(--green);
 
-    font-size:29px;
+.info-card:hover{
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 16px 36px
+        rgba(0,0,0,.10);
+}
+
+
+.info-card::after{
+    content:"";
+
+    position:absolute;
+
+    top:-35px;
+    right:-35px;
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    background:
+        rgba(98,201,71,.10);
+}
+
+
+.info-num{
+    margin-bottom:12px;
+
+    color:
+        var(--pvep-green);
+
+    font-size:30px;
+
     font-weight:800;
-
-    margin-bottom:10px;
 }
+
 
 .info-card h3{
+    margin-bottom:9px;
+
     color:#075e49;
 
     font-size:18px;
-
-    margin-bottom:9px;
 }
 
+
 .info-card p{
-    color:#65766f;
-    line-height:1.6;
+    color:
+        var(--muted);
+
+    line-height:1.65;
 }
 
 
 /* =========================================================
-   13. HÀNH TRÌNH
+   14. HÀNH TRÌNH
 ========================================================= */
 
 .timeline{
@@ -717,18 +1063,20 @@ a{
     margin-top:45px;
 
     display:grid;
+
     grid-template-columns:
         repeat(5,1fr);
 
     gap:12px;
 }
 
+
 .timeline::before{
     content:"";
 
     position:absolute;
 
-    top:29px;
+    top:30px;
     left:7%;
     right:7%;
 
@@ -738,18 +1086,29 @@ a{
         rgba(7,94,73,.17);
 }
 
+
 .milestone{
     position:relative;
+
     z-index:2;
 
     text-align:center;
 }
 
+
 .dot{
-    width:58px;
-    height:58px;
+    width:60px;
+    height:60px;
 
     margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:
+        4px solid
+        #eff7f2;
 
     border-radius:50%;
 
@@ -757,31 +1116,29 @@ a{
 
     color:white;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
     font-weight:800;
 
-    border:
-        4px solid #eef6f1;
+    box-shadow:
+        0 7px 20px
+        rgba(7,94,73,.13);
 }
 
-.milestone h3{
-    color:#075e49;
 
+.milestone h3{
     margin-top:15px;
+
+    color:#075e49;
 
     font-size:16px;
 }
 
 
 /* =========================================================
-   14. BUỔI HỌC
+   15. BUỔI HỌC
 ========================================================= */
 
 .lesson-grid{
-    margin-top:32px;
+    margin-top:30px;
 
     display:grid;
 
@@ -791,81 +1148,94 @@ a{
     gap:16px;
 }
 
+
 .lesson-card{
     position:relative;
 
-    min-height:185px;
+    min-height:190px;
 
-    padding:24px;
+    padding:25px;
 
-    border:0;
-    border-radius:16px;
+    overflow:hidden;
+
+    border:
+        1px solid
+        #edf3ef;
+
+    border-radius:17px;
 
     background:
         linear-gradient(
             160deg,
             #ffffff,
-            #eef6f1
+            #eef7f2
         );
 
     box-shadow:
-        0 8px 28px
-        rgba(0,0,0,.08);
+        0 9px 28px
+        rgba(0,0,0,.075);
 
-    cursor:pointer;
     text-align:left;
 
-    overflow:hidden;
+    cursor:pointer;
 
     transition:
         transform .28s ease,
         box-shadow .28s ease;
 }
 
+
 .lesson-card::after{
     content:"";
 
     position:absolute;
 
-    width:90px;
-    height:90px;
+    top:-30px;
+    right:-30px;
 
-    right:-25px;
-    top:-25px;
+    width:100px;
+    height:100px;
 
     border-radius:50%;
 
     background:
-        rgba(102,201,76,.12);
+        rgba(98,201,71,.12);
 }
+
 
 .lesson-card:hover{
-    transform:translateY(-7px);
+    transform:
+        translateY(-7px);
 
     box-shadow:
-        0 15px 35px
-        rgba(0,0,0,.14);
+        0 17px 38px
+        rgba(0,0,0,.12);
 }
+
 
 .lesson-no{
-    color:var(--green);
+    margin-bottom:29px;
 
-    font-size:30px;
+    color:
+        var(--pvep-green);
+
+    font-size:31px;
+
     font-weight:800;
-
-    margin-bottom:30px;
 }
 
+
 .lesson-card h3{
+    margin-bottom:8px;
+
     color:#075e49;
 
     font-size:19px;
-
-    margin-bottom:8px;
 }
 
+
 .lesson-card p{
-    color:#687873;
+    color:#697a74;
 
     font-size:14px;
 
@@ -874,166 +1244,239 @@ a{
 
 
 /* =========================================================
-   15. THƯ VIỆN
+   16. THƯ VIỆN
 ========================================================= */
 
 .library-grid{
-    margin-top:32px;
+    margin-top:31px;
 
     display:grid;
+
     grid-template-columns:
         repeat(3,1fr);
 
     gap:20px;
 }
 
+
 .library-card{
-    padding:30px;
+    min-height:210px;
+
+    padding:31px;
+
+    border:
+        1px solid
+        #edf3ef;
 
     border-radius:18px;
 
     background:white;
 
     box-shadow:
-        0 8px 28px
-        rgba(0,0,0,.07);
+        0 9px 28px
+        rgba(0,0,0,.065);
 
     cursor:pointer;
 
-    transition:.25s;
+    transition:
+        transform .28s ease,
+        box-shadow .28s ease;
 }
+
 
 .library-card:hover{
-    transform:translateY(-5px);
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 16px 36px
+        rgba(0,0,0,.10);
 }
+
 
 .library-icon{
-    font-size:31px;
-
     margin-bottom:16px;
+
+    font-size:34px;
 }
+
 
 .library-card h3{
-    color:#075e49;
-
     margin-bottom:9px;
+
+    color:#075e49;
 }
 
+
 .library-card p{
-    color:#6a7974;
+    color:#6b7a75;
 
     line-height:1.6;
 }
 
 
 /* =========================================================
-   16. ĐIỀU ĐỌNG LẠI
+   17. ĐIỀU ĐỌNG LẠI
 ========================================================= */
 
 .memory-grid{
-    margin-top:32px;
+    margin-top:31px;
 
     display:grid;
+
     grid-template-columns:
         repeat(2,1fr);
 
     gap:20px;
 }
 
+
 .memory-card{
-    min-height:205px;
+    position:relative;
 
-    padding:32px;
+    min-height:220px;
 
-    border-radius:18px;
+    padding:33px;
 
-    border:0;
+    overflow:hidden;
 
-    cursor:pointer;
-
-    color:white;
-
-    text-align:left;
+    border-radius:19px;
 
     background:
         linear-gradient(
             145deg,
             #075e49,
-            #0c8060
+            #0d8262
         );
 
+    color:white;
+
+    text-align:left;
+
+    cursor:pointer;
+
     transition:
-        transform .28s ease;
+        transform .28s ease,
+        box-shadow .28s ease;
 }
+
+
+.memory-card::after{
+    content:"";
+
+    position:absolute;
+
+    right:-60px;
+    bottom:-70px;
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.055);
+}
+
 
 .memory-card:hover{
-    transform:translateY(-6px);
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 16px 36px
+        rgba(0,0,0,.16);
 }
+
 
 .memory-card h3{
-    font-size:23px;
+    margin-bottom:13px;
 
-    margin-bottom:12px;
+    font-size:23px;
 }
 
+
 .memory-card p{
+    max-width:430px;
+
     color:
-        rgba(255,255,255,.82);
+        rgba(255,255,255,.84);
 
     line-height:1.7;
 }
 
 
 /* =========================================================
-   17. ANIMATION
+   18. ANIMATION
 ========================================================= */
 
 @keyframes fadeDown{
+
     to{
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
+
 
 @keyframes fadeLeft{
+
     to{
         opacity:1;
-        transform:translateX(0);
+
+        transform:
+            translateX(0);
     }
 }
+
 
 @keyframes fadeIn{
+
     to{
         opacity:1;
     }
 }
 
+
 @keyframes lineGrow{
+
     to{
-        transform:scaleX(1);
+        transform:
+            scaleX(1);
     }
 }
 
+
 @keyframes arrowFloat{
-    0%,100%{
-        transform:translateY(0);
+
+    0%,
+    100%{
+        transform:
+            translateY(0);
     }
 
     50%{
-        transform:translateY(7px);
+        transform:
+            translateY(7px);
     }
 }
 
+
 @keyframes panelIn{
+
     from{
         opacity:0;
+
         transform:
-            translateY(14px)
-            scale(.99);
+            translateY(15px)
+            scale(.992);
     }
 
     to{
         opacity:1;
+
         transform:
             translateY(0)
             scale(1);
@@ -1041,14 +1484,42 @@ a{
 }
 
 
+/* Tôn trọng người dùng tắt chuyển động */
+
+@media(
+    prefers-reduced-motion:
+    reduce
+){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+}
+
+
 /* =========================================================
-   18. RESPONSIVE
+   19. RESPONSIVE TABLET
 ========================================================= */
 
-@media(max-width:1100px){
+@media(
+    max-width:1100px
+){
 
     .hero{
         width:52vw;
+    }
+
+    .main-nav{
+        gap:10px;
     }
 
     .nav-label{
@@ -1061,113 +1532,174 @@ a{
     }
 
     .intro-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:
+            1fr;
     }
 
 }
 
-@media(max-width:800px){
+
+/* =========================================================
+   20. RESPONSIVE MOBILE
+========================================================= */
+
+@media(
+    max-width:800px
+){
 
     body{
         overflow:auto;
     }
 
+
     .app{
-        min-height:100svh;
+        min-height:
+            100svh;
     }
+
 
     .background{
         background-position:
-            62% center;
+            68% center;
     }
+
 
     .header{
-        height:105px;
+        height:104px;
 
-        padding:18px 5%;
+        padding:
+            17px
+            5%;
     }
+
 
     .logo{
-        width:62px;
+        width:61px;
     }
 
+
     .brand-divider{
-        height:55px;
-        margin:0 13px;
+        height:54px;
+
+        margin:
+            0
+            13px;
     }
+
 
     .brand-name{
         font-size:20px;
     }
 
+
     .brand-company{
         font-size:10px;
+
+        letter-spacing:.3px;
     }
+
 
     .hero{
         left:5%;
-        top:46%;
+        top:45%;
 
         width:90%;
     }
 
+
     .program{
+        margin-bottom:16px;
+
         font-size:20px;
     }
 
-    .title{
-        font-size:50px;
+
+    .hero-title{
+        font-size:49px;
     }
+
+
+    .green-line{
+        margin:
+            18px
+            0
+            15px;
+    }
+
 
     .values{
         white-space:normal;
+
         font-size:17px;
     }
 
+
     .mentor{
-        font-size:16px;
+        font-size:15px;
     }
+
 
     .main-nav{
         display:none;
     }
 
+
     .explore{
-        bottom:28px;
+        bottom:27px;
     }
+
 
     .dashboard{
         padding:
-            118px 18px
+            116px
+            18px
             20px;
     }
+
 
     .dashboard-shell{
         display:block;
     }
 
+
     .sidebar{
         display:none;
     }
 
+
     .content-panel{
-        padding:30px 22px;
+        padding:
+            29px
+            22px
+            35px;
     }
+
 
     .content-panel h1{
         font-size:31px;
     }
 
+
+    .lead{
+        font-size:16px;
+    }
+
+
     .lesson-grid,
     .library-grid,
     .memory-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:
+            1fr;
     }
 
+
     .timeline{
-        grid-template-columns:1fr;
+        grid-template-columns:
+            1fr;
+
         gap:18px;
     }
+
 
     .timeline::before{
         display:none;
@@ -1238,7 +1770,7 @@ a{
                 CHƯƠNG TRÌNH
             </div>
 
-            <div class="title">
+            <div class="hero-title">
                 NHÂN VIÊN<br>
                 TÀI NĂNG
             </div>
@@ -1246,8 +1778,10 @@ a{
             <div class="green-line"></div>
 
             <div class="values">
-                HỌC HỎI &nbsp;•&nbsp;
-                KẾT NỐI &nbsp;•&nbsp;
+                HỌC HỎI
+                &nbsp;•&nbsp;
+                KẾT NỐI
+                &nbsp;•&nbsp;
                 PHÁT TRIỂN
             </div>
 
@@ -1267,6 +1801,7 @@ a{
 
         <button
             class="explore"
+            type="button"
             onclick="navigate('journey')"
         >
 
@@ -1281,14 +1816,21 @@ a{
         </button>
 
 
-        <!-- MENU HTML THẬT -->
+        <!-- =================================================
+             5 MENU HTML THẬT
+        ================================================== -->
 
-        <nav class="main-nav">
+        <nav
+            class="main-nav"
+            aria-label="Menu chính"
+        >
 
             <button
                 class="nav-btn"
+                type="button"
                 onclick="navigate('intro')"
             >
+
                 <span class="nav-number">
                     01
                 </span>
@@ -1296,13 +1838,16 @@ a{
                 <span class="nav-label">
                     GIỚI THIỆU
                 </span>
+
             </button>
 
 
             <button
                 class="nav-btn"
+                type="button"
                 onclick="navigate('journey')"
             >
+
                 <span class="nav-number">
                     02
                 </span>
@@ -1310,13 +1855,16 @@ a{
                 <span class="nav-label">
                     HÀNH TRÌNH
                 </span>
+
             </button>
 
 
             <button
                 class="nav-btn"
+                type="button"
                 onclick="navigate('lessons')"
             >
+
                 <span class="nav-number">
                     03
                 </span>
@@ -1324,13 +1872,16 @@ a{
                 <span class="nav-label">
                     BUỔI HỌC
                 </span>
+
             </button>
 
 
             <button
                 class="nav-btn"
+                type="button"
                 onclick="navigate('library')"
             >
+
                 <span class="nav-number">
                     04
                 </span>
@@ -1338,13 +1889,16 @@ a{
                 <span class="nav-label">
                     THƯ VIỆN
                 </span>
+
             </button>
 
 
             <button
                 class="nav-btn"
+                type="button"
                 onclick="navigate('memories')"
             >
+
                 <span class="nav-number">
                     05
                 </span>
@@ -1352,6 +1906,7 @@ a{
                 <span class="nav-label">
                     ĐIỀU ĐỌNG LẠI
                 </span>
+
             </button>
 
         </nav>
@@ -1360,7 +1915,7 @@ a{
 
 
     <!-- =====================================================
-         DASHBOARD VIEW
+         DASHBOARD
     ====================================================== -->
 
     <section
@@ -1370,12 +1925,16 @@ a{
 
         <div class="dashboard-shell">
 
-            <!-- SIDEBAR -->
+
+            <!-- =============================================
+                 SIDEBAR
+            ============================================== -->
 
             <aside class="sidebar">
 
                 <button
                     class="home-btn"
+                    type="button"
                     onclick="navigate('home')"
                 >
                     ← TRANG CHỦ
@@ -1387,38 +1946,47 @@ a{
                     <button
                         class="side-btn"
                         data-route="intro"
+                        type="button"
                         onclick="navigate('intro')"
                     >
                         01 &nbsp; GIỚI THIỆU
                     </button>
 
+
                     <button
                         class="side-btn"
                         data-route="journey"
+                        type="button"
                         onclick="navigate('journey')"
                     >
                         02 &nbsp; HÀNH TRÌNH
                     </button>
 
+
                     <button
                         class="side-btn"
                         data-route="lessons"
+                        type="button"
                         onclick="navigate('lessons')"
                     >
                         03 &nbsp; BUỔI HỌC
                     </button>
 
+
                     <button
                         class="side-btn"
                         data-route="library"
+                        type="button"
                         onclick="navigate('library')"
                     >
                         04 &nbsp; THƯ VIỆN
                     </button>
 
+
                     <button
                         class="side-btn"
                         data-route="memories"
+                        type="button"
                         onclick="navigate('memories')"
                     >
                         05 &nbsp; ĐIỀU ĐỌNG LẠI
@@ -1429,7 +1997,9 @@ a{
             </aside>
 
 
-            <!-- NỘI DUNG -->
+            <!-- =============================================
+                 NỘI DUNG
+            ============================================== -->
 
             <main
                 class="content-panel"
@@ -1444,15 +2014,26 @@ a{
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT SPA
-===================================================== -->
+========================================================= -->
 
 <script>
 
+
+/* =========================================================
+   NỘI DUNG 5 MENU
+========================================================= */
+
 const pages = {
 
+
+    /* -----------------------------------------------------
+       01 GIỚI THIỆU
+    ----------------------------------------------------- */
+
     intro: `
+
         <div class="section-kicker">
             01
         </div>
@@ -1469,10 +2050,12 @@ const pages = {
             Phó Tổng giám đốc Ngô Khánh Xạ.
         </p>
 
+
         <div class="intro-grid">
 
             <div class="info-card">
-                <div class="num">
+
+                <div class="info-num">
                     01
                 </div>
 
@@ -1485,11 +2068,13 @@ const pages = {
                     góc nhìn và tư duy
                     trong công việc.
                 </p>
+
             </div>
 
 
             <div class="info-card">
-                <div class="num">
+
+                <div class="info-num">
                     02
                 </div>
 
@@ -1500,13 +2085,15 @@ const pages = {
                 <p>
                     Tăng cường chia sẻ,
                     kết nối giữa các lĩnh vực
-                    và đơn vị.
+                    và các đơn vị.
                 </p>
+
             </div>
 
 
             <div class="info-card">
-                <div class="num">
+
+                <div class="info-num">
                     03
                 </div>
 
@@ -1516,15 +2103,23 @@ const pages = {
 
                 <p>
                     Từng bước phát triển năng lực
-                    và khả năng đóng góp cho PVEP.
+                    và khả năng đóng góp
+                    cho PVEP.
                 </p>
+
             </div>
 
         </div>
+
     `,
 
 
+    /* -----------------------------------------------------
+       02 HÀNH TRÌNH
+    ----------------------------------------------------- */
+
     journey: `
+
         <div class="section-kicker">
             02
         </div>
@@ -1534,15 +2129,18 @@ const pages = {
         </h1>
 
         <p class="lead">
-            Hành trình 2025 — 2026 không chỉ là các buổi học,
+            Hành trình 2025 — 2026
+            không chỉ là những buổi học,
             mà còn là quá trình chia sẻ,
             trải nghiệm, kết nối
             và cùng nhau trưởng thành.
         </p>
 
+
         <div class="timeline">
 
             <div class="milestone">
+
                 <div class="dot">
                     01
                 </div>
@@ -1550,9 +2148,12 @@ const pages = {
                 <h3>
                     KHỞI ĐẦU
                 </h3>
+
             </div>
 
+
             <div class="milestone">
+
                 <div class="dot">
                     02
                 </div>
@@ -1560,9 +2161,12 @@ const pages = {
                 <h3>
                     KẾT NỐI
                 </h3>
+
             </div>
 
+
             <div class="milestone">
+
                 <div class="dot">
                     03
                 </div>
@@ -1570,9 +2174,12 @@ const pages = {
                 <h3>
                     HỌC HỎI
                 </h3>
+
             </div>
 
+
             <div class="milestone">
+
                 <div class="dot">
                     04
                 </div>
@@ -1580,9 +2187,12 @@ const pages = {
                 <h3>
                     TRẢI NGHIỆM
                 </h3>
+
             </div>
 
+
             <div class="milestone">
+
                 <div class="dot">
                     05
                 </div>
@@ -1590,13 +2200,20 @@ const pages = {
                 <h3>
                     PHÁT TRIỂN
                 </h3>
+
             </div>
 
         </div>
+
     `,
 
 
+    /* -----------------------------------------------------
+       03 BUỔI HỌC
+    ----------------------------------------------------- */
+
     lessons: `
+
         <div class="section-kicker">
             03
         </div>
@@ -1608,12 +2225,18 @@ const pages = {
         <p class="lead">
             Chọn từng buổi để xem nội dung,
             tài liệu, hình ảnh, bài viết
-            và những dấu ấn đáng nhớ.
+            và những dấu ấn đáng nhớ
+            trong hành trình học tập.
         </p>
+
 
         <div class="lesson-grid">
 
-            <button class="lesson-card">
+            <button
+                class="lesson-card"
+                type="button"
+            >
+
                 <div class="lesson-no">
                     01
                 </div>
@@ -1623,13 +2246,19 @@ const pages = {
                 </h3>
 
                 <p>
-                    Nội dung và tư liệu
+                    Nội dung, tài liệu
+                    và hình ảnh
                     của buổi học thứ nhất.
                 </p>
+
             </button>
 
 
-            <button class="lesson-card">
+            <button
+                class="lesson-card"
+                type="button"
+            >
+
                 <div class="lesson-no">
                     02
                 </div>
@@ -1639,13 +2268,19 @@ const pages = {
                 </h3>
 
                 <p>
-                    Nội dung và tư liệu
+                    Nội dung, tài liệu
+                    và hình ảnh
                     của buổi học thứ hai.
                 </p>
+
             </button>
 
 
-            <button class="lesson-card">
+            <button
+                class="lesson-card"
+                type="button"
+            >
+
                 <div class="lesson-no">
                     03
                 </div>
@@ -1655,13 +2290,19 @@ const pages = {
                 </h3>
 
                 <p>
-                    Nội dung và tư liệu
+                    Nội dung, tài liệu
+                    và hình ảnh
                     của buổi học thứ ba.
                 </p>
+
             </button>
 
 
-            <button class="lesson-card">
+            <button
+                class="lesson-card"
+                type="button"
+            >
+
                 <div class="lesson-no">
                     04
                 </div>
@@ -1671,13 +2312,19 @@ const pages = {
                 </h3>
 
                 <p>
-                    Nội dung và tư liệu
+                    Nội dung, tài liệu
+                    và hình ảnh
                     của buổi học thứ tư.
                 </p>
+
             </button>
 
 
-            <button class="lesson-card">
+            <button
+                class="lesson-card"
+                type="button"
+            >
+
                 <div class="lesson-no">
                     05
                 </div>
@@ -1687,16 +2334,24 @@ const pages = {
                 </h3>
 
                 <p>
-                    Nội dung và tư liệu
+                    Nội dung, tài liệu
+                    và hình ảnh
                     của buổi học thứ năm.
                 </p>
+
             </button>
 
         </div>
+
     `,
 
 
+    /* -----------------------------------------------------
+       04 THƯ VIỆN
+    ----------------------------------------------------- */
+
     library: `
+
         <div class="section-kicker">
             04
         </div>
@@ -1706,13 +2361,16 @@ const pages = {
         </h1>
 
         <p class="lead">
-            Không gian lưu giữ các tư liệu
+            Không gian lưu giữ các tư liệu,
+            hình ảnh và bài viết
             của Chương trình Nhân viên Tài năng PVEP.
         </p>
+
 
         <div class="library-grid">
 
             <div class="library-card">
+
                 <div class="library-icon">
                     📚
                 </div>
@@ -1722,13 +2380,17 @@ const pages = {
                 </h3>
 
                 <p>
-                    Slide, tài liệu học tập
-                    và tài liệu tham khảo.
+                    Slide,
+                    tài liệu học tập,
+                    tài liệu tham khảo
+                    và các sản phẩm học tập.
                 </p>
+
             </div>
 
 
             <div class="library-card">
+
                 <div class="library-icon">
                     📷
                 </div>
@@ -1738,13 +2400,17 @@ const pages = {
                 </h3>
 
                 <p>
-                    Những khoảnh khắc đáng nhớ
-                    trong hành trình.
+                    Những khoảnh khắc
+                    đáng nhớ
+                    trong từng buổi học
+                    và hoạt động.
                 </p>
+
             </div>
 
 
             <div class="library-card">
+
                 <div class="library-icon">
                     📰
                 </div>
@@ -1754,16 +2420,25 @@ const pages = {
                 </h3>
 
                 <p>
-                    Tin bài và các nội dung
+                    Tin bài,
+                    bài viết
+                    và những nội dung
                     liên quan đến chương trình.
                 </p>
+
             </div>
 
         </div>
+
     `,
 
 
+    /* -----------------------------------------------------
+       05 ĐIỀU ĐỌNG LẠI
+    ----------------------------------------------------- */
+
     memories: `
+
         <div class="section-kicker">
             05
         </div>
@@ -1773,48 +2448,64 @@ const pages = {
         </h1>
 
         <p class="lead">
-            Những lời nhắn, cảm xúc,
-            kỷ niệm và món quà tinh thần
-            được lưu giữ sau hành trình.
+            Những lời nhắn,
+            cảm xúc,
+            kỷ niệm
+            và món quà tinh thần
+            được lưu giữ
+            sau hành trình.
         </p>
+
 
         <div class="memory-grid">
 
             <button
                 class="memory-card"
+                type="button"
             >
+
                 <h3>
                     LƯU BÚT
                 </h3>
 
                 <p>
                     Những chia sẻ,
-                    lời nhắn và cảm nhận
-                    của các thành viên.
+                    lời nhắn
+                    và cảm nhận
+                    của các thành viên
+                    Nhóm Nhân viên Tài năng.
                 </p>
+
             </button>
 
 
             <button
                 class="memory-card"
+                type="button"
                 onclick="
                     window.location.href =
                     'Qua%20tang%20thay/';
                 "
             >
+
                 <h3>
                     MÓN QUÀ TẶNG THẦY
                 </h3>
 
                 <p>
                     Những tình cảm
-                    và món quà dành tặng
-                    người thầy đã hướng dẫn
-                    và đồng hành.
+                    và món quà
+                    dành tặng
+                    người thầy
+                    đã hướng dẫn
+                    và đồng hành
+                    cùng chương trình.
                 </p>
+
             </button>
 
         </div>
+
     `
 
 };
@@ -1838,7 +2529,9 @@ function navigate(route){
 
 
     if(!pages[route]){
-        route = "home";
+
+        route =
+            "home";
     }
 
 
@@ -1850,33 +2543,51 @@ function navigate(route){
 }
 
 
+/* =========================================================
+   HOME
+========================================================= */
+
 function showHome(){
 
-    document
-        .getElementById("homeView")
+    const home =
+        document.getElementById(
+            "homeView"
+        );
+
+
+    const dashboard =
+        document.getElementById(
+            "dashboardView"
+        );
+
+
+    home
         .classList
         .add("active");
 
 
-    document
-        .getElementById("dashboardView")
+    dashboard
         .classList
         .remove("active");
 }
 
 
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
 function showDashboard(route){
 
-    document
-        .getElementById("homeView")
-        .classList
-        .remove("active");
+    const home =
+        document.getElementById(
+            "homeView"
+        );
 
 
-    document
-        .getElementById("dashboardView")
-        .classList
-        .add("active");
+    const dashboard =
+        document.getElementById(
+            "dashboardView"
+        );
 
 
     const panel =
@@ -1885,34 +2596,81 @@ function showDashboard(route){
         );
 
 
+    home
+        .classList
+        .remove("active");
+
+
+    dashboard
+        .classList
+        .add("active");
+
+
+    /*
+       Render nội dung
+    */
+
     panel.innerHTML =
         pages[route];
 
+
+    /*
+       Animation lại mỗi lần chuyển trang
+    */
+
+    panel.classList.remove(
+        "content-animate"
+    );
+
+
+    void panel.offsetWidth;
+
+
+    panel.classList.add(
+        "content-animate"
+    );
+
+
+    /*
+       Cuộn nội dung về đầu
+    */
+
+    panel.scrollTop = 0;
+
+
+    /*
+       Active menu bên trái
+    */
 
     document
         .querySelectorAll(
             ".side-btn"
         )
-        .forEach(function(btn){
+        .forEach(
+            function(btn){
 
-            btn.classList.toggle(
-                "active",
-                btn.dataset.route === route
-            );
+                btn.classList.toggle(
+                    "active",
+                    btn.dataset.route === route
+                );
 
-        });
+            }
+        );
 }
 
 
 /* =========================================================
-   LOAD ROUTE
+   ĐỌC HASH KHI MỞ TRANG
 ========================================================= */
 
 function loadRoute(){
 
     let route =
         window.location.hash
-        .replace("#/","");
+        .replace(
+            "#/",
+            ""
+        );
 
 
     if(
@@ -1922,18 +2680,29 @@ function loadRoute(){
 
         showHome();
 
-    }else if(
+        return;
+    }
+
+
+    if(
         pages[route]
     ){
 
-        showDashboard(route);
+        showDashboard(
+            route
+        );
 
-    }else{
-
-        showHome();
+        return;
     }
+
+
+    showHome();
 }
 
+
+/* =========================================================
+   EVENTS
+========================================================= */
 
 window.addEventListener(
     "hashchange",
