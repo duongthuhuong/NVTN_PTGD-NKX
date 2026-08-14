@@ -52,10 +52,13 @@ body{
     overflow:hidden;
 
     font-family:
+        "Segoe UI",
+        Tahoma,
         Arial,
-        "Helvetica Neue",
-        Helvetica,
         sans-serif;
+
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 
     background:var(--navy-deep);
 
@@ -284,10 +287,20 @@ button{
 }
 
 
+/* CHƯƠNG TRÌNH - KHÓA FONT TIẾNG VIỆT */
+
 .program{
     margin-bottom:22px;
 
     color:var(--pvep-green);
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-style:normal;
 
     font-size:
         clamp(
@@ -296,9 +309,14 @@ button{
             28px
         );
 
+    line-height:1.2;
+
     font-weight:800;
 
     letter-spacing:.5px;
+
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 
     opacity:0;
 
@@ -313,8 +331,18 @@ button{
 }
 
 
+/* NHÂN VIÊN TÀI NĂNG */
+
 .hero-title{
     color:white;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-style:normal;
 
     font-size:
         clamp(
@@ -330,6 +358,9 @@ button{
     letter-spacing:1.2px;
 
     text-transform:uppercase;
+
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 
     text-shadow:
         0 3px 16px
@@ -1210,6 +1241,8 @@ button{
         margin-bottom:14px;
 
         font-size:19px;
+
+        letter-spacing:.35px;
     }
 
 
@@ -1250,9 +1283,7 @@ button{
     }
 
 
-    /* ---------------------------------------------
-       GIỮ 5 NÚT TRÊN MOBILE
-    ---------------------------------------------- */
+    /* GIỮ 5 NÚT TRÊN MOBILE */
 
     .main-nav{
         left:4%;
@@ -1320,9 +1351,7 @@ button{
     }
 
 
-    /* ---------------------------------------------
-       POPUP MOBILE
-    ---------------------------------------------- */
+    /* POPUP MOBILE */
 
     .dashboard{
         padding:
@@ -1375,9 +1404,6 @@ button{
         grid-template-columns:1fr;
     }
 
-
-    /* HÀNH TRÌNH:
-       giữ 5 nút nằm ngang trên mobile */
 
     .timeline{
         margin-top:35px;
@@ -1493,16 +1519,8 @@ button{
 <div class="app">
 
 
-<!-- =========================================================
-     BACKGROUND
-========================================================= -->
-
 <div class="background"></div>
 
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
 
 <header class="header">
 
@@ -1533,9 +1551,6 @@ button{
 </header>
 
 
-<!-- =========================================================
-     HOME
-========================================================= -->
 
 <section
     class="view active"
@@ -1582,17 +1597,11 @@ button{
 
 
 
-    <!-- =====================================================
-         5 MENU
-    ====================================================== -->
-
     <nav
         class="main-nav"
         aria-label="Menu chính"
     >
 
-
-        <!-- 01 -->
 
         <button
             class="nav-btn"
@@ -1600,9 +1609,7 @@ button{
             onclick="openIntro()"
         >
 
-            <span class="nav-number">
-                01
-            </span>
+            <span class="nav-number">01</span>
 
             <span class="nav-label">
                 GIỚI THIỆU
@@ -1611,18 +1618,13 @@ button{
         </button>
 
 
-
-        <!-- 02 -->
-
         <button
             class="nav-btn"
             type="button"
             onclick="navigate('journey')"
         >
 
-            <span class="nav-number">
-                02
-            </span>
+            <span class="nav-number">02</span>
 
             <span class="nav-label">
                 HÀNH TRÌNH
@@ -1631,18 +1633,13 @@ button{
         </button>
 
 
-
-        <!-- 03 -->
-
         <button
             class="nav-btn"
             type="button"
             onclick="navigate('lessons')"
         >
 
-            <span class="nav-number">
-                03
-            </span>
+            <span class="nav-number">03</span>
 
             <span class="nav-label">
                 BUỔI HỌC
@@ -1651,18 +1648,13 @@ button{
         </button>
 
 
-
-        <!-- 04 -->
-
         <button
             class="nav-btn"
             type="button"
             onclick="navigate('library')"
         >
 
-            <span class="nav-number">
-                04
-            </span>
+            <span class="nav-number">04</span>
 
             <span class="nav-label">
                 THƯ VIỆN
@@ -1671,18 +1663,13 @@ button{
         </button>
 
 
-
-        <!-- 05 -->
-
         <button
             class="nav-btn"
             type="button"
             onclick="navigate('memories')"
         >
 
-            <span class="nav-number">
-                05
-            </span>
+            <span class="nav-number">05</span>
 
             <span class="nav-label">
                 ĐIỀU ĐỌNG LẠI
@@ -1697,9 +1684,6 @@ button{
 </section>
 
 
-<!-- =========================================================
-     DASHBOARD
-========================================================= -->
 
 <section
     class="view dashboard"
@@ -1709,8 +1693,6 @@ button{
 
     <div class="dashboard-shell">
 
-
-        <!-- SIDEBAR -->
 
         <aside class="sidebar">
 
@@ -1782,8 +1764,6 @@ button{
 
 
 
-        <!-- CONTENT -->
-
         <main
             class="content-panel"
             id="contentPanel"
@@ -1799,11 +1779,9 @@ button{
 </div>
 
 
+
 <script>
 
-/* =========================================================
-   TRANG GIỚI THIỆU MỚI
-========================================================= */
 
 function openIntro(){
 
@@ -1812,10 +1790,6 @@ function openIntro(){
 
 }
 
-
-/* =========================================================
-   NỘI DUNG CÁC PHẦN CÒN LẠI
-========================================================= */
 
 const pages = {
 
@@ -1844,65 +1818,45 @@ journey: `
 
         <div class="milestone">
 
-            <div class="dot">
-                01
-            </div>
+            <div class="dot">01</div>
 
-            <h3>
-                KHỞI ĐẦU
-            </h3>
+            <h3>KHỞI ĐẦU</h3>
 
         </div>
 
 
         <div class="milestone">
 
-            <div class="dot">
-                02
-            </div>
+            <div class="dot">02</div>
 
-            <h3>
-                LÀM QUEN
-            </h3>
+            <h3>LÀM QUEN</h3>
 
         </div>
 
 
         <div class="milestone">
 
-            <div class="dot">
-                03
-            </div>
+            <div class="dot">03</div>
 
-            <h3>
-                HỌC HỎI
-            </h3>
+            <h3>HỌC HỎI</h3>
 
         </div>
 
 
         <div class="milestone">
 
-            <div class="dot">
-                04
-            </div>
+            <div class="dot">04</div>
 
-            <h3>
-                TRẢI NGHIỆM
-            </h3>
+            <h3>TRẢI NGHIỆM</h3>
 
         </div>
 
 
         <div class="milestone">
 
-            <div class="dot">
-                05
-            </div>
+            <div class="dot">05</div>
 
-            <h3>
-                TRƯỞNG THÀNH
-            </h3>
+            <h3>TRƯỞNG THÀNH</h3>
 
         </div>
 
@@ -1936,13 +1890,9 @@ lessons: `
 
         <div class="lesson-card">
 
-            <div class="lesson-no">
-                01
-            </div>
+            <div class="lesson-no">01</div>
 
-            <h3>
-                BUỔI 1
-            </h3>
+            <h3>BUỔI 1</h3>
 
             <p>
                 Nội dung, tài liệu,
@@ -1955,13 +1905,9 @@ lessons: `
 
         <div class="lesson-card">
 
-            <div class="lesson-no">
-                02
-            </div>
+            <div class="lesson-no">02</div>
 
-            <h3>
-                BUỔI 2
-            </h3>
+            <h3>BUỔI 2</h3>
 
             <p>
                 Nội dung, tài liệu,
@@ -1974,13 +1920,9 @@ lessons: `
 
         <div class="lesson-card">
 
-            <div class="lesson-no">
-                03
-            </div>
+            <div class="lesson-no">03</div>
 
-            <h3>
-                BUỔI 3
-            </h3>
+            <h3>BUỔI 3</h3>
 
             <p>
                 Nội dung, tài liệu,
@@ -1993,13 +1935,9 @@ lessons: `
 
         <div class="lesson-card">
 
-            <div class="lesson-no">
-                04
-            </div>
+            <div class="lesson-no">04</div>
 
-            <h3>
-                BUỔI 4
-            </h3>
+            <h3>BUỔI 4</h3>
 
             <p>
                 Nội dung, tài liệu,
@@ -2012,13 +1950,9 @@ lessons: `
 
         <div class="lesson-card">
 
-            <div class="lesson-no">
-                05
-            </div>
+            <div class="lesson-no">05</div>
 
-            <h3>
-                BUỔI 5
-            </h3>
+            <h3>BUỔI 5</h3>
 
             <p>
                 Nội dung, tài liệu,
@@ -2061,9 +1995,7 @@ library: `
                 📚
             </div>
 
-            <h3>
-                TÀI LIỆU
-            </h3>
+            <h3>TÀI LIỆU</h3>
 
             <p>
                 Slide, tài liệu học tập,
@@ -2080,9 +2012,7 @@ library: `
                 📷
             </div>
 
-            <h3>
-                HÌNH ẢNH
-            </h3>
+            <h3>HÌNH ẢNH</h3>
 
             <p>
                 Những khoảnh khắc
@@ -2099,9 +2029,7 @@ library: `
                 📰
             </div>
 
-            <h3>
-                BÀI VIẾT
-            </h3>
+            <h3>BÀI VIẾT</h3>
 
             <p>
                 Tin bài và những nội dung
@@ -2187,9 +2115,6 @@ memories: `
 };
 
 
-/* =========================================================
-   ROUTER
-========================================================= */
 
 function navigate(route){
 
@@ -2224,9 +2149,6 @@ function navigate(route){
 }
 
 
-/* =========================================================
-   HOME
-========================================================= */
 
 function showHome(){
 
@@ -2254,9 +2176,6 @@ function showHome(){
 }
 
 
-/* =========================================================
-   DASHBOARD
-========================================================= */
 
 function showDashboard(route){
 
@@ -2326,9 +2245,6 @@ function showDashboard(route){
 }
 
 
-/* =========================================================
-   ĐỌC HASH
-========================================================= */
 
 function loadRoute(){
 
@@ -2370,9 +2286,6 @@ function loadRoute(){
 }
 
 
-/* =========================================================
-   EVENTS
-========================================================= */
 
 window.addEventListener(
     "hashchange",
