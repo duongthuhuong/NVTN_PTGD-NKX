@@ -1,143 +1,364 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nhân viên tài năng PVEP</title>
+<title>Chương trình Nhân viên Tài năng PVEP</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-            background: #f5f7f8;
-            color: #333;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        h1 {
-            text-align: center;
-            color: #006b54;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        h2 {
-            text-align: center;
-            font-weight: normal;
-            color: #555;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7f5;
+    color: #18352d;
+}
 
-        .intro {
-            background: white;
-            padding: 25px;
-            margin-top: 30px;
-            border-radius: 12px;
-            line-height: 1.7;
-        }
+/* ===== COVER ===== */
 
-        .section-title {
-            margin-top: 40px;
-            text-align: center;
-            color: #006b54;
-        }
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
 
-        .sessions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
-            margin-top: 25px;
-        }
+.hero-bg {
+    position: absolute;
+    inset: -4%;
+    background-image: url("assets/images/su-tu-trang.jpg");
+    background-size: cover;
+    background-position: center;
+    animation: slowZoom 18s ease-in-out infinite alternate;
+}
 
-        .session {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            text-decoration: none;
-            color: #006b54;
-            font-size: 20px;
-            font-weight: bold;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: 0.2s;
-        }
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.08);
+    }
+}
 
-        .session:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-        }
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,45,38,0.40) 0%,
+            rgba(0,60,48,0.48) 45%,
+            rgba(0,35,30,0.72) 100%
+        );
+}
 
-        .gift {
-            margin-top: 40px;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-        }
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1050px;
+    padding: 50px 20px;
+    animation: fadeUp 1.4s ease-out;
+}
 
-        .gift a {
-            text-decoration: none;
-            font-size: 20px;
-            color: #8b3a62;
-            font-weight: bold;
-        }
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #777;
-            font-size: 14px;
-        }
-    </style>
+.logo {
+    width: 135px;
+    max-width: 35vw;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,.25));
+}
+
+.pvep {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 7px;
+}
+
+.corporation {
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+}
+
+.hero-line {
+    width: 85px;
+    height: 3px;
+    background: rgba(255,255,255,.85);
+    margin: 0 auto 28px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.12;
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-shadow: 0 4px 20px rgba(0,0,0,.35);
+}
+
+.guide {
+    margin-top: 26px;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 400;
+}
+
+.guide strong {
+    font-weight: 700;
+}
+
+.scroll-down {
+    position: absolute;
+    z-index: 3;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
+}
+
+/* ===== NỘI DUNG ===== */
+
+.content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 75px 25px;
+}
+
+.intro {
+    text-align: center;
+    max-width: 850px;
+    margin: auto;
+}
+
+.intro h2 {
+    color: #006b54;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    color: #52645f;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.journey {
+    margin-top: 70px;
+}
+
+.journey h2 {
+    text-align: center;
+    color: #006b54;
+    font-size: 28px;
+    margin-bottom: 35px;
+}
+
+.sessions {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.session {
+    background: white;
+    border-radius: 16px;
+    padding: 30px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #006b54;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(0,0,0,.07);
+    transition: .3s ease;
+}
+
+.session:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 30px rgba(0,80,60,.15);
+}
+
+.gift {
+    margin: 65px auto 0;
+    max-width: 600px;
+    text-align: center;
+}
+
+.gift a {
+    display: inline-block;
+    padding: 18px 35px;
+    background: #006b54;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.gift a:hover {
+    transform: translateY(-3px);
+    background: #004f3e;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: #74837f;
+    font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    .sessions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .corporation {
+        font-size: 12px;
+    }
+
+    .hero-content {
+        padding: 35px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sessions {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP</h1>
+<section class="hero">
 
-    <h2>Đồng hành cùng PTGĐ Ngô Khánh Xạ</h2>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
 
-    <div class="intro">
+    <div class="hero-content">
+
+        <img
+            src="assets/images/logo-pvep.png"
+            alt="Logo PVEP"
+            class="logo"
+        >
+
+        <div class="pvep">PVEP</div>
+
+        <div class="corporation">
+            TỔNG CÔNG TY THĂM DÒ KHAI THÁC DẦU KHÍ
+        </div>
+
+        <div class="hero-line"></div>
+
+        <h1>
+            CHƯƠNG TRÌNH<br>
+            NHÂN VIÊN TÀI NĂNG
+        </h1>
+
+        <div class="guide">
+            Dưới sự hướng dẫn của
+            <strong>PTGĐ Ngô Khánh Xạ</strong>
+        </div>
+
+    </div>
+
+    <a class="scroll-down" href="#hanh-trinh">⌄</a>
+
+</section>
+
+
+<main class="content" id="hanh-trinh">
+
+    <section class="intro">
+
+        <h2>Hành trình học tập và phát triển</h2>
+
         <p>
-            Nơi lưu giữ hành trình học tập, chia sẻ kiến thức và những kỷ niệm
-            của Nhóm Nhân viên tài năng PVEP.
+            Nơi lưu giữ hành trình học tập, chia sẻ kiến thức,
+            trải nghiệm và những kỷ niệm của Nhóm Nhân viên Tài năng PVEP.
         </p>
-    </div>
 
-    <h2 class="section-title">HÀNH TRÌNH HỌC TẬP</h2>
+    </section>
 
-    <div class="sessions">
 
-        <a class="session" href="02_Các-buoi-hoc/Buoi-01/">
-            BUỔI 1
+    <section class="journey">
+
+        <h2>CÁC BUỔI HỌC</h2>
+
+        <div class="sessions">
+
+            <a class="session" href="02_Các-buổi-học/">
+                BUỔI 1
+            </a>
+
+            <a class="session" href="02_Các-buổi-học/">
+                BUỔI 2
+            </a>
+
+            <a class="session" href="02_Các-buổi-học/">
+                BUỔI 3
+            </a>
+
+            <a class="session" href="02_Các-buổi-học/">
+                BUỔI 4
+            </a>
+
+            <a class="session" href="02_Các-buổi-học/">
+                BUỔI 5
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="gift">
+
+        <a href="Qua%20tang%20thay/">
+            ♡ QUÀ TẶNG THẦY
         </a>
 
-        <a class="session" href="02_Các-buoi-hoc/Buoi-02/">
-            BUỔI 2
-        </a>
+    </section>
 
-        <a class="session" href="02_Các-buoi-hoc/buoi-03/">
-            BUỔI 3
-        </a>
+</main>
 
-        <a class="session" href="02_Các-buoi-hoc/buoi-04/">
-            BUỔI 4
-        </a>
 
-        <a class="session" href="02_Các-buoi-hoc/buoi-05/">
-            BUỔI 5
-        </a>
-
-    </div>
-
-    <div class="gift">
-        <a href="Qua tang thay/">
-            🌷 QUÀ TẶNG THẦY
-        </a>
-    </div>
-
-    <footer>
-        Nhóm Nhân viên tài năng PVEP
-    </footer>
+<footer>
+    Nhóm Nhân viên Tài năng PVEP
+</footer>
 
 </body>
 </html>
