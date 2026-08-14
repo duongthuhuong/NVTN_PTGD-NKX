@@ -6,10 +6,17 @@
 
 <title>Giới thiệu | Chương trình Nhân viên Tài năng PVEP</title>
 
+<!-- FONT INTER - HIỂN THỊ TIẾNG VIỆT TỐT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
+
 /* =========================================================
-   RESET
+   01. RESET + HỆ FONT CHUNG
 ========================================================= */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -18,14 +25,22 @@
 
 html{
     scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:"Inter", Arial, sans-serif;
+    font-size:15px;
+    font-weight:400;
     color:#173d4d;
     background:#f7faf8;
     line-height:1.6;
     overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
 }
 
 :root{
@@ -41,13 +56,13 @@ body{
 }
 
 .container{
-    width:min(1180px, calc(100% - 48px));
+    width:min(1120px, calc(100% - 48px));
     margin:0 auto;
 }
 
 
 /* =========================================================
-   HEADER
+   02. HEADER
 ========================================================= */
 
 .header{
@@ -56,106 +71,160 @@ body{
 }
 
 .header-inner{
-    width:min(1320px, calc(100% - 60px));
-    height:86px;
+    width:min(1220px, calc(100% - 60px));
+    height:78px;
     margin:auto;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:30px;
+    gap:28px;
 }
 
 .brand{
     display:flex;
     align-items:center;
-    gap:16px;
+    gap:14px;
 }
 
 .logo-mark{
-    width:45px;
-    height:45px;
-    border-radius:50%;
+    width:42px;
+    height:42px;
+
     border:2px solid var(--green);
+    border-radius:50%;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     color:var(--green);
+    font-size:11px;
     font-weight:800;
-    font-size:14px;
 }
 
 .brand-text strong{
     display:block;
-    font-size:20px;
+
+    font-size:18px;
+    font-weight:800;
     line-height:1.1;
-    letter-spacing:.3px;
+    letter-spacing:0;
 }
 
 .brand-text span{
     display:block;
-    font-size:11px;
+
     margin-top:5px;
-    letter-spacing:.7px;
+
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.5px;
+    line-height:1.2;
+
     opacity:.9;
 }
 
 .nav{
     display:flex;
     align-items:center;
-    gap:34px;
+    gap:27px;
 }
 
 .nav a{
     color:#fff;
     text-decoration:none;
-    font-size:13px;
-    font-weight:700;
+
+    font-family:"Inter", Arial, sans-serif;
+    font-size:12px;
+    font-weight:600;
+
     white-space:nowrap;
+}
+
+.nav a:hover{
+    color:var(--green);
 }
 
 .nav a.active{
     color:var(--green);
+    font-weight:700;
 }
 
 
 /* =========================================================
-   THÔNG ĐIỆP
+   03. THÔNG ĐIỆP CỦA CHƯƠNG TRÌNH
 ========================================================= */
 
 .message-section{
-    padding:28px 0 22px;
+    padding:26px 0 10px;
 }
 
 .message-box{
     position:relative;
     overflow:hidden;
 
+    padding:29px 38px 31px;
+
     background:
-        radial-gradient(circle at 92% 20%,rgba(97,200,75,.10),transparent 25%),
-        linear-gradient(110deg,#f1f8f2,#fbfdfb);
+        radial-gradient(
+            circle at 92% 20%,
+            rgba(97,200,75,.11),
+            transparent 25%
+        ),
+        linear-gradient(
+            110deg,
+            #f0f7f1,
+            #fbfdfb
+        );
 
-    border:1px solid #e2eee4;
-    border-radius:20px;
+    border:1px solid #e1ebe3;
+    border-radius:18px;
+}
 
-    padding:32px 48px;
+.message-box::after{
+    content:"";
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    right:-75px;
+    top:-90px;
+
+    border-radius:50%;
+
+    background:rgba(97,200,75,.06);
 }
 
 .message-label{
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:1px;
+    position:relative;
+    z-index:1;
+
+    margin-bottom:10px;
+
     color:var(--green-dark);
+
+    font-size:11px;
+    font-weight:800;
+    line-height:1.3;
+    letter-spacing:1px;
+
     text-transform:uppercase;
-    margin-bottom:12px;
 }
 
 .message-text{
-    max-width:980px;
-    font-size:28px;
-    line-height:1.35;
-    font-weight:750;
-    letter-spacing:-.3px;
+    position:relative;
+    z-index:1;
+
+    max-width:970px;
+
     color:var(--navy);
+
+    font-size:25px;
+    font-weight:700;
+    line-height:1.42;
+    letter-spacing:-.25px;
 }
 
 .message-text .highlight{
@@ -164,148 +233,205 @@ body{
 
 
 /* =========================================================
-   GIỚI THIỆU
+   04. GIỚI THIỆU
 ========================================================= */
 
 .intro{
-    padding:28px 0 22px;
+    padding:28px 0 20px;
 }
 
 .eyebrow{
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:1.3px;
+    margin-bottom:8px;
+
     color:var(--green-dark);
+
+    font-size:11px;
+    font-weight:800;
+    line-height:1.4;
+    letter-spacing:1px;
+
     text-transform:uppercase;
-    margin-bottom:9px;
 }
 
 .intro h1{
-    font-size:30px;
-    line-height:1.25;
-    letter-spacing:-.4px;
+    max-width:950px;
+
+    margin-bottom:10px;
+
     color:var(--navy);
-    font-weight:750;
-    margin-bottom:12px;
+
+    font-size:27px;
+    font-weight:700;
+    line-height:1.32;
+    letter-spacing:-.3px;
 }
 
 .intro-lead{
-    max-width:920px;
-    color:#5e7076;
-    font-size:15px;
+    max-width:900px;
+
+    color:#607178;
+
+    font-size:14px;
+    font-weight:400;
     line-height:1.75;
 }
 
 
 /* =========================================================
-   CARDS
+   05. HAI CARD
 ========================================================= */
 
 .cards{
     display:grid;
-    grid-template-columns: .85fr 1.15fr;
-    gap:22px;
+    grid-template-columns:.85fr 1.15fr;
+
+    gap:20px;
+
     align-items:stretch;
-    margin-top:24px;
+
+    margin-top:22px;
 }
 
 
-/* CARD NKX */
+/* =========================================================
+   06. CARD NGÔ KHÁNH XẠ
+========================================================= */
 
 .mentor-card{
-    background:
-        linear-gradient(145deg,#07576d,#07869b);
+    min-height:235px;
 
-    border-radius:18px;
-    padding:30px 34px;
-
-    color:#fff;
+    padding:26px 30px;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
 
-    min-height:260px;
+    color:#fff;
 
-    box-shadow:0 8px 24px rgba(0,60,80,.12);
+    background:
+        linear-gradient(
+            145deg,
+            #07576d,
+            #07869b
+        );
+
+    border-radius:16px;
+
+    box-shadow:
+        0 8px 22px rgba(0,60,80,.11);
 }
 
 .mentor-label{
+    margin-bottom:15px;
+
     color:var(--green);
-    font-size:12px;
+
+    font-size:11px;
     font-weight:800;
-    letter-spacing:1px;
+    line-height:1.3;
+    letter-spacing:.9px;
+
     text-transform:uppercase;
-    margin-bottom:18px;
 }
 
 .mentor-name{
-    font-size:28px;
-    line-height:1.15;
+    margin-bottom:6px;
+
+    color:#fff;
+
+    font-size:25px;
     font-weight:800;
-    letter-spacing:.2px;
-    margin-bottom:7px;
+    line-height:1.2;
+    letter-spacing:0;
 }
 
 .mentor-title{
-    font-size:14px;
-    font-weight:700;
-    opacity:.95;
+    color:#fff;
+
+    font-size:13px;
+    font-weight:600;
+    line-height:1.5;
+
+    opacity:.96;
 }
 
 .mentor-line{
+    width:100%;
     height:1px;
+
+    margin:18px 0 15px;
+
     background:rgba(255,255,255,.22);
-    margin:22px 0 17px;
 }
 
 .mentor-note{
-    font-size:14px;
+    color:#fff;
+
+    font-size:13px;
+    font-weight:400;
     line-height:1.6;
-    opacity:.94;
+
+    opacity:.93;
 }
 
 
-/* CARD NHÓM */
+/* =========================================================
+   07. CARD NHÓM
+========================================================= */
 
 .group-card{
+    padding:24px 26px;
+
     background:#fff;
-    border:1px solid #e8eeeb;
-    border-radius:18px;
-    padding:27px 30px;
-    box-shadow:0 8px 24px rgba(0,60,80,.07);
+
+    border:1px solid #e7eeea;
+    border-radius:16px;
+
+    box-shadow:
+        0 8px 22px rgba(0,60,80,.065);
 }
 
 .group-card h2{
-    font-size:20px;
-    line-height:1.3;
+    margin-bottom:7px;
+
     color:var(--navy);
-    margin-bottom:8px;
+
+    font-size:19px;
+    font-weight:700;
+    line-height:1.35;
+    letter-spacing:-.1px;
 }
 
 .group-description{
-    font-size:14px;
+    margin-bottom:15px;
+
     color:#66777d;
+
+    font-size:13px;
+    font-weight:400;
     line-height:1.65;
-    margin-bottom:18px;
 }
 
 .group-list{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:9px;
+
+    gap:8px;
 }
 
 .group-item{
-    min-height:54px;
-    background:#f1f6f3;
-    border-radius:10px;
+    min-height:48px;
 
     display:flex;
     align-items:center;
 
-    padding:10px 14px;
-    gap:12px;
+    gap:10px;
+
+    padding:9px 12px;
+
+    background:#f1f6f3;
+
+    border-radius:9px;
 }
 
 .group-item:last-child{
@@ -313,91 +439,128 @@ body{
 }
 
 .group-number{
+    min-width:23px;
+
     color:var(--green-dark);
-    font-size:12px;
+
+    font-size:11px;
     font-weight:800;
-    min-width:24px;
+    line-height:1;
 }
 
 .group-name{
-    font-size:12px;
-    line-height:1.35;
-    font-weight:750;
     color:#284b58;
+
+    font-size:11px;
+    font-weight:700;
+    line-height:1.35;
+
     text-transform:uppercase;
 }
 
 
 /* =========================================================
-   GIÁ TRỊ
+   08. TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
 ========================================================= */
 
 .value-section{
-    padding:22px 0 38px;
+    padding:14px 0 34px;
 }
 
 .value-box{
-    background:linear-gradient(90deg,#eff7f1,#f8fbf8);
-    border:1px solid #e5eee7;
-    border-radius:16px;
-    padding:22px 30px;
+    padding:19px 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #eef6f0,
+            #f8fbf8
+        );
+
+    border:1px solid #e4ede6;
+    border-radius:14px;
 }
 
 .value-label{
+    margin-bottom:5px;
+
     color:var(--green-dark);
-    font-size:11px;
+
+    font-size:10px;
     font-weight:800;
-    letter-spacing:1.2px;
+    line-height:1.3;
+    letter-spacing:1px;
+
     text-transform:uppercase;
-    margin-bottom:6px;
 }
 
 .value-text{
-    font-size:20px;
-    line-height:1.45;
     color:var(--navy);
-    font-weight:700;
+
+    font-size:18px;
+    font-weight:600;
+    line-height:1.5;
+    letter-spacing:-.1px;
 }
 
 .value-text strong{
     color:var(--green-dark);
+    font-weight:700;
 }
 
 
 /* =========================================================
-   FOOTER
+   09. FOOTER
 ========================================================= */
 
 .footer{
-    background:linear-gradient(100deg,#06445a,#07859b);
+    padding:15px 20px;
+
     color:#fff;
+
     text-align:center;
-    padding:17px 20px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #06445a,
+            #07859b
+        );
 }
 
 .footer span{
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.8px;
+    font-size:10px;
+    font-weight:600;
+    line-height:1.4;
+    letter-spacing:.7px;
 }
 
 
 /* =========================================================
-   TABLET
+   10. TABLET
 ========================================================= */
 
 @media(max-width:900px){
+
+    .header-inner{
+        width:calc(100% - 40px);
+        height:72px;
+    }
 
     .nav{
         display:none;
     }
 
-    .header-inner{
-        height:76px;
+    .container{
+        width:calc(100% - 36px);
     }
 
     .message-text{
-        font-size:24px;
+        font-size:23px;
+    }
+
+    .intro h1{
+        font-size:25px;
     }
 
     .cards{
@@ -407,122 +570,157 @@ body{
     .mentor-card{
         min-height:auto;
     }
+
 }
 
 
 /* =========================================================
-   MOBILE
+   11. MOBILE
 ========================================================= */
 
 @media(max-width:600px){
 
-    .container{
-        width:calc(100% - 30px);
+    body{
+        font-size:14px;
     }
 
+    .container{
+        width:calc(100% - 28px);
+    }
+
+
+    /* HEADER */
+
     .header-inner{
-        width:calc(100% - 30px);
-        height:68px;
+        width:calc(100% - 28px);
+        height:66px;
     }
 
     .logo-mark{
-        width:38px;
-        height:38px;
-        font-size:11px;
+        width:36px;
+        height:36px;
+
+        font-size:9px;
+    }
+
+    .brand{
+        gap:10px;
     }
 
     .brand-text strong{
-        font-size:17px;
+        font-size:16px;
     }
 
     .brand-text span{
-        font-size:9px;
+        margin-top:3px;
+
+        font-size:8px;
+        letter-spacing:.35px;
     }
 
 
     /* THÔNG ĐIỆP */
 
     .message-section{
-        padding:18px 0 8px;
+        padding:16px 0 5px;
     }
 
     .message-box{
-        padding:24px 22px;
-        border-radius:16px;
+        padding:21px 19px 22px;
+
+        border-radius:14px;
     }
 
     .message-label{
-        font-size:11px;
-        margin-bottom:10px;
+        margin-bottom:9px;
+
+        font-size:10px;
     }
 
     .message-text{
-        font-size:21px;
-        line-height:1.4;
+        font-size:20px;
+        line-height:1.42;
+        letter-spacing:-.15px;
     }
 
 
     /* GIỚI THIỆU */
 
     .intro{
-        padding:25px 0 15px;
+        padding:23px 0 14px;
+    }
+
+    .eyebrow{
+        font-size:10px;
     }
 
     .intro h1{
-        font-size:24px;
-        line-height:1.3;
+        font-size:22px;
+        line-height:1.35;
     }
 
     .intro-lead{
-        font-size:14px;
+        font-size:13px;
+        line-height:1.7;
     }
 
 
     /* CARDS */
 
     .cards{
-        margin-top:20px;
-        gap:16px;
+        margin-top:18px;
+
+        gap:14px;
     }
 
+
+    /* NKX */
+
     .mentor-card{
-        padding:25px 23px;
-        border-radius:15px;
+        min-height:0;
+
+        padding:23px 21px;
+
+        border-radius:14px;
     }
 
     .mentor-label{
-        font-size:11px;
-        margin-bottom:14px;
+        margin-bottom:13px;
+
+        font-size:10px;
     }
 
     .mentor-name{
-        font-size:24px;
+        font-size:22px;
     }
 
     .mentor-title{
-        font-size:13px;
+        font-size:12px;
     }
 
     .mentor-line{
-        margin:18px 0 14px;
+        margin:16px 0 13px;
     }
 
     .mentor-note{
-        font-size:13px;
+        font-size:12px;
     }
 
 
+    /* NHÓM */
+
     .group-card{
-        padding:22px 18px;
-        border-radius:15px;
+        padding:20px 17px;
+
+        border-radius:14px;
     }
 
     .group-card h2{
-        font-size:19px;
+        font-size:18px;
     }
 
     .group-description{
-        font-size:13px;
+        font-size:12px;
     }
 
     .group-list{
@@ -534,29 +732,75 @@ body{
     }
 
     .group-item{
-        min-height:50px;
+        min-height:46px;
+    }
+
+    .group-number{
+        font-size:10px;
     }
 
     .group-name{
-        font-size:11px;
+        font-size:10px;
     }
 
 
     /* VALUE */
 
     .value-section{
-        padding:15px 0 28px;
+        padding:12px 0 25px;
     }
 
     .value-box{
-        padding:20px;
+        padding:17px 18px;
+    }
+
+    .value-label{
+        font-size:9px;
     }
 
     .value-text{
-        font-size:17px;
+        font-size:16px;
+        line-height:1.5;
+    }
+
+
+    /* FOOTER */
+
+    .footer{
+        padding:13px 15px;
+    }
+
+    .footer span{
+        font-size:9px;
     }
 
 }
+
+
+/* =========================================================
+   12. MÀN HÌNH RẤT NHỎ
+========================================================= */
+
+@media(max-width:380px){
+
+    .message-text{
+        font-size:18px;
+    }
+
+    .intro h1{
+        font-size:20px;
+    }
+
+    .mentor-name{
+        font-size:21px;
+    }
+
+    .value-text{
+        font-size:15px;
+    }
+
+}
+
 </style>
 </head>
 
@@ -564,9 +808,9 @@ body{
 <body>
 
 
-<!-- ======================================================
+<!-- =====================================================
      HEADER
-======================================================= -->
+===================================================== -->
 
 <header class="header">
 
@@ -579,8 +823,13 @@ body{
             </div>
 
             <div class="brand-text">
+
                 <strong>PVEP</strong>
-                <span>CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG</span>
+
+                <span>
+                    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+                </span>
+
             </div>
 
         </div>
@@ -588,17 +837,29 @@ body{
 
         <nav class="nav">
 
-            <a class="active" href="#">Giới thiệu</a>
+            <a class="active" href="#">
+                Giới thiệu
+            </a>
 
-            <a href="../02_Hanh-trinh/">Hành trình</a>
+            <a href="../02_Hanh-trinh/">
+                Hành trình
+            </a>
 
-            <a href="../03_Buoi-hoc/">Các buổi học</a>
+            <a href="../03_Buoi-hoc/">
+                Các buổi học
+            </a>
 
-            <a href="../04_Thu-vien/">Thư viện</a>
+            <a href="../04_Thu-vien/">
+                Thư viện
+            </a>
 
-            <a href="../05_Luu-but/">Lưu bút</a>
+            <a href="../05_Luu-but/">
+                Lưu bút
+            </a>
 
-            <a href="../06_Qua-tang/">Quà tặng</a>
+            <a href="../06_Qua-tang/">
+                Quà tặng
+            </a>
 
         </nav>
 
@@ -608,9 +869,9 @@ body{
 
 
 
-<!-- ======================================================
+<!-- =====================================================
      THÔNG ĐIỆP CỦA CHƯƠNG TRÌNH
-======================================================= -->
+===================================================== -->
 
 <section class="message-section">
 
@@ -622,13 +883,16 @@ body{
                 THÔNG ĐIỆP CỦA CHƯƠNG TRÌNH
             </div>
 
+
             <div class="message-text">
 
                 “Tài năng không chỉ nằm ở việc bạn được lựa chọn,
                 mà ở
+
                 <span class="highlight">
                     những giá trị bạn tạo ra
                 </span>
+
                 sau khi được trao cơ hội.”
 
             </div>
@@ -641,13 +905,14 @@ body{
 
 
 
-<!-- ======================================================
+<!-- =====================================================
      GIỚI THIỆU
-======================================================= -->
+===================================================== -->
 
 <main class="intro">
 
     <div class="container">
+
 
         <div class="eyebrow">
             LỚP NHÂN VIÊN TÀI NĂNG 2025–2026
@@ -669,9 +934,9 @@ body{
 
 
 
-        <!-- ==================================================
-             2 CARD
-        =================================================== -->
+        <!-- =================================================
+             HAI CARD
+        ================================================== -->
 
         <div class="cards">
 
@@ -684,32 +949,40 @@ body{
                     NGƯỜI HƯỚNG DẪN LỚP
                 </div>
 
+
                 <div class="mentor-name">
                     NGÔ KHÁNH XẠ
                 </div>
+
 
                 <div class="mentor-title">
                     Phó Tổng giám đốc PVEP
                 </div>
 
+
                 <div class="mentor-line"></div>
 
+
                 <div class="mentor-note">
+
                     Hướng dẫn và đồng hành cùng lớp
                     Nhân viên Tài năng 2025–2026.
+
                 </div>
 
             </section>
 
 
 
-            <!-- NHÓM -->
+            <!-- MỘT NHÓM - NHIỀU GÓC NHÌN -->
 
             <section class="group-card">
+
 
                 <h2>
                     Một nhóm — nhiều góc nhìn
                 </h2>
+
 
                 <p class="group-description">
 
@@ -722,48 +995,80 @@ body{
 
                 <div class="group-list">
 
+
                     <div class="group-item">
-                        <span class="group-number">01</span>
+
+                        <span class="group-number">
+                            01
+                        </span>
+
                         <span class="group-name">
                             Công nghệ mỏ
                         </span>
+
                     </div>
 
 
+
                     <div class="group-item">
-                        <span class="group-number">02</span>
+
+                        <span class="group-number">
+                            02
+                        </span>
+
                         <span class="group-name">
                             Công nghệ – Chuyển đổi số
                         </span>
+
                     </div>
 
 
+
                     <div class="group-item">
-                        <span class="group-number">03</span>
+
+                        <span class="group-number">
+                            03
+                        </span>
+
                         <span class="group-name">
                             Chi nhánh Trung tâm Kỹ thuật
                         </span>
+
                     </div>
 
 
+
                     <div class="group-item">
-                        <span class="group-number">04</span>
+
+                        <span class="group-number">
+                            04
+                        </span>
+
                         <span class="group-name">
                             Chi nhánh Hồ Chí Minh
                         </span>
+
                     </div>
+
 
 
                     <div class="group-item">
-                        <span class="group-number">05</span>
+
+                        <span class="group-number">
+                            05
+                        </span>
+
                         <span class="group-name">
                             Chi nhánh Cửu Long
                         </span>
+
                     </div>
+
 
                 </div>
 
             </section>
+
 
         </div>
 
@@ -773,9 +1078,9 @@ body{
 
 
 
-<!-- ======================================================
+<!-- =====================================================
      TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
-======================================================= -->
+===================================================== -->
 
 <section class="value-section">
 
@@ -783,17 +1088,23 @@ body{
 
         <div class="value-box">
 
+
             <div class="value-label">
                 TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
             </div>
+
 
             <div class="value-text">
 
                 Từ những điểm xuất phát khác nhau,
                 cùng học hỏi, cùng phát triển và từng bước
-                <strong>tạo ra giá trị cho PVEP.</strong>
+
+                <strong>
+                    tạo ra giá trị cho PVEP.
+                </strong>
 
             </div>
+
 
         </div>
 
@@ -803,14 +1114,16 @@ body{
 
 
 
-<!-- ======================================================
+<!-- =====================================================
      FOOTER
-======================================================= -->
+===================================================== -->
 
 <footer class="footer">
 
     <span>
-        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP &nbsp; | &nbsp; 2025–2026
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+        &nbsp; | &nbsp;
+        2025–2026
     </span>
 
 </footer>
