@@ -2117,7 +2117,10 @@ memories: `
 
 
 function navigate(route){
-
+if(route === "library"){
+    window.location.href = "Thu vien/";
+    return;
+}
     if(route === "memories"){
         window.location.href = "Dieu dong lai/";
         return;
