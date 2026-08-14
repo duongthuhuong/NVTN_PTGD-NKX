@@ -1,990 +1,505 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Chương trình Nhân viên Tài năng PVEP</title>
+  <title>Chương trình Nhân viên Tài năng PVEP</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html, body{
-    width:100%;
-    height:100%;
-}
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background: #071b2b;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#061c2a;
-    overflow:hidden;
-}
+    /* =========================
+       COVER
+       ========================= */
 
-/* =====================================================
-   COVER
-===================================================== */
+    .cover {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #071b2b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.cover{
-    position:relative;
-    width:100vw;
-    height:100vh;
-    overflow:hidden;
-    background:#061c2a;
-}
+    /*
+       QUAN TRỌNG:
+       Ảnh được hiển thị NGUYÊN VẸN.
+       Không dùng background-size: cover
+       nên ảnh sẽ KHÔNG bị phóng to/cắt mất.
+    */
 
-/* ẢNH NỀN - KHÔNG ZOOM, KHÔNG SCALE, KHÔNG ANIMATION */
+    .cover-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
 
-.cover-photo{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
+    /* =========================
+       VÙNG CLICK TRÊN COVER
+       Các ô trong suốt, không làm
+       thay đổi hình mockup.
+       ========================= */
 
-    object-fit:contain;
-    object-position:center center;
+    .nav-link {
+      position: absolute;
+      bottom: 2.2%;
+      height: 8%;
+      z-index: 10;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
 
-    background:#061c2a;
+    .nav-link:hover {
+      background: rgba(255,255,255,0.05);
+    }
 
-    z-index:0;
-}
+    .nav-1 {
+      left: 4%;
+      width: 14%;
+    }
 
-/* Gradient mềm từ trái sang phải */
+    .nav-2 {
+      left: 19%;
+      width: 14%;
+    }
 
-.cover-shade{
-    position:absolute;
-    inset:0;
+    .nav-3 {
+      left: 34%;
+      width: 14%;
+    }
 
-    background:
+    .nav-4 {
+      left: 49%;
+      width: 14%;
+    }
+
+    .nav-5 {
+      left: 64%;
+      width: 14%;
+    }
+
+    .nav-6 {
+      left: 79%;
+      width: 17%;
+    }
+
+    /* =========================
+       CÁC TRANG NỘI DUNG
+       Ban đầu ẨN hoàn toàn
+       ========================= */
+
+    .page {
+      display: none;
+      min-height: 100vh;
+      background:
         linear-gradient(
-            90deg,
-            rgba(3,25,44,.82) 0%,
-            rgba(3,25,44,.70) 18%,
-            rgba(3,25,44,.50) 36%,
-            rgba(3,25,44,.27) 52%,
-            rgba(3,25,44,.10) 70%,
-            rgba(3,25,44,.02) 88%,
-            rgba(3,25,44,0) 100%
+          180deg,
+          #f8faf8 0%,
+          #ffffff 100%
         );
-
-    z-index:1;
-    pointer-events:none;
-}
-
-/* =====================================================
-   LOGO
-===================================================== */
-
-.brand{
-    position:absolute;
-    top:4.5%;
-    left:5.4%;
-
-    display:flex;
-    align-items:center;
-
-    z-index:5;
-
-    animation:fadeDown .9s ease both;
-}
-
-.brand-logo{
-    width:105px;
-    height:auto;
-    display:block;
-}
-
-.brand-divider{
-    width:2px;
-    height:88px;
-
-    margin:0 24px;
-
-    background:rgba(255,255,255,.92);
-}
-
-.brand-info{
-    color:#fff;
-}
-
-.brand-name{
-    font-size:30px;
-    font-weight:800;
-    letter-spacing:.8px;
-}
-
-.brand-company{
-    margin-top:7px;
-
-    font-size:18px;
-    font-weight:400;
-    letter-spacing:.8px;
-
-    color:rgba(255,255,255,.94);
-}
-
-/* =====================================================
-   NỘI DUNG COVER
-===================================================== */
-
-.hero-copy{
-    position:absolute;
-    left:5.4%;
-    top:49%;
-
-    transform:translateY(-50%);
-
-    width:min(620px,44vw);
-
-    z-index:5;
-
-    animation:fadeLeft .9s ease both;
-}
-
-.program{
-    color:#5bd14c;
-
-    font-family:Arial, Helvetica, sans-serif;
-
-    font-size:27px;
-    font-weight:800;
-
-    letter-spacing:.3px;
-
-    margin-bottom:24px;
-}
-
-.main-title{
-    color:#fff;
-
-    font-family:Arial, Helvetica, sans-serif;
-
-    font-size:clamp(52px,4.8vw,78px);
-
-    line-height:.98;
-
-    font-weight:800;
-
-    letter-spacing:1.8px;
-
-    text-transform:uppercase;
-
-    text-shadow:0 3px 12px rgba(0,0,0,.22);
-}
-
-.title-line{
-    width:100%;
-    max-width:500px;
-
-    height:3px;
-
-    margin:25px 0 20px;
-
-    background:#5bd14c;
-}
-
-.values{
-    color:#fff;
-
-    font-size:clamp(19px,1.65vw,27px);
-
-    font-weight:400;
-
-    letter-spacing:.7px;
-
-    white-space:nowrap;
-
-    margin-bottom:18px;
-}
-
-.mentor{
-    color:#fff;
-
-    font-size:clamp(17px,1.32vw,22px);
-
-    font-weight:500;
-
-    line-height:1.45;
-
-    margin-bottom:12px;
-}
-
-.years{
-    color:#fff;
-
-    font-size:21px;
-    font-weight:800;
-
-    letter-spacing:2px;
-}
-
-/* =====================================================
-   KHÁM PHÁ HÀNH TRÌNH
-===================================================== */
-
-.explore{
-    position:absolute;
-    left:50%;
-    bottom:12%;
-
-    transform:translateX(-50%);
-
-    z-index:7;
-
-    text-align:center;
-
-    color:#fff;
-
-    text-decoration:none;
-}
-
-.explore-circle{
-    width:45px;
-    height:45px;
-
-    margin:0 auto 11px;
-
-    border:2px solid #5bd14c;
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:27px;
-
-    animation:arrowMove 1.8s ease-in-out infinite;
-}
-
-.explore-label{
-    font-size:17px;
-    font-weight:800;
-
-    letter-spacing:.4px;
-}
-
-/* =====================================================
-   MENU 5 MỤC
-===================================================== */
-
-.cover-menu{
-    position:absolute;
-
-    left:5.4%;
-    right:5.4%;
-    bottom:3.5%;
-
-    z-index:8;
-
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-
-    gap:18px;
-
-    align-items:center;
-}
-
-.cover-menu a{
-    color:#fff;
-
-    text-decoration:none;
-
-    font-size:15px;
-    font-weight:500;
-
-    white-space:nowrap;
-
-    transition:.25s ease;
-}
-
-.cover-menu a:hover{
-    color:#5bd14c;
-    transform:translateY(-3px);
-}
-
-.menu-no{
-    margin-right:8px;
-
-    font-size:19px;
-    font-weight:800;
-
-    color:#fff;
-}
-
-.cover-menu a:first-child .menu-no{
-    color:#5bd14c;
-}
-
-/* =====================================================
-   POPUP NỘI DUNG
-===================================================== */
-
-.panel{
-    position:fixed;
-    inset:0;
-
-    z-index:30;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:40px;
-
-    background:rgba(2,20,31,.90);
-
-    backdrop-filter:blur(8px);
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:.35s ease;
-}
-
-.panel:target{
-    opacity:1;
-    visibility:visible;
-}
-
-.panel-card{
-    position:relative;
-
-    width:min(1000px,92vw);
-    max-height:82vh;
-
-    overflow:auto;
-
-    padding:55px;
-
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.98),
-            rgba(239,247,244,.98)
-        );
-
-    color:#18382e;
-
-    box-shadow:0 25px 80px rgba(0,0,0,.35);
-}
-
-.panel-number{
-    color:#5abf48;
-
-    font-size:18px;
-    font-weight:800;
-
-    margin-bottom:8px;
-}
-
-.panel-card h2{
-    color:#087650;
-
-    font-size:38px;
-
-    margin-bottom:25px;
-}
-
-.panel-card p{
-    font-size:18px;
-
-    line-height:1.8;
-
-    color:#40554e;
-}
-
-.back{
-    position:absolute;
-
-    top:24px;
-    right:28px;
-
-    color:#087650;
-
-    text-decoration:none;
-
-    font-size:15px;
-    font-weight:800;
-
-    letter-spacing:.3px;
-}
-
-/* =====================================================
-   5 BUỔI HỌC
-===================================================== */
-
-.study-list{
-    margin-top:35px;
-
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-
-    gap:15px;
-}
-
-.study-item{
-    padding:30px 15px;
-
-    border-radius:14px;
-
-    background:#fff;
-
-    text-decoration:none;
-
-    text-align:center;
-
-    color:#087650;
-
-    font-weight:800;
-
-    box-shadow:0 8px 22px rgba(0,0,0,.08);
-
-    transition:.25s ease;
-}
-
-.study-item:hover{
-    transform:translateY(-5px);
-}
-
-/* =====================================================
-   THƯ VIỆN
-===================================================== */
-
-.library-grid{
-    margin-top:35px;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-
-    gap:18px;
-}
-
-.library-card{
-    padding:30px 20px;
-
-    border-radius:14px;
-
-    background:#fff;
-
-    color:#087650;
-
-    text-decoration:none;
-
-    font-weight:800;
-
-    text-align:center;
-
-    box-shadow:0 8px 22px rgba(0,0,0,.08);
-}
-
-/* =====================================================
-   ĐIỀU ĐỌNG LẠI
-===================================================== */
-
-.memory-links{
-    display:flex;
-
-    gap:20px;
-
-    margin-top:35px;
-
-    flex-wrap:wrap;
-}
-
-.memory-link{
-    display:inline-block;
-
-    padding:16px 28px;
-
-    border-radius:30px;
-
-    background:#087650;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-weight:700;
-}
-
-/* =====================================================
-   ANIMATION
-===================================================== */
-
-@keyframes fadeLeft{
-    from{
-        opacity:0;
-        transform:translate(-20px,-50%);
+      color: #18362c;
+      padding: 70px 8%;
     }
 
-    to{
-        opacity:1;
-        transform:translate(0,-50%);
-    }
-}
-
-@keyframes fadeDown{
-    from{
-        opacity:0;
-        transform:translateY(-18px);
+    .page.active {
+      display: block;
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@keyframes arrowMove{
-    0%,100%{
-        transform:translateY(0);
+    .content {
+      max-width: 1200px;
+      margin: auto;
     }
 
-    50%{
-        transform:translateY(7px);
-    }
-}
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:900px){
-
-    .cover-photo{
-        object-fit:cover;
-        object-position:center;
+    .back {
+      display: inline-block;
+      margin-bottom: 45px;
+      padding: 11px 20px;
+      border: 1px solid #14834d;
+      border-radius: 30px;
+      color: #14834d;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      background: white;
     }
 
-    .brand{
-        top:3%;
+    .back:hover {
+      background: #14834d;
+      color: white;
     }
 
-    .brand-logo{
-        width:72px;
+    h1 {
+      font-size: 42px;
+      color: #087846;
+      margin-bottom: 25px;
     }
 
-    .brand-divider{
-        height:62px;
-        margin:0 14px;
+    h2 {
+      color: #087846;
+      margin-bottom: 20px;
     }
 
-    .brand-name{
-        font-size:21px;
+    p {
+      font-size: 19px;
+      line-height: 1.8;
+      color: #444;
     }
 
-    .brand-company{
-        font-size:11px;
+    /* =========================
+       BUỔI HỌC
+       ========================= */
+
+    .sessions {
+      display: grid;
+      grid-template-columns:
+        repeat(5, 1fr);
+      gap: 18px;
+      margin-top: 45px;
     }
 
-    .hero-copy{
-        width:88%;
-        top:47%;
+    .session {
+      padding: 28px 15px;
+      background: white;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow:
+        0 8px 30px rgba(0,0,0,0.08);
+      color: #087846;
+      font-weight: bold;
+      text-decoration: none;
     }
 
-    .program{
-        font-size:20px;
+    .session:hover {
+      transform: translateY(-4px);
+      transition: 0.25s;
+      box-shadow:
+        0 12px 35px rgba(0,0,0,0.13);
     }
 
-    .main-title{
-        font-size:48px;
+    /* =========================
+       RESPONSIVE
+       ========================= */
+
+    @media (max-width: 900px) {
+
+      .cover {
+        height: auto;
+        min-height: 100vh;
+      }
+
+      .cover-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .sessions {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 17px;
+      }
     }
 
-    .values{
-        white-space:normal;
-        font-size:19px;
-    }
-
-    .cover-menu{
-        display:none;
-    }
-
-    .explore{
-        bottom:4%;
-    }
-
-    .study-list{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .library-grid{
-        grid-template-columns:1fr;
-    }
-
-    .panel-card{
-        padding:40px 25px;
-    }
-}
-
-</style>
+  </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     COVER
-===================================================== -->
+<!-- ==================================================
+     TRANG COVER
+     ================================================== -->
 
 <section class="cover" id="home">
 
-    <img
-        src="assets/images/su-tu-trang.jpg"
-        class="cover-photo"
-        alt="Giàn khai thác ngoài khơi"
-    >
+  <img
+    src="assets/images/cover-nvtn-final.png"
+    alt="Chương trình Nhân viên Tài năng PVEP"
+    class="cover-image"
+  >
 
-    <div class="cover-shade"></div>
+  <!-- Các vùng click nằm đúng trên menu của ảnh -->
 
-    <!-- LOGO -->
+  <a
+    href="#gioi-thieu"
+    class="nav-link nav-1"
+    aria-label="Giới thiệu">
+  </a>
 
-    <div class="brand">
+  <a
+    href="#hanh-trinh"
+    class="nav-link nav-2"
+    aria-label="Hành trình">
+  </a>
 
-        <img
-            src="assets/images/Logo-pvep.png"
-            class="brand-logo"
-            alt="PVEP"
-        >
+  <a
+    href="#buoi-hoc"
+    class="nav-link nav-3"
+    aria-label="Buổi học">
+  </a>
 
-        <div class="brand-divider"></div>
+  <a
+    href="#thu-vien"
+    class="nav-link nav-4"
+    aria-label="Thư viện">
+  </a>
 
-        <div class="brand-info">
+  <a
+    href="#dieu-dong-lai"
+    class="nav-link nav-5"
+    aria-label="Điều đọng lại">
+  </a>
 
-            <div class="brand-name">
-                PVEP
-            </div>
+  <a
+    href="#dieu-dong-lai"
+    class="nav-link nav-6"
+    aria-label="Điều đọng lại">
+  </a>
 
-            <div class="brand-company">
-                TỔNG CÔNG TY THĂM DÒ KHAI THÁC DẦU KHÍ
-            </div>
+</section>
 
-        </div>
 
-    </div>
+<!-- ==================================================
+     GIỚI THIỆU
+     ================================================== -->
 
-    <!-- NỘI DUNG -->
+<section class="page" id="gioi-thieu">
 
-    <div class="hero-copy">
+  <div class="content">
 
-        <div class="program">
-            CHƯƠNG TRÌNH
-        </div>
-
-        <div class="main-title">
-            NHÂN VIÊN<br>
-            TÀI NĂNG
-        </div>
-
-        <div class="title-line"></div>
-
-        <div class="values">
-            HỌC HỎI&nbsp; • &nbsp;KẾT NỐI&nbsp; • &nbsp;PHÁT TRIỂN
-        </div>
-
-        <div class="mentor">
-            Do Phó Tổng giám đốc Ngô Khánh Xạ hướng dẫn và đồng hành
-        </div>
-
-        <div class="years">
-            2025 — 2026
-        </div>
-
-    </div>
-
-    <!-- KHÁM PHÁ -->
-
-    <a
-        href="#gioi-thieu"
-        class="explore"
-    >
-
-        <div class="explore-circle">
-            ↓
-        </div>
-
-        <div class="explore-label">
-            KHÁM PHÁ HÀNH TRÌNH
-        </div>
-
+    <a href="#home" class="back">
+      ← TRỞ VỀ TRANG CHỦ
     </a>
 
-    <!-- MENU -->
+    <h1>GIỚI THIỆU</h1>
 
-    <nav class="cover-menu">
+    <p>
+      Chương trình Nhân viên Tài năng PVEP là hành trình
+      học hỏi, kết nối và phát triển dành cho đội ngũ
+      nhân sự tài năng của Tổng công ty, dưới sự hướng dẫn
+      và đồng hành của Phó Tổng giám đốc Ngô Khánh Xạ.
+    </p>
 
-        <a href="#gioi-thieu">
-            <span class="menu-no">01</span>
-            GIỚI THIỆU
-        </a>
-
-        <a href="#hanh-trinh">
-            <span class="menu-no">02</span>
-            HÀNH TRÌNH
-        </a>
-
-        <a href="#buoi-hoc">
-            <span class="menu-no">03</span>
-            BUỔI HỌC
-        </a>
-
-        <a href="#thu-vien">
-            <span class="menu-no">04</span>
-            THƯ VIỆN
-        </a>
-
-        <a href="#dieu-dong-lai">
-            <span class="menu-no">05</span>
-            ĐIỀU ĐỌNG LẠI
-        </a>
-
-    </nav>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-     01 GIỚI THIỆU
-===================================================== -->
+<!-- ==================================================
+     HÀNH TRÌNH
+     ================================================== -->
 
-<section class="panel" id="gioi-thieu">
+<section class="page" id="hanh-trinh">
 
-    <div class="panel-card">
+  <div class="content">
 
-        <a href="#home" class="back">
-            ← TRỞ VỀ
-        </a>
+    <a href="#home" class="back">
+      ← TRỞ VỀ TRANG CHỦ
+    </a>
 
-        <div class="panel-number">
-            01
-        </div>
+    <h1>HÀNH TRÌNH</h1>
 
-        <h2>
-            GIỚI THIỆU
-        </h2>
+    <p>
+      Nơi lưu giữ những dấu mốc, trải nghiệm,
+      kiến thức và sự trưởng thành của
+      Nhóm Nhân viên Tài năng PVEP trong suốt
+      hành trình 2025 – 2026.
+    </p>
 
-        <p>
-            Chương trình Nhân viên Tài năng PVEP được triển khai
-            nhằm tạo môi trường học hỏi, chia sẻ và phát triển cho
-            đội ngũ nhân sự tài năng của Tổng công ty.
-        </p>
+  </div>
 
-        <p style="margin-top:18px;">
-            Thông qua các buổi học, trao đổi và chia sẻ thực tiễn,
-            chương trình tạo điều kiện để các thành viên mở rộng
-            kiến thức chuyên môn, tư duy quản trị, hiểu biết về hoạt
-            động sản xuất kinh doanh của PVEP và tăng cường kết nối
-            giữa các lĩnh vực, đơn vị.
-        </p>
+</section>
 
-        <p style="margin-top:18px;">
-            Chương trình được Phó Tổng giám đốc Ngô Khánh Xạ
-            hướng dẫn và đồng hành trong suốt hành trình.
-        </p>
+
+<!-- ==================================================
+     CÁC BUỔI HỌC
+     ================================================== -->
+
+<section class="page" id="buoi-hoc">
+
+  <div class="content">
+
+    <a href="#home" class="back">
+      ← TRỞ VỀ TRANG CHỦ
+    </a>
+
+    <h1>CÁC BUỔI HỌC</h1>
+
+    <p>
+      Tài liệu, hình ảnh, bài viết và những nội dung
+      đáng nhớ trong từng buổi học của Chương trình
+      Nhân viên Tài năng PVEP.
+    </p>
+
+    <div class="sessions">
+
+      <a class="session"
+         href="02_Các-buổi-học/">
+        BUỔI 1
+      </a>
+
+      <a class="session"
+         href="02_Các-buổi-học/">
+        BUỔI 2
+      </a>
+
+      <a class="session"
+         href="02_Các-buổi-học/">
+        BUỔI 3
+      </a>
+
+      <a class="session"
+         href="02_Các-buổi-học/">
+        BUỔI 4
+      </a>
+
+      <a class="session"
+         href="02_Các-buổi-học/">
+        BUỔI 5
+      </a>
 
     </div>
 
-</section>
-
-
-<!-- =====================================================
-     02 HÀNH TRÌNH
-===================================================== -->
-
-<section class="panel" id="hanh-trinh">
-
-    <div class="panel-card">
-
-        <a href="#home" class="back">
-            ← TRỞ VỀ
-        </a>
-
-        <div class="panel-number">
-            02
-        </div>
-
-        <h2>
-            HÀNH TRÌNH
-        </h2>
-
-        <p>
-            Hành trình của Nhóm Nhân viên Tài năng PVEP là quá trình
-            học hỏi, kết nối, chia sẻ kiến thức và cùng nhau trưởng thành
-            qua từng chủ đề, từng buổi học và từng trải nghiệm.
-        </p>
-
-        <p style="margin-top:18px;">
-            Đây cũng là nơi lưu giữ những dấu mốc đáng nhớ của chương trình
-            trong giai đoạn 2025 — 2026.
-        </p>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-     03 BUỔI HỌC
-===================================================== -->
+<!-- ==================================================
+     THƯ VIỆN
+     ================================================== -->
 
-<section class="panel" id="buoi-hoc">
+<section class="page" id="thu-vien">
 
-    <div class="panel-card">
+  <div class="content">
 
-        <a href="#home" class="back">
-            ← TRỞ VỀ
-        </a>
+    <a href="#home" class="back">
+      ← TRỞ VỀ TRANG CHỦ
+    </a>
 
-        <div class="panel-number">
-            03
-        </div>
+    <h1>THƯ VIỆN</h1>
 
-        <h2>
-            CÁC BUỔI HỌC
-        </h2>
+    <p>
+      Không gian lưu giữ tài liệu, hình ảnh,
+      bài viết, các sản phẩm học tập và
+      những tư liệu của Chương trình
+      Nhân viên Tài năng PVEP.
+    </p>
 
-        <p>
-            Chọn từng buổi học để xem nội dung, tài liệu,
-            hình ảnh và những dấu ấn đáng nhớ.
-        </p>
-
-        <div class="study-list">
-
-            <a
-                class="study-item"
-                href="02_Các-buổi-học/"
-            >
-                BUỔI 1
-            </a>
-
-            <a
-                class="study-item"
-                href="02_Các-buổi-học/"
-            >
-                BUỔI 2
-            </a>
-
-            <a
-                class="study-item"
-                href="02_Các-buổi-học/"
-            >
-                BUỔI 3
-            </a>
-
-            <a
-                class="study-item"
-                href="02_Các-buổi-học/"
-            >
-                BUỔI 4
-            </a>
-
-            <a
-                class="study-item"
-                href="02_Các-buổi-học/"
-            >
-                BUỔI 5
-            </a>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-     04 THƯ VIỆN
-===================================================== -->
+<!-- ==================================================
+     ĐIỀU ĐỌNG LẠI
+     Gộp Lưu bút + Món quà
+     ================================================== -->
 
-<section class="panel" id="thu-vien">
+<section class="page" id="dieu-dong-lai">
 
-    <div class="panel-card">
+  <div class="content">
 
-        <a href="#home" class="back">
-            ← TRỞ VỀ
-        </a>
+    <a href="#home" class="back">
+      ← TRỞ VỀ TRANG CHỦ
+    </a>
 
-        <div class="panel-number">
-            04
-        </div>
+    <h1>ĐIỀU ĐỌNG LẠI</h1>
 
-        <h2>
-            THƯ VIỆN
-        </h2>
+    <p>
+      Những lời nhắn, kỷ niệm, cảm xúc,
+      lưu bút và những món quà tinh thần
+      được lưu giữ sau hành trình của
+      Chương trình Nhân viên Tài năng PVEP.
+    </p>
 
-        <p>
-            Kho lưu trữ các tài liệu và tư liệu của
-            Chương trình Nhân viên Tài năng PVEP.
-        </p>
-
-        <div class="library-grid">
-
-            <a href="#" class="library-card">
-                TÀI LIỆU
-            </a>
-
-            <a href="#" class="library-card">
-                HÌNH ẢNH
-            </a>
-
-            <a href="#" class="library-card">
-                BÀI VIẾT
-            </a>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-     05 ĐIỀU ĐỌNG LẠI
-===================================================== -->
+<!-- ==================================================
+     SCRIPT
+     Chỉ hiện nội dung khi bấm menu.
+     Trang đầu CHỈ CÓ COVER.
+     ================================================== -->
 
-<section class="panel" id="dieu-dong-lai">
+<script>
 
-    <div class="panel-card">
+  function showPage() {
 
-        <a href="#home" class="back">
-            ← TRỞ VỀ
-        </a>
+    const hash = window.location.hash;
 
-        <div class="panel-number">
-            05
-        </div>
+    const cover =
+      document.getElementById("home");
 
-        <h2>
-            ĐIỀU ĐỌNG LẠI
-        </h2>
+    const pages =
+      document.querySelectorAll(".page");
 
-        <p>
-            Những lời nhắn, cảm xúc, kỷ niệm và món quà
-            tinh thần được lưu giữ sau hành trình học tập.
-        </p>
+    pages.forEach(function(page) {
+      page.classList.remove("active");
+    });
 
-        <div class="memory-links">
+    if (!hash || hash === "#home") {
 
-            <a href="#" class="memory-link">
-                LƯU BÚT
-            </a>
+      cover.style.display = "flex";
 
-            <a
-                href="Qua%20tang%20thay/"
-                class="memory-link"
-            >
-                MÓN QUÀ TẶNG THẦY
-            </a>
+      window.scrollTo(0, 0);
 
-        </div>
+      return;
+    }
 
-    </div>
+    const target =
+      document.querySelector(hash);
 
-</section>
+    if (
+      target &&
+      target.classList.contains("page")
+    ) {
 
+      cover.style.display = "none";
+
+      target.classList.add("active");
+
+      window.scrollTo(0, 0);
+
+    }
+
+  }
+
+  window.addEventListener(
+    "hashchange",
+    showPage
+  );
+
+  window.addEventListener(
+    "load",
+    showPage
+  );
+
+</script>
 
 </body>
 </html>
