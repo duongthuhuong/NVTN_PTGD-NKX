@@ -1,1 +1,1117 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hành trình | Chương trình Nhân viên Tài năng PVEP</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter", Arial, sans-serif;
+    background:#f7faf8;
+    color:#173d4d;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+:root{
+    --navy:#073c52;
+    --navy2:#06475d;
+    --teal:#07839a;
+    --green:#61c84b;
+    --green-dark:#42ae37;
+    --text:#173d4d;
+    --muted:#66777d;
+    --white:#fff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    background:linear-gradient(100deg,#06394e,#06475d);
+    color:#fff;
+}
+
+.header-inner{
+    width:min(1220px, calc(100% - 60px));
+    min-height:78px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.back-home{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color:rgba(255,255,255,.88);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.back-home:hover{
+    color:var(--green);
+    transform:translateX(-2px);
+}
+
+.back-arrow{
+    font-size:17px;
+}
+
+.brand-link{
+    text-decoration:none;
+    color:#fff;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+    border:2px solid var(--green);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--green);
+    font-size:11px;
+    font-weight:800;
+}
+
+.brand-text strong{
+    display:block;
+    color:#fff;
+    font-size:18px;
+    font-weight:800;
+}
+
+.brand-text span{
+    display:block;
+    margin-top:4px;
+    color:rgba(255,255,255,.86);
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.4px;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:22px;
+}
+
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+    white-space:nowrap;
+    transition:.2s ease;
+}
+
+.nav a:hover{
+    color:var(--green);
+}
+
+.nav a.active{
+    color:var(--green);
+    font-weight:800;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 85% 30%, rgba(97,200,75,.12), transparent 30%),
+        linear-gradient(135deg,#eef6f0,#fbfdfb);
+    padding:72px 0 68px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    right:-170px;
+    top:-170px;
+    border-radius:50%;
+    background:rgba(97,200,75,.055);
+}
+
+.hero-inner{
+    position:relative;
+    z-index:1;
+    width:min(1040px, calc(100% - 48px));
+    margin:auto;
+}
+
+.eyebrow{
+    margin-bottom:12px;
+    color:var(--green-dark);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    max-width:850px;
+    color:var(--navy);
+    font-size:46px;
+    line-height:1.12;
+    letter-spacing:-1.4px;
+}
+
+.hero h1 span{
+    color:var(--green-dark);
+}
+
+.hero-lead{
+    max-width:800px;
+    margin-top:20px;
+    color:#587079;
+    font-size:16px;
+    line-height:1.78;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.journey{
+    width:min(1080px, calc(100% - 48px));
+    margin:0 auto;
+    padding:90px 0 85px;
+}
+
+.timeline{
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:2px;
+    transform:translateX(-50%);
+    background:linear-gradient(
+        to bottom,
+        rgba(97,200,75,.15),
+        var(--green),
+        rgba(7,131,154,.28)
+    );
+}
+
+.step{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:76px;
+    align-items:center;
+    margin-bottom:110px;
+}
+
+.step:last-child{
+    margin-bottom:0;
+}
+
+.step:nth-child(even) .step-content{
+    order:2;
+}
+
+.step:nth-child(even) .step-visual{
+    order:1;
+}
+
+.step-dot{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:18px;
+    height:18px;
+    transform:translate(-50%,-50%);
+    border:4px solid #f7faf8;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 4px rgba(97,200,75,.13);
+    z-index:3;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.step-content{
+    padding:10px 0;
+}
+
+.step-number{
+    display:block;
+    margin-bottom:8px;
+    color:var(--green-dark);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.step-title{
+    margin-bottom:16px;
+    color:var(--navy);
+    font-size:30px;
+    line-height:1.2;
+    letter-spacing:-.7px;
+}
+
+.step-text{
+    color:#62757c;
+    font-size:15px;
+    line-height:1.8;
+}
+
+.step-quote{
+    margin-top:24px;
+    padding-left:18px;
+    border-left:3px solid var(--green);
+    color:var(--navy);
+    font-size:18px;
+    font-weight:700;
+    line-height:1.55;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.step-visual{
+    position:relative;
+}
+
+.image-wrap{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    box-shadow:0 18px 38px rgba(4,62,78,.15);
+}
+
+.image-wrap::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(3,45,58,.22),
+        transparent 48%
+    );
+    pointer-events:none;
+}
+
+.image-wrap img{
+    display:block;
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    transition:transform .7s ease;
+}
+
+.image-wrap:hover img{
+    transform:scale(1.035);
+}
+
+.image-caption{
+    position:absolute;
+    left:20px;
+    bottom:16px;
+    z-index:2;
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.step-final{
+    grid-template-columns:1fr;
+}
+
+.step-final .step-dot{
+    top:40px;
+}
+
+.final-box{
+    position:relative;
+    overflow:hidden;
+    padding:62px 68px;
+    border-radius:26px;
+    background:
+        radial-gradient(circle at 90% 20%, rgba(97,200,75,.18), transparent 30%),
+        linear-gradient(135deg,#063c52,#075b70 60%,#07859a);
+    color:#fff;
+    text-align:center;
+    box-shadow:0 20px 45px rgba(4,62,78,.18);
+}
+
+.final-box::after{
+    content:"05";
+    position:absolute;
+    right:32px;
+    top:-35px;
+    font-size:150px;
+    font-weight:800;
+    color:rgba(255,255,255,.04);
+}
+
+.final-label{
+    margin-bottom:12px;
+    color:var(--green);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.final-title{
+    margin-bottom:34px;
+    color:#fff;
+    font-size:34px;
+    font-weight:800;
+}
+
+.final-lines{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.final-lines span{
+    font-size:23px;
+    font-weight:600;
+    line-height:1.4;
+}
+
+.final-lines strong{
+    color:var(--green);
+}
+
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.closing{
+    padding:0 24px 90px;
+    text-align:center;
+}
+
+.closing p{
+    max-width:850px;
+    margin:auto;
+    color:#536a73;
+    font-size:20px;
+    font-weight:500;
+    line-height:1.7;
+}
+
+.closing strong{
+    color:var(--navy);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    padding:15px 20px;
+    color:#fff;
+    text-align:center;
+    background:linear-gradient(100deg,#06445a,#07859b);
+}
+
+.footer span{
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.7px;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .nav{
+        gap:12px;
+    }
+
+    .nav a{
+        font-size:9.5px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .step{
+        gap:55px;
+    }
+
+    .step-title{
+        font-size:26px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
+
+    .header-inner{
+        width:calc(100% - 32px);
+        flex-wrap:wrap;
+        padding:12px 0;
+    }
+
+    .header-left{
+        width:100%;
+    }
+
+    .nav{
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(5,1fr);
+        gap:3px;
+        padding-top:8px;
+        border-top:1px solid rgba(255,255,255,.12);
+    }
+
+    .nav a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        font-size:7.8px;
+        line-height:1.25;
+        white-space:normal;
+    }
+
+    .hero{
+        padding:50px 0 48px;
+    }
+
+    .hero-inner{
+        width:calc(100% - 32px);
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-lead{
+        font-size:15px;
+    }
+
+    .journey{
+        width:calc(100% - 32px);
+        padding:65px 0;
+    }
+
+    .timeline::before{
+        left:14px;
+    }
+
+    .step{
+        display:block;
+        padding-left:42px;
+        margin-bottom:78px;
+    }
+
+    .step:nth-child(even) .step-content,
+    .step:nth-child(even) .step-visual{
+        order:initial;
+    }
+
+    .step-dot{
+        left:14px;
+        top:25px;
+        transform:translate(-50%,0);
+    }
+
+    .step-content{
+        margin-bottom:25px;
+    }
+
+    .step-title{
+        font-size:25px;
+    }
+
+    .step-text{
+        font-size:14px;
+    }
+
+    .step-quote{
+        font-size:17px;
+    }
+
+    .image-wrap img{
+        height:260px;
+    }
+
+    .step-final{
+        padding-left:42px;
+    }
+
+    .step-final .step-dot{
+        left:14px;
+        top:22px;
+    }
+
+    .final-box{
+        padding:45px 25px;
+    }
+
+    .final-title{
+        font-size:28px;
+    }
+
+    .final-lines span{
+        font-size:19px;
+    }
+
+    .closing{
+        padding-bottom:65px;
+    }
+
+    .closing p{
+        font-size:17px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE NHỎ
+========================================================= */
+
+@media(max-width:450px){
+
+    .brand-text span{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .nav a{
+        font-size:6.7px;
+    }
+
+    .step-title{
+        font-size:22px;
+    }
+
+    .image-wrap img{
+        height:220px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="header-left">
+
+            <a class="back-home" href="../index.html">
+                <span class="back-arrow">←</span>
+                <span>Trang chính</span>
+            </a>
+
+            <a class="brand-link" href="../index.html">
+
+                <div class="brand">
+
+                    <div class="logo-mark">
+                        PVEP
+                    </div>
+
+                    <div class="brand-text">
+                        <strong>PVEP</strong>
+                        <span>CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="../01_Gioi-thieu/">
+                01 GIỚI THIỆU
+            </a>
+
+            <a class="active" href="#">
+                02 HÀNH TRÌNH
+            </a>
+
+            <a href="../03_Buoi-hoc/">
+                03 BUỔI HỌC
+            </a>
+
+            <a href="../04_Thu-vien/">
+                04 THƯ VIỆN
+            </a>
+
+            <a href="../05_Dieu-dong-lai/">
+                05 ĐIỀU ĐỌNG LẠI
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-inner reveal">
+
+        <div class="eyebrow">
+            02 — HÀNH TRÌNH
+        </div>
+
+        <h1>
+            Không chỉ là những buổi học.
+            <br>
+            Đó là một hành trình <span>trưởng thành.</span>
+        </h1>
+
+        <p class="hero-lead">
+            Từ những cá nhân đến từ các lĩnh vực và đơn vị khác nhau,
+            từng bước học cách kết nối, nhìn công việc trong một bức tranh lớn hơn
+            và hiểu rõ giá trị mình cần tạo ra cho PVEP.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
+
+<section class="journey">
+
+    <div class="timeline">
+
+
+        <!-- 01 -->
+
+        <div class="step reveal">
+
+            <div class="step-dot"></div>
+
+            <div class="step-content">
+
+                <span class="step-number">
+                    01 — ĐIỂM XUẤT PHÁT
+                </span>
+
+                <h2 class="step-title">
+                    Những ngày đầu — mỗi người một cách
+                </h2>
+
+                <p class="step-text">
+                    Mỗi người đến từ một lĩnh vực chuyên môn,
+                    một đơn vị công tác và mang theo cách nhìn của riêng mình.
+                    Những bản kế hoạch đầu tiên cũng phản ánh đúng điều đó:
+                    có năng lực, có định hướng, nhưng vẫn còn khá riêng lẻ.
+                </p>
+
+                <div class="step-quote">
+                    Từ những cá nhân giỏi,
+                    hành trình bắt đầu bằng việc học cách trở thành một nhóm.
+                </div>
+
+            </div>
+
+            <div class="step-visual">
+
+                <div class="image-wrap">
+
+                    <img
+                        src="hanh-trinh-01.jpg"
+                        alt="Những ngày đầu của lớp Nhân viên Tài năng PVEP"
+                    >
+
+                    <div class="image-caption">
+                        NHỮNG NGÀY ĐẦU
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 02 -->
+
+        <div class="step reveal">
+
+            <div class="step-dot"></div>
+
+            <div class="step-content">
+
+                <span class="step-number">
+                    02 — KẾT NỐI
+                </span>
+
+                <h2 class="step-title">
+                    Học cách đi cùng nhau
+                </h2>
+
+                <p class="step-text">
+                    Không còn là từng bài riêng, từng cách làm riêng.
+                    Các thành viên bắt đầu trao đổi, phản biện,
+                    cùng chuẩn bị nội dung và cùng chịu trách nhiệm
+                    cho một kết quả chung.
+                </p>
+
+                <div class="step-quote">
+                    “Trong dầu khí, không ai thành công một mình.”
+                </div>
+
+            </div>
+
+            <div class="step-visual">
+
+                <div class="image-wrap">
+
+                    <img
+                        src="hanh-trinh-02.jpg"
+                        alt="Các thành viên lớp Nhân viên Tài năng cùng trao đổi và làm việc nhóm"
+                    >
+
+                    <div class="image-caption">
+                        HỌC CÁCH LÀM VIỆC CÙNG NHAU
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 03 -->
+
+        <div class="step reveal">
+
+            <div class="step-dot"></div>
+
+            <div class="step-content">
+
+                <span class="step-number">
+                    03 — BỨC TRANH LỚN
+                </span>
+
+                <h2 class="step-title">
+                    Từ phần việc của mình đến cả chuỗi giá trị
+                </h2>
+
+                <p class="step-text">
+                    Công nghệ mỏ, dữ liệu, chuyển đổi số,
+                    quản lý dự án hay vận hành không tồn tại riêng lẻ.
+                    Mỗi người bắt đầu nhìn thấy công việc của mình
+                    trong mối liên hệ với những người khác,
+                    với dự án và với mục tiêu chung của Tổng công ty.
+                </p>
+
+                <div class="step-quote">
+                    “Đừng chỉ hiểu phần việc của mình.
+                    Hãy hiểu mình đang đứng ở đâu trong chuỗi giá trị dầu khí.”
+                </div>
+
+            </div>
+
+            <div class="step-visual">
+
+                <div class="image-wrap">
+
+                    <img
+                        src="hanh-trinh-03.jpg"
+                        alt="Lớp Nhân viên Tài năng cùng trao đổi về chuỗi giá trị và công việc thực tế"
+                    >
+
+                    <div class="image-caption">
+                        NHÌN CÔNG VIỆC TRONG BỨC TRANH CHUNG
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 04 -->
+
+        <div class="step reveal">
+
+            <div class="step-dot"></div>
+
+            <div class="step-content">
+
+                <span class="step-number">
+                    04 — CÁCH LÀM NGHỀ
+                </span>
+
+                <h2 class="step-title">
+                    Không chỉ học kiến thức — học cách làm nghề
+                </h2>
+
+                <p class="step-text">
+                    Mục tiêu, cách ra quyết định, phân vai,
+                    trách nhiệm cuối cùng, phản biện và dự liệu rủi ro
+                    dần trở thành những câu hỏi quen thuộc.
+                    Điều quan trọng không còn chỉ là biết gì,
+                    mà là mình sẽ làm một việc như thế nào.
+                </p>
+
+                <div class="step-quote">
+                    Tự trọng nghề nghiệp.
+                    Làm việc tử tế.
+                    Có trách nhiệm với điều mình làm.
+                </div>
+
+            </div>
+
+            <div class="step-visual">
+
+                <div class="image-wrap">
+
+                    <img
+                        src="hanh-trinh-04.jpg"
+                        alt="Thành viên lớp Nhân viên Tài năng trình bày và trao đổi trong lớp học"
+                    >
+
+                    <div class="image-caption">
+                        HỌC CÁCH LÀM MỘT VIỆC ĐẾN NƠI ĐẾN CHỐN
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 05 -->
+
+        <div class="step step-final reveal">
+
+            <div class="step-dot"></div>
+
+            <div class="final-box">
+
+                <div class="final-label">
+                    05 — TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
+                </div>
+
+                <h2 class="final-title">
+                    Cuối cùng, câu hỏi trở về với chính mình
+                </h2>
+
+                <div class="final-lines">
+
+                    <span>
+                        Biết mình <strong>đứng ở đâu.</strong>
+                    </span>
+
+                    <span>
+                        Biết mình <strong>có trách nhiệm với điều gì.</strong>
+                    </span>
+
+                    <span>
+                        Và biết <strong>giá trị mình tạo ra cho PVEP.</strong>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CLOSING
+===================================================== -->
+
+<section class="closing reveal">
+
+    <p>
+        Sau mỗi buổi học, điều thay đổi không chỉ là
+        <strong>điều chúng tôi biết thêm</strong>,
+        mà còn là cách chúng tôi nhìn công việc,
+        nhìn những người làm việc cùng mình
+        và nhìn chính vị trí của mình trong PVEP.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <span>
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+        &nbsp; | &nbsp;
+        2025–2026
+    </span>
+
+</footer>
+
+
+
+<!-- =====================================================
+     SCROLL EFFECT
+===================================================== -->
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add('visible');
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.14
+    }
+);
+
+reveals.forEach(item => observer.observe(item));
+
+</script>
+
+</body>
+</html>
