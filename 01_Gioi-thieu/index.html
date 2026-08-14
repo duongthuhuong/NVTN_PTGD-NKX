@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Giới thiệu | Chương trình Nhân viên Tài năng PVEP</title>
-
 
 <style>
 
 /* =========================================================
-   01. HỆ MÀU
+   01. DESIGN SYSTEM
 ========================================================= */
 
 :root{
-
     --green:#67c94b;
-    --green-soft:#8bdc72;
+    --green-soft:#8ddd72;
 
-    --navy:#062f46;
-    --navy-dark:#042536;
-    --navy-deep:#031b29;
+    --navy:#052e45;
+    --navy-dark:#032434;
 
-    --blue-text:#174d65;
+    --blue:#214f63;
 
+    --paper:#f5f7f4;
+    --soft:#eef3ef;
     --white:#ffffff;
 
-    --paper:#f7f8f5;
-    --paper-2:#eef3ef;
+    --text:#30474f;
+    --muted:#71807d;
 
-    --text:#243d46;
-    --muted:#6e7f80;
+    --line:#dfe6e1;
 
-    --line:#dfe8e1;
-
+    /* HỆ CỠ CHỮ CỐ ĐỊNH */
+    --hero-title:62px;
+    --section-title:38px;
+    --sub-title:26px;
+    --card-title:17px;
+    --body:16px;
+    --small:13px;
 }
 
 
@@ -53,1522 +51,825 @@
     box-sizing:border-box;
 }
 
-
 html{
     scroll-behavior:smooth;
 }
 
-
 body{
-
     font-family:
         "Segoe UI",
         Tahoma,
         Arial,
         sans-serif;
 
-    background:
-        var(--paper);
+    background:var(--paper);
+    color:var(--text);
 
-    color:
-        var(--text);
-
-    -webkit-font-smoothing:
-        antialiased;
-
-    text-rendering:
-        optimizeLegibility;
-
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 }
-
 
 a{
     color:inherit;
     text-decoration:none;
 }
 
-
-button{
-    font:inherit;
-}
-
-
-/* =========================================================
-   03. PAGE
-========================================================= */
-
 .page{
-
     width:100%;
-
     overflow:hidden;
-
 }
-
 
 .container{
-
-    width:
-        min(
-            1180px,
-            calc(100% - 64px)
-        );
-
-    margin:
-        0 auto;
-
+    width:min(1160px, calc(100% - 64px));
+    margin:auto;
 }
 
 
 /* =========================================================
-   04. TOP BAR
+   03. TOP BAR
 ========================================================= */
 
 .topbar{
-
     position:fixed;
-
     top:0;
     left:0;
     right:0;
 
     z-index:100;
 
-    height:76px;
+    height:72px;
 
     display:flex;
-
     align-items:center;
 
-    background:
-        rgba(4,37,54,.94);
-
-    backdrop-filter:
-        blur(12px);
+    background:rgba(4,36,52,.96);
 
     border-bottom:
-        1px solid
-        rgba(255,255,255,.10);
+        1px solid rgba(255,255,255,.08);
 
+    backdrop-filter:blur(10px);
 }
-
 
 .topbar-inner{
-
-    width:
-        min(
-            1180px,
-            calc(100% - 64px)
-        );
-
-    margin:
-        0 auto;
+    width:min(1160px, calc(100% - 64px));
+    margin:auto;
 
     display:flex;
-
     align-items:center;
-
-    justify-content:
-        space-between;
-
+    justify-content:space-between;
 }
-
 
 .brand{
-
     display:flex;
-
     align-items:center;
-
-    gap:15px;
-
+    gap:14px;
 }
-
 
 .logo{
-
-    width:54px;
-
+    width:50px;
     height:auto;
-
-    display:block;
-
 }
-
 
 .brand-line{
-
     width:1px;
-
-    height:38px;
-
-    background:
-        rgba(255,255,255,.45);
-
+    height:36px;
+    background:rgba(255,255,255,.40);
 }
 
-
-.brand-text{
+.brand-text strong{
+    display:block;
 
     color:white;
 
+    font-size:15px;
+    font-weight:800;
 }
-
-
-.brand-text strong{
-
-    display:block;
-
-    font-size:16px;
-
-    letter-spacing:.5px;
-
-}
-
 
 .brand-text span{
-
     display:block;
 
     margin-top:3px;
 
+    color:rgba(255,255,255,.67);
+
     font-size:10px;
-
-    letter-spacing:.6px;
-
-    color:
-        rgba(255,255,255,.68);
-
+    letter-spacing:.5px;
 }
 
-
 .back-home{
-
-    padding:
-        10px 15px;
+    padding:9px 14px;
 
     border:
-        1px solid
-        rgba(255,255,255,.16);
+        1px solid rgba(255,255,255,.16);
 
     border-radius:999px;
 
     color:white;
 
-    font-size:13px;
+    font-size:12px;
+    font-weight:700;
 
-    font-weight:650;
-
-    transition:
-        background .25s ease,
-        transform .25s ease;
-
+    transition:.25s;
 }
 
-
 .back-home:hover{
-
-    background:
-        rgba(103,201,75,.15);
-
-    transform:
-        translateY(-1px);
-
+    background:rgba(103,201,75,.15);
 }
 
 
 /* =========================================================
-   05. HERO
+   04. HERO
 ========================================================= */
 
 .hero{
-
-    position:relative;
-
-    min-height:560px;
-
-    display:flex;
-
-    align-items:center;
+    min-height:540px;
 
     padding:
         145px
         0
-        90px;
+        78px;
 
-    background:
-
-        radial-gradient(
-            circle at 78% 35%,
-            rgba(18,108,126,.34),
-            transparent 38%
-        ),
-
-        linear-gradient(
-            135deg,
-            #062c42 0%,
-            #07374b 48%,
-            #075b59 100%
-        );
+    display:flex;
+    align-items:center;
 
     color:white;
 
+    background:
+        radial-gradient(
+            circle at 78% 38%,
+            rgba(5,115,122,.30),
+            transparent 40%
+        ),
+        linear-gradient(
+            130deg,
+            #062d43 0%,
+            #07394b 52%,
+            #087162 100%
+        );
 }
-
-
-.hero::after{
-
-    content:"";
-
-    position:absolute;
-
-    right:-120px;
-
-    bottom:-190px;
-
-    width:520px;
-
-    height:520px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    box-shadow:
-
-        0 0 0 70px
-        rgba(255,255,255,.025),
-
-        0 0 0 140px
-        rgba(255,255,255,.018);
-
-}
-
 
 .hero-content{
-
-    position:relative;
-
-    z-index:2;
-
-    max-width:940px;
-
+    max-width:860px;
 }
-
 
 .eyebrow{
-
     margin-bottom:20px;
 
-    color:
-        var(--green);
+    color:var(--green);
 
-    font-size:15px;
-
+    font-size:13px;
     font-weight:800;
-
-    letter-spacing:
-        1.4px;
-
+    letter-spacing:1.4px;
 }
 
+.hero-title{
+    color:white;
 
-.hero h1{
-
-    max-width:900px;
-
-    font-size:
-        clamp(
-            46px,
-            5.2vw,
-            76px
-        );
-
-    line-height:
-        1.02;
+    font-size:var(--hero-title);
+    line-height:1.08;
 
     font-weight:800;
-
-    letter-spacing:
-        -.8px;
-
+    letter-spacing:-.7px;
 }
 
+/* KHÔNG CÓ DẤU CHẤM */
+
+.hero-title span{
+    display:block;
+}
 
 .hero-line{
-
-    width:180px;
-
+    width:150px;
     height:3px;
 
-    margin:
-        28px
-        0
-        24px;
+    margin:26px 0 22px;
 
-    background:
-        var(--green);
-
+    background:var(--green);
 }
 
-
 .hero-intro{
+    max-width:820px;
 
-    max-width:850px;
+    color:rgba(255,255,255,.84);
 
-    font-size:
-        clamp(
-            17px,
-            1.4vw,
-            21px
-        );
-
-    line-height:
-        1.75;
-
-    color:
-        rgba(255,255,255,.85);
-
+    font-size:18px;
+    line-height:1.7;
 }
 
 
 /* =========================================================
-   06. SECTION COMMON
+   05. SECTION COMMON
 ========================================================= */
 
 .section{
-
-    padding:
-        92px
-        0;
-
+    padding:78px 0;
 }
-
-
-.section-soft{
-
-    background:
-        var(--paper-2);
-
-}
-
 
 .section-white{
-
-    background:
-        #ffffff;
-
+    background:white;
 }
 
+.section-soft{
+    background:var(--soft);
+}
 
 .section-label{
+    margin-bottom:11px;
 
-    margin-bottom:12px;
+    color:var(--green);
 
-    color:
-        var(--green);
-
-    font-size:13px;
-
+    font-size:var(--small);
     font-weight:800;
-
-    letter-spacing:
-        1.6px;
-
+    letter-spacing:1.35px;
 }
-
 
 .section-title{
-
-    max-width:850px;
-
-    color:
-        var(--blue-text);
-
-    font-size:
-        clamp(
-            34px,
-            3.6vw,
-            52px
-        );
-
-    line-height:
-        1.08;
-
-    font-weight:750;
-
-    letter-spacing:
-        -.6px;
-
-}
-
-
-.section-title
-.highlight{
-
-    color:
-        var(--green);
-
-}
-
-
-.section-lead{
-
     max-width:820px;
 
-    margin-top:22px;
+    color:var(--blue);
 
-    color:
-        var(--muted);
+    font-size:var(--section-title);
+    line-height:1.18;
 
-    font-size:17px;
+    font-weight:750;
+    letter-spacing:-.3px;
+}
 
-    line-height:
-        1.75;
+.section-lead{
+    max-width:810px;
 
+    margin-top:18px;
+
+    color:var(--muted);
+
+    font-size:var(--body);
+    line-height:1.75;
 }
 
 
 /* =========================================================
-   07. WHY PROGRAM
+   06. WHY
 ========================================================= */
 
 .why-grid{
-
-    margin-top:54px;
+    margin-top:42px;
 
     display:grid;
+    grid-template-columns:repeat(4,1fr);
 
-    grid-template-columns:
-        repeat(4,1fr);
-
-    border-top:
-        1px solid
-        var(--line);
-
-    border-bottom:
-        1px solid
-        var(--line);
-
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
-
 
 .why-item{
+    min-height:210px;
 
-    min-height:220px;
+    padding:30px 24px;
 
-    padding:
-        34px
-        28px;
-
-    border-right:
-        1px solid
-        var(--line);
-
+    border-right:1px solid var(--line);
 }
-
 
 .why-item:last-child{
-
     border-right:0;
-
 }
-
 
 .why-number{
+    margin-bottom:18px;
 
-    margin-bottom:22px;
+    color:var(--green);
 
-    color:
-        var(--green);
-
-    font-size:25px;
-
+    font-size:23px;
     font-weight:800;
-
 }
-
 
 .why-item h3{
+    color:#344f59;
 
-    color:
-        #284753;
-
-    font-size:16px;
-
-    line-height:1.5;
+    font-size:var(--card-title);
+    line-height:1.45;
 
     font-weight:700;
-
 }
 
-
 .why-item p{
+    margin-top:10px;
 
-    margin-top:11px;
-
-    color:
-        var(--muted);
+    color:var(--muted);
 
     font-size:14px;
-
     line-height:1.6;
-
 }
 
 
 /* =========================================================
-   08. MESSAGE
+   07. MESSAGE
 ========================================================= */
 
 .message-wrap{
-
-    padding:
-        72px
-        0;
-
+    padding:58px 0;
 }
 
-
 .message-box{
+    padding:44px 48px;
 
-    position:relative;
-
-    padding:
-        52px
-        58px;
-
-    overflow:hidden;
-
-    border-radius:24px;
-
-    background:
-
-        linear-gradient(
-            120deg,
-            #063248,
-            #076452
-        );
+    border-radius:20px;
 
     color:white;
 
+    background:
+        linear-gradient(
+            115deg,
+            #063149,
+            #08705a
+        );
 }
-
-
-.message-box::after{
-
-    content:"";
-
-    position:absolute;
-
-    right:-80px;
-
-    top:-100px;
-
-    width:300px;
-
-    height:300px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.10);
-
-    box-shadow:
-
-        0 0 0 55px
-        rgba(255,255,255,.025),
-
-        0 0 0 110px
-        rgba(255,255,255,.018);
-
-}
-
 
 .quote{
-
-    position:relative;
-
-    z-index:2;
-
     max-width:900px;
 
-    font-size:
-        clamp(
-            26px,
-            3vw,
-            40px
-        );
-
-    line-height:1.35;
+    font-size:29px;
+    line-height:1.42;
 
     font-weight:650;
-
 }
 
-
 .quote-source{
+    margin-top:18px;
 
-    position:relative;
+    color:var(--green-soft);
 
-    z-index:2;
-
-    margin-top:22px;
-
-    color:
-        var(--green-soft);
-
-    font-size:12px;
-
+    font-size:11px;
     font-weight:800;
-
-    letter-spacing:
-        1.3px;
-
+    letter-spacing:1.2px;
 }
 
 
 /* =========================================================
-   09. MENTOR SECTION
+   08. MENTOR
 ========================================================= */
 
 .mentor-layout{
-
-    margin-top:48px;
+    margin-top:40px;
 
     display:grid;
+    grid-template-columns:.9fr 1.1fr;
 
-    grid-template-columns:
-        .85fr
-        1.15fr;
-
-    gap:42px;
-
-    align-items:stretch;
-
+    gap:34px;
 }
 
-
 .mentor-card{
+    min-height:285px;
 
-    position:relative;
+    padding:38px;
 
-    min-height:340px;
-
-    padding:
-        44px;
-
-    overflow:hidden;
-
-    border-radius:22px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #063049,
-            #095878
-        );
+    border-radius:20px;
 
     color:white;
 
-}
-
-
-.mentor-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:230px;
-
-    height:230px;
-
-    right:-90px;
-
-    bottom:-100px;
-
-    border-radius:50%;
-
     background:
-        rgba(103,201,75,.10);
-
+        linear-gradient(
+            145deg,
+            #063049,
+            #0a6380
+        );
 }
-
 
 .mentor-kicker{
-
-    color:
-        var(--green);
+    color:var(--green);
 
     font-size:12px;
-
     font-weight:800;
-
-    letter-spacing:
-        1.5px;
-
+    letter-spacing:1.3px;
 }
 
+/* NGÔ KHÁNH XẠ LUÔN 1 DÒNG */
 
 .mentor-name{
+    margin-top:22px;
 
-    margin-top:20px;
+    color:white;
 
-    font-size:
-        clamp(
-            38px,
-            4vw,
-            56px
-        );
-
-    line-height:
-        .96;
+    font-size:46px;
+    line-height:1;
 
     font-weight:800;
+    letter-spacing:-.5px;
 
+    white-space:nowrap;
 }
-
 
 .mentor-role{
+    margin-top:17px;
 
-    margin-top:20px;
+    color:rgba(255,255,255,.78);
 
-    font-size:16px;
-
-    color:
-        rgba(255,255,255,.78);
-
+    font-size:15px;
 }
-
 
 .group-card{
-
-    padding:
-        40px;
+    padding:36px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:22px;
+    border-radius:20px;
 
     background:white;
-
 }
-
 
 .group-card h3{
+    color:var(--blue);
 
-    color:
-        var(--blue-text);
-
-    font-size:28px;
-
+    font-size:var(--sub-title);
+    line-height:1.25;
 }
-
 
 .group-card > p{
+    margin-top:14px;
 
-    margin-top:16px;
+    color:var(--muted);
 
-    color:
-        var(--muted);
-
-    line-height:
-        1.75;
-
+    font-size:var(--body);
+    line-height:1.7;
 }
-
 
 .expertise{
-
-    margin-top:30px;
+    margin-top:26px;
 
     display:grid;
+    grid-template-columns:repeat(2,1fr);
 
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:12px;
-
+    gap:11px;
 }
-
 
 .expertise-item{
+    padding:15px 17px;
 
-    padding:
-        17px
-        18px;
+    border-radius:11px;
 
-    border-radius:12px;
-
-    background:
-        var(--paper-2);
-
+    background:var(--soft);
 }
-
 
 .expertise-no{
+    color:var(--green);
 
-    color:
-        var(--green);
-
-    font-size:13px;
-
+    font-size:12px;
     font-weight:800;
-
 }
 
-
 .expertise-name{
+    margin-top:4px;
 
-    margin-top:5px;
+    color:#37545d;
 
-    color:
-        #31515c;
-
-    font-size:14px;
-
+    font-size:13px;
     font-weight:700;
-
 }
 
 
 /* =========================================================
-   10. EXPECTATION
+   09. EXPECTATION
 ========================================================= */
 
 .expectation{
-
     display:grid;
+    grid-template-columns:.9fr 1.1fr;
 
-    grid-template-columns:
-        .9fr
-        1.1fr;
-
-    gap:60px;
-
-    align-items:start;
-
+    gap:48px;
 }
-
 
 .expectation-title{
+    color:var(--blue);
 
-    color:
-        var(--blue-text);
-
-    font-size:
-        clamp(
-            34px,
-            3.6vw,
-            52px
-        );
-
-    line-height:
-        1.12;
+    font-size:var(--section-title);
+    line-height:1.18;
 
     font-weight:750;
-
 }
-
 
 .expectation-title span{
-
-    color:
-        var(--green);
-
+    color:var(--green);
 }
-
-
-.expectation-copy{
-
-    padding-top:4px;
-
-}
-
 
 .expectation-copy p{
+    color:var(--muted);
 
-    color:
-        var(--muted);
-
-    font-size:17px;
-
-    line-height:
-        1.8;
-
+    font-size:var(--body);
+    line-height:1.75;
 }
-
 
 .expectation-points{
-
-    margin-top:30px;
+    margin-top:26px;
 
     display:grid;
+    grid-template-columns:1fr 1fr;
 
-    grid-template-columns:
-        1fr
-        1fr;
-
-    gap:14px;
-
+    gap:12px;
 }
-
 
 .expectation-point{
-
-    padding:
-        21px;
+    padding:19px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:14px;
+    border-radius:13px;
 
     background:white;
-
 }
-
 
 .expectation-point strong{
-
     display:block;
 
-    color:
-        var(--green);
+    color:var(--green);
 
-    font-size:20px;
-
+    font-size:17px;
 }
 
-
 .expectation-point span{
-
     display:block;
 
-    margin-top:7px;
+    margin-top:6px;
 
-    color:
-        #4f666d;
+    color:#536970;
 
-    font-size:14px;
-
-    line-height:
-        1.55;
-
+    font-size:13px;
+    line-height:1.5;
 }
 
 
 /* =========================================================
-   11. FINAL STATEMENT
+   10. FINAL
 ========================================================= */
 
 .final-section{
-
-    padding:
-        100px
-        0
-        110px;
+    padding:78px 0 88px;
 
     background:white;
-
 }
-
 
 .final-inner{
-
-    padding-top:42px;
+    padding-top:38px;
 
     border-top:
-        1px solid
-        var(--line);
-
+        1px solid var(--line);
 }
-
 
 .final-label{
-
-    color:
-        var(--green);
+    color:var(--green);
 
     font-size:12px;
-
     font-weight:800;
-
-    letter-spacing:
-        1.5px;
-
+    letter-spacing:1.3px;
 }
-
 
 .final-title{
+    max-width:820px;
 
-    max-width:880px;
+    margin-top:13px;
 
-    margin-top:14px;
+    color:var(--blue);
 
-    color:
-        var(--blue-text);
-
-    font-size:
-        clamp(
-            34px,
-            4vw,
-            55px
-        );
-
-    line-height:
-        1.14;
+    font-size:40px;
+    line-height:1.2;
 
     font-weight:720;
-
 }
 
-
 .final-title span{
-
-    color:
-        var(--green);
-
+    color:var(--green);
 }
 
 
 /* =========================================================
-   12. FOOTER
+   11. FOOTER
 ========================================================= */
 
 .footer{
+    padding:22px 0;
 
-    padding:
-        26px
-        0;
+    background:var(--navy-dark);
 
-    background:
-        var(--navy-dark);
-
-    color:
-        rgba(255,255,255,.55);
-
+    color:rgba(255,255,255,.60);
 }
-
 
 .footer-inner{
-
     display:flex;
+    justify-content:space-between;
 
-    align-items:center;
-
-    justify-content:
-        space-between;
-
-    gap:20px;
-
-    font-size:12px;
-
+    font-size:11px;
 }
 
-
 .footer strong{
-
-    color:
-        rgba(255,255,255,.82);
-
+    color:rgba(255,255,255,.82);
 }
 
 
 /* =========================================================
-   13. ANIMATION ON SCROLL
+   12. REVEAL
 ========================================================= */
 
 .reveal{
-
     opacity:0;
-
-    transform:
-        translateY(25px);
+    transform:translateY(20px);
 
     transition:
-
-        opacity
-        .7s
-        ease,
-
-        transform
-        .7s
-        ease;
-
+        opacity .6s ease,
+        transform .6s ease;
 }
 
-
 .reveal.visible{
-
     opacity:1;
-
-    transform:
-        translateY(0);
-
+    transform:translateY(0);
 }
 
 
 /* =========================================================
-   14. TABLET
+   13. TABLET
 ========================================================= */
 
 @media(max-width:1000px){
 
-    .why-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+    :root{
+        --hero-title:54px;
+        --section-title:34px;
     }
 
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
     .why-item:nth-child(2){
-
         border-right:0;
-
     }
-
 
     .why-item:nth-child(1),
     .why-item:nth-child(2){
-
-        border-bottom:
-            1px solid
-            var(--line);
-
+        border-bottom:1px solid var(--line);
     }
-
 
     .mentor-layout{
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns:1fr;
     }
 
+    .mentor-name{
+        font-size:42px;
+    }
 
     .expectation{
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns:1fr;
         gap:30px;
-
     }
-
 }
 
 
 /* =========================================================
-   15. MOBILE
+   14. MOBILE
 ========================================================= */
 
 @media(max-width:700px){
 
-    .container{
-
-        width:
-            calc(
-                100% - 36px
-            );
-
+    :root{
+        --hero-title:42px;
+        --section-title:30px;
+        --sub-title:23px;
+        --body:15px;
     }
 
+    .container{
+        width:calc(100% - 36px);
+    }
 
     .topbar{
-
-        height:66px;
-
+        height:64px;
     }
-
 
     .topbar-inner{
-
-        width:
-            calc(
-                100% - 30px
-            );
-
+        width:calc(100% - 30px);
     }
-
 
     .logo{
-
-        width:43px;
-
+        width:42px;
     }
-
 
     .brand-line{
-
-        height:30px;
-
+        height:29px;
     }
-
 
     .brand-text strong{
-
         font-size:13px;
-
     }
-
 
     .brand-text span{
-
         display:none;
-
     }
-
 
     .back-home{
-
-        padding:
-            8px
-            11px;
-
-        font-size:11px;
-
+        padding:8px 10px;
+        font-size:10px;
     }
-
 
     .hero{
-
-        min-height:
-            540px;
+        min-height:500px;
 
         padding:
-            120px
+            112px
             0
-            70px;
-
+            58px;
     }
-
 
     .eyebrow{
-
-        font-size:12px;
-
+        font-size:11px;
     }
 
-
-    .hero h1{
-
-        font-size:
-            clamp(
-                39px,
-                12vw,
-                54px
-            );
-
+    .hero-title{
+        line-height:1.08;
     }
-
 
     .hero-intro{
-
-        font-size:16px;
-
-        line-height:1.7;
-
+        font-size:15px;
     }
-
 
     .section{
-
-        padding:
-            66px
-            0;
-
+        padding:58px 0;
     }
-
-
-    .section-title{
-
-        font-size:
-            34px;
-
-    }
-
-
-    .section-lead{
-
-        font-size:15px;
-
-    }
-
 
     .why-grid{
-
-        margin-top:38px;
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns:1fr;
+        margin-top:34px;
     }
-
 
     .why-item{
-
         min-height:auto;
 
-        padding:
-            26px
-            22px;
+        padding:24px 20px;
 
         border-right:0;
-
-        border-bottom:
-            1px solid
-            var(--line);
-
+        border-bottom:1px solid var(--line);
     }
-
 
     .why-item:last-child{
-
         border-bottom:0;
-
     }
-
 
     .message-wrap{
-
-        padding:
-            50px
-            0;
-
+        padding:44px 0;
     }
-
 
     .message-box{
-
-        padding:
-            34px
-            26px;
-
-        border-radius:18px;
-
+        padding:30px 24px;
     }
-
 
     .quote{
-
-        font-size:25px;
-
+        font-size:23px;
     }
-
 
     .mentor-layout{
-
-        margin-top:34px;
-
+        margin-top:30px;
         gap:18px;
-
     }
-
 
     .mentor-card{
-
-        min-height:270px;
-
-        padding:
-            32px
-            27px;
-
+        min-height:230px;
+        padding:30px 24px;
     }
 
+    /* VẪN GIỮ NGÔ KHÁNH XẠ 1 DÒNG */
 
     .mentor-name{
-
-        font-size:42px;
-
+        font-size:30px;
+        white-space:nowrap;
     }
-
 
     .group-card{
-
-        padding:
-            28px
-            24px;
-
+        padding:26px 22px;
     }
-
-
-    .group-card h3{
-
-        font-size:24px;
-
-    }
-
 
     .expertise{
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns:1fr;
     }
-
-
-    .expectation-title{
-
-        font-size:34px;
-
-    }
-
-
-    .expectation-copy p{
-
-        font-size:15px;
-
-    }
-
 
     .expectation-points{
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns:1fr;
     }
-
 
     .final-section{
-
-        padding:
-            70px
-            0
-            80px;
-
+        padding:60px 0 70px;
     }
-
 
     .final-title{
-
-        font-size:34px;
-
+        font-size:30px;
     }
-
 
     .footer-inner{
-
         flex-direction:column;
-
-        align-items:flex-start;
-
+        gap:7px;
     }
-
 }
 
 
 /* =========================================================
-   16. REDUCED MOTION
+   15. REDUCED MOTION
 ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
@@ -1576,21 +877,14 @@ button{
     *,
     *::before,
     *::after{
-
         animation:none !important;
-
         transition:none !important;
-
     }
 
     .reveal{
-
         opacity:1;
-
         transform:none;
-
     }
-
 }
 
 </style>
@@ -1600,12 +894,11 @@ button{
 
 <body>
 
-
 <div class="page">
 
 
 <!-- =====================================================
-     TOP BAR
+     TOPBAR
 ===================================================== -->
 
 <header class="topbar">
@@ -1624,9 +917,7 @@ button{
 
             <div class="brand-text">
 
-                <strong>
-                    PVEP
-                </strong>
+                <strong>PVEP</strong>
 
                 <span>
                     CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
@@ -1663,20 +954,36 @@ button{
                 01 · GIỚI THIỆU
             </div>
 
-            <h1>
-                Phát hiện tiềm năng.<br>
-                Bồi dưỡng năng lực.<br>
-                Chuẩn bị cho tương lai.
+
+            <h1 class="hero-title">
+
+                <span>
+                    Phát hiện tiềm năng
+                </span>
+
+                <span>
+                    Bồi dưỡng năng lực
+                </span>
+
+                <span>
+                    Chuẩn bị cho tương lai
+                </span>
+
             </h1>
+
 
             <div class="hero-line"></div>
 
+
             <p class="hero-intro">
+
                 Chương trình Nhân viên Tài năng PVEP
                 được xây dựng nhằm tạo môi trường
                 để những nhân sự có tiềm năng được học hỏi,
                 thử thách, mở rộng năng lực
-                và gia tăng giá trị đóng góp cho Tổng công ty.
+                và gia tăng giá trị đóng góp
+                cho Tổng công ty.
+
             </p>
 
         </div>
@@ -1698,20 +1005,28 @@ button{
             ĐIỂM KHỞI ĐẦU
         </div>
 
+
         <h2 class="section-title">
+
             Vì sao có Chương trình
             Nhân viên Tài năng?
+
         </h2>
 
+
         <p class="section-lead">
+
             Từ những tiềm năng riêng,
             chương trình hướng tới việc xây dựng
             một nguồn lực chung có khả năng học hỏi,
-            kết nối và tạo ra những giá trị mới cho PVEP.
+            kết nối và tạo ra những giá trị mới
+            cho PVEP.
+
         </p>
 
 
         <div class="why-grid">
+
 
             <div class="why-item">
 
@@ -1741,7 +1056,7 @@ button{
 
                 <h3>
                     Phát triển năng lực
-                    từ chính nguồn nhân sự nội bộ
+                    từ nguồn nhân sự nội bộ
                 </h3>
 
                 <p>
@@ -1780,8 +1095,8 @@ button{
                 </div>
 
                 <h3>
-                    Tạo kết nối
-                    giữa các chuyên môn và đơn vị
+                    Tạo kết nối giữa
+                    các chuyên môn và đơn vị
                 </h3>
 
                 <p>
@@ -1791,6 +1106,7 @@ button{
                 </p>
 
             </div>
+
 
         </div>
 
@@ -1811,15 +1127,18 @@ button{
 
             <div class="quote">
 
-                “Tài năng không chỉ nằm ở việc
-                bạn được lựa chọn,
-                mà ở những giá trị
-                bạn tạo ra sau khi được trao cơ hội.”
+                “Tài năng không chỉ nằm ở việc bạn được lựa chọn,
+                mà ở những giá trị bạn tạo ra
+                sau khi được trao cơ hội”
 
             </div>
 
+
             <div class="quote-source">
-                THÔNG ĐIỆP CỦA CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+
+                THÔNG ĐIỆP CỦA
+                CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+
             </div>
 
         </div>
@@ -1837,23 +1156,29 @@ button{
 
     <div class="container reveal">
 
+
         <div class="section-label">
             NGƯỜI HƯỚNG DẪN
         </div>
+
 
         <h2 class="section-title">
             Đồng hành cùng hành trình phát triển
         </h2>
 
+
         <p class="section-lead">
+
             Chương trình được Phó Tổng giám đốc
             Ngô Khánh Xạ trực tiếp hướng dẫn và đồng hành,
             tạo không gian để các thành viên cùng học hỏi,
             chia sẻ và mở rộng góc nhìn.
+
         </p>
 
 
         <div class="mentor-layout">
+
 
             <div class="mentor-card">
 
@@ -1861,10 +1186,11 @@ button{
                     NGƯỜI HƯỚNG DẪN
                 </div>
 
+
                 <div class="mentor-name">
-                    NGÔ<br>
-                    KHÁNH XẠ
+                    NGÔ KHÁNH XẠ
                 </div>
+
 
                 <div class="mentor-role">
                     Phó Tổng giám đốc PVEP
@@ -1879,15 +1205,20 @@ button{
                     Một nhóm — nhiều góc nhìn
                 </h3>
 
+
                 <p>
-                    Nhóm Nhân viên Tài năng quy tụ
-                    các thành viên đến từ nhiều lĩnh vực chuyên môn,
+
+                    Nhóm Nhân viên Tài năng
+                    quy tụ các thành viên
+                    đến từ nhiều lĩnh vực chuyên môn,
                     cùng gặp nhau trong một hành trình
                     học tập và phát triển.
+
                 </p>
 
 
                 <div class="expertise">
+
 
                     <div class="expertise-item">
 
@@ -1940,9 +1271,11 @@ button{
 
                     </div>
 
+
                 </div>
 
             </div>
+
 
         </div>
 
@@ -1959,17 +1292,19 @@ button{
 
     <div class="container expectation reveal">
 
+
         <div>
 
             <div class="section-label">
                 KỲ VỌNG PHÁT TRIỂN
             </div>
 
+
             <h2 class="expectation-title">
 
                 Không chỉ học —
                 mà phải chuyển hóa thành
-                <span>năng lực.</span>
+                <span>năng lực</span>
 
             </h2>
 
@@ -1979,6 +1314,7 @@ button{
         <div class="expectation-copy">
 
             <p>
+
                 Giá trị của chương trình
                 không dừng ở việc tham gia các buổi học.
                 Điều quan trọng hơn là mỗi thành viên
@@ -1987,10 +1323,12 @@ button{
                 trở lại công việc thực tế,
                 từ đó tạo ra giá trị cho bản thân,
                 đơn vị và Tổng công ty.
+
             </p>
 
 
             <div class="expectation-points">
+
 
                 <div class="expectation-point">
 
@@ -2000,7 +1338,7 @@ button{
 
                     <span>
                         Mở rộng kiến thức
-                        và góc nhìn.
+                        và góc nhìn
                     </span>
 
                 </div>
@@ -2014,7 +1352,7 @@ button{
 
                     <span>
                         Học từ đồng nghiệp
-                        và các lĩnh vực khác nhau.
+                        và các lĩnh vực khác nhau
                     </span>
 
                 </div>
@@ -2027,8 +1365,8 @@ button{
                     </strong>
 
                     <span>
-                        Đặt mình vào những yêu cầu
-                        và bài toán mới.
+                        Đặt mình vào
+                        những bài toán mới
                     </span>
 
                 </div>
@@ -2041,11 +1379,12 @@ button{
                     </strong>
 
                     <span>
-                        Chuyển kiến thức thành
-                        năng lực và kết quả thực tế.
+                        Chuyển kiến thức
+                        thành năng lực thực tế
                     </span>
 
                 </div>
+
 
             </div>
 
@@ -2064,17 +1403,22 @@ button{
 
     <div class="container final-inner reveal">
 
+
         <div class="final-label">
             TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
         </div>
+
 
         <div class="final-title">
 
             Từ những điểm xuất phát khác nhau —
             cùng bước trên
-            <span>một hành trình phát triển.</span>
+            <span>
+                một hành trình phát triển
+            </span>
 
         </div>
+
 
     </div>
 
@@ -2105,11 +1449,11 @@ button{
 </div>
 
 
-<!-- =====================================================
-     ANIMATION JS
-===================================================== -->
-
 <script>
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
 const revealItems =
     document.querySelectorAll(
@@ -2136,10 +1480,9 @@ const observer =
                                 "visible"
                             );
 
-                        observer
-                            .unobserve(
-                                entry.target
-                            );
+                        observer.unobserve(
+                            entry.target
+                        );
 
                     }
 
@@ -2172,5 +1515,4 @@ revealItems.forEach(
 
 
 </body>
-
 </html>
