@@ -6,7 +6,7 @@
 
 <title>Giới thiệu | Chương trình Nhân viên Tài năng PVEP</title>
 
-<!-- FONT INTER - HIỂN THỊ TIẾNG VIỆT TỐT -->
+<!-- FONT INTER -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 <style>
 
 /* =========================================================
-   01. RESET + HỆ FONT CHUNG
+   01. RESET + FONT
 ========================================================= */
 
 *{
@@ -37,7 +37,6 @@ body{
     background:#f7faf8;
     line-height:1.6;
     overflow-x:hidden;
-
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     text-rendering:optimizeLegibility;
@@ -78,13 +77,59 @@ body{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:28px;
+    gap:25px;
+}
+
+
+/* BÊN TRÁI HEADER */
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+
+/* NÚT QUAY VỀ TRANG CHÍNH */
+
+.back-home{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    color:rgba(255,255,255,.88);
+    text-decoration:none;
+
+    font-size:12px;
+    font-weight:600;
+
+    white-space:nowrap;
+
+    transition:.2s ease;
+}
+
+.back-home:hover{
+    color:var(--green);
+    transform:translateX(-2px);
+}
+
+.back-arrow{
+    font-size:17px;
+    line-height:1;
+}
+
+
+/* BRAND */
+
+.brand-link{
+    text-decoration:none;
+    color:#fff;
 }
 
 .brand{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:12px;
 }
 
 .logo-mark{
@@ -99,6 +144,7 @@ body{
     justify-content:center;
 
     color:var(--green);
+
     font-size:11px;
     font-weight:800;
 }
@@ -106,10 +152,11 @@ body{
 .brand-text strong{
     display:block;
 
+    color:#fff;
+
     font-size:18px;
     font-weight:800;
     line-height:1.1;
-    letter-spacing:0;
 }
 
 .brand-text span{
@@ -117,29 +164,33 @@ body{
 
     margin-top:5px;
 
+    color:rgba(255,255,255,.88);
+
     font-size:10px;
     font-weight:600;
     letter-spacing:.5px;
     line-height:1.2;
-
-    opacity:.9;
 }
+
+
+/* MENU */
 
 .nav{
     display:flex;
     align-items:center;
-    gap:27px;
+    gap:25px;
 }
 
 .nav a{
     color:#fff;
     text-decoration:none;
 
-    font-family:"Inter", Arial, sans-serif;
     font-size:12px;
     font-weight:600;
 
     white-space:nowrap;
+
+    transition:.2s ease;
 }
 
 .nav a:hover{
@@ -184,6 +235,7 @@ body{
 
 .message-box::after{
     content:"";
+
     position:absolute;
 
     width:190px;
@@ -283,6 +335,7 @@ body{
 
 .cards{
     display:grid;
+
     grid-template-columns:.85fr 1.15fr;
 
     gap:20px;
@@ -294,7 +347,7 @@ body{
 
 
 /* =========================================================
-   06. CARD NGÔ KHÁNH XẠ
+   06. CARD NGƯỜI HƯỚNG DẪN
 ========================================================= */
 
 .mentor-card{
@@ -342,7 +395,6 @@ body{
     font-size:25px;
     font-weight:800;
     line-height:1.2;
-    letter-spacing:0;
 }
 
 .mentor-title{
@@ -399,7 +451,6 @@ body{
     font-size:19px;
     font-weight:700;
     line-height:1.35;
-    letter-spacing:-.1px;
 }
 
 .group-description{
@@ -414,6 +465,7 @@ body{
 
 .group-list{
     display:grid;
+
     grid-template-columns:1fr 1fr;
 
     gap:8px;
@@ -500,7 +552,6 @@ body{
     font-size:18px;
     font-weight:600;
     line-height:1.5;
-    letter-spacing:-.1px;
 }
 
 .value-text strong{
@@ -540,10 +591,27 @@ body{
    10. TABLET
 ========================================================= */
 
+@media(max-width:1050px){
+
+    .nav{
+        gap:16px;
+    }
+
+    .nav a{
+        font-size:11px;
+    }
+
+    .header-left{
+        gap:15px;
+    }
+
+}
+
+
 @media(max-width:900px){
 
     .header-inner{
-        width:calc(100% - 40px);
+        width:calc(100% - 36px);
         height:72px;
     }
 
@@ -596,26 +664,40 @@ body{
         height:66px;
     }
 
+    .header-left{
+        width:100%;
+        gap:12px;
+    }
+
+    .back-home{
+        font-size:10px;
+        gap:4px;
+    }
+
+    .back-arrow{
+        font-size:15px;
+    }
+
     .logo-mark{
-        width:36px;
-        height:36px;
+        width:35px;
+        height:35px;
 
         font-size:9px;
     }
 
     .brand{
-        gap:10px;
+        gap:9px;
     }
 
     .brand-text strong{
-        font-size:16px;
+        font-size:15px;
     }
 
     .brand-text span{
         margin-top:3px;
 
-        font-size:8px;
-        letter-spacing:.35px;
+        font-size:7.5px;
+        letter-spacing:.2px;
     }
 
 
@@ -674,7 +756,7 @@ body{
     }
 
 
-    /* NKX */
+    /* NGƯỜI HƯỚNG DẪN */
 
     .mentor-card{
         min-height:0;
@@ -778,10 +860,14 @@ body{
 
 
 /* =========================================================
-   12. MÀN HÌNH RẤT NHỎ
+   12. MOBILE RẤT NHỎ
 ========================================================= */
 
-@media(max-width:380px){
+@media(max-width:400px){
+
+    .brand-text span{
+        display:none;
+    }
 
     .message-text{
         font-size:18px;
@@ -816,24 +902,49 @@ body{
 
     <div class="header-inner">
 
-        <div class="brand">
 
-            <div class="logo-mark">
-                PVEP
-            </div>
+        <div class="header-left">
 
-            <div class="brand-text">
 
-                <strong>PVEP</strong>
+            <!-- QUAY VỀ GIAO DIỆN ĐẦU TIÊN -->
 
-                <span>
-                    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
-                </span>
+            <a class="back-home" href="../index.html">
 
-            </div>
+                <span class="back-arrow">←</span>
+
+                <span>Trang chính</span>
+
+            </a>
+
+
+            <!-- LOGO / BRAND CŨNG QUAY VỀ TRANG CHÍNH -->
+
+            <a class="brand-link" href="../index.html">
+
+                <div class="brand">
+
+                    <div class="logo-mark">
+                        PVEP
+                    </div>
+
+                    <div class="brand-text">
+
+                        <strong>PVEP</strong>
+
+                        <span>
+                            CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
 
         </div>
 
+
+        <!-- MENU DESKTOP -->
 
         <nav class="nav">
 
@@ -998,9 +1109,7 @@ body{
 
                     <div class="group-item">
 
-                        <span class="group-number">
-                            01
-                        </span>
+                        <span class="group-number">01</span>
 
                         <span class="group-name">
                             Công nghệ mỏ
@@ -1012,9 +1121,7 @@ body{
 
                     <div class="group-item">
 
-                        <span class="group-number">
-                            02
-                        </span>
+                        <span class="group-number">02</span>
 
                         <span class="group-name">
                             Công nghệ – Chuyển đổi số
@@ -1026,9 +1133,7 @@ body{
 
                     <div class="group-item">
 
-                        <span class="group-number">
-                            03
-                        </span>
+                        <span class="group-number">03</span>
 
                         <span class="group-name">
                             Chi nhánh Trung tâm Kỹ thuật
@@ -1040,9 +1145,7 @@ body{
 
                     <div class="group-item">
 
-                        <span class="group-number">
-                            04
-                        </span>
+                        <span class="group-number">04</span>
 
                         <span class="group-name">
                             Chi nhánh Hồ Chí Minh
@@ -1054,9 +1157,7 @@ body{
 
                     <div class="group-item">
 
-                        <span class="group-number">
-                            05
-                        </span>
+                        <span class="group-number">05</span>
 
                         <span class="group-name">
                             Chi nhánh Cửu Long
