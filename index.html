@@ -1,505 +1,1098 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Chương trình Nhân viên Tài năng PVEP</title>
+<title>Chương trình Nhân viên Tài năng PVEP</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+/* =====================================================
+   CÀI ĐẶT CHUNG
+===================================================== */
 
-    html, body {
-      width: 100%;
-      min-height: 100%;
-      background: #071b2b;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    /* =========================
-       COVER
-       ========================= */
+html,body{
+    width:100%;
+    min-height:100%;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#061c2a;
+}
 
-    .cover {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      background: #071b2b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+body{
+    overflow-x:hidden;
+}
 
-    /*
-       QUAN TRỌNG:
-       Ảnh được hiển thị NGUYÊN VẸN.
-       Không dùng background-size: cover
-       nên ảnh sẽ KHÔNG bị phóng to/cắt mất.
-    */
 
-    .cover-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center center;
-      display: block;
-    }
+/* =====================================================
+   COVER
+   DÙNG NGUYÊN ẢNH ĐÃ THIẾT KẾ
+===================================================== */
 
-    /* =========================
-       VÙNG CLICK TRÊN COVER
-       Các ô trong suốt, không làm
-       thay đổi hình mockup.
-       ========================= */
+#home{
+    width:100%;
+    height:100vh;
 
-    .nav-link {
-      position: absolute;
-      bottom: 2.2%;
-      height: 8%;
-      z-index: 10;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-    }
+    position:relative;
+    overflow:hidden;
 
-    .nav-link:hover {
-      background: rgba(255,255,255,0.05);
-    }
+    background:#061c2a;
+}
 
-    .nav-1 {
-      left: 4%;
-      width: 14%;
-    }
 
-    .nav-2 {
-      left: 19%;
-      width: 14%;
-    }
+/* ẢNH COVER */
 
-    .nav-3 {
-      left: 34%;
-      width: 14%;
-    }
+.cover-image{
+    position:absolute;
 
-    .nav-4 {
-      left: 49%;
-      width: 14%;
-    }
+    top:0;
+    left:0;
 
-    .nav-5 {
-      left: 64%;
-      width: 14%;
-    }
+    width:100%;
+    height:100%;
 
-    .nav-6 {
-      left: 79%;
-      width: 17%;
-    }
+    object-fit:cover;
+    object-position:center center;
 
-    /* =========================
-       CÁC TRANG NỘI DUNG
-       Ban đầu ẨN hoàn toàn
-       ========================= */
+    display:block;
+}
 
-    .page {
-      display: none;
-      min-height: 100vh;
-      background:
+
+/* =====================================================
+   CÁC VÙNG CLICK TRÊN MENU TRONG ẢNH
+
+   Không có chữ HTML
+   Không có nút
+   Không có khung
+
+   Chỉ phủ vùng click lên chữ có sẵn trong ảnh
+===================================================== */
+
+.hotspot{
+    position:absolute;
+
+    bottom:2%;
+
+    height:13%;
+
+    z-index:20;
+
+    display:block;
+
+    cursor:pointer;
+
+    background:transparent;
+
+    border:0;
+
+    text-decoration:none;
+}
+
+
+/* 01 GIỚI THIỆU */
+
+.hotspot-1{
+    left:2%;
+    width:17%;
+}
+
+
+/* 02 HÀNH TRÌNH */
+
+.hotspot-2{
+    left:20%;
+    width:18%;
+}
+
+
+/* 03 BUỔI HỌC */
+
+.hotspot-3{
+    left:39%;
+    width:18%;
+}
+
+
+/* 04 THƯ VIỆN */
+
+.hotspot-4{
+    left:58%;
+    width:18%;
+}
+
+
+/* 05 ĐIỀU ĐỌNG LẠI */
+
+.hotspot-5{
+    left:77%;
+    width:22%;
+}
+
+
+/* =====================================================
+   KHÁM PHÁ HÀNH TRÌNH
+===================================================== */
+
+.explore-hotspot{
+    position:absolute;
+
+    left:37%;
+    bottom:14%;
+
+    width:27%;
+    height:16%;
+
+    z-index:20;
+
+    cursor:pointer;
+
+    background:transparent;
+
+    border:0;
+}
+
+
+/* =====================================================
+   HIỆU ỨNG KHI RÊ CHUỘT
+
+   Chỉ sáng nhẹ.
+   Không hiện nút.
+===================================================== */
+
+.hotspot::after,
+.explore-hotspot::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0);
+
+    transition:
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+
+.hotspot:hover::after{
+
+    background:rgba(255,255,255,.06);
+
+    box-shadow:
+        0 0 22px rgba(105,220,70,.18);
+
+    transform:translateY(-2px);
+}
+
+
+.explore-hotspot:hover::after{
+
+    background:rgba(255,255,255,.04);
+
+    box-shadow:
+        0 0 28px rgba(105,220,70,.20);
+}
+
+
+/* =====================================================
+   POPUP NỘI DUNG
+===================================================== */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(3,20,31,.82);
+
+    backdrop-filter:blur(8px);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:1000;
+
+    padding:30px;
+}
+
+
+.overlay.active{
+    display:flex;
+}
+
+
+/* HỘP NỘI DUNG */
+
+.panel{
+
+    position:relative;
+
+    width:min(1100px,94vw);
+
+    max-height:88vh;
+
+    overflow-y:auto;
+
+    background:
         linear-gradient(
-          180deg,
-          #f8faf8 0%,
-          #ffffff 100%
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(242,248,245,.98)
         );
-      color: #18362c;
-      padding: 70px 8%;
+
+    color:#18342e;
+
+    border-radius:22px;
+
+    padding:55px 60px;
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.35);
+
+    animation:openPanel .35s ease;
+}
+
+
+@keyframes openPanel{
+
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.98);
     }
 
-    .page.active {
-      display: block;
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* NÚT ĐÓNG */
+
+.close-btn{
+
+    position:absolute;
+
+    right:22px;
+    top:18px;
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#0a674c;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+
+.close-btn:hover{
+    background:#69be28;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY TRONG POPUP
+===================================================== */
+
+.panel h2{
+
+    color:#087253;
+
+    font-size:34px;
+
+    margin-bottom:22px;
+
+    text-align:center;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+}
+
+
+.panel .lead{
+
+    max-width:850px;
+
+    margin:0 auto 35px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    line-height:1.75;
+
+    color:#425c55;
+}
+
+
+/* =====================================================
+   HÀNH TRÌNH
+===================================================== */
+
+.timeline{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:16px;
+
+    margin-top:35px;
+}
+
+
+.timeline-item{
+
+    padding:24px 14px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    background:white;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.08);
+}
+
+
+.timeline-item span{
+
+    display:block;
+
+    color:#69be28;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+}
+
+
+.timeline-item strong{
+
+    color:#075d48;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   CÁC BUỔI HỌC
+===================================================== */
+
+.lesson-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:15px;
+
+    margin-top:35px;
+}
+
+
+.lesson{
+
+    min-height:130px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:20px 12px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.08);
+
+    transition:.25s ease;
+
+    cursor:pointer;
+}
+
+
+.lesson:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.13);
+}
+
+
+.lesson-number{
+
+    color:#69be28;
+
+    font-size:26px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+}
+
+
+.lesson-title{
+
+    color:#075d48;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   THƯ VIỆN
+===================================================== */
+
+.library-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+
+    margin-top:35px;
+}
+
+
+.library-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.08);
+}
+
+
+.library-icon{
+
+    font-size:34px;
+
+    margin-bottom:15px;
+}
+
+
+.library-card h3{
+
+    color:#087253;
+
+    margin-bottom:10px;
+}
+
+
+/* =====================================================
+   ĐIỀU ĐỌNG LẠI
+===================================================== */
+
+.memory-box{
+
+    max-width:800px;
+
+    margin:30px auto 0;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.08);
+
+    line-height:1.8;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .panel{
+        padding:50px 25px;
     }
 
-    .content {
-      max-width: 1200px;
-      margin: auto;
+    .timeline{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .back {
-      display: inline-block;
-      margin-bottom: 45px;
-      padding: 11px 20px;
-      border: 1px solid #14834d;
-      border-radius: 30px;
-      color: #14834d;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-      background: white;
+    .lesson-grid{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .back:hover {
-      background: #14834d;
-      color: white;
+    .library-grid{
+        grid-template-columns:1fr;
     }
 
-    h1 {
-      font-size: 42px;
-      color: #087846;
-      margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   ĐIỆN THOẠI
+
+   Vẫn giữ nguyên cover.
+===================================================== */
+
+@media(max-width:600px){
+
+    #home{
+        height:100vh;
     }
 
-    h2 {
-      color: #087846;
-      margin-bottom: 20px;
+    .cover-image{
+        object-fit:cover;
+        object-position:center center;
     }
 
-    p {
-      font-size: 19px;
-      line-height: 1.8;
-      color: #444;
+    .panel h2{
+        font-size:26px;
     }
 
-    /* =========================
-       BUỔI HỌC
-       ========================= */
-
-    .sessions {
-      display: grid;
-      grid-template-columns:
-        repeat(5, 1fr);
-      gap: 18px;
-      margin-top: 45px;
+    .panel .lead{
+        font-size:16px;
     }
 
-    .session {
-      padding: 28px 15px;
-      background: white;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow:
-        0 8px 30px rgba(0,0,0,0.08);
-      color: #087846;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .session:hover {
-      transform: translateY(-4px);
-      transition: 0.25s;
-      box-shadow:
-        0 12px 35px rgba(0,0,0,0.13);
-    }
-
-    /* =========================
-       RESPONSIVE
-       ========================= */
-
-    @media (max-width: 900px) {
-
-      .cover {
-        height: auto;
-        min-height: 100vh;
-      }
-
-      .cover-image {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-
-      .sessions {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      p {
-        font-size: 17px;
-      }
-    }
-
-  </style>
+}
+</style>
 </head>
+
 
 <body>
 
-<!-- ==================================================
-     TRANG COVER
-     ================================================== -->
 
-<section class="cover" id="home">
+<!-- =====================================================
+     COVER
+===================================================== -->
 
-  <img
-    src="assets/images/cover-nvtn-final.png"
-    alt="Chương trình Nhân viên Tài năng PVEP"
-    class="cover-image"
-  >
+<section id="home">
 
-  <!-- Các vùng click nằm đúng trên menu của ảnh -->
+    <!--
+    QUAN TRỌNG:
+    Đây chính là ảnh cover chị đã upload lên GitHub.
+    -->
 
-  <a
-    href="#gioi-thieu"
-    class="nav-link nav-1"
-    aria-label="Giới thiệu">
-  </a>
-
-  <a
-    href="#hanh-trinh"
-    class="nav-link nav-2"
-    aria-label="Hành trình">
-  </a>
-
-  <a
-    href="#buoi-hoc"
-    class="nav-link nav-3"
-    aria-label="Buổi học">
-  </a>
-
-  <a
-    href="#thu-vien"
-    class="nav-link nav-4"
-    aria-label="Thư viện">
-  </a>
-
-  <a
-    href="#dieu-dong-lai"
-    class="nav-link nav-5"
-    aria-label="Điều đọng lại">
-  </a>
-
-  <a
-    href="#dieu-dong-lai"
-    class="nav-link nav-6"
-    aria-label="Điều đọng lại">
-  </a>
-
-</section>
+    <img
+        class="cover-image"
+        src="assets/images/cover-nvtn-final.png?v=20260814-01"
+        alt="Chương trình Nhân viên Tài năng PVEP"
+    >
 
 
-<!-- ==================================================
-     GIỚI THIỆU
-     ================================================== -->
+    <!-- 01 GIỚI THIỆU -->
 
-<section class="page" id="gioi-thieu">
-
-  <div class="content">
-
-    <a href="#home" class="back">
-      ← TRỞ VỀ TRANG CHỦ
-    </a>
-
-    <h1>GIỚI THIỆU</h1>
-
-    <p>
-      Chương trình Nhân viên Tài năng PVEP là hành trình
-      học hỏi, kết nối và phát triển dành cho đội ngũ
-      nhân sự tài năng của Tổng công ty, dưới sự hướng dẫn
-      và đồng hành của Phó Tổng giám đốc Ngô Khánh Xạ.
-    </p>
-
-  </div>
-
-</section>
+    <a
+        class="hotspot hotspot-1"
+        href="#"
+        aria-label="Giới thiệu"
+        onclick="openPanel('intro'); return false;"
+    ></a>
 
 
-<!-- ==================================================
-     HÀNH TRÌNH
-     ================================================== -->
+    <!-- 02 HÀNH TRÌNH -->
 
-<section class="page" id="hanh-trinh">
+    <a
+        class="hotspot hotspot-2"
+        href="#"
+        aria-label="Hành trình"
+        onclick="openPanel('journey'); return false;"
+    ></a>
 
-  <div class="content">
 
-    <a href="#home" class="back">
-      ← TRỞ VỀ TRANG CHỦ
-    </a>
+    <!-- 03 BUỔI HỌC -->
 
-    <h1>HÀNH TRÌNH</h1>
+    <a
+        class="hotspot hotspot-3"
+        href="#"
+        aria-label="Các buổi học"
+        onclick="openPanel('lessons'); return false;"
+    ></a>
 
-    <p>
-      Nơi lưu giữ những dấu mốc, trải nghiệm,
-      kiến thức và sự trưởng thành của
-      Nhóm Nhân viên Tài năng PVEP trong suốt
-      hành trình 2025 – 2026.
-    </p>
 
-  </div>
+    <!-- 04 THƯ VIỆN -->
+
+    <a
+        class="hotspot hotspot-4"
+        href="#"
+        aria-label="Thư viện"
+        onclick="openPanel('library'); return false;"
+    ></a>
+
+
+    <!-- 05 ĐIỀU ĐỌNG LẠI -->
+
+    <a
+        class="hotspot hotspot-5"
+        href="#"
+        aria-label="Điều đọng lại"
+        onclick="openPanel('memories'); return false;"
+    ></a>
+
+
+    <!-- KHÁM PHÁ HÀNH TRÌNH -->
+
+    <a
+        class="explore-hotspot"
+        href="#"
+        aria-label="Khám phá hành trình"
+        onclick="openPanel('journey'); return false;"
+    ></a>
 
 </section>
 
 
-<!-- ==================================================
-     CÁC BUỔI HỌC
-     ================================================== -->
 
-<section class="page" id="buoi-hoc">
+<!-- =====================================================
+     01 GIỚI THIỆU
+===================================================== -->
 
-  <div class="content">
+<div class="overlay" id="intro">
 
-    <a href="#home" class="back">
-      ← TRỞ VỀ TRANG CHỦ
-    </a>
+    <div class="panel">
 
-    <h1>CÁC BUỔI HỌC</h1>
+        <button
+            class="close-btn"
+            onclick="closePanel('intro')"
+        >
+            ×
+        </button>
 
-    <p>
-      Tài liệu, hình ảnh, bài viết và những nội dung
-      đáng nhớ trong từng buổi học của Chương trình
-      Nhân viên Tài năng PVEP.
-    </p>
+        <h2>Giới thiệu</h2>
 
-    <div class="sessions">
-
-      <a class="session"
-         href="02_Các-buổi-học/">
-        BUỔI 1
-      </a>
-
-      <a class="session"
-         href="02_Các-buổi-học/">
-        BUỔI 2
-      </a>
-
-      <a class="session"
-         href="02_Các-buổi-học/">
-        BUỔI 3
-      </a>
-
-      <a class="session"
-         href="02_Các-buổi-học/">
-        BUỔI 4
-      </a>
-
-      <a class="session"
-         href="02_Các-buổi-học/">
-        BUỔI 5
-      </a>
+        <p class="lead">
+            Chương trình Nhân viên Tài năng PVEP là hành trình
+            học hỏi, kết nối và phát triển dành cho đội ngũ
+            nhân sự tài năng của Tổng công ty Thăm dò Khai thác
+            Dầu khí, dưới sự hướng dẫn và đồng hành của
+            Phó Tổng giám đốc Ngô Khánh Xạ.
+        </p>
 
     </div>
 
-  </div>
-
-</section>
+</div>
 
 
-<!-- ==================================================
-     THƯ VIỆN
-     ================================================== -->
 
-<section class="page" id="thu-vien">
+<!-- =====================================================
+     02 HÀNH TRÌNH
+===================================================== -->
 
-  <div class="content">
+<div class="overlay" id="journey">
 
-    <a href="#home" class="back">
-      ← TRỞ VỀ TRANG CHỦ
-    </a>
+    <div class="panel">
 
-    <h1>THƯ VIỆN</h1>
+        <button
+            class="close-btn"
+            onclick="closePanel('journey')"
+        >
+            ×
+        </button>
 
-    <p>
-      Không gian lưu giữ tài liệu, hình ảnh,
-      bài viết, các sản phẩm học tập và
-      những tư liệu của Chương trình
-      Nhân viên Tài năng PVEP.
-    </p>
+        <h2>Hành trình</h2>
 
-  </div>
-
-</section>
-
-
-<!-- ==================================================
-     ĐIỀU ĐỌNG LẠI
-     Gộp Lưu bút + Món quà
-     ================================================== -->
-
-<section class="page" id="dieu-dong-lai">
-
-  <div class="content">
-
-    <a href="#home" class="back">
-      ← TRỞ VỀ TRANG CHỦ
-    </a>
-
-    <h1>ĐIỀU ĐỌNG LẠI</h1>
-
-    <p>
-      Những lời nhắn, kỷ niệm, cảm xúc,
-      lưu bút và những món quà tinh thần
-      được lưu giữ sau hành trình của
-      Chương trình Nhân viên Tài năng PVEP.
-    </p>
-
-  </div>
-
-</section>
+        <p class="lead">
+            Nơi lưu giữ những dấu mốc, trải nghiệm,
+            kiến thức và sự trưởng thành của Nhóm
+            Nhân viên Tài năng PVEP trong suốt chương trình.
+        </p>
 
 
-<!-- ==================================================
-     SCRIPT
-     Chỉ hiện nội dung khi bấm menu.
-     Trang đầu CHỈ CÓ COVER.
-     ================================================== -->
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <span>01</span>
+                <strong>Khởi đầu</strong>
+            </div>
+
+            <div class="timeline-item">
+                <span>02</span>
+                <strong>Kết nối</strong>
+            </div>
+
+            <div class="timeline-item">
+                <span>03</span>
+                <strong>Học hỏi</strong>
+            </div>
+
+            <div class="timeline-item">
+                <span>04</span>
+                <strong>Trải nghiệm</strong>
+            </div>
+
+            <div class="timeline-item">
+                <span>05</span>
+                <strong>Phát triển</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     03 CÁC BUỔI HỌC
+===================================================== -->
+
+<div class="overlay" id="lessons">
+
+    <div class="panel">
+
+        <button
+            class="close-btn"
+            onclick="closePanel('lessons')"
+        >
+            ×
+        </button>
+
+        <h2>Các buổi học</h2>
+
+        <p class="lead">
+            Tài liệu, hình ảnh, bài viết và những nội dung
+            đáng nhớ trong từng buổi học của Chương trình
+            Nhân viên Tài năng PVEP.
+        </p>
+
+
+        <div class="lesson-grid">
+
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    01
+                </div>
+
+                <div class="lesson-title">
+                    BUỔI 1
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    02
+                </div>
+
+                <div class="lesson-title">
+                    BUỔI 2
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    03
+                </div>
+
+                <div class="lesson-title">
+                    BUỔI 3
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    04
+                </div>
+
+                <div class="lesson-title">
+                    BUỔI 4
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    05
+                </div>
+
+                <div class="lesson-title">
+                    BUỔI 5
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     04 THƯ VIỆN
+===================================================== -->
+
+<div class="overlay" id="library">
+
+    <div class="panel">
+
+        <button
+            class="close-btn"
+            onclick="closePanel('library')"
+        >
+            ×
+        </button>
+
+        <h2>Thư viện</h2>
+
+        <p class="lead">
+            Không gian lưu trữ tài liệu, hình ảnh,
+            bài viết và các tư liệu của chương trình.
+        </p>
+
+
+        <div class="library-grid">
+
+
+            <div class="library-card">
+
+                <div class="library-icon">
+                    📚
+                </div>
+
+                <h3>Tài liệu</h3>
+
+                <p>
+                    Tài liệu học tập và tài liệu tham khảo.
+                </p>
+
+            </div>
+
+
+            <div class="library-card">
+
+                <div class="library-icon">
+                    📷
+                </div>
+
+                <h3>Hình ảnh</h3>
+
+                <p>
+                    Những khoảnh khắc trong hành trình.
+                </p>
+
+            </div>
+
+
+            <div class="library-card">
+
+                <div class="library-icon">
+                    📰
+                </div>
+
+                <h3>Bài viết</h3>
+
+                <p>
+                    Tin bài và các nội dung liên quan
+                    đến chương trình.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     05 ĐIỀU ĐỌNG LẠI
+===================================================== -->
+
+<div class="overlay" id="memories">
+
+    <div class="panel">
+
+        <button
+            class="close-btn"
+            onclick="closePanel('memories')"
+        >
+            ×
+        </button>
+
+        <h2>Điều đọng lại</h2>
+
+        <p class="lead">
+            Những lời nhắn, kỷ niệm, cảm xúc và món quà
+            được lưu lại sau hành trình đồng hành cùng nhau.
+        </p>
+
+
+        <div class="memory-box">
+
+            <h3>
+                Lưu bút &amp; Món quà
+            </h3>
+
+            <p>
+                Nơi lưu giữ những lời nhắn của các thành viên,
+                những khoảnh khắc đáng nhớ và món quà đặc biệt
+                dành tặng người thầy đã hướng dẫn và đồng hành
+                cùng Chương trình Nhân viên Tài năng.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-  function showPage() {
+/* MỞ NỘI DUNG */
 
-    const hash = window.location.hash;
+function openPanel(id){
 
-    const cover =
-      document.getElementById("home");
+    const panel =
+        document.getElementById(id);
 
-    const pages =
-      document.querySelectorAll(".page");
+    if(panel){
 
-    pages.forEach(function(page) {
-      page.classList.remove("active");
-    });
+        panel.classList.add("active");
 
-    if (!hash || hash === "#home") {
-
-      cover.style.display = "flex";
-
-      window.scrollTo(0, 0);
-
-      return;
+        document.body.style.overflow =
+            "hidden";
     }
+}
 
-    const target =
-      document.querySelector(hash);
 
-    if (
-      target &&
-      target.classList.contains("page")
-    ) {
+/* ĐÓNG NỘI DUNG */
 
-      cover.style.display = "none";
+function closePanel(id){
 
-      target.classList.add("active");
+    const panel =
+        document.getElementById(id);
 
-      window.scrollTo(0, 0);
+    if(panel){
 
+        panel.classList.remove("active");
+
+        document.body.style.overflow =
+            "";
     }
+}
 
-  }
 
-  window.addEventListener(
-    "hashchange",
-    showPage
-  );
+/* CLICK RA NGOÀI HỘP → ĐÓNG */
 
-  window.addEventListener(
-    "load",
-    showPage
-  );
+document.querySelectorAll(".overlay")
+.forEach(function(overlay){
+
+    overlay.addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === overlay){
+
+                overlay.classList.remove(
+                    "active"
+                );
+
+                document.body.style.overflow =
+                    "";
+            }
+        }
+    );
+
+});
+
+
+/* PHÍM ESC → ĐÓNG */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            document
+            .querySelectorAll(
+                ".overlay.active"
+            )
+            .forEach(function(panel){
+
+                panel.classList.remove(
+                    "active"
+                );
+
+            });
+
+            document.body.style.overflow =
+                "";
+        }
+    }
+);
 
 </script>
+
 
 </body>
 </html>
