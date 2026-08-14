@@ -1,1 +1,1170 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Các buổi học | Chương trình Nhân viên Tài năng PVEP</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter", Arial, sans-serif;
+    background:#f7faf8;
+    color:#173d4d;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+:root{
+    --navy:#073c52;
+    --navy2:#06475d;
+    --teal:#07839a;
+    --green:#61c84b;
+    --green-dark:#42ae37;
+    --text:#173d4d;
+    --muted:#66777d;
+    --white:#ffffff;
+    --soft:#eef5f0;
+    --line:#dfe9e3;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    background:linear-gradient(100deg,#06394e,#06475d);
+    color:#fff;
+}
+
+.header-inner{
+    width:min(1220px, calc(100% - 60px));
+    min-height:78px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.back-home{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    color:rgba(255,255,255,.88);
+    text-decoration:none;
+
+    font-size:12px;
+    font-weight:600;
+
+    transition:.2s ease;
+}
+
+.back-home:hover{
+    color:var(--green);
+    transform:translateX(-2px);
+}
+
+.back-arrow{
+    font-size:17px;
+}
+
+.brand-link{
+    text-decoration:none;
+    color:#fff;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+
+    border:2px solid var(--green);
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--green);
+
+    font-size:11px;
+    font-weight:800;
+}
+
+.brand-text strong{
+    display:block;
+
+    color:#fff;
+
+    font-size:18px;
+    font-weight:800;
+    line-height:1.1;
+}
+
+.brand-text span{
+    display:block;
+
+    margin-top:5px;
+
+    color:rgba(255,255,255,.88);
+
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.5px;
+    line-height:1.2;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:22px;
+}
+
+.nav a{
+    color:#fff;
+    text-decoration:none;
+
+    font-size:11px;
+    font-weight:700;
+
+    white-space:nowrap;
+
+    transition:.2s ease;
+}
+
+.nav a:hover{
+    color:var(--green);
+}
+
+.nav a.active{
+    color:var(--green);
+    font-weight:800;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    padding:68px 0 58px;
+
+    background:
+        radial-gradient(circle at 88% 22%, rgba(97,200,75,.12), transparent 29%),
+        linear-gradient(135deg,#eef6f0,#fbfdfb);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:430px;
+    height:430px;
+
+    right:-170px;
+    top:-180px;
+
+    border-radius:50%;
+
+    background:rgba(97,200,75,.05);
+}
+
+.hero-inner{
+    position:relative;
+    z-index:1;
+
+    width:min(1080px, calc(100% - 48px));
+    margin:auto;
+}
+
+.eyebrow{
+    margin-bottom:11px;
+
+    color:var(--green-dark);
+
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+}
+
+.hero h1{
+    max-width:900px;
+
+    color:var(--navy);
+
+    font-size:44px;
+    line-height:1.12;
+    letter-spacing:-1.3px;
+}
+
+.hero h1 span{
+    color:var(--green-dark);
+}
+
+.hero-lead{
+    max-width:820px;
+
+    margin-top:19px;
+
+    color:#5e737b;
+
+    font-size:16px;
+    line-height:1.75;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section{
+    width:min(1120px, calc(100% - 48px));
+    margin:auto;
+
+    padding:70px 0 85px;
+}
+
+.section-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:25px;
+
+    margin-bottom:34px;
+}
+
+.section-head-left{
+    max-width:760px;
+}
+
+.section-kicker{
+    margin-bottom:8px;
+
+    color:var(--green-dark);
+
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
+}
+
+.section-title{
+    color:var(--navy);
+
+    font-size:30px;
+    line-height:1.25;
+    letter-spacing:-.6px;
+}
+
+.section-note{
+    max-width:300px;
+
+    color:#718188;
+
+    font-size:13px;
+    line-height:1.6;
+
+    text-align:right;
+}
+
+
+/* =========================================================
+   LESSON GRID
+========================================================= */
+
+.lesson-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.lesson-card{
+    position:relative;
+
+    min-height:245px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    padding:28px 28px 26px;
+
+    text-decoration:none;
+
+    background:#fff;
+
+    border:1px solid #e2ebe6;
+    border-radius:20px;
+
+    box-shadow:0 10px 28px rgba(4,62,78,.07);
+
+    overflow:hidden;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+.lesson-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 42px rgba(4,62,78,.12);
+
+    border-color:rgba(97,200,75,.55);
+}
+
+.lesson-card::after{
+    content:"";
+
+    position:absolute;
+
+    right:-48px;
+    top:-48px;
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    background:rgba(97,200,75,.06);
+}
+
+.lesson-top{
+    position:relative;
+    z-index:1;
+}
+
+.lesson-number{
+    margin-bottom:15px;
+
+    color:var(--green-dark);
+
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.lesson-card h2{
+    margin-bottom:11px;
+
+    color:var(--navy);
+
+    font-size:24px;
+    line-height:1.25;
+}
+
+.lesson-theme{
+    color:#5d7077;
+
+    font-size:14px;
+    line-height:1.7;
+}
+
+.lesson-bottom{
+    position:relative;
+    z-index:1;
+
+    margin-top:24px;
+
+    padding-top:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+
+    border-top:1px solid #e8efeb;
+}
+
+.lesson-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+}
+
+.tag{
+    padding:5px 9px;
+
+    border-radius:999px;
+
+    background:#eef6f0;
+
+    color:#547267;
+
+    font-size:10px;
+    font-weight:700;
+}
+
+.open-link{
+    flex-shrink:0;
+
+    color:var(--green-dark);
+
+    font-size:12px;
+    font-weight:800;
+}
+
+.lesson-card:hover .open-link{
+    transform:translateX(3px);
+}
+
+.lesson-card.featured{
+    grid-column:1 / -1;
+
+    min-height:225px;
+
+    background:
+        radial-gradient(circle at 90% 20%, rgba(97,200,75,.12), transparent 24%),
+        linear-gradient(135deg,#063e53,#075d72);
+
+    border:none;
+}
+
+.lesson-card.featured .lesson-number{
+    color:var(--green);
+}
+
+.lesson-card.featured h2{
+    color:#fff;
+}
+
+.lesson-card.featured .lesson-theme{
+    max-width:760px;
+
+    color:rgba(255,255,255,.86);
+}
+
+.lesson-card.featured .lesson-bottom{
+    border-top:1px solid rgba(255,255,255,.18);
+}
+
+.lesson-card.featured .tag{
+    background:rgba(255,255,255,.10);
+    color:#fff;
+}
+
+.lesson-card.featured .open-link{
+    color:var(--green);
+}
+
+
+/* =========================================================
+   FOOTNOTE
+========================================================= */
+
+.footnote{
+    margin-top:35px;
+
+    padding:20px 22px;
+
+    background:#eef5f0;
+
+    border:1px solid #e0e9e3;
+    border-radius:14px;
+
+    color:#60736b;
+
+    font-size:13px;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    padding:15px 20px;
+
+    color:#fff;
+
+    text-align:center;
+
+    background:linear-gradient(100deg,#06445a,#07859b);
+}
+
+.footer span{
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.7px;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(22px);
+
+    transition:
+        opacity .75s ease,
+        transform .75s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .nav{
+        gap:12px;
+    }
+
+    .nav a{
+        font-size:9.5px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
+
+    .header-inner{
+        width:calc(100% - 32px);
+
+        flex-wrap:wrap;
+
+        padding:12px 0;
+    }
+
+    .header-left{
+        width:100%;
+    }
+
+    .nav{
+        width:100%;
+
+        display:grid;
+        grid-template-columns:repeat(5,1fr);
+
+        gap:3px;
+
+        padding-top:8px;
+
+        border-top:1px solid rgba(255,255,255,.12);
+    }
+
+    .nav a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        text-align:center;
+
+        font-size:7.8px;
+        line-height:1.25;
+
+        white-space:normal;
+    }
+
+    .hero{
+        padding:48px 0 44px;
+    }
+
+    .hero-inner{
+        width:calc(100% - 32px);
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero-lead{
+        font-size:14px;
+    }
+
+    .section{
+        width:calc(100% - 32px);
+
+        padding:55px 0 65px;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-note{
+        margin-top:10px;
+
+        max-width:none;
+
+        text-align:left;
+    }
+
+    .lesson-grid{
+        grid-template-columns:1fr;
+    }
+
+    .lesson-card.featured{
+        grid-column:auto;
+    }
+
+    .lesson-card{
+        min-height:220px;
+    }
+
+    .lesson-card h2{
+        font-size:22px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE NHỎ
+========================================================= */
+
+@media(max-width:450px){
+
+    .brand-text span{
+        display:none;
+    }
+
+    .nav a{
+        font-size:6.7px;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .lesson-card{
+        padding:23px 20px;
+    }
+
+    .lesson-card h2{
+        font-size:20px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="header-left">
+
+            <a class="back-home" href="../index.html">
+                <span class="back-arrow">←</span>
+                <span>Trang chính</span>
+            </a>
+
+            <a class="brand-link" href="../index.html">
+
+                <div class="brand">
+
+                    <div class="logo-mark">
+                        PVEP
+                    </div>
+
+                    <div class="brand-text">
+
+                        <strong>PVEP</strong>
+
+                        <span>
+                            CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="../01_Gioi-thieu/">
+                01 GIỚI THIỆU
+            </a>
+
+            <a href="../02_Hanh-trinh/">
+                02 HÀNH TRÌNH
+            </a>
+
+            <a class="active" href="#">
+                03 BUỔI HỌC
+            </a>
+
+            <a href="#">
+                04 THƯ VIỆN
+            </a>
+
+            <a href="#">
+                05 ĐIỀU ĐỌNG LẠI
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-inner reveal">
+
+        <div class="eyebrow">
+            03 — CÁC BUỔI HỌC
+        </div>
+
+        <h1>
+            Mỗi buổi học là một
+            <span>dấu mốc phát triển.</span>
+        </h1>
+
+        <p class="hero-lead">
+            Nơi tập hợp nội dung học tập, tài liệu, bài tập,
+            sản phẩm của học viên và các tư liệu liên quan
+            trong từng buổi làm việc của lớp Nhân viên Tài năng.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LESSONS
+===================================================== -->
+
+<main class="section">
+
+    <div class="section-head reveal">
+
+        <div class="section-head-left">
+
+            <div class="section-kicker">
+                TÀI LIỆU THEO TỪNG BUỔI
+            </div>
+
+            <h2 class="section-title">
+                05 buổi học — 05 nhóm nội dung
+            </h2>
+
+        </div>
+
+        <div class="section-note">
+            Chọn từng buổi để xem tài liệu,
+            bài tập và sản phẩm học tập tương ứng.
+        </div>
+
+    </div>
+
+
+    <div class="lesson-grid">
+
+
+        <!-- =================================================
+             BUỔI 01
+        ================================================== -->
+
+        <a class="lesson-card reveal" href="Buoi-01/">
+
+            <div class="lesson-top">
+
+                <div class="lesson-number">
+                    BUỔI 01
+                </div>
+
+                <h2>
+                    Định hướng phát triển cá nhân
+                </h2>
+
+                <p class="lesson-theme">
+                    Xây dựng Kế hoạch phát triển cá nhân — IDP,
+                    xác định mục tiêu nghề nghiệp, khoảng trống năng lực
+                    và chương trình hành động của từng học viên.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-bottom">
+
+                <div class="lesson-tags">
+
+                    <span class="tag">
+                        IDP
+                    </span>
+
+                    <span class="tag">
+                        Chương trình hành động
+                    </span>
+
+                    <span class="tag">
+                        Phát triển cá nhân
+                    </span>
+
+                </div>
+
+                <div class="open-link">
+                    MỞ BUỔI 01 →
+                </div>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             BUỔI 02
+        ================================================== -->
+
+        <a class="lesson-card reveal" href="Buoi-02/">
+
+            <div class="lesson-top">
+
+                <div class="lesson-number">
+                    BUỔI 02
+                </div>
+
+                <h2>
+                    Từ IDP đến bức tranh chung
+                </h2>
+
+                <p class="lesson-theme">
+                    Rà soát chương trình phát triển cá nhân;
+                    mở rộng góc nhìn về Khoa học công nghệ,
+                    Chuyển đổi số và vai trò của mỗi người
+                    trong chuỗi giá trị của PVEP.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-bottom">
+
+                <div class="lesson-tags">
+
+                    <span class="tag">
+                        IDP
+                    </span>
+
+                    <span class="tag">
+                        KHCN
+                    </span>
+
+                    <span class="tag">
+                        Chuyển đổi số
+                    </span>
+
+                </div>
+
+                <div class="open-link">
+                    MỞ BUỔI 02 →
+                </div>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             BUỔI 03
+        ================================================== -->
+
+        <a class="lesson-card reveal" href="buoi-03/">
+
+            <div class="lesson-top">
+
+                <div class="lesson-number">
+                    BUỔI 03
+                </div>
+
+                <h2>
+                    Khoa học công nghệ & Quản lý dự án
+                </h2>
+
+                <p class="lesson-theme">
+                    Từ các bài toán chuyên môn thực tế đến bài báo khoa học,
+                    Knowledge Platform và tư duy quản lý dự án:
+                    mục tiêu, phân vai, trách nhiệm và cách triển khai.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-bottom">
+
+                <div class="lesson-tags">
+
+                    <span class="tag">
+                        KHCN
+                    </span>
+
+                    <span class="tag">
+                        Bài báo khoa học
+                    </span>
+
+                    <span class="tag">
+                        Knowledge Platform
+                    </span>
+
+                </div>
+
+                <div class="open-link">
+                    MỞ BUỔI 03 →
+                </div>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             BUỔI 04
+        ================================================== -->
+
+        <a class="lesson-card reveal" href="buoi-04/">
+
+            <div class="lesson-top">
+
+                <div class="lesson-number">
+                    BUỔI 04
+                </div>
+
+                <h2>
+                    Quản trị rủi ro & Dự án dầu khí nước ngoài
+                </h2>
+
+                <p class="lesson-theme">
+                    Thảo luận về biến động giá dầu, địa chính trị,
+                    chiến lược phát triển các dự án nước ngoài
+                    và yêu cầu năng lực đối với CBNV PVEP
+                    khi làm việc trong môi trường quốc tế.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-bottom">
+
+                <div class="lesson-tags">
+
+                    <span class="tag">
+                        Quản trị rủi ro
+                    </span>
+
+                    <span class="tag">
+                        Dự án nước ngoài
+                    </span>
+
+                    <span class="tag">
+                        Năng lực quốc tế
+                    </span>
+
+                </div>
+
+                <div class="open-link">
+                    MỞ BUỔI 04 →
+                </div>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             BUỔI 05
+        ================================================== -->
+
+        <a class="lesson-card featured reveal" href="buoi-05/">
+
+            <div class="lesson-top">
+
+                <div class="lesson-number">
+                    BUỔI 05
+                </div>
+
+                <h2>
+                    Sáng kiến — Ý tưởng — Giải pháp
+                </h2>
+
+                <p class="lesson-theme">
+                    Các học viên trình bày đề xuất sáng kiến, ý tưởng
+                    và giải pháp gắn với công việc thực tế:
+                    từ công nghệ, dữ liệu, địa chất — địa chấn
+                    đến quản lý dự án và tối ưu hoạt động.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-bottom">
+
+                <div class="lesson-tags">
+
+                    <span class="tag">
+                        Sáng kiến
+                    </span>
+
+                    <span class="tag">
+                        Đổi mới
+                    </span>
+
+                    <span class="tag">
+                        Giải pháp thực tiễn
+                    </span>
+
+                </div>
+
+                <div class="open-link">
+                    MỞ BUỔI 05 →
+                </div>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+
+    <div class="footnote reveal">
+
+        Tài liệu trong từng buổi được lưu theo đúng cấu trúc thư mục hiện có.
+        Các file Word, PowerPoint, PDF, Excel và hình ảnh sẽ được liên kết trực tiếp
+        trong trang chi tiết của từng buổi học.
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <span>
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+        &nbsp; | &nbsp;
+        2025–2026
+    </span>
+
+</footer>
+
+
+
+<!-- =====================================================
+     EFFECT
+===================================================== -->
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add('visible');
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.12
+    }
+);
+
+reveals.forEach(item => observer.observe(item));
+
+</script>
+
+
+</body>
+</html>
