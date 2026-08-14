@@ -1,47 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Giới thiệu | Chương trình Nhân viên Tài năng PVEP</title>
 
 <style>
-
 /* =========================================================
-   01. DESIGN SYSTEM
+   RESET
 ========================================================= */
-
-:root{
-
-    --green:#68c94b;
-    --green-light:#8dde72;
-
-    --navy:#06394a;
-    --navy-dark:#052f3f;
-    --teal:#087064;
-
-    --text:#274b57;
-    --muted:#687d82;
-
-    --white:#ffffff;
-    --paper:#f7f9f7;
-    --soft:#eef4f1;
-
-    --line:#dfe8e3;
-}
-
-
-/* =========================================================
-   02. RESET + FONT
-========================================================= */
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -49,1278 +21,586 @@ html{
 }
 
 body{
-
-    margin:0;
-
-    font-family:
-        "Segoe UI",
-        Tahoma,
-        Arial,
-        sans-serif;
-
-    font-size:16px;
-    line-height:1.7;
-
-    color:var(--text);
-
-    background:var(--paper);
-
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-
+    font-family: Arial, Helvetica, sans-serif;
+    color:#173d4d;
+    background:#f7faf8;
+    line-height:1.6;
     overflow-x:hidden;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+:root{
+    --navy:#073c52;
+    --navy2:#075a70;
+    --teal:#07839a;
+    --green:#61c84b;
+    --green-dark:#42ae37;
+    --text:#173d4d;
+    --muted:#66777d;
+    --soft:#eef5f0;
+    --white:#ffffff;
 }
 
 .container{
-
-    width:min(
-        1080px,
-        calc(100% - 64px)
-    );
-
-    margin:auto;
+    width:min(1180px, calc(100% - 48px));
+    margin:0 auto;
 }
 
 
 /* =========================================================
-   03. TOP BAR
+   HEADER
 ========================================================= */
 
-.topbar{
-
-    height:76px;
-
-    display:flex;
-    align-items:center;
-
-    background:var(--navy-dark);
-
-    color:white;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.08);
+.header{
+    background:linear-gradient(100deg,#06394e,#06475d);
+    color:#fff;
 }
 
-.topbar-inner{
-
-    width:min(
-        1080px,
-        calc(100% - 64px)
-    );
-
+.header-inner{
+    width:min(1320px, calc(100% - 60px));
+    height:86px;
     margin:auto;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:30px;
 }
 
 .brand{
-
     display:flex;
     align-items:center;
-
-    gap:14px;
+    gap:16px;
 }
 
-.logo{
-
-    width:50px;
-    height:auto;
-
-    display:block;
-}
-
-.brand-divider{
-
-    width:1px;
-    height:36px;
-
-    background:
-        rgba(255,255,255,.34);
-}
-
-.brand-name{
-
-    font-size:15px;
-    line-height:1.2;
-
-    font-weight:700;
-
-    letter-spacing:.2px;
-}
-
-.brand-sub{
-
-    margin-top:3px;
-
-    font-size:10px;
-    line-height:1.25;
-
-    font-weight:500;
-
-    letter-spacing:.15px;
-
-    color:
-        rgba(255,255,255,.65);
-}
-
-.home-link{
-
-    padding:
-        8px
-        13px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.20);
-
-    border-radius:999px;
-
-    font-size:11px;
-    font-weight:600;
-
-    transition:.25s ease;
-}
-
-.home-link:hover{
-
-    background:
-        rgba(255,255,255,.09);
-}
-
-
-/* =========================================================
-   04. HERO
-========================================================= */
-
-.hero{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:
-        76px
-        0
-        72px;
-
-    color:white;
-
-    background:
-        radial-gradient(
-            circle at 82% 50%,
-            rgba(31,181,137,.20),
-            transparent 32%
-        ),
-        linear-gradient(
-            120deg,
-            #063448 0%,
-            #07566a 56%,
-            #087365 100%
-        );
-}
-
-.hero::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:420px;
-    height:420px;
-
-    right:-150px;
-    top:-180px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
+.logo-mark{
+    width:45px;
+    height:45px;
     border-radius:50%;
-}
-
-.hero-inner{
-
-    position:relative;
-
-    z-index:2;
-
-    max-width:780px;
-}
-
-.kicker{
-
-    margin-bottom:16px;
-
-    color:var(--green);
-
-    font-size:12px;
-    line-height:1.3;
-
-    font-weight:700;
-
-    letter-spacing:.6px;
-}
-
-.hero-title{
-
-    font-size:34px;
-    line-height:1.35;
-
-    font-weight:650;
-
-    letter-spacing:-.25px;
-}
-
-.hero-title span{
-
-    display:block;
-
-    margin-bottom:2px;
-}
-
-.hero-line{
-
-    width:96px;
-    height:3px;
-
-    margin:
-        23px
-        0
-        20px;
-
-    background:var(--green);
-}
-
-.hero-copy{
-
-    max-width:730px;
-
-    font-size:16px;
-    line-height:1.75;
-
-    font-weight:400;
-
-    color:
-        rgba(255,255,255,.83);
-}
-
-
-/* =========================================================
-   05. COMMON SECTIONS
-========================================================= */
-
-.section{
-
-    padding:
-        64px
-        0;
-}
-
-.section.white{
-
-    background:white;
-}
-
-.section.soft{
-
-    background:var(--soft);
-}
-
-.section-label{
-
-    margin-bottom:9px;
-
-    color:#5dbd43;
-
-    font-size:11px;
-    line-height:1.3;
-
-    font-weight:700;
-
-    letter-spacing:.65px;
-}
-
-.section-title{
-
-    font-size:25px;
-    line-height:1.35;
-
-    font-weight:650;
-
-    letter-spacing:-.15px;
-
-    color:var(--text);
-}
-
-.section-copy{
-
-    max-width:790px;
-
-    margin-top:14px;
-
-    font-size:16px;
-    line-height:1.75;
-
-    font-weight:400;
-
-    color:var(--muted);
-}
-
-
-/* =========================================================
-   06. WHY
-========================================================= */
-
-.why-grid{
-
-    margin-top:30px;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:14px;
-}
-
-.why-card{
-
-    min-height:165px;
-
-    padding:
-        22px
-        21px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius:15px;
-
-    background:white;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-}
-
-.why-card:hover{
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 12px 28px
-        rgba(16,72,59,.07);
-}
-
-.card-no{
-
-    margin-bottom:10px;
-
-    color:var(--green);
-
-    font-size:13px;
-
-    font-weight:700;
-}
-
-.why-card h3{
-
-    font-size:16px;
-    line-height:1.45;
-
-    font-weight:650;
-
-    color:var(--text);
-}
-
-.why-card p{
-
-    margin-top:8px;
-
-    font-size:14px;
-    line-height:1.6;
-
-    font-weight:400;
-
-    color:var(--muted);
-}
-
-
-/* =========================================================
-   07. CÂU ĐINH
-   ĐÂY LÀ PHẦN DUY NHẤT ĐƯỢC NHẤN MẠNH
-========================================================= */
-
-.key-wrap{
-
-    padding:
-        52px
-        0;
-
-    background:white;
-}
-
-.key-message{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:
-        44px
-        48px;
-
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            115deg,
-            #073d51 0%,
-            #08665f 100%
-        );
-
-    color:white;
-
-    box-shadow:
-        0 18px 45px
-        rgba(5,64,66,.10);
-}
-
-.key-message::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:230px;
-    height:230px;
-
-    right:-90px;
-    top:-100px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    border-radius:50%;
-}
-
-.key-label{
-
-    position:relative;
-    z-index:2;
-
-    margin-bottom:16px;
-
-    color:var(--green-light);
-
-    font-size:11px;
-
-    font-weight:700;
-
-    letter-spacing:.7px;
-}
-
-.key-text{
-
-    position:relative;
-    z-index:2;
-
-    max-width:900px;
-
-    font-size:32px;
-    line-height:1.42;
-
-    font-weight:650;
-
-    letter-spacing:-.35px;
-}
-
-
-/* =========================================================
-   08. LỚP 2025–2026
-========================================================= */
-
-.class-intro{
-
-    max-width:830px;
-}
-
-.class-grid{
-
-    margin-top:30px;
-
-    display:grid;
-
-    grid-template-columns:
-        .88fr
-        1.12fr;
-
-    gap:18px;
-}
-
-
-/* =========================================================
-   09. MENTOR
-========================================================= */
-
-.mentor-card{
-
-    padding:
-        30px
-        28px;
-
-    border-radius:17px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #084357,
-            #0a6b70
-        );
-
-    color:white;
-}
-
-.mentor-label{
-
-    color:var(--green);
-
-    font-size:11px;
-
-    font-weight:700;
-
-    letter-spacing:.6px;
-}
-
-.mentor-name{
-
-    margin-top:16px;
-
-    font-size:26px;
-    line-height:1.25;
-
-    font-weight:700;
-
-    letter-spacing:.1px;
-
-    white-space:nowrap;
-}
-
-.mentor-role{
-
-    margin-top:7px;
-
-    font-size:14px;
-    line-height:1.5;
-
-    color:
-        rgba(255,255,255,.78);
-}
-
-.mentor-note{
-
-    margin-top:17px;
-
-    padding-top:16px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.12);
-
-    font-size:14px;
-    line-height:1.65;
-
-    color:
-        rgba(255,255,255,.78);
-}
-
-
-/* =========================================================
-   10. GROUP
-========================================================= */
-
-.class-card{
-
-    padding:
-        29px
-        28px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius:17px;
-
-    background:white;
-}
-
-.class-card h3{
-
-    font-size:17px;
-    line-height:1.45;
-
-    font-weight:650;
-
-    color:var(--text);
-}
-
-.class-card > p{
-
-    margin-top:9px;
-
-    font-size:15px;
-    line-height:1.7;
-
-    color:var(--muted);
-}
-
-
-/* =========================================================
-   11. EXPERTISE
-========================================================= */
-
-.expertise{
-
-    margin-top:21px;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:8px;
-}
-
-.expertise-item{
-
-    display:flex;
-    align-items:center;
-
-    gap:11px;
-
-    min-height:50px;
-
-    padding:
-        10px
-        13px;
-
-    border-radius:10px;
-
-    background:var(--soft);
-}
-
-.expertise-item:last-child{
-
-    grid-column:
-        1 / -1;
-}
-
-.expertise-number{
-
-    flex:
-        0 0
-        25px;
-
-    width:25px;
-    height:25px;
-
+    border:2px solid var(--green);
     display:flex;
     align-items:center;
     justify-content:center;
-
-    border-radius:50%;
-
-    background:
-        rgba(103,201,75,.12);
-
-    color:#5dbd43;
-
-    font-size:10px;
-
-    font-weight:700;
+    color:var(--green);
+    font-weight:800;
+    font-size:14px;
 }
 
-.expertise-name{
-
-    font-size:12px;
-    line-height:1.4;
-
-    font-weight:650;
-
-    color:#355862;
-}
-
-
-/* =========================================================
-   12. CLOSING
-========================================================= */
-
-.closing{
-
-    max-width:830px;
-}
-
-.closing-text{
-
-    margin-top:10px;
-
-    font-size:21px;
-    line-height:1.5;
-
-    font-weight:550;
-
-    color:var(--text);
-}
-
-.closing-text strong{
-
-    color:#59b941;
-
-    font-weight:650;
-}
-
-
-/* =========================================================
-   13. FOOTER
-========================================================= */
-
-.footer{
-
-    padding:
-        18px
-        0;
-
-    background:#095267;
-
-    color:
-        rgba(255,255,255,.68);
-}
-
-.footer-inner{
-
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
-
-    font-size:10px;
-
+.brand-text strong{
+    display:block;
+    font-size:20px;
+    line-height:1.1;
     letter-spacing:.3px;
 }
 
-
-/* =========================================================
-   14. ANIMATION
-========================================================= */
-
-.reveal{
-
-    opacity:0;
-
-    transform:
-        translateY(13px);
-
-    transition:
-        opacity .65s ease,
-        transform .65s ease;
+.brand-text span{
+    display:block;
+    font-size:11px;
+    margin-top:5px;
+    letter-spacing:.7px;
+    opacity:.9;
 }
 
-.reveal.show{
+.nav{
+    display:flex;
+    align-items:center;
+    gap:34px;
+}
 
-    opacity:1;
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    white-space:nowrap;
+}
 
-    transform:
-        translateY(0);
+.nav a.active{
+    color:var(--green);
 }
 
 
 /* =========================================================
-   15. MOBILE
+   THÔNG ĐIỆP
 ========================================================= */
 
-@media(max-width:700px){
+.message-section{
+    padding:28px 0 22px;
+}
+
+.message-box{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 92% 20%,rgba(97,200,75,.10),transparent 25%),
+        linear-gradient(110deg,#f1f8f2,#fbfdfb);
+
+    border:1px solid #e2eee4;
+    border-radius:20px;
+
+    padding:32px 48px;
+}
+
+.message-label{
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:var(--green-dark);
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.message-text{
+    max-width:980px;
+    font-size:28px;
+    line-height:1.35;
+    font-weight:750;
+    letter-spacing:-.3px;
+    color:var(--navy);
+}
+
+.message-text .highlight{
+    color:var(--green-dark);
+}
 
 
-    body{
+/* =========================================================
+   GIỚI THIỆU
+========================================================= */
 
-        font-size:15px;
-    }
+.intro{
+    padding:28px 0 22px;
+}
 
+.eyebrow{
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.3px;
+    color:var(--green-dark);
+    text-transform:uppercase;
+    margin-bottom:9px;
+}
 
-    .container{
+.intro h1{
+    font-size:30px;
+    line-height:1.25;
+    letter-spacing:-.4px;
+    color:var(--navy);
+    font-weight:750;
+    margin-bottom:12px;
+}
 
-        width:
-            calc(100% - 34px);
-    }
-
-
-    /* TOPBAR */
-
-    .topbar{
-
-        height:65px;
-    }
-
-
-    .topbar-inner{
-
-        width:
-            calc(100% - 28px);
-    }
-
-
-    .logo{
-
-        width:41px;
-    }
-
-
-    .brand{
-
-        gap:10px;
-    }
+.intro-lead{
+    max-width:920px;
+    color:#5e7076;
+    font-size:15px;
+    line-height:1.75;
+}
 
 
-    .brand-divider{
+/* =========================================================
+   CARDS
+========================================================= */
 
-        height:30px;
-    }
+.cards{
+    display:grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap:22px;
+    align-items:stretch;
+    margin-top:24px;
+}
 
 
-    .brand-name{
+/* CARD NKX */
 
-        font-size:13px;
-    }
+.mentor-card{
+    background:
+        linear-gradient(145deg,#07576d,#07869b);
+
+    border-radius:18px;
+    padding:30px 34px;
+
+    color:#fff;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    min-height:260px;
+
+    box-shadow:0 8px 24px rgba(0,60,80,.12);
+}
+
+.mentor-label{
+    color:var(--green);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.mentor-name{
+    font-size:28px;
+    line-height:1.15;
+    font-weight:800;
+    letter-spacing:.2px;
+    margin-bottom:7px;
+}
+
+.mentor-title{
+    font-size:14px;
+    font-weight:700;
+    opacity:.95;
+}
+
+.mentor-line{
+    height:1px;
+    background:rgba(255,255,255,.22);
+    margin:22px 0 17px;
+}
+
+.mentor-note{
+    font-size:14px;
+    line-height:1.6;
+    opacity:.94;
+}
 
 
-    .brand-sub{
+/* CARD NHÓM */
 
+.group-card{
+    background:#fff;
+    border:1px solid #e8eeeb;
+    border-radius:18px;
+    padding:27px 30px;
+    box-shadow:0 8px 24px rgba(0,60,80,.07);
+}
+
+.group-card h2{
+    font-size:20px;
+    line-height:1.3;
+    color:var(--navy);
+    margin-bottom:8px;
+}
+
+.group-description{
+    font-size:14px;
+    color:#66777d;
+    line-height:1.65;
+    margin-bottom:18px;
+}
+
+.group-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+}
+
+.group-item{
+    min-height:54px;
+    background:#f1f6f3;
+    border-radius:10px;
+
+    display:flex;
+    align-items:center;
+
+    padding:10px 14px;
+    gap:12px;
+}
+
+.group-item:last-child{
+    grid-column:1 / -1;
+}
+
+.group-number{
+    color:var(--green-dark);
+    font-size:12px;
+    font-weight:800;
+    min-width:24px;
+}
+
+.group-name{
+    font-size:12px;
+    line-height:1.35;
+    font-weight:750;
+    color:#284b58;
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   GIÁ TRỊ
+========================================================= */
+
+.value-section{
+    padding:22px 0 38px;
+}
+
+.value-box{
+    background:linear-gradient(90deg,#eff7f1,#f8fbf8);
+    border:1px solid #e5eee7;
+    border-radius:16px;
+    padding:22px 30px;
+}
+
+.value-label{
+    color:var(--green-dark);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    margin-bottom:6px;
+}
+
+.value-text{
+    font-size:20px;
+    line-height:1.45;
+    color:var(--navy);
+    font-weight:700;
+}
+
+.value-text strong{
+    color:var(--green-dark);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    background:linear-gradient(100deg,#06445a,#07859b);
+    color:#fff;
+    text-align:center;
+    padding:17px 20px;
+}
+
+.footer span{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.8px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+    .nav{
         display:none;
     }
 
+    .header-inner{
+        height:76px;
+    }
 
-    .home-link{
+    .message-text{
+        font-size:24px;
+    }
 
-        padding:
-            7px
-            10px;
+    .cards{
+        grid-template-columns:1fr;
+    }
 
-        font-size:10px;
+    .mentor-card{
+        min-height:auto;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .container{
+        width:calc(100% - 30px);
+    }
+
+    .header-inner{
+        width:calc(100% - 30px);
+        height:68px;
+    }
+
+    .logo-mark{
+        width:38px;
+        height:38px;
+        font-size:11px;
+    }
+
+    .brand-text strong{
+        font-size:17px;
+    }
+
+    .brand-text span{
+        font-size:9px;
     }
 
 
-    /* HERO */
+    /* THÔNG ĐIỆP */
 
-    .hero{
-
-        padding:
-            51px
-            0
-            52px;
+    .message-section{
+        padding:18px 0 8px;
     }
 
-
-    .kicker{
-
-        margin-bottom:14px;
-
-        font-size:10px;
+    .message-box{
+        padding:24px 22px;
+        border-radius:16px;
     }
 
-
-    .hero-title{
-
-        font-size:26px;
-        line-height:1.4;
-
-        font-weight:650;
-
-        letter-spacing:-.1px;
+    .message-label{
+        font-size:11px;
+        margin-bottom:10px;
     }
 
-
-    .hero-title span{
-
-        margin-bottom:1px;
-    }
-
-
-    .hero-line{
-
-        width:76px;
-
-        margin:
-            18px
-            0
-            16px;
-    }
-
-
-    .hero-copy{
-
-        font-size:15px;
-        line-height:1.7;
-    }
-
-
-    /* SECTION */
-
-    .section{
-
-        padding:
-            48px
-            0;
-    }
-
-
-    .section-label{
-
-        font-size:10px;
-    }
-
-
-    .section-title{
-
+    .message-text{
         font-size:21px;
         line-height:1.4;
     }
 
 
-    .section-copy{
+    /* GIỚI THIỆU */
 
-        margin-top:12px;
-
-        font-size:15px;
-        line-height:1.7;
+    .intro{
+        padding:25px 0 15px;
     }
 
-
-    /* WHY */
-
-    .why-grid{
-
-        margin-top:24px;
-
-        grid-template-columns:1fr;
-
-        gap:9px;
+    .intro h1{
+        font-size:24px;
+        line-height:1.3;
     }
 
-
-    .why-card{
-
-        min-height:auto;
-
-        padding:
-            18px
-            17px;
-    }
-
-
-    .card-no{
-
-        margin-bottom:7px;
-
-        font-size:11px;
-    }
-
-
-    .why-card h3{
-
-        font-size:15px;
-    }
-
-
-    .why-card p{
-
-        margin-top:6px;
-
-        font-size:13px;
-    }
-
-
-    /* KEY MESSAGE */
-
-    .key-wrap{
-
-        padding:
-            38px
-            0;
-    }
-
-
-    .key-message{
-
-        padding:
-            27px
-            21px;
-
-        border-radius:15px;
-    }
-
-
-    .key-label{
-
-        margin-bottom:12px;
-
-        font-size:9px;
-    }
-
-
-    .key-text{
-
-        font-size:22px;
-        line-height:1.48;
-
-        font-weight:650;
-
-        letter-spacing:-.1px;
-    }
-
-
-    /* CLASS */
-
-    .class-grid{
-
-        margin-top:23px;
-
-        grid-template-columns:1fr;
-
-        gap:10px;
-    }
-
-
-    .mentor-card{
-
-        padding:
-            22px
-            20px;
-    }
-
-
-    .mentor-label{
-
-        font-size:10px;
-    }
-
-
-    .mentor-name{
-
-        margin-top:11px;
-
-        font-size:22px;
-
-        white-space:nowrap;
-    }
-
-
-    .mentor-role{
-
-        font-size:13px;
-    }
-
-
-    .mentor-note{
-
-        margin-top:14px;
-
-        padding-top:13px;
-
-        font-size:13px;
-    }
-
-
-    .class-card{
-
-        padding:
-            21px
-            19px;
-    }
-
-
-    .class-card h3{
-
-        font-size:15px;
-    }
-
-
-    .class-card > p{
-
+    .intro-lead{
         font-size:14px;
     }
 
 
-    /* EXPERTISE */
+    /* CARDS */
 
-    .expertise{
-
-        margin-top:17px;
-
-        grid-template-columns:1fr;
-
-        gap:7px;
+    .cards{
+        margin-top:20px;
+        gap:16px;
     }
 
-
-    .expertise-item,
-    .expertise-item:last-child{
-
-        grid-column:auto;
+    .mentor-card{
+        padding:25px 23px;
+        border-radius:15px;
     }
 
-
-    .expertise-item{
-
-        min-height:46px;
-
-        padding:
-            9px
-            11px;
+    .mentor-label{
+        font-size:11px;
+        margin-bottom:14px;
     }
 
-
-    .expertise-name{
-
-        font-size:12px;
-    }
-
-
-    /* CLOSING */
-
-    .closing-text{
-
-        font-size:18px;
-        line-height:1.55;
-    }
-
-
-    /* FOOTER */
-
-    .footer-inner{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:4px;
-    }
-
-}
-
-
-/* =========================================================
-   16. SMALL MOBILE
-========================================================= */
-
-@media(max-width:380px){
-
-    .hero-title{
-
+    .mentor-name{
         font-size:24px;
     }
 
+    .mentor-title{
+        font-size:13px;
+    }
 
-    .key-text{
+    .mentor-line{
+        margin:18px 0 14px;
+    }
 
-        font-size:20px;
+    .mentor-note{
+        font-size:13px;
     }
 
 
-    .mentor-name{
+    .group-card{
+        padding:22px 18px;
+        border-radius:15px;
+    }
 
-        font-size:20px;
+    .group-card h2{
+        font-size:19px;
+    }
+
+    .group-description{
+        font-size:13px;
+    }
+
+    .group-list{
+        grid-template-columns:1fr;
+    }
+
+    .group-item:last-child{
+        grid-column:auto;
+    }
+
+    .group-item{
+        min-height:50px;
+    }
+
+    .group-name{
+        font-size:11px;
+    }
+
+
+    /* VALUE */
+
+    .value-section{
+        padding:15px 0 28px;
+    }
+
+    .value-box{
+        padding:20px;
+    }
+
+    .value-text{
+        font-size:17px;
     }
 
 }
-
-
-/* =========================================================
-   17. REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation:none !important;
-
-        transition:none !important;
-    }
-
-
-    .reveal{
-
-        opacity:1;
-
-        transform:none;
-    }
-
-}
-
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
-     TOPBAR
-========================================================= -->
+<!-- ======================================================
+     HEADER
+======================================================= -->
 
-<header class="topbar">
+<header class="header">
 
-    <div class="topbar-inner">
-
+    <div class="header-inner">
 
         <div class="brand">
 
-            <img
-                src="../assets/images/Logo-pvep.png"
-                class="logo"
-                alt="PVEP"
-            >
+            <div class="logo-mark">
+                PVEP
+            </div>
 
-
-            <div class="brand-divider"></div>
-
-
-            <div>
-
-                <div class="brand-name">
-                    PVEP
-                </div>
-
-                <div class="brand-sub">
-                    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
-                </div>
-
+            <div class="brand-text">
+                <strong>PVEP</strong>
+                <span>CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG</span>
             </div>
 
         </div>
 
 
-        <a
-            href="../index.html"
-            class="home-link"
-        >
-            ← TRANG CHỦ
-        </a>
+        <nav class="nav">
 
+            <a class="active" href="#">Giới thiệu</a>
+
+            <a href="../02_Hanh-trinh/">Hành trình</a>
+
+            <a href="../03_Buoi-hoc/">Các buổi học</a>
+
+            <a href="../04_Thu-vien/">Thư viện</a>
+
+            <a href="../05_Luu-but/">Lưu bút</a>
+
+            <a href="../06_Qua-tang/">Quà tặng</a>
+
+        </nav>
 
     </div>
 
@@ -1328,182 +608,31 @@ a{
 
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- ======================================================
+     THÔNG ĐIỆP CỦA CHƯƠNG TRÌNH
+======================================================= -->
 
-<section class="hero">
+<section class="message-section">
 
     <div class="container">
 
-        <div class="hero-inner reveal">
+        <div class="message-box">
 
-
-            <div class="kicker">
-                01 · GIỚI THIỆU
-            </div>
-
-
-            <h1 class="hero-title">
-
-                <span>
-                    Phát hiện tiềm năng
-                </span>
-
-                <span>
-                    Bồi dưỡng năng lực
-                </span>
-
-                <span>
-                    Chuẩn bị cho tương lai
-                </span>
-
-            </h1>
-
-
-            <div class="hero-line"></div>
-
-
-            <p class="hero-copy">
-
-                Chương trình Nhân viên Tài năng PVEP
-                tạo môi trường để nhân sự có tiềm năng
-                được học hỏi, thử thách, mở rộng năng lực
-                và gia tăng giá trị đóng góp cho Tổng công ty.
-
-            </p>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     VÌ SAO CÓ CHƯƠNG TRÌNH
-========================================================= -->
-
-<section class="section white">
-
-    <div class="container reveal">
-
-
-        <div class="section-label">
-            ĐIỂM KHỞI ĐẦU
-        </div>
-
-
-        <h2 class="section-title">
-            Vì sao có Chương trình Nhân viên Tài năng?
-        </h2>
-
-
-        <p class="section-copy">
-
-            Từ những tiềm năng riêng,
-            chương trình hướng tới việc phát triển
-            một nguồn lực có khả năng học hỏi,
-            kết nối, thích ứng
-            và tạo ra giá trị mới cho PVEP.
-
-        </p>
-
-
-        <div class="why-grid">
-
-
-            <div class="why-card">
-
-                <div class="card-no">
-                    01
-                </div>
-
-                <h3>
-                    Phát hiện và phát huy tiềm năng
-                </h3>
-
-                <p>
-                    Tạo cơ hội để nhân sự có tiềm năng
-                    được thử thách và tiếp tục phát triển
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="card-no">
-                    02
-                </div>
-
-                <h3>
-                    Phát triển năng lực từ nội bộ
-                </h3>
-
-                <p>
-                    Gia tăng khả năng học hỏi,
-                    chia sẻ và trưởng thành
-                    từ thực tiễn công việc
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="card-no">
-                    03
-                </div>
-
-                <h3>
-                    Chuẩn bị nguồn lực cho tương lai
-                </h3>
-
-                <p>
-                    Từng bước hình thành đội ngũ
-                    có chiều sâu và khả năng
-                    nhận trách nhiệm lớn hơn
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CÂU ĐINH
-========================================================= -->
-
-<section class="key-wrap">
-
-    <div class="container reveal">
-
-        <div class="key-message">
-
-
-            <div class="key-label">
+            <div class="message-label">
                 THÔNG ĐIỆP CỦA CHƯƠNG TRÌNH
             </div>
 
-
-            <div class="key-text">
+            <div class="message-text">
 
                 “Tài năng không chỉ nằm ở việc bạn được lựa chọn,
-                mà ở những giá trị bạn tạo ra
+                mà ở
+                <span class="highlight">
+                    những giá trị bạn tạo ra
+                </span>
                 sau khi được trao cơ hội.”
 
             </div>
 
-
         </div>
 
     </div>
@@ -1512,169 +641,161 @@ a{
 
 
 
-<!-- =========================================================
-     LỚP NHÂN VIÊN TÀI NĂNG 2025–2026
-========================================================= -->
+<!-- ======================================================
+     GIỚI THIỆU
+======================================================= -->
 
-<section class="section soft">
+<main class="intro">
 
-    <div class="container reveal">
+    <div class="container">
 
-
-        <div class="class-intro">
-
-
-            <div class="section-label">
-                LỚP NHÂN VIÊN TÀI NĂNG 2025–2026
-            </div>
-
-
-            <p class="section-copy">
-
-                Trong khuôn khổ Chương trình Nhân viên Tài năng PVEP,
-                lớp Nhân viên Tài năng 2025–2026
-                được tổ chức với sự hướng dẫn và đồng hành
-                của Phó Tổng giám đốc Ngô Khánh Xạ.
-
-            </p>
-
-
+        <div class="eyebrow">
+            LỚP NHÂN VIÊN TÀI NĂNG 2025–2026
         </div>
 
 
+        <h1>
+            Một lớp học trong hành trình chung của Chương trình Nhân viên Tài năng
+        </h1>
 
-        <div class="class-grid">
+
+        <p class="intro-lead">
+
+            Trong khuôn khổ Chương trình Nhân viên Tài năng PVEP,
+            lớp Nhân viên Tài năng 2025–2026 được tổ chức với sự
+            hướng dẫn và đồng hành của Phó Tổng giám đốc Ngô Khánh Xạ.
+
+        </p>
+
+
+
+        <!-- ==================================================
+             2 CARD
+        =================================================== -->
+
+        <div class="cards">
 
 
             <!-- NGƯỜI HƯỚNG DẪN -->
 
-            <div class="mentor-card">
-
+            <section class="mentor-card">
 
                 <div class="mentor-label">
                     NGƯỜI HƯỚNG DẪN LỚP
                 </div>
 
-
                 <div class="mentor-name">
                     NGÔ KHÁNH XẠ
                 </div>
 
-
-                <div class="mentor-role">
+                <div class="mentor-title">
                     Phó Tổng giám đốc PVEP
                 </div>
 
+                <div class="mentor-line"></div>
 
                 <div class="mentor-note">
-
-                    Hướng dẫn và đồng hành cùng
-                    lớp Nhân viên Tài năng 2025–2026
-
+                    Hướng dẫn và đồng hành cùng lớp
+                    Nhân viên Tài năng 2025–2026.
                 </div>
 
-
-            </div>
+            </section>
 
 
 
             <!-- NHÓM -->
 
-            <div class="class-card">
+            <section class="group-card">
 
-
-                <h3>
+                <h2>
                     Một nhóm — nhiều góc nhìn
-                </h3>
+                </h2>
 
+                <p class="group-description">
 
-                <p>
-
-                    Các thành viên đến từ nhiều lĩnh vực
-                    chuyên môn và đơn vị khác nhau,
-                    cùng gặp nhau trong một hành trình
-                    học tập, chia sẻ và phát triển.
+                    Các thành viên đến từ nhiều lĩnh vực chuyên môn
+                    và đơn vị công tác, cùng gặp nhau trong một hành trình
+                    học tập, chia sẻ và trưởng thành.
 
                 </p>
 
 
+                <div class="group-list">
 
-                <div class="expertise">
-
-
-                    <div class="expertise-item">
-
-                        <div class="expertise-number">
-                            01
-                        </div>
-
-                        <div class="expertise-name">
-                            CÔNG NGHỆ MỎ
-                        </div>
-
+                    <div class="group-item">
+                        <span class="group-number">01</span>
+                        <span class="group-name">
+                            Công nghệ mỏ
+                        </span>
                     </div>
 
 
-                    <div class="expertise-item">
-
-                        <div class="expertise-number">
-                            02
-                        </div>
-
-                        <div class="expertise-name">
-                            CÔNG NGHỆ – CHUYỂN ĐỔI SỐ
-                        </div>
-
+                    <div class="group-item">
+                        <span class="group-number">02</span>
+                        <span class="group-name">
+                            Công nghệ – Chuyển đổi số
+                        </span>
                     </div>
 
 
-                    <div class="expertise-item">
-
-                        <div class="expertise-number">
-                            03
-                        </div>
-
-                        <div class="expertise-name">
-                            CHI NHÁNH TRUNG TÂM KỸ THUẬT
-                        </div>
-
+                    <div class="group-item">
+                        <span class="group-number">03</span>
+                        <span class="group-name">
+                            Chi nhánh Trung tâm Kỹ thuật
+                        </span>
                     </div>
 
 
-                    <div class="expertise-item">
-
-                        <div class="expertise-number">
-                            04
-                        </div>
-
-                        <div class="expertise-name">
-                            CHI NHÁNH HỒ CHÍ MINH
-                        </div>
-
+                    <div class="group-item">
+                        <span class="group-number">04</span>
+                        <span class="group-name">
+                            Chi nhánh Hồ Chí Minh
+                        </span>
                     </div>
 
 
-                    <div class="expertise-item">
-
-                        <div class="expertise-number">
-                            05
-                        </div>
-
-                        <div class="expertise-name">
-                            CHI NHÁNH CỬU LONG
-                        </div>
-
+                    <div class="group-item">
+                        <span class="group-number">05</span>
+                        <span class="group-name">
+                            Chi nhánh Cửu Long
+                        </span>
                     </div>
-
 
                 </div>
 
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- ======================================================
+     TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
+======================================================= -->
+
+<section class="value-section">
+
+    <div class="container">
+
+        <div class="value-box">
+
+            <div class="value-label">
+                TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
+            </div>
+
+            <div class="value-text">
+
+                Từ những điểm xuất phát khác nhau,
+                cùng học hỏi, cùng phát triển và từng bước
+                <strong>tạo ra giá trị cho PVEP.</strong>
 
             </div>
 
-
         </div>
-
 
     </div>
 
@@ -1682,117 +803,17 @@ a{
 
 
 
-<!-- =========================================================
-     KẾT
-========================================================= -->
-
-<section class="section white">
-
-    <div class="container reveal closing">
-
-
-        <div class="section-label">
-            TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
-        </div>
-
-
-        <div class="closing-text">
-
-            Từ những điểm xuất phát khác nhau,
-            cùng học hỏi, cùng phát triển
-            và từng bước
-            <strong>
-                tạo ra giá trị cho PVEP
-            </strong>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
+<!-- ======================================================
      FOOTER
-========================================================= -->
+======================================================= -->
 
 <footer class="footer">
 
-    <div class="container footer-inner">
-
-
-        <span>
-            CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
-        </span>
-
-
-        <span>
-            2025 — 2026
-        </span>
-
-
-    </div>
+    <span>
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP &nbsp; | &nbsp; 2025–2026
+    </span>
 
 </footer>
-
-
-
-<!-- =========================================================
-     ANIMATION
-========================================================= -->
-
-<script>
-
-const revealItems =
-    document.querySelectorAll(
-        ".reveal"
-    );
-
-
-const observer =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if(
-                        entry.isIntersecting
-                    ){
-
-                        entry.target
-                            .classList
-                            .add(
-                                "show"
-                            );
-
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold:0.10
-        }
-
-    );
-
-
-revealItems.forEach(
-    item => observer.observe(item)
-);
-
-</script>
 
 
 </body>
