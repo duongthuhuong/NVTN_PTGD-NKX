@@ -1,1 +1,1404 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+<title>Sổ tay Quản lý dự án dầu khí | Thư viện NVTN PVEP</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --navy:#04283e;
+    --navy-deep:#021a2b;
+    --green:#62c947;
+    --green-light:#8ee171;
+    --white:#ffffff;
+    --muted:rgba(255,255,255,.68);
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 84% 12%,
+            rgba(98,201,71,.15),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            #021827 0%,
+            #052b40 48%,
+            #063a4d 100%
+        );
+
+    color:#fff;
+
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    min-height:76px;
+
+    padding:14px 4.5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(2,24,39,.76);
+
+    backdrop-filter:blur(14px);
+
+    position:relative;
+    z-index:30;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-circle{
+    width:42px;
+    height:42px;
+
+    border:2px solid var(--green);
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--green);
+
+    font-weight:800;
+    font-size:11px;
+}
+
+.brand-text strong{
+    display:block;
+
+    font-size:17px;
+    letter-spacing:.4px;
+}
+
+.brand-text span{
+    display:block;
+
+    margin-top:3px;
+
+    color:rgba(255,255,255,.67);
+
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.home-btn{
+    text-decoration:none;
+
+    color:#fff;
+
+    padding:9px 15px;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    border-radius:30px;
+
+    font-size:11px;
+    font-weight:700;
+
+    transition:.25s ease;
+}
+
+.home-btn:hover{
+    color:#05283f;
+    background:var(--green);
+    border-color:var(--green);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    width:min(1180px, calc(100% - 40px));
+
+    margin:auto;
+
+    padding:36px 0 22px;
+
+    text-align:center;
+}
+
+.kicker{
+    color:var(--green-light);
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:2.4px;
+
+    margin-bottom:10px;
+}
+
+.intro h1{
+    font-size:
+        clamp(
+            29px,
+            4vw,
+            48px
+        );
+
+    line-height:1.12;
+
+    letter-spacing:-1px;
+}
+
+.intro p{
+    max-width:720px;
+
+    margin:13px auto 0;
+
+    color:var(--muted);
+
+    font-size:14px;
+    line-height:1.65;
+}
+
+
+/* =========================================================
+   BOOK AREA
+========================================================= */
+
+.viewer-section{
+    width:100%;
+
+    min-height:
+        calc(100vh - 220px);
+
+    padding:
+        14px
+        18px
+        32px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+
+/* KHUNG SÁCH */
+
+.book-stage{
+    position:relative;
+
+    width:min(1180px, 96vw);
+
+    height:min(73vh, 760px);
+
+    min-height:480px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    perspective:2200px;
+}
+
+
+/* ánh sáng nền */
+
+.book-stage::before{
+    content:"";
+
+    position:absolute;
+
+    width:75%;
+    height:65%;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(0,0,0,.28),
+            transparent 68%
+        );
+
+    bottom:-4%;
+
+    filter:blur(22px);
+}
+
+
+/* BOOK */
+
+#book{
+    width:100%;
+    height:100%;
+
+    position:relative;
+
+    z-index:3;
+}
+
+
+/* PAGE */
+
+.page{
+    background:#fff;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        inset 0 0 18px rgba(0,0,0,.04);
+
+    position:relative;
+}
+
+.page::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    box-shadow:
+        inset 0 0 12px rgba(0,0,0,.055);
+}
+
+
+/* CANVAS PDF */
+
+.page canvas{
+    display:block;
+
+    width:100% !important;
+    height:100% !important;
+
+    object-fit:contain;
+
+    background:white;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    gap:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(2,24,39,.96),
+            rgba(5,45,65,.96)
+        );
+
+    border-radius:20px;
+
+    transition:
+        opacity .4s ease,
+        visibility .4s ease;
+}
+
+.loading.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.spinner{
+    width:44px;
+    height:44px;
+
+    border:
+        4px solid rgba(255,255,255,.16);
+
+    border-top-color:var(--green);
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.loading strong{
+    font-size:14px;
+}
+
+.loading span{
+    color:rgba(255,255,255,.63);
+    font-size:11px;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls{
+    width:min(820px, 94vw);
+
+    margin-top:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:15px;
+
+    position:relative;
+    z-index:10;
+}
+
+.control-btn{
+    border:0;
+
+    min-width:48px;
+    height:42px;
+
+    padding:0 16px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:12px;
+    font-weight:700;
+
+    backdrop-filter:blur(10px);
+
+    transition:.22s ease;
+}
+
+.control-btn:hover{
+    transform:translateY(-2px);
+
+    background:
+        rgba(98,201,71,.20);
+
+    border-color:
+        rgba(142,225,113,.55);
+}
+
+.page-info{
+    min-width:130px;
+
+    text-align:center;
+
+    color:rgba(255,255,255,.82);
+
+    font-size:12px;
+
+    font-variant-numeric:tabular-nums;
+}
+
+.page-info strong{
+    color:var(--green-light);
+}
+
+
+/* =========================================================
+   HELP
+========================================================= */
+
+.help{
+    margin-top:12px;
+
+    text-align:center;
+
+    color:rgba(255,255,255,.43);
+
+    font-size:10px;
+
+    letter-spacing:.3px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-box{
+    display:none;
+
+    width:min(650px,90vw);
+
+    margin:30px auto;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    background:
+        rgba(180,30,30,.18);
+
+    border:
+        1px solid rgba(255,120,120,.35);
+
+    text-align:center;
+
+    line-height:1.7;
+}
+
+.error-box.show{
+    display:block;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .header{
+        min-height:62px;
+
+        padding:
+            10px
+            14px;
+    }
+
+    .logo-circle{
+        width:35px;
+        height:35px;
+
+        font-size:9px;
+    }
+
+    .brand-text strong{
+        font-size:14px;
+    }
+
+    .brand-text span{
+        display:none;
+    }
+
+    .home-btn{
+        font-size:9px;
+
+        padding:
+            8px
+            11px;
+    }
+
+
+    .intro{
+        width:
+            calc(100% - 30px);
+
+        padding:
+            24px
+            0
+            10px;
+    }
+
+    .intro h1{
+        font-size:26px;
+    }
+
+    .intro p{
+        font-size:12px;
+
+        line-height:1.55;
+    }
+
+
+    .viewer-section{
+        padding:
+            4px
+            6px
+            25px;
+    }
+
+
+    /*
+       MOBILE:
+       sách chuyển sang PORTRAIT
+       và vẫn lật trang bằng swipe
+    */
+
+    .book-stage{
+        width:96vw;
+
+        height:
+            min(
+                70vh,
+                680px
+            );
+
+        min-height:430px;
+    }
+
+
+    .controls{
+        gap:7px;
+
+        margin-top:9px;
+    }
+
+    .control-btn{
+        min-width:43px;
+
+        height:39px;
+
+        padding:
+            0
+            12px;
+
+        font-size:11px;
+    }
+
+    .page-info{
+        min-width:100px;
+
+        font-size:11px;
+    }
+
+    .help{
+        font-size:9px;
+
+        padding:0 18px;
+    }
+
+}
+
+
+@media(max-width:420px){
+
+    .intro h1{
+        font-size:23px;
+    }
+
+    .book-stage{
+        height:67vh;
+
+        min-height:400px;
+    }
+
+}
+
+
+/* =========================================================
+   FULLSCREEN
+========================================================= */
+
+:fullscreen{
+    background:#021a2b;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <div class="logo-circle">
+            PVEP
+        </div>
+
+        <div class="brand-text">
+
+            <strong>THƯ VIỆN PVEP</strong>
+
+            <span>
+                CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <a
+        class="home-btn"
+        href="../index.html"
+    >
+        ← TRANG CHÍNH
+    </a>
+
+</header>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <div class="kicker">
+        04 · THƯ VIỆN
+    </div>
+
+    <h1>
+        Sổ tay Quản lý dự án dầu khí
+    </h1>
+
+    <p>
+        Lật từng trang để đọc tài liệu.
+        Trên điện thoại có thể vuốt trực tiếp
+        sang trái hoặc sang phải như một quyển sách thật.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     VIEWER
+===================================================== -->
+
+<section class="viewer-section">
+
+    <div
+        class="book-stage"
+        id="bookStage"
+    >
+
+        <!-- LOADING -->
+
+        <div
+            class="loading"
+            id="loading"
+        >
+
+            <div class="spinner"></div>
+
+            <strong>
+                Đang mở sách...
+            </strong>
+
+            <span id="loadingText">
+                Đang chuẩn bị các trang
+            </span>
+
+        </div>
+
+
+        <!-- BOOK -->
+
+        <div id="book"></div>
+
+    </div>
+
+
+
+    <!-- CONTROLS -->
+
+    <div
+        class="controls"
+        id="controls"
+    >
+
+        <button
+            class="control-btn"
+            id="prevBtn"
+            type="button"
+            title="Trang trước"
+        >
+            ←
+        </button>
+
+
+        <div class="page-info">
+
+            Trang
+            <strong id="currentPage">1</strong>
+
+            /
+
+            <span id="totalPages">
+                —
+            </span>
+
+        </div>
+
+
+        <button
+            class="control-btn"
+            id="nextBtn"
+            type="button"
+            title="Trang tiếp"
+        >
+            →
+        </button>
+
+
+        <button
+            class="control-btn"
+            id="fullscreenBtn"
+            type="button"
+            title="Toàn màn hình"
+        >
+            ⛶
+        </button>
+
+    </div>
+
+
+    <div class="help">
+        Máy tính: bấm góc trang hoặc dùng ← → &nbsp; • &nbsp;
+        Điện thoại: vuốt sang trái / phải để lật trang
+    </div>
+
+
+    <div
+        class="error-box"
+        id="errorBox"
+    >
+        Không mở được sách.
+        Hãy kiểm tra file
+        <strong>
+            so-tay-quan-ly-du-an-dau-khi.pdf
+        </strong>
+        đã nằm cùng thư mục với
+        <strong>index.html</strong>
+        hay chưa.
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PDF.JS
+===================================================== -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js">
+</script>
+
+
+<!-- =====================================================
+     PAGE FLIP
+===================================================== -->
+
+<script
+src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js">
+</script>
+
+
+
+<script>
+
+/* =========================================================
+   01. FILE PDF
+========================================================= */
+
+const PDF_URL =
+    "so-tay-quan-ly-du-an-dau-khi.pdf";
+
+
+/* =========================================================
+   02. PDF.JS WORKER
+========================================================= */
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+/* =========================================================
+   03. ELEMENTS
+========================================================= */
+
+const bookElement =
+    document.getElementById("book");
+
+const bookStage =
+    document.getElementById("bookStage");
+
+const loading =
+    document.getElementById("loading");
+
+const loadingText =
+    document.getElementById("loadingText");
+
+const currentPage =
+    document.getElementById("currentPage");
+
+const totalPages =
+    document.getElementById("totalPages");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const fullscreenBtn =
+    document.getElementById("fullscreenBtn");
+
+const errorBox =
+    document.getElementById("errorBox");
+
+
+let pageFlip = null;
+
+
+/* =========================================================
+   04. LOAD PDF
+========================================================= */
+
+async function loadBook(){
+
+    try{
+
+        const loadingTask =
+            pdfjsLib.getDocument(PDF_URL);
+
+        const pdf =
+            await loadingTask.promise;
+
+
+        totalPages.textContent =
+            pdf.numPages;
+
+
+        /*
+        ----------------------------------------------
+        ĐỌC KÍCH THƯỚC TRANG ĐẦU
+        ----------------------------------------------
+        */
+
+        const firstPage =
+            await pdf.getPage(1);
+
+        const firstViewport =
+            firstPage.getViewport({
+                scale:1
+            });
+
+
+        const ratio =
+            firstViewport.height /
+            firstViewport.width;
+
+
+        /*
+        Base width / height cho StPageFlip.
+        Giữ tỷ lệ thật của tài liệu.
+        */
+
+        const BASE_WIDTH = 520;
+
+        const BASE_HEIGHT =
+            Math.round(
+                BASE_WIDTH * ratio
+            );
+
+
+        /*
+        ----------------------------------------------
+        TẠO TỪNG PAGE HTML
+        ----------------------------------------------
+        */
+
+        const pageElements = [];
+
+
+        for(
+            let pageNumber = 1;
+            pageNumber <= pdf.numPages;
+            pageNumber++
+        ){
+
+            loadingText.textContent =
+                "Đang chuẩn bị trang "
+                + pageNumber
+                + " / "
+                + pdf.numPages;
+
+
+            const pdfPage =
+                await pdf.getPage(
+                    pageNumber
+                );
+
+
+            /*
+            Render độ phân giải khá cao
+            để chữ vẫn sắc trên desktop/mobile.
+            */
+
+            const baseViewport =
+                pdfPage.getViewport({
+                    scale:1
+                });
+
+
+            const renderWidth =
+                1200;
+
+
+            const renderScale =
+                renderWidth /
+                baseViewport.width;
+
+
+            const viewport =
+                pdfPage.getViewport({
+                    scale:renderScale
+                });
+
+
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
+
+
+            const context =
+                canvas.getContext(
+                    "2d",
+                    {
+                        alpha:false
+                    }
+                );
+
+
+            canvas.width =
+                Math.floor(
+                    viewport.width
+                );
+
+
+            canvas.height =
+                Math.floor(
+                    viewport.height
+                );
+
+
+            await pdfPage.render({
+
+                canvasContext:
+                    context,
+
+                viewport:
+                    viewport
+
+            }).promise;
+
+
+            /*
+            ------------------------------------------
+            PAGE CONTAINER
+            ------------------------------------------
+            */
+
+            const page =
+                document.createElement(
+                    "div"
+                );
+
+
+            page.className =
+                "page";
+
+
+            /*
+            Trang đầu và cuối giống bìa cứng.
+            */
+
+            if(
+                pageNumber === 1 ||
+                pageNumber === pdf.numPages
+            ){
+
+                page.setAttribute(
+                    "data-density",
+                    "hard"
+                );
+
+            }
+
+
+            page.appendChild(
+                canvas
+            );
+
+
+            bookElement.appendChild(
+                page
+            );
+
+
+            pageElements.push(
+                page
+            );
+
+        }
+
+
+        /*
+        ----------------------------------------------
+        KHỞI TẠO FLIPBOOK
+        ----------------------------------------------
+        */
+
+        pageFlip =
+            new St.PageFlip(
+                bookElement,
+                {
+
+                    width:
+                        BASE_WIDTH,
+
+                    height:
+                        BASE_HEIGHT,
+
+
+                    /*
+                    Stretch giúp responsive.
+                    */
+
+                    size:
+                        "stretch",
+
+
+                    minWidth:
+                        280,
+
+                    maxWidth:
+                        620,
+
+
+                    minHeight:
+                        Math.round(
+                            280 * ratio
+                        ),
+
+                    maxHeight:
+                        Math.round(
+                            620 * ratio
+                        ),
+
+
+                    drawShadow:
+                        true,
+
+
+                    flippingTime:
+                        850,
+
+
+                    /*
+                    Quan trọng:
+                    màn nhỏ chuyển sang
+                    1 trang portrait.
+                    */
+
+                    usePortrait:
+                        true,
+
+
+                    startZIndex:
+                        10,
+
+
+                    autoSize:
+                        true,
+
+
+                    maxShadowOpacity:
+                        0.42,
+
+
+                    /*
+                    Trang 1 là cover.
+                    */
+
+                    showCover:
+                        true,
+
+
+                    /*
+                    Hỗ trợ thao tác touch mobile.
+                    */
+
+                    mobileScrollSupport:
+                        true
+
+                }
+            );
+
+
+        pageFlip.loadFromHTML(
+            pageElements
+        );
+
+
+        /*
+        ----------------------------------------------
+        PAGE COUNTER
+        ----------------------------------------------
+        */
+
+        pageFlip.on(
+            "flip",
+            function(e){
+
+                currentPage.textContent =
+                    e.data + 1;
+
+            }
+        );
+
+
+        /*
+        Khi đổi portrait / landscape,
+        thư viện tự cập nhật.
+        */
+
+        pageFlip.on(
+            "changeOrientation",
+            function(){
+
+                setTimeout(
+                    function(){
+
+                        window.dispatchEvent(
+                            new Event(
+                                "resize"
+                            )
+                        );
+
+                    },
+                    100
+                );
+
+            }
+        );
+
+
+        /*
+        ----------------------------------------------
+        XONG
+        ----------------------------------------------
+        */
+
+        loading.classList.add(
+            "hide"
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        loading.classList.add(
+            "hide"
+        );
+
+
+        errorBox.classList.add(
+            "show"
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   05. BUTTONS
+========================================================= */
+
+prevBtn.addEventListener(
+    "click",
+    function(){
+
+        if(pageFlip){
+
+            pageFlip.flipPrev();
+
+        }
+
+    }
+);
+
+
+nextBtn.addEventListener(
+    "click",
+    function(){
+
+        if(pageFlip){
+
+            pageFlip.flipNext();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   06. KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(!pageFlip){
+            return;
+        }
+
+
+        if(
+            event.key ===
+            "ArrowRight"
+        ){
+
+            pageFlip.flipNext();
+
+        }
+
+
+        if(
+            event.key ===
+            "ArrowLeft"
+        ){
+
+            pageFlip.flipPrev();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   07. FULLSCREEN
+========================================================= */
+
+fullscreenBtn.addEventListener(
+    "click",
+    async function(){
+
+        try{
+
+            if(
+                !document.fullscreenElement
+            ){
+
+                await
+                bookStage
+                .requestFullscreen();
+
+            }
+
+            else{
+
+                await
+                document
+                .exitFullscreen();
+
+            }
+
+        }
+
+        catch(error){
+
+            console.log(
+                error
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   08. START
+========================================================= */
+
+loadBook();
+
+</script>
+
+
+</body>
+</html>
