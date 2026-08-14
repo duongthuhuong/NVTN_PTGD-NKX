@@ -71,7 +71,7 @@ body{
 
 .header-inner{
     width:min(1220px, calc(100% - 60px));
-    height:78px;
+    min-height:78px;
     margin:auto;
 
     display:flex;
@@ -173,20 +173,23 @@ body{
 }
 
 
-/* MENU */
+/* =========================================================
+   MENU - ĐỒNG BỘ 5 MỤC VỚI TRANG NGOÀI
+========================================================= */
 
 .nav{
     display:flex;
     align-items:center;
-    gap:25px;
+    justify-content:flex-end;
+    gap:22px;
 }
 
 .nav a{
     color:#fff;
     text-decoration:none;
 
-    font-size:12px;
-    font-weight:600;
+    font-size:11px;
+    font-weight:700;
 
     white-space:nowrap;
 
@@ -199,7 +202,7 @@ body{
 
 .nav a.active{
     color:var(--green);
-    font-weight:700;
+    font-weight:800;
 }
 
 
@@ -594,17 +597,16 @@ body{
 @media(max-width:1050px){
 
     .nav{
-        gap:16px;
+        gap:12px;
     }
 
     .nav a{
-        font-size:11px;
+        font-size:9.5px;
     }
 
     .header-left{
         gap:15px;
     }
-
 }
 
 
@@ -612,11 +614,28 @@ body{
 
     .header-inner{
         width:calc(100% - 36px);
-        height:72px;
+        min-height:72px;
+        flex-wrap:wrap;
+        padding:12px 0;
     }
 
+    /*
+       KHÔNG ẨN MENU.
+       Giữ đủ 5 mục trên màn hình nhỏ.
+    */
+
     .nav{
-        display:none;
+        width:100%;
+        order:2;
+        justify-content:space-between;
+        gap:8px;
+        padding-top:7px;
+        border-top:1px solid rgba(255,255,255,.12);
+    }
+
+    .nav a{
+        font-size:9px;
+        text-align:center;
     }
 
     .container{
@@ -638,7 +657,6 @@ body{
     .mentor-card{
         min-height:auto;
     }
-
 }
 
 
@@ -661,7 +679,8 @@ body{
 
     .header-inner{
         width:calc(100% - 28px);
-        height:66px;
+        min-height:66px;
+        padding:10px 0 8px;
     }
 
     .header-left{
@@ -698,6 +717,34 @@ body{
 
         font-size:7.5px;
         letter-spacing:.2px;
+    }
+
+
+    /* MENU MOBILE - GIỮ ĐỦ 5 MỤC */
+
+    .nav{
+        display:grid;
+        grid-template-columns:repeat(5,1fr);
+        width:100%;
+        gap:2px;
+        padding-top:8px;
+    }
+
+    .nav a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        min-height:32px;
+
+        padding:3px 2px;
+
+        font-size:7.3px;
+        font-weight:700;
+        line-height:1.2;
+        text-align:center;
+
+        white-space:normal;
     }
 
 
@@ -855,7 +902,6 @@ body{
     .footer span{
         font-size:9px;
     }
-
 }
 
 
@@ -867,6 +913,10 @@ body{
 
     .brand-text span{
         display:none;
+    }
+
+    .nav a{
+        font-size:6.7px;
     }
 
     .message-text{
@@ -884,7 +934,6 @@ body{
     .value-text{
         font-size:15px;
     }
-
 }
 
 </style>
@@ -917,7 +966,7 @@ body{
             </a>
 
 
-            <!-- LOGO / BRAND CŨNG QUAY VỀ TRANG CHÍNH -->
+            <!-- LOGO / BRAND -->
 
             <a class="brand-link" href="../index.html">
 
@@ -944,32 +993,30 @@ body{
         </div>
 
 
-        <!-- MENU DESKTOP -->
+        <!-- =================================================
+             MENU CHÍNH - ĐÚNG 5 MỤC CỦA COVER
+        ================================================== -->
 
         <nav class="nav">
 
             <a class="active" href="#">
-                Giới thiệu
+                01 GIỚI THIỆU
             </a>
 
             <a href="../02_Hanh-trinh/">
-                Hành trình
+                02 HÀNH TRÌNH
             </a>
 
             <a href="../03_Buoi-hoc/">
-                Các buổi học
+                03 BUỔI HỌC
             </a>
 
             <a href="../04_Thu-vien/">
-                Thư viện
+                04 THƯ VIỆN
             </a>
 
-            <a href="../05_Luu-but/">
-                Lưu bút
-            </a>
-
-            <a href="../06_Qua-tang/">
-                Quà tặng
+            <a href="../05_Dieu-dong-lai/">
+                05 ĐIỀU ĐỌNG LẠI
             </a>
 
         </nav>
