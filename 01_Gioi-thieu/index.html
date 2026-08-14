@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,45 +9,13 @@
 <style>
 
 /* =========================================================
-   01. DESIGN SYSTEM
-========================================================= */
-
-:root{
-    --green:#67c94b;
-    --green-soft:#8ddd72;
-
-    --navy:#052e45;
-    --navy-dark:#032434;
-
-    --blue:#214f63;
-
-    --paper:#f5f7f4;
-    --soft:#eef3ef;
-    --white:#ffffff;
-
-    --text:#30474f;
-    --muted:#71807d;
-
-    --line:#dfe6e1;
-
-    /* HỆ CỠ CHỮ CỐ ĐỊNH */
-    --hero-title:62px;
-    --section-title:38px;
-    --sub-title:26px;
-    --card-title:17px;
-    --body:16px;
-    --small:13px;
-}
-
-
-/* =========================================================
-   02. RESET
+   RESET
 ========================================================= */
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -56,62 +23,44 @@ html{
 }
 
 body{
-    font-family:
-        "Segoe UI",
-        Tahoma,
-        Arial,
-        sans-serif;
-
-    background:var(--paper);
-    color:var(--text);
-
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#183f4d;
+    background:#f7f9f7;
+    overflow-x:hidden;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-.page{
-    width:100%;
-    overflow:hidden;
+:root{
+    --navy:#062f40;
+    --blue:#0c5870;
+    --teal:#08766d;
+    --green:#65d64c;
+    --text:#234b59;
+    --muted:#71847f;
+    --line:#dfe8e3;
+    --soft:#eef4f0;
+    --white:#ffffff;
 }
 
 .container{
-    width:min(1160px, calc(100% - 64px));
-    margin:auto;
+    width:min(1180px, calc(100% - 80px));
+    margin:0 auto;
 }
 
 
 /* =========================================================
-   03. TOP BAR
+   TOP BAR
 ========================================================= */
 
 .topbar{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-
-    z-index:100;
-
-    height:72px;
-
+    height:88px;
+    background:#062f40;
+    color:white;
     display:flex;
     align-items:center;
-
-    background:rgba(4,36,52,.96);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(10px);
 }
 
 .topbar-inner{
-    width:min(1160px, calc(100% - 64px));
+    width:min(1180px, calc(100% - 80px));
     margin:auto;
 
     display:flex;
@@ -122,117 +71,105 @@ a{
 .brand{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:18px;
 }
 
 .logo{
-    width:50px;
+    width:58px;
     height:auto;
+    display:block;
 }
 
 .brand-line{
     width:1px;
-    height:36px;
-    background:rgba(255,255,255,.40);
+    height:45px;
+    background:rgba(255,255,255,.45);
+}
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
 }
 
 .brand-text strong{
-    display:block;
-
-    color:white;
-
-    font-size:15px;
-    font-weight:800;
+    font-size:17px;
+    letter-spacing:.3px;
 }
 
 .brand-text span{
-    display:block;
-
-    margin-top:3px;
-
-    color:rgba(255,255,255,.67);
-
-    font-size:10px;
-    letter-spacing:.5px;
+    font-size:11px;
+    letter-spacing:1px;
+    color:rgba(255,255,255,.7);
 }
 
 .back-home{
-    padding:9px 14px;
-
-    border:
-        1px solid rgba(255,255,255,.16);
-
-    border-radius:999px;
-
+    text-decoration:none;
     color:white;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:100px;
+    padding:11px 18px;
 
     font-size:12px;
     font-weight:700;
+    letter-spacing:.5px;
 
-    transition:.25s;
+    transition:.25s ease;
 }
 
 .back-home:hover{
-    background:rgba(103,201,75,.15);
+    background:white;
+    color:var(--navy);
 }
 
 
 /* =========================================================
-   04. HERO
+   HERO
 ========================================================= */
 
 .hero{
-    min-height:540px;
-
-    padding:
-        145px
-        0
-        78px;
+    min-height:590px;
 
     display:flex;
     align-items:center;
 
-    color:white;
-
     background:
         radial-gradient(
-            circle at 78% 38%,
-            rgba(5,115,122,.30),
-            transparent 40%
+            circle at 85% 70%,
+            rgba(29,174,132,.25),
+            transparent 34%
         ),
         linear-gradient(
-            130deg,
-            #062d43 0%,
-            #07394b 52%,
-            #087162 100%
+            115deg,
+            #07384a 0%,
+            #07536a 53%,
+            #08776d 100%
         );
+
+    color:white;
 }
 
 .hero-content{
-    max-width:860px;
+    max-width:880px;
+    padding:72px 0;
 }
 
 .eyebrow{
-    margin-bottom:20px;
-
     color:var(--green);
 
     font-size:13px;
     font-weight:800;
-    letter-spacing:1.4px;
+    letter-spacing:1.7px;
+
+    margin-bottom:25px;
 }
 
 .hero-title{
-    color:white;
-
-    font-size:var(--hero-title);
-    line-height:1.08;
-
+    font-size:58px;
+    line-height:1.05;
     font-weight:800;
-    letter-spacing:-.7px;
+    letter-spacing:-1.4px;
 }
-
-/* KHÔNG CÓ DẤU CHẤM */
 
 .hero-title span{
     display:block;
@@ -240,512 +177,462 @@ a{
 
 .hero-line{
     width:150px;
-    height:3px;
-
-    margin:26px 0 22px;
-
+    height:4px;
     background:var(--green);
+
+    margin:30px 0 25px;
 }
 
 .hero-intro{
-    max-width:820px;
-
-    color:rgba(255,255,255,.84);
+    max-width:760px;
 
     font-size:18px;
     line-height:1.7;
+
+    color:rgba(255,255,255,.88);
 }
 
 
 /* =========================================================
-   05. SECTION COMMON
+   GENERAL SECTION
 ========================================================= */
 
 .section{
-    padding:78px 0;
+    padding:85px 0;
 }
 
 .section-white{
-    background:white;
+    background:#fff;
 }
 
 .section-soft{
-    background:var(--soft);
+    background:#f4f7f4;
 }
 
 .section-label{
-    margin-bottom:11px;
+    color:#62c94c;
 
-    color:var(--green);
-
-    font-size:var(--small);
+    font-size:12px;
     font-weight:800;
-    letter-spacing:1.35px;
+    letter-spacing:1.7px;
+
+    margin-bottom:13px;
 }
 
 .section-title{
-    max-width:820px;
+    max-width:900px;
 
-    color:var(--blue);
+    color:var(--text);
 
-    font-size:var(--section-title);
-    line-height:1.18;
-
-    font-weight:750;
-    letter-spacing:-.3px;
+    font-size:40px;
+    line-height:1.13;
+    letter-spacing:-.8px;
 }
 
 .section-lead{
-    max-width:810px;
+    max-width:850px;
 
-    margin-top:18px;
+    margin-top:20px;
 
-    color:var(--muted);
-
-    font-size:var(--body);
+    font-size:17px;
     line-height:1.75;
+
+    color:#6f817d;
 }
 
 
 /* =========================================================
-   06. WHY
+   WHY
 ========================================================= */
 
 .why-grid{
-    margin-top:42px;
-
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
+
+    margin-top:45px;
 
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
 }
 
 .why-item{
-    min-height:210px;
-
-    padding:30px 24px;
-
+    padding:32px 30px;
     border-right:1px solid var(--line);
 }
 
+.why-item:first-child{
+    padding-left:0;
+}
+
 .why-item:last-child{
-    border-right:0;
+    border-right:none;
 }
 
 .why-number{
-    margin-bottom:18px;
-
     color:var(--green);
 
-    font-size:23px;
+    font-size:22px;
     font-weight:800;
+
+    margin-bottom:18px;
 }
 
 .why-item h3{
-    color:#344f59;
+    font-size:17px;
+    line-height:1.4;
+    color:#234b59;
 
-    font-size:var(--card-title);
-    line-height:1.45;
-
-    font-weight:700;
+    margin-bottom:11px;
 }
 
 .why-item p{
-    margin-top:10px;
-
-    color:var(--muted);
-
     font-size:14px;
-    line-height:1.6;
+    line-height:1.65;
+    color:#82908d;
 }
 
 
 /* =========================================================
-   07. MESSAGE
+   QUOTE
 ========================================================= */
 
 .message-wrap{
-    padding:58px 0;
+    padding:25px 0 80px;
+    background:white;
 }
 
 .message-box{
-    padding:44px 48px;
+    padding:48px 55px;
 
-    border-radius:20px;
-
-    color:white;
+    border-radius:22px;
 
     background:
         linear-gradient(
-            115deg,
-            #063149,
-            #08705a
+            110deg,
+            #0a4c62,
+            #087469
         );
+
+    color:white;
 }
 
 .quote{
-    max-width:900px;
+    max-width:950px;
 
     font-size:29px;
-    line-height:1.42;
-
-    font-weight:650;
+    line-height:1.4;
+    font-weight:700;
+    letter-spacing:-.4px;
 }
 
 .quote-source{
-    margin-top:18px;
+    margin-top:22px;
 
-    color:var(--green-soft);
+    color:#84df68;
 
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1.2px;
-}
-
-
-/* =========================================================
-   08. MENTOR
-========================================================= */
-
-.mentor-layout{
-    margin-top:40px;
-
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-
-    gap:34px;
-}
-
-.mentor-card{
-    min-height:285px;
-
-    padding:38px;
-
-    border-radius:20px;
-
-    color:white;
-
-    background:
-        linear-gradient(
-            145deg,
-            #063049,
-            #0a6380
-        );
-}
-
-.mentor-kicker{
-    color:var(--green);
-
-    font-size:12px;
+    font-size:10px;
     font-weight:800;
     letter-spacing:1.3px;
 }
 
-/* NGÔ KHÁNH XẠ LUÔN 1 DÒNG */
+
+/* =========================================================
+   MENTOR
+========================================================= */
+
+.mentor-layout{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:26px;
+
+    margin-top:42px;
+}
+
+.mentor-card{
+    position:relative;
+    overflow:hidden;
+
+    min-height:310px;
+
+    padding:45px;
+
+    border-radius:22px;
+
+    background:
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(102,214,76,.16),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #08455c,
+            #0b6b76
+        );
+
+    color:white;
+}
+
+.mentor-kicker{
+    color:#78dd5e;
+
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
 
 .mentor-name{
     margin-top:22px;
 
-    color:white;
-
-    font-size:46px;
+    font-size:42px;
     line-height:1;
-
     font-weight:800;
-    letter-spacing:-.5px;
+
+    letter-spacing:-1px;
 
     white-space:nowrap;
 }
 
 .mentor-role{
-    margin-top:17px;
-
-    color:rgba(255,255,255,.78);
+    margin-top:18px;
 
     font-size:15px;
+
+    color:rgba(255,255,255,.78);
 }
 
 .group-card{
-    padding:36px;
+    padding:42px;
 
-    border:
-        1px solid var(--line);
+    border:1px solid var(--line);
+    border-radius:22px;
 
-    border-radius:20px;
-
-    background:white;
+    background:#fff;
 }
 
 .group-card h3{
-    color:var(--blue);
-
-    font-size:var(--sub-title);
-    line-height:1.25;
+    font-size:29px;
+    line-height:1.2;
+    color:var(--text);
 }
 
 .group-card > p{
-    margin-top:14px;
+    margin-top:15px;
 
-    color:var(--muted);
-
-    font-size:var(--body);
+    font-size:15px;
     line-height:1.7;
-}
 
-.expertise{
-    margin-top:26px;
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-
-    gap:11px;
-}
-
-.expertise-item{
-    padding:15px 17px;
-
-    border-radius:11px;
-
-    background:var(--soft);
-}
-
-.expertise-no{
-    color:var(--green);
-
-    font-size:12px;
-    font-weight:800;
-}
-
-.expertise-name{
-    margin-top:4px;
-
-    color:#37545d;
-
-    font-size:13px;
-    font-weight:700;
+    color:#778783;
 }
 
 
 /* =========================================================
-   09. EXPECTATION
+   EXPERTISE
+========================================================= */
+
+.expertise{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:11px;
+
+    margin-top:27px;
+}
+
+.expertise-item{
+    padding:17px 18px;
+
+    border-radius:12px;
+
+    background:#f0f5f1;
+
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.expertise-item:last-child{
+    grid-column:1 / -1;
+}
+
+.expertise-item span{
+    color:var(--green);
+
+    font-size:13px;
+    font-weight:800;
+}
+
+.expertise-item strong{
+    color:#315361;
+
+    font-size:12px;
+    line-height:1.4;
+
+    letter-spacing:.25px;
+}
+
+
+/* =========================================================
+   EXPECTATION
 ========================================================= */
 
 .expectation{
     display:grid;
-    grid-template-columns:.9fr 1.1fr;
-
-    gap:48px;
+    grid-template-columns:1.1fr .9fr;
+    gap:65px;
+    align-items:start;
 }
 
 .expectation-title{
-    color:var(--blue);
+    font-size:40px;
+    line-height:1.13;
+    letter-spacing:-.7px;
 
-    font-size:var(--section-title);
-    line-height:1.18;
-
-    font-weight:750;
-}
-
-.expectation-title span{
-    color:var(--green);
+    color:var(--text);
 }
 
 .expectation-copy p{
-    color:var(--muted);
-
-    font-size:var(--body);
+    font-size:16px;
     line-height:1.75;
+    color:#73847f;
 }
 
 .expectation-points{
-    margin-top:26px;
-
     display:grid;
     grid-template-columns:1fr 1fr;
-
     gap:12px;
+
+    margin-top:24px;
 }
 
 .expectation-point{
     padding:19px;
 
-    border:
-        1px solid var(--line);
-
+    border:1px solid var(--line);
     border-radius:13px;
 
     background:white;
 }
 
-.expectation-point strong{
-    display:block;
-
-    color:var(--green);
-
-    font-size:17px;
-}
-
 .expectation-point span{
     display:block;
 
-    margin-top:6px;
+    margin-bottom:7px;
 
-    color:#536970;
+    color:var(--green);
 
-    font-size:13px;
-    line-height:1.5;
+    font-size:12px;
+    font-weight:800;
+}
+
+.expectation-point strong{
+    font-size:14px;
+    line-height:1.45;
+
+    color:#315361;
 }
 
 
 /* =========================================================
-   10. FINAL
+   FINAL
 ========================================================= */
 
 .final-section{
-    padding:78px 0 88px;
+    padding:88px 0 96px;
 
     background:white;
 }
 
 .final-inner{
-    padding-top:38px;
+    border-top:1px solid var(--line);
 
-    border-top:
-        1px solid var(--line);
-}
-
-.final-label{
-    color:var(--green);
-
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:1.3px;
+    padding-top:70px;
 }
 
 .final-title{
-    max-width:820px;
+    max-width:930px;
 
-    margin-top:13px;
+    font-size:44px;
+    line-height:1.15;
 
-    color:var(--blue);
+    letter-spacing:-1px;
 
-    font-size:40px;
-    line-height:1.2;
-
-    font-weight:720;
+    color:#315a6a;
 }
 
-.final-title span{
-    color:var(--green);
+.final-title strong{
+    color:#64ce4d;
 }
 
 
 /* =========================================================
-   11. FOOTER
+   FOOTER
 ========================================================= */
 
 .footer{
+    background:#0a5065;
+    color:white;
+
     padding:22px 0;
-
-    background:var(--navy-dark);
-
-    color:rgba(255,255,255,.60);
 }
 
 .footer-inner{
+    width:min(1180px, calc(100% - 80px));
+    margin:auto;
+
     display:flex;
     justify-content:space-between;
+    align-items:center;
 
-    font-size:11px;
-}
+    font-size:10px;
+    letter-spacing:.8px;
 
-.footer strong{
-    color:rgba(255,255,255,.82);
+    color:rgba(255,255,255,.7);
 }
 
 
 /* =========================================================
-   12. REVEAL
+   SMALL ANIMATION
 ========================================================= */
 
 .reveal{
     opacity:0;
-    transform:translateY(20px);
+    transform:translateY(18px);
 
     transition:
-        opacity .6s ease,
-        transform .6s ease;
+        opacity .7s ease,
+        transform .7s ease;
 }
 
-.reveal.visible{
+.reveal.show{
     opacity:1;
-    transform:translateY(0);
+    transform:none;
 }
 
 
 /* =========================================================
-   13. TABLET
-========================================================= */
-
-@media(max-width:1000px){
-
-    :root{
-        --hero-title:54px;
-        --section-title:34px;
-    }
-
-    .why-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .why-item:nth-child(2){
-        border-right:0;
-    }
-
-    .why-item:nth-child(1),
-    .why-item:nth-child(2){
-        border-bottom:1px solid var(--line);
-    }
-
-    .mentor-layout{
-        grid-template-columns:1fr;
-    }
-
-    .mentor-name{
-        font-size:42px;
-    }
-
-    .expectation{
-        grid-template-columns:1fr;
-        gap:30px;
-    }
-}
-
-
-/* =========================================================
-   14. MOBILE
+   MOBILE
 ========================================================= */
 
 @media(max-width:700px){
 
-    :root{
-        --hero-title:42px;
-        --section-title:30px;
-        --sub-title:23px;
-        --body:15px;
+    .container{
+        width:calc(100% - 34px);
     }
 
-    .container{
-        width:calc(100% - 36px);
-    }
+
+    /* TOP BAR */
 
     .topbar{
-        height:64px;
+        height:66px;
     }
 
     .topbar-inner{
-        width:calc(100% - 30px);
+        width:calc(100% - 28px);
+    }
+
+    .brand{
+        gap:12px;
     }
 
     .logo{
@@ -753,7 +640,7 @@ a{
     }
 
     .brand-line{
-        height:29px;
+        height:32px;
     }
 
     .brand-text strong{
@@ -765,44 +652,97 @@ a{
     }
 
     .back-home{
-        padding:8px 10px;
+        padding:8px 11px;
+
         font-size:10px;
     }
 
-    .hero{
-        min-height:500px;
 
-        padding:
-            112px
-            0
-            58px;
+    /* HERO */
+
+    .hero{
+        min-height:auto;
+    }
+
+    .hero-content{
+        padding:58px 0 62px;
+        max-width:none;
     }
 
     .eyebrow{
+        margin-bottom:24px;
+
         font-size:11px;
+        letter-spacing:1.3px;
     }
 
     .hero-title{
-        line-height:1.08;
+        font-size:36px;
+        line-height:1.13;
+
+        letter-spacing:-.5px;
+    }
+
+    .hero-title span{
+        display:block;
+        margin-bottom:9px;
+    }
+
+    .hero-title span:last-child{
+        margin-bottom:0;
+    }
+
+    .hero-line{
+        width:115px;
+        height:3px;
+
+        margin:25px 0 22px;
     }
 
     .hero-intro{
+        max-width:none;
+
         font-size:15px;
+        line-height:1.65;
     }
+
+
+    /* GENERAL SECTION */
 
     .section{
         padding:58px 0;
     }
 
+    .section-label{
+        font-size:10px;
+        letter-spacing:1.3px;
+    }
+
+    .section-title{
+        font-size:28px;
+        line-height:1.2;
+
+        letter-spacing:-.3px;
+    }
+
+    .section-lead{
+        margin-top:15px;
+
+        font-size:15px;
+        line-height:1.65;
+    }
+
+
+    /* WHY */
+
     .why-grid{
         grid-template-columns:1fr;
-        margin-top:34px;
+
+        margin-top:32px;
     }
 
     .why-item{
-        min-height:auto;
-
-        padding:24px 20px;
+        padding:22px 0;
 
         border-right:0;
         border-bottom:1px solid var(--line);
@@ -812,93 +752,230 @@ a{
         border-bottom:0;
     }
 
+    .why-number{
+        margin-bottom:10px;
+
+        font-size:18px;
+    }
+
+    .why-item h3{
+        margin-bottom:8px;
+
+        font-size:15px;
+        line-height:1.4;
+    }
+
+    .why-item p{
+        font-size:13px;
+        line-height:1.6;
+    }
+
+
+    /* QUOTE */
+
     .message-wrap{
-        padding:44px 0;
+        padding:0 0 58px;
     }
 
     .message-box{
-        padding:30px 24px;
+        padding:27px 21px;
+
+        border-radius:16px;
     }
 
     .quote{
-        font-size:23px;
+        font-size:20px;
+        line-height:1.4;
+
+        letter-spacing:-.15px;
     }
 
+    .quote-source{
+        margin-top:16px;
+
+        font-size:9px;
+        line-height:1.45;
+    }
+
+
+    /* MENTOR */
+
     .mentor-layout{
-        margin-top:30px;
-        gap:18px;
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+        margin-top:28px;
     }
 
     .mentor-card{
-        min-height:230px;
-        padding:30px 24px;
+        min-height:auto;
+
+        padding:27px 21px;
+
+        border-radius:16px;
     }
 
-    /* VẪN GIỮ NGÔ KHÁNH XẠ 1 DÒNG */
+    .mentor-kicker{
+        font-size:9px;
+    }
 
     .mentor-name{
-        font-size:30px;
+        margin-top:14px;
+
+        font-size:27px;
+        line-height:1.1;
+
         white-space:nowrap;
+        letter-spacing:-.5px;
+    }
+
+    .mentor-role{
+        margin-top:10px;
+
+        font-size:13px;
     }
 
     .group-card{
-        padding:26px 22px;
+        padding:25px 20px;
+
+        border-radius:16px;
     }
+
+    .group-card h3{
+        font-size:23px;
+    }
+
+    .group-card > p{
+        margin-top:12px;
+
+        font-size:14px;
+        line-height:1.65;
+    }
+
+
+    /* EXPERTISE */
 
     .expertise{
         grid-template-columns:1fr;
+
+        gap:9px;
+
+        margin-top:22px;
+    }
+
+    .expertise-item,
+    .expertise-item:last-child{
+        grid-column:auto;
+
+        padding:14px 15px;
+    }
+
+    .expertise-item span{
+        font-size:12px;
+    }
+
+    .expertise-item strong{
+        font-size:12px;
+    }
+
+
+    /* EXPECTATION */
+
+    .expectation{
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .expectation-title{
+        font-size:28px;
+        line-height:1.2;
+
+        letter-spacing:-.3px;
+    }
+
+    .expectation-copy p{
+        font-size:14px;
+        line-height:1.65;
     }
 
     .expectation-points{
         grid-template-columns:1fr;
+
+        gap:9px;
     }
 
+    .expectation-point{
+        padding:15px;
+    }
+
+
+    /* FINAL */
+
     .final-section{
-        padding:60px 0 70px;
+        padding:58px 0 64px;
+    }
+
+    .final-inner{
+        padding-top:48px;
     }
 
     .final-title{
-        font-size:30px;
+        font-size:28px;
+        line-height:1.22;
+
+        letter-spacing:-.3px;
+    }
+
+
+    /* FOOTER */
+
+    .footer{
+        padding:18px 0;
     }
 
     .footer-inner{
+        width:calc(100% - 34px);
+
         flex-direction:column;
-        gap:7px;
+        align-items:flex-start;
+
+        gap:6px;
     }
+
 }
 
 
-/* =========================================================
-   15. REDUCED MOTION
-========================================================= */
+/* EXTRA SMALL MOBILE */
 
-@media(prefers-reduced-motion:reduce){
+@media(max-width:390px){
 
-    *,
-    *::before,
-    *::after{
-        animation:none !important;
-        transition:none !important;
+    .hero-title{
+        font-size:32px;
     }
 
-    .reveal{
-        opacity:1;
-        transform:none;
+    .mentor-name{
+        font-size:25px;
     }
+
+    .section-title,
+    .expectation-title,
+    .final-title{
+        font-size:26px;
+    }
+
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-<div class="page">
-
 
 <!-- =====================================================
-     TOPBAR
+     TOP BAR
 ===================================================== -->
 
 <header class="topbar">
@@ -916,28 +993,20 @@ a{
             <div class="brand-line"></div>
 
             <div class="brand-text">
-
                 <strong>PVEP</strong>
-
-                <span>
-                    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
-                </span>
-
+                <span>CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG</span>
             </div>
 
         </div>
 
-
-        <a
-            href="../"
-            class="back-home"
-        >
+        <a href="../index.html" class="back-home">
             ← TRANG CHỦ
         </a>
 
     </div>
 
 </header>
+
 
 
 <!-- =====================================================
@@ -948,42 +1017,29 @@ a{
 
     <div class="container">
 
-        <div class="hero-content">
+        <div class="hero-content reveal">
 
             <div class="eyebrow">
                 01 · GIỚI THIỆU
             </div>
 
-
             <h1 class="hero-title">
 
-                <span>
-                    Phát hiện tiềm năng
-                </span>
+                <span>Phát hiện tiềm năng</span>
 
-                <span>
-                    Bồi dưỡng năng lực
-                </span>
+                <span>Bồi dưỡng năng lực</span>
 
-                <span>
-                    Chuẩn bị cho tương lai
-                </span>
+                <span>Chuẩn bị cho tương lai</span>
 
             </h1>
 
-
             <div class="hero-line"></div>
 
-
             <p class="hero-intro">
-
-                Chương trình Nhân viên Tài năng PVEP
-                được xây dựng nhằm tạo môi trường
-                để những nhân sự có tiềm năng được học hỏi,
-                thử thách, mở rộng năng lực
-                và gia tăng giá trị đóng góp
-                cho Tổng công ty.
-
+                Chương trình Nhân viên Tài năng PVEP được xây dựng
+                nhằm tạo môi trường để những nhân sự có tiềm năng
+                được học hỏi, thử thách, mở rộng năng lực và gia tăng
+                giá trị đóng góp cho Tổng công ty.
             </p>
 
         </div>
@@ -991,6 +1047,7 @@ a{
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1005,44 +1062,30 @@ a{
             ĐIỂM KHỞI ĐẦU
         </div>
 
-
         <h2 class="section-title">
-
-            Vì sao có Chương trình
-            Nhân viên Tài năng?
-
+            Vì sao có Chương trình Nhân viên Tài năng?
         </h2>
 
-
         <p class="section-lead">
-
-            Từ những tiềm năng riêng,
-            chương trình hướng tới việc xây dựng
-            một nguồn lực chung có khả năng học hỏi,
-            kết nối và tạo ra những giá trị mới
-            cho PVEP.
-
+            Từ những tiềm năng riêng, chương trình hướng tới việc
+            xây dựng một nguồn lực chung có khả năng học hỏi,
+            kết nối và tạo ra những giá trị mới cho PVEP.
         </p>
 
 
         <div class="why-grid">
 
-
             <div class="why-item">
 
-                <div class="why-number">
-                    01
-                </div>
+                <div class="why-number">01</div>
 
                 <h3>
-                    Gắn bó và phát huy
-                    tiềm năng của nhân tài tại PVEP
+                    Gắn bó và phát huy tiềm năng của nhân tài tại PVEP
                 </h3>
 
                 <p>
-                    Tạo môi trường để nhân sự có tiềm năng
-                    được nhìn nhận, thử thách
-                    và tiếp tục phát triển.
+                    Tạo môi trường để nhân sự có tiềm năng được nhìn nhận,
+                    thử thách và tiếp tục phát triển.
                 </p>
 
             </div>
@@ -1050,18 +1093,14 @@ a{
 
             <div class="why-item">
 
-                <div class="why-number">
-                    02
-                </div>
+                <div class="why-number">02</div>
 
                 <h3>
-                    Phát triển năng lực
-                    từ nguồn nhân sự nội bộ
+                    Phát triển năng lực từ chính nguồn nhân sự nội bộ
                 </h3>
 
                 <p>
-                    Gia tăng khả năng học hỏi,
-                    chia sẻ kinh nghiệm
+                    Gia tăng khả năng học hỏi, chia sẻ kinh nghiệm
                     và phát triển từ thực tiễn công việc.
                 </p>
 
@@ -1070,75 +1109,44 @@ a{
 
             <div class="why-item">
 
-                <div class="why-number">
-                    03
-                </div>
+                <div class="why-number">03</div>
 
                 <h3>
-                    Chuẩn bị nguồn nhân lực
-                    chất lượng cho giai đoạn tiếp theo
+                    Chuẩn bị nguồn nhân lực chất lượng cho tương lai
                 </h3>
 
                 <p>
-                    Từng bước hình thành
-                    lực lượng nhân sự có chiều sâu
-                    và khả năng đảm nhận trách nhiệm lớn hơn.
+                    Từng bước hình thành đội ngũ có chiều sâu,
+                    khả năng thích ứng và nhận trách nhiệm lớn hơn.
                 </p>
 
             </div>
-
-
-            <div class="why-item">
-
-                <div class="why-number">
-                    04
-                </div>
-
-                <h3>
-                    Tạo kết nối giữa
-                    các chuyên môn và đơn vị
-                </h3>
-
-                <p>
-                    Mở rộng góc nhìn,
-                    tăng khả năng phối hợp
-                    và hình thành tư duy chung vì PVEP.
-                </p>
-
-            </div>
-
 
         </div>
 
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
      MESSAGE
 ===================================================== -->
 
-<section class="message-wrap section-soft">
+<section class="message-wrap">
 
     <div class="container reveal">
 
         <div class="message-box">
 
             <div class="quote">
-
                 “Tài năng không chỉ nằm ở việc bạn được lựa chọn,
-                mà ở những giá trị bạn tạo ra
-                sau khi được trao cơ hội”
-
+                mà ở những giá trị bạn tạo ra sau khi được trao cơ hội.”
             </div>
 
-
             <div class="quote-source">
-
-                THÔNG ĐIỆP CỦA
-                CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
-
+                THÔNG ĐIỆP CỦA CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
             </div>
 
         </div>
@@ -1148,37 +1156,38 @@ a{
 </section>
 
 
+
 <!-- =====================================================
      MENTOR
 ===================================================== -->
 
-<section class="section section-white">
+<section class="section section-soft">
 
-    <div class="container reveal">
+    <div class="container">
 
+        <div class="reveal">
 
-        <div class="section-label">
-            NGƯỜI HƯỚNG DẪN
+            <div class="section-label">
+                NGƯỜI HƯỚNG DẪN
+            </div>
+
+            <h2 class="section-title">
+                Đồng hành cùng hành trình phát triển
+            </h2>
+
+            <p class="section-lead">
+                Chương trình được Phó Tổng giám đốc Ngô Khánh Xạ
+                trực tiếp hướng dẫn và đồng hành, tạo không gian để
+                các thành viên cùng học hỏi, chia sẻ và mở rộng góc nhìn.
+            </p>
+
         </div>
 
 
-        <h2 class="section-title">
-            Đồng hành cùng hành trình phát triển
-        </h2>
+        <div class="mentor-layout reveal">
 
 
-        <p class="section-lead">
-
-            Chương trình được Phó Tổng giám đốc
-            Ngô Khánh Xạ trực tiếp hướng dẫn và đồng hành,
-            tạo không gian để các thành viên cùng học hỏi,
-            chia sẻ và mở rộng góc nhìn.
-
-        </p>
-
-
-        <div class="mentor-layout">
-
+            <!-- MENTOR -->
 
             <div class="mentor-card">
 
@@ -1186,11 +1195,9 @@ a{
                     NGƯỜI HƯỚNG DẪN
                 </div>
 
-
                 <div class="mentor-name">
                     NGÔ KHÁNH XẠ
                 </div>
-
 
                 <div class="mentor-role">
                     Phó Tổng giám đốc PVEP
@@ -1199,83 +1206,60 @@ a{
             </div>
 
 
+            <!-- GROUP -->
+
             <div class="group-card">
 
                 <h3>
                     Một nhóm — nhiều góc nhìn
                 </h3>
 
-
                 <p>
-
-                    Nhóm Nhân viên Tài năng
-                    quy tụ các thành viên
-                    đến từ nhiều lĩnh vực chuyên môn,
-                    cùng gặp nhau trong một hành trình
-                    học tập và phát triển.
-
+                    Nhóm Nhân viên Tài năng quy tụ các thành viên
+                    đến từ nhiều lĩnh vực chuyên môn và đơn vị,
+                    cùng gặp nhau trong một hành trình học tập,
+                    chia sẻ và phát triển.
                 </p>
 
 
                 <div class="expertise">
 
-
                     <div class="expertise-item">
-
-                        <div class="expertise-no">
-                            01
-                        </div>
-
-                        <div class="expertise-name">
-                            CÔNG NGHỆ MỎ
-                        </div>
-
+                        <span>01</span>
+                        <strong>CÔNG NGHỆ MỎ</strong>
                     </div>
 
-
                     <div class="expertise-item">
-
-                        <div class="expertise-no">
-                            02
-                        </div>
-
-                        <div class="expertise-name">
-                            THĂM DÒ
-                        </div>
-
+                        <span>02</span>
+                        <strong>
+                            CÔNG NGHỆ – CHUYỂN ĐỔI SỐ
+                        </strong>
                     </div>
 
-
                     <div class="expertise-item">
-
-                        <div class="expertise-no">
-                            03
-                        </div>
-
-                        <div class="expertise-name">
-                            PHÁT TRIỂN KHAI THÁC
-                        </div>
-
+                        <span>03</span>
+                        <strong>
+                            CHI NHÁNH TRUNG TÂM KỸ THUẬT
+                        </strong>
                     </div>
 
-
                     <div class="expertise-item">
-
-                        <div class="expertise-no">
-                            04
-                        </div>
-
-                        <div class="expertise-name">
-                            KINH TẾ – THƯƠNG MẠI
-                        </div>
-
+                        <span>04</span>
+                        <strong>
+                            CHI NHÁNH HỒ CHÍ MINH
+                        </strong>
                     </div>
 
+                    <div class="expertise-item">
+                        <span>05</span>
+                        <strong>
+                            CHI NHÁNH CỬU LONG
+                        </strong>
+                    </div>
 
                 </div>
 
             </div>
-
 
         </div>
 
@@ -1284,107 +1268,63 @@ a{
 </section>
 
 
+
 <!-- =====================================================
-     EXPECTATION
+     DEVELOPMENT
 ===================================================== -->
 
-<section class="section section-soft">
+<section class="section section-white">
 
-    <div class="container expectation reveal">
+    <div class="container">
 
+        <div class="expectation reveal">
 
-        <div>
+            <div>
 
-            <div class="section-label">
-                KỲ VỌNG PHÁT TRIỂN
+                <div class="section-label">
+                    KỲ VỌNG PHÁT TRIỂN
+                </div>
+
+                <h2 class="expectation-title">
+                    Không chỉ học — mà chuyển hóa thành năng lực
+                </h2>
+
             </div>
 
 
-            <h2 class="expectation-title">
+            <div class="expectation-copy">
 
-                Không chỉ học —
-                mà phải chuyển hóa thành
-                <span>năng lực</span>
-
-            </h2>
-
-        </div>
-
-
-        <div class="expectation-copy">
-
-            <p>
-
-                Giá trị của chương trình
-                không dừng ở việc tham gia các buổi học.
-                Điều quan trọng hơn là mỗi thành viên
-                có thể chuyển hóa kiến thức,
-                trải nghiệm và những góc nhìn mới
-                trở lại công việc thực tế,
-                từ đó tạo ra giá trị cho bản thân,
-                đơn vị và Tổng công ty.
-
-            </p>
+                <p>
+                    Giá trị của chương trình không dừng lại ở từng
+                    buổi học. Điều quan trọng là khả năng chuyển
+                    những điều đã học thành tư duy, năng lực và
+                    giá trị trong công việc thực tế.
+                </p>
 
 
-            <div class="expectation-points">
+                <div class="expectation-points">
 
+                    <div class="expectation-point">
+                        <span>01</span>
+                        <strong>Học hỏi chủ động</strong>
+                    </div>
 
-                <div class="expectation-point">
+                    <div class="expectation-point">
+                        <span>02</span>
+                        <strong>Mở rộng góc nhìn</strong>
+                    </div>
 
-                    <strong>
-                        HỌC
-                    </strong>
+                    <div class="expectation-point">
+                        <span>03</span>
+                        <strong>Kết nối chuyên môn</strong>
+                    </div>
 
-                    <span>
-                        Mở rộng kiến thức
-                        và góc nhìn
-                    </span>
+                    <div class="expectation-point">
+                        <span>04</span>
+                        <strong>Tạo giá trị mới</strong>
+                    </div>
 
                 </div>
-
-
-                <div class="expectation-point">
-
-                    <strong>
-                        KẾT NỐI
-                    </strong>
-
-                    <span>
-                        Học từ đồng nghiệp
-                        và các lĩnh vực khác nhau
-                    </span>
-
-                </div>
-
-
-                <div class="expectation-point">
-
-                    <strong>
-                        THỬ THÁCH
-                    </strong>
-
-                    <span>
-                        Đặt mình vào
-                        những bài toán mới
-                    </span>
-
-                </div>
-
-
-                <div class="expectation-point">
-
-                    <strong>
-                        TẠO GIÁ TRỊ
-                    </strong>
-
-                    <span>
-                        Chuyển kiến thức
-                        thành năng lực thực tế
-                    </span>
-
-                </div>
-
 
             </div>
 
@@ -1395,34 +1335,33 @@ a{
 </section>
 
 
+
 <!-- =====================================================
-     FINAL
+     FINAL MESSAGE
 ===================================================== -->
 
 <section class="final-section">
 
-    <div class="container final-inner reveal">
+    <div class="container">
 
+        <div class="final-inner reveal">
 
-        <div class="final-label">
-            TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
-        </div>
+            <div class="section-label">
+                TỪ TIỀM NĂNG ĐẾN GIÁ TRỊ
+            </div>
 
-
-        <div class="final-title">
-
-            Từ những điểm xuất phát khác nhau —
-            cùng bước trên
-            <span>
-                một hành trình phát triển
-            </span>
+            <div class="final-title">
+                Từ những điểm xuất phát khác nhau —
+                cùng bước trên
+                <strong>một hành trình phát triển</strong>
+            </div>
 
         </div>
-
 
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1431,11 +1370,11 @@ a{
 
 <footer class="footer">
 
-    <div class="container footer-inner">
+    <div class="footer-inner">
 
-        <strong>
+        <span>
             CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
-        </strong>
+        </span>
 
         <span>
             2025 — 2026
@@ -1446,70 +1385,37 @@ a{
 </footer>
 
 
-</div>
 
+<!-- =====================================================
+     ANIMATION
+===================================================== -->
 
 <script>
 
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
+const items = document.querySelectorAll(".reveal");
 
-const revealItems =
-    document.querySelectorAll(
-        ".reveal"
-    );
+const observer = new IntersectionObserver(
+    entries => {
 
+        entries.forEach(entry => {
 
-const observer =
-    new IntersectionObserver(
+            if(entry.isIntersecting){
 
-        function(entries){
+                entry.target.classList.add("show");
 
-            entries.forEach(
+                observer.unobserve(entry.target);
 
-                function(entry){
+            }
 
-                    if(
-                        entry.isIntersecting
-                    ){
+        });
 
-                        entry.target
-                            .classList
-                            .add(
-                                "visible"
-                            );
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                }
-
-            );
-
-        },
-
-        {
-            threshold:0.12
-        }
-
-    );
-
-
-revealItems.forEach(
-
-    function(item){
-
-        observer.observe(
-            item
-        );
-
+    },
+    {
+        threshold:0.12
     }
-
 );
+
+items.forEach(item => observer.observe(item));
 
 </script>
 
