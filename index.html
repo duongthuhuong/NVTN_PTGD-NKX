@@ -13,20 +13,18 @@
 ========================================================= */
 
 :root{
-    --green:#67c94b;
-    --green-light:#8dde72;
+    --pvep-green:#62c947;
+    --pvep-green-light:#8ee171;
 
-    --navy:#042a42;
-    --navy-deep:#031a2a;
+    --navy:#05283f;
+    --navy-deep:#031a2b;
 
     --white:#ffffff;
 
-    --text:#163a31;
-    --muted:#63756f;
+    --text:#183c32;
+    --muted:#62756e;
 
-    --panel:#f8fbf9;
-
-    --border:rgba(255,255,255,.16);
+    --line:rgba(255,255,255,.20);
 }
 
 
@@ -46,26 +44,31 @@ body{
     height:100%;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     overflow:hidden;
 
-    /* FONT HỖ TRỢ TIẾNG VIỆT TỐT */
     font-family:
-        "Segoe UI",
-        Tahoma,
         Arial,
+        "Helvetica Neue",
+        Helvetica,
         sans-serif;
 
     background:var(--navy-deep);
 
     color:white;
+}
 
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+button,
+a{
+    font:inherit;
 }
 
 button{
-    font:inherit;
+    border:0;
 }
 
 
@@ -79,6 +82,8 @@ button{
     width:100vw;
     height:100vh;
 
+    min-height:640px;
+
     overflow:hidden;
 
     isolation:isolate;
@@ -86,66 +91,57 @@ button{
 
 
 /* =========================================================
-   04. ẢNH NỀN
-
-   Ảnh chỉ làm background.
-   Logo + chữ + menu đều là HTML thật.
+   04. BACKGROUND
 ========================================================= */
 
-.bg{
+.background{
     position:absolute;
-
     inset:0;
 
     z-index:-3;
 
     background-image:
-        url("assets/images/cover-nvtn-final.png?v=20260814-03");
-
-    background-size:cover;
+        url("assets/images/cover-nvtn-final.png");
 
     background-repeat:no-repeat;
-
-    /*
-       Giữ giàn khoan thiên về phía phải.
-    */
+    background-size:cover;
     background-position:64% center;
+
+    transform:scale(1.01);
 }
 
 
-/* gradient mềm, không chia đôi ảnh */
-
-.bg::before{
+.background::before{
     content:"";
 
     position:absolute;
-
     inset:0;
 
     background:
         linear-gradient(
             90deg,
             rgba(2,25,41,.88) 0%,
-            rgba(2,28,45,.75) 20%,
-            rgba(2,30,47,.52) 39%,
-            rgba(2,30,47,.25) 56%,
-            rgba(2,30,47,.08) 73%,
-            rgba(2,30,47,0) 100%
+            rgba(2,28,45,.78) 18%,
+            rgba(2,31,47,.58) 36%,
+            rgba(2,31,47,.30) 53%,
+            rgba(2,31,47,.10) 70%,
+            rgba(2,31,47,.02) 100%
         );
 }
 
 
-/* phủ rất nhẹ để ảnh dịu */
-
-.bg::after{
+.background::after{
     content:"";
 
     position:absolute;
-
     inset:0;
 
     background:
-        rgba(0,0,0,.035);
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.10)
+        );
 }
 
 
@@ -160,9 +156,9 @@ button{
     left:0;
     right:0;
 
-    height:136px;
+    z-index:40;
 
-    z-index:50;
+    height:138px;
 
     display:flex;
     align-items:center;
@@ -175,18 +171,16 @@ button{
 
 .brand{
     display:flex;
-
     align-items:center;
 
     opacity:0;
 
-    transform:
-        translateY(-14px);
+    transform:translateY(-14px);
 
     animation:
         fadeDown
         .75s
-        ease
+        cubic-bezier(.2,.8,.2,1)
         .05s
         forwards;
 }
@@ -194,173 +188,138 @@ button{
 
 .logo{
     width:88px;
-
     height:auto;
 
     display:block;
 
     filter:
         drop-shadow(
-            0 3px 9px
-            rgba(0,0,0,.14)
+            0 3px 10px
+            rgba(0,0,0,.12)
         );
 }
 
 
 .brand-divider{
     width:1px;
-
-    height:74px;
+    height:75px;
 
     margin:
         0
         22px;
 
     background:
-        rgba(255,255,255,.80);
+        rgba(255,255,255,.78);
 }
 
 
 .brand-name{
-    color:white;
-
     font-size:29px;
-
     line-height:1;
 
     font-weight:800;
 
-    letter-spacing:.6px;
+    letter-spacing:.8px;
+
+    color:white;
 }
 
 
 .brand-company{
-    margin-top:8px;
-
-    color:
-        rgba(255,255,255,.92);
+    margin-top:9px;
 
     font-size:16px;
 
     font-weight:400;
 
-    letter-spacing:.55px;
+    letter-spacing:.65px;
+
+    color:
+        rgba(255,255,255,.91);
 }
 
 
 /* =========================================================
-   06. VIEW SYSTEM
+   06. VIEW
 ========================================================= */
 
 .view{
     position:absolute;
-
     inset:0;
 
+    z-index:10;
+
     opacity:0;
-
     visibility:hidden;
-
     pointer-events:none;
 
     transition:
-        opacity .35s ease,
-        visibility .35s ease;
+        opacity .38s ease,
+        visibility .38s ease;
 }
 
 
 .view.active{
     opacity:1;
-
     visibility:visible;
-
     pointer-events:auto;
 }
 
 
 /* =========================================================
-   07. DESKTOP HOME
+   07. HOME HERO
 ========================================================= */
-
-.desktop-home{
-    display:block;
-}
-
 
 .hero{
     position:absolute;
 
     left:5.3%;
-
     top:48%;
 
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
 
-    width:
-        min(
-            680px,
-            44vw
-        );
+    width:min(680px,44vw);
+
+    z-index:25;
 }
 
-
-/* CHƯƠNG TRÌNH
-   Font riêng để tránh lỗi dấu tiếng Việt
-*/
 
 .program{
     margin-bottom:22px;
 
-    color:var(--green);
+    color:var(--pvep-green);
 
-    font-family:
-        "Segoe UI",
-        Tahoma,
-        Arial,
-        sans-serif;
+    font-size:
+        clamp(
+            21px,
+            1.7vw,
+            28px
+        );
 
-    font-size:28px;
+    font-weight:800;
 
-    line-height:1.2;
-
-    font-style:normal;
-
-    font-weight:700;
-
-    letter-spacing:0;
-
-    text-transform:none;
+    letter-spacing:.5px;
 
     opacity:0;
 
-    transform:
-        translateX(-18px);
+    transform:translateX(-20px);
 
     animation:
         fadeLeft
         .65s
         ease
-        .18s
+        .20s
         forwards;
 }
 
 
-/* NHÂN VIÊN TÀI NĂNG */
-
 .hero-title{
     color:white;
 
-    font-family:
-        "Segoe UI",
-        Tahoma,
-        Arial,
-        sans-serif;
-
     font-size:
         clamp(
-            58px,
-            5.2vw,
+            56px,
+            5.25vw,
             86px
         );
 
@@ -368,56 +327,47 @@ button{
 
     font-weight:800;
 
-    letter-spacing:.8px;
+    letter-spacing:1.2px;
 
     text-transform:uppercase;
 
     text-shadow:
-        0 3px 15px
+        0 3px 16px
         rgba(0,0,0,.25);
 
     opacity:0;
 
-    transform:
-        translateX(-22px);
+    transform:translateX(-24px);
 
     animation:
         fadeLeft
         .75s
-        ease
+        cubic-bezier(.2,.8,.2,1)
         .30s
         forwards;
 }
 
 
 .green-line{
-    width:
-        min(
-            520px,
-            100%
-        );
-
+    width:min(520px,100%);
     height:3px;
 
     margin:
-        25px
+        26px
         0
         19px;
 
-    background:
-        var(--green);
+    background:var(--pvep-green);
 
-    transform-origin:
-        left center;
+    transform-origin:left center;
 
-    transform:
-        scaleX(0);
+    transform:scaleX(0);
 
     animation:
         lineGrow
-        .75s
+        .76s
         ease
-        .70s
+        .72s
         forwards;
 }
 
@@ -434,7 +384,7 @@ button{
             25px
         );
 
-    letter-spacing:.5px;
+    letter-spacing:.7px;
 
     white-space:nowrap;
 
@@ -444,17 +394,15 @@ button{
         fadeIn
         .65s
         ease
-        .84s
+        .86s
         forwards;
 }
 
 
-/* ĐÃ BỎ CHỮ "DO" */
-
 .mentor{
-    margin-bottom:11px;
-
     max-width:650px;
+
+    margin-bottom:11px;
 
     color:white;
 
@@ -475,7 +423,7 @@ button{
         fadeIn
         .65s
         ease
-        .98s
+        1s
         forwards;
 }
 
@@ -495,15 +443,13 @@ button{
         fadeIn
         .65s
         ease
-        1.10s
+        1.12s
         forwards;
 }
 
 
 /* =========================================================
-   08. DESKTOP MENU
-
-   Không còn KHÁM PHÁ HÀNH TRÌNH.
+   08. MENU CHÍNH
 ========================================================= */
 
 .main-nav{
@@ -511,15 +457,16 @@ button{
 
     left:5.3%;
     right:5.3%;
+    bottom:25px;
 
-    bottom:28px;
+    z-index:40;
 
     display:grid;
 
     grid-template-columns:
         repeat(5,1fr);
 
-    gap:25px;
+    gap:26px;
 
     opacity:0;
 
@@ -535,10 +482,9 @@ button{
 .nav-btn{
     position:relative;
 
-    min-height:50px;
+    min-height:48px;
 
     display:flex;
-
     align-items:baseline;
 
     gap:9px;
@@ -546,12 +492,9 @@ button{
     padding:
         8px
         2px
-        12px;
+        11px;
 
-    border:0;
-
-    background:
-        transparent;
+    background:transparent;
 
     color:white;
 
@@ -560,11 +503,14 @@ button{
     cursor:pointer;
 
     transition:
-        transform .25s ease;
+        transform .25s ease,
+        opacity .25s ease;
 }
 
 
 .nav-number{
+    color:white;
+
     font-size:20px;
 
     font-weight:800;
@@ -577,15 +523,18 @@ button{
 
 .nav-label{
     color:
-        rgba(255,255,255,.94);
+        rgba(255,255,255,.93);
 
     font-size:14px;
 
     font-weight:600;
 
-    letter-spacing:.35px;
+    letter-spacing:.4px;
 
     white-space:nowrap;
+
+    transition:
+        color .25s ease;
 }
 
 
@@ -595,54 +544,49 @@ button{
     position:absolute;
 
     left:0;
-
     bottom:0;
 
     width:0;
-
     height:2px;
 
-    background:
-        var(--green);
+    background:var(--pvep-green);
 
     box-shadow:
         0 0 12px
-        rgba(103,201,75,.24);
+        rgba(98,201,71,.30);
 
     transition:
-        width .28s ease;
+        width .30s ease;
 }
 
 
 .nav-btn:hover{
-    transform:
-        translateY(-4px);
+    transform:translateY(-4px);
 }
 
 
-.nav-btn:hover
-.nav-number{
-    color:
-        var(--green);
+.nav-btn:hover .nav-number{
+    color:var(--pvep-green);
+}
 
-    text-shadow:
-        0 0 14px
-        rgba(103,201,75,.28);
+
+.nav-btn:hover .nav-label{
+    color:white;
 }
 
 
 .nav-btn:hover::after{
-    width:62px;
+    width:64px;
 }
 
 
 /* =========================================================
-   09. DESKTOP DASHBOARD
+   09. DASHBOARD POPUP
 ========================================================= */
 
 .dashboard{
     padding:
-        150px
+        152px
         5.3%
         38px;
 
@@ -656,7 +600,6 @@ button{
 
 .dashboard-shell{
     width:100%;
-
     height:100%;
 
     max-width:1520px;
@@ -666,7 +609,7 @@ button{
     display:grid;
 
     grid-template-columns:
-        225px
+        224px
         1fr;
 
     gap:28px;
@@ -686,7 +629,7 @@ button{
 
     border:
         1px solid
-        var(--border);
+        rgba(255,255,255,.14);
 
     border-radius:18px;
 
@@ -695,24 +638,26 @@ button{
 
     backdrop-filter:
         blur(12px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.12);
 }
 
 
 .home-btn{
     width:100%;
 
-    margin-bottom:20px;
+    margin-bottom:21px;
 
     padding:
         13px
         14px;
 
-    border:0;
-
     border-radius:10px;
 
     background:
-        rgba(103,201,75,.17);
+        rgba(98,201,71,.17);
 
     color:white;
 
@@ -721,15 +666,6 @@ button{
     text-align:left;
 
     cursor:pointer;
-
-    transition:
-        background .25s ease;
-}
-
-
-.home-btn:hover{
-    background:
-        rgba(103,201,75,.28);
 }
 
 
@@ -749,39 +685,36 @@ button{
         12px
         13px;
 
-    border:0;
-
     border-radius:9px;
 
-    background:
-        transparent;
+    background:transparent;
 
     color:
         rgba(255,255,255,.76);
 
-    text-align:left;
-
     cursor:pointer;
 
-    transition:
-        background .25s ease,
-        color .25s ease;
+    text-align:left;
 }
 
 
-.side-btn:hover,
+.side-btn:hover{
+    color:white;
+
+    background:
+        rgba(255,255,255,.07);
+}
+
+
 .side-btn.active{
     color:white;
 
     background:
-        rgba(255,255,255,.09);
-}
+        rgba(255,255,255,.10);
 
-
-.side-btn.active{
     border-left:
         3px solid
-        var(--green);
+        var(--pvep-green);
 }
 
 
@@ -799,13 +732,16 @@ button{
         48px
         45px;
 
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
     border-radius:21px;
 
     background:
         rgba(249,253,251,.97);
 
-    color:
-        var(--text);
+    color:var(--text);
 
     box-shadow:
         0 28px 80px
@@ -817,15 +753,14 @@ button{
     animation:
         panelIn
         .38s
-        ease;
+        cubic-bezier(.2,.8,.2,1);
 }
 
 
 .section-kicker{
     margin-bottom:8px;
 
-    color:
-        var(--green);
+    color:var(--pvep-green);
 
     font-size:17px;
 
@@ -840,7 +775,12 @@ button{
 
     color:#075e49;
 
-    font-size:40px;
+    font-size:
+        clamp(
+            31px,
+            3vw,
+            42px
+        );
 }
 
 
@@ -858,81 +798,7 @@ button{
 
 
 /* =========================================================
-   12. GIỚI THIỆU
-========================================================= */
-
-.intro-grid{
-    margin-top:28px;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-}
-
-
-.info-card,
-.library-card{
-    padding:27px;
-
-    border-radius:17px;
-
-    background:white;
-
-    box-shadow:
-        0 9px 27px
-        rgba(0,0,0,.07);
-
-    transition:
-        transform .28s ease,
-        box-shadow .28s ease;
-}
-
-
-.info-card:hover,
-.library-card:hover{
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 16px 36px
-        rgba(0,0,0,.10);
-}
-
-
-.info-num{
-    margin-bottom:12px;
-
-    color:
-        var(--green);
-
-    font-size:30px;
-
-    font-weight:800;
-}
-
-
-.info-card h3,
-.library-card h3{
-    margin-bottom:9px;
-
-    color:#075e49;
-}
-
-
-.info-card p,
-.library-card p{
-    color:
-        var(--muted);
-
-    line-height:1.65;
-}
-
-
-/* =========================================================
-   13. HÀNH TRÌNH
+   12. HÀNH TRÌNH
 ========================================================= */
 
 .timeline{
@@ -955,9 +821,7 @@ button{
     position:absolute;
 
     top:30px;
-
     left:7%;
-
     right:7%;
 
     height:2px;
@@ -978,15 +842,12 @@ button{
 
 .dot{
     width:60px;
-
     height:60px;
 
     margin:auto;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     border:
@@ -1000,6 +861,10 @@ button{
     color:white;
 
     font-weight:800;
+
+    box-shadow:
+        0 7px 20px
+        rgba(7,94,73,.13);
 }
 
 
@@ -1013,7 +878,7 @@ button{
 
 
 /* =========================================================
-   14. CÁC BUỔI HỌC
+   13. BUỔI HỌC
 ========================================================= */
 
 .lesson-grid{
@@ -1029,15 +894,13 @@ button{
 
 
 .lesson-card{
-    position:relative;
-
     min-height:190px;
 
     padding:25px;
 
-    overflow:hidden;
-
-    border:0;
+    border:
+        1px solid
+        #edf3ef;
 
     border-radius:17px;
 
@@ -1053,50 +916,13 @@ button{
         rgba(0,0,0,.075);
 
     text-align:left;
-
-    cursor:pointer;
-
-    transition:
-        transform .28s ease,
-        box-shadow .28s ease;
-}
-
-
-.lesson-card:hover{
-    transform:
-        translateY(-7px);
-
-    box-shadow:
-        0 17px 38px
-        rgba(0,0,0,.12);
-}
-
-
-.lesson-card::after{
-    content:"";
-
-    position:absolute;
-
-    top:-30px;
-
-    right:-30px;
-
-    width:100px;
-
-    height:100px;
-
-    border-radius:50%;
-
-    background:
-        rgba(103,201,75,.12);
 }
 
 
 .lesson-no{
     margin-bottom:29px;
 
-    color:
-        var(--green);
+    color:var(--pvep-green);
 
     font-size:31px;
 
@@ -1108,6 +934,8 @@ button{
     margin-bottom:8px;
 
     color:#075e49;
+
+    font-size:19px;
 }
 
 
@@ -1121,11 +949,11 @@ button{
 
 
 /* =========================================================
-   15. THƯ VIỆN
+   14. THƯ VIỆN
 ========================================================= */
 
 .library-grid{
-    margin-top:30px;
+    margin-top:31px;
 
     display:grid;
 
@@ -1136,6 +964,25 @@ button{
 }
 
 
+.library-card{
+    min-height:210px;
+
+    padding:31px;
+
+    border:
+        1px solid
+        #edf3ef;
+
+    border-radius:18px;
+
+    background:white;
+
+    box-shadow:
+        0 9px 28px
+        rgba(0,0,0,.065);
+}
+
+
 .library-icon{
     margin-bottom:16px;
 
@@ -1143,12 +990,26 @@ button{
 }
 
 
+.library-card h3{
+    margin-bottom:9px;
+
+    color:#075e49;
+}
+
+
+.library-card p{
+    color:#6b7a75;
+
+    line-height:1.6;
+}
+
+
 /* =========================================================
-   16. ĐIỀU ĐỌNG LẠI
+   15. ĐIỀU ĐỌNG LẠI
 ========================================================= */
 
 .memory-grid{
-    margin-top:30px;
+    margin-top:31px;
 
     display:grid;
 
@@ -1160,15 +1021,9 @@ button{
 
 
 .memory-card{
-    position:relative;
-
     min-height:220px;
 
     padding:33px;
-
-    overflow:hidden;
-
-    border:0;
 
     border-radius:19px;
 
@@ -1184,40 +1039,6 @@ button{
     text-align:left;
 
     cursor:pointer;
-
-    transition:
-        transform .28s ease,
-        box-shadow .28s ease;
-}
-
-
-.memory-card:hover{
-    transform:
-        translateY(-6px);
-
-    box-shadow:
-        0 16px 36px
-        rgba(0,0,0,.16);
-}
-
-
-.memory-card::after{
-    content:"";
-
-    position:absolute;
-
-    right:-60px;
-
-    bottom:-70px;
-
-    width:190px;
-
-    height:190px;
-
-    border-radius:50%;
-
-    background:
-        rgba(255,255,255,.055);
 }
 
 
@@ -1229,8 +1050,6 @@ button{
 
 
 .memory-card p{
-    max-width:430px;
-
     color:
         rgba(255,255,255,.84);
 
@@ -1239,30 +1058,14 @@ button{
 
 
 /* =========================================================
-   17. MOBILE HOME
-========================================================= */
-
-.mobile-home{
-    display:none;
-}
-
-
-.mobile-dashboard{
-    display:none;
-}
-
-
-/* =========================================================
-   18. ANIMATION
+   16. ANIMATION
 ========================================================= */
 
 @keyframes fadeDown{
 
     to{
         opacity:1;
-
-        transform:
-            translateY(0);
+        transform:translateY(0);
     }
 }
 
@@ -1271,9 +1074,7 @@ button{
 
     to{
         opacity:1;
-
-        transform:
-            translateX(0);
+        transform:translateX(0);
     }
 }
 
@@ -1289,8 +1090,7 @@ button{
 @keyframes lineGrow{
 
     to{
-        transform:
-            scaleX(1);
+        transform:scaleX(1);
     }
 }
 
@@ -1316,7 +1116,33 @@ button{
 
 
 /* =========================================================
-   19. MOBILE - LAYOUT RIÊNG
+   17. TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .hero{
+        width:52vw;
+    }
+
+    .main-nav{
+        gap:10px;
+    }
+
+    .nav-label{
+        font-size:12px;
+    }
+
+    .lesson-grid{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   18. MOBILE
 ========================================================= */
 
 @media(max-width:800px){
@@ -1327,203 +1153,110 @@ button{
 
 
     .app{
-        height:100svh;
+        min-height:100svh;
     }
 
 
-    /* mobile căn ảnh riêng */
-
-    .bg{
+    .background{
         background-position:
-            70% center;
-    }
-
-
-    /* mobile phủ theo chiều dọc */
-
-    .bg::before{
-        background:
-            linear-gradient(
-                180deg,
-                rgba(2,24,39,.48) 0%,
-                rgba(2,26,42,.55) 38%,
-                rgba(2,28,45,.82) 100%
-            );
+            68% center;
     }
 
 
     .header{
-        height:95px;
+        height:104px;
 
         padding:
-            15px
-            18px;
+            17px
+            5%;
     }
 
 
     .logo{
-        width:58px;
+        width:61px;
     }
 
 
     .brand-divider{
-        height:50px;
+        height:54px;
 
         margin:
             0
-            12px;
+            13px;
     }
 
 
     .brand-name{
-        font-size:19px;
+        font-size:20px;
     }
 
 
     .brand-company{
-        font-size:9.5px;
+        font-size:10px;
 
-        letter-spacing:.15px;
+        letter-spacing:.3px;
     }
 
 
-    /* desktop tắt */
+    .hero{
+        left:5%;
+        top:42%;
 
-    .desktop-home{
-        display:none;
+        width:90%;
     }
 
 
-    .dashboard{
-        display:none;
+    .program{
+        margin-bottom:14px;
+
+        font-size:19px;
     }
 
 
-    /* mobile bật */
-
-    .mobile-home{
-        display:block;
+    .hero-title{
+        font-size:
+            clamp(
+                43px,
+                12vw,
+                58px
+            );
     }
 
 
-    .mobile-hero{
-        position:absolute;
-
-        left:20px;
-
-        right:20px;
-
-        top:43%;
-
-        transform:
-            translateY(-50%);
-    }
-
-
-    /* FONT TIẾNG VIỆT MOBILE */
-
-    .mobile-program{
-        margin-bottom:12px;
-
-        color:
-            var(--green);
-
-        font-family:
-            "Segoe UI",
-            Tahoma,
-            Arial,
-            sans-serif;
-
-        font-size:18px;
-
-        line-height:1.2;
-
-        font-style:normal;
-
-        font-weight:700;
-
-        letter-spacing:0;
-    }
-
-
-    .mobile-title{
-        font-family:
-            "Segoe UI",
-            Tahoma,
-            Arial,
-            sans-serif;
-
-        font-size:42px;
-
-        line-height:.96;
-
-        font-weight:800;
-
-        letter-spacing:.2px;
-
-        text-transform:uppercase;
-
-        text-shadow:
-            0 3px 12px
-            rgba(0,0,0,.22);
-    }
-
-
-    .mobile-line{
-        width:82%;
-
-        height:3px;
-
+    .green-line{
         margin:
-            17px
+            18px
             0
-            14px;
-
-        background:
-            var(--green);
+            15px;
     }
 
 
-    .mobile-values{
-        margin-bottom:12px;
+    .values{
+        white-space:normal;
 
-        font-size:15px;
-
-        line-height:1.5;
+        font-size:16px;
     }
 
 
-    /* ĐÃ BỎ "DO" */
-
-    .mobile-mentor{
-        margin-bottom:8px;
+    .mentor{
+        max-width:90%;
 
         font-size:14px;
-
-        line-height:1.5;
     }
 
 
-    .mobile-years{
-        font-size:16px;
-
-        font-weight:800;
-
-        letter-spacing:1.5px;
+    .years{
+        font-size:18px;
     }
 
 
-    /* =====================================================
-       5 MENU MOBILE
-    ====================================================== */
+    /* ---------------------------------------------
+       GIỮ 5 NÚT TRÊN MOBILE
+    ---------------------------------------------- */
 
-    .mobile-menu{
-        position:absolute;
-
-        left:16px;
-
-        right:16px;
-
+    .main-nav{
+        left:4%;
+        right:4%;
         bottom:18px;
 
         display:grid;
@@ -1531,302 +1264,212 @@ button{
         grid-template-columns:
             repeat(5,1fr);
 
-        gap:7px;
+        gap:4px;
     }
 
 
-    .mobile-menu-btn{
-        min-height:58px;
-
-        padding:
-            8px
-            4px;
-
-        border:
-            1px solid
-            rgba(255,255,255,.18);
-
-        border-radius:12px;
-
-        background:
-            rgba(4,33,49,.55);
-
-        backdrop-filter:
-            blur(8px);
-
-        color:white;
-
-        cursor:pointer;
+    .nav-btn{
+        min-height:50px;
 
         display:flex;
 
         flex-direction:column;
 
-        align-items:center;
+        justify-content:flex-start;
 
-        justify-content:center;
+        align-items:center;
 
         gap:3px;
 
-        transition:
-            transform .2s ease,
-            background .2s ease;
-    }
-
-
-    .mobile-menu-btn:active{
-        transform:
-            scale(.96);
-
-        background:
-            rgba(103,201,75,.18);
-    }
-
-
-    .mobile-menu-no{
-        color:
-            var(--green);
-
-        font-size:15px;
-
-        font-weight:800;
-    }
-
-
-    .mobile-menu-label{
-        font-size:8.8px;
-
-        line-height:1.15;
+        padding:
+            5px
+            1px;
 
         text-align:center;
     }
 
 
-    /* =====================================================
-       MOBILE DASHBOARD
-    ====================================================== */
+    .nav-number{
+        font-size:15px;
 
-    .mobile-dashboard{
-        display:none;
-
-        position:absolute;
-
-        inset:0;
-
-        z-index:70;
-
-        padding:
-            105px
-            14px
-            14px;
-
-        background:
-            rgba(2,20,33,.84);
-
-        backdrop-filter:
-            blur(7px);
+        color:var(--pvep-green);
     }
 
 
-    .mobile-dashboard.active{
+    .nav-label{
+        font-size:
+            clamp(
+                7px,
+                2.1vw,
+                10px
+            );
+
+        line-height:1.15;
+
+        white-space:normal;
+
+        text-align:center;
+    }
+
+
+    .nav-btn::after{
+        left:50%;
+
+        transform:
+            translateX(-50%);
+    }
+
+
+    /* ---------------------------------------------
+       POPUP MOBILE
+    ---------------------------------------------- */
+
+    .dashboard{
+        padding:
+            108px
+            12px
+            14px;
+    }
+
+
+    .dashboard-shell{
         display:block;
     }
 
 
-    .mobile-topbar{
-        display:flex;
-
-        align-items:center;
-
-        justify-content:space-between;
-
-        margin-bottom:12px;
+    .sidebar{
+        display:none;
     }
 
 
-    .mobile-back{
-        padding:
-            10px
-            12px;
-
-        border:0;
-
-        border-radius:10px;
-
-        background:
-            rgba(103,201,75,.18);
-
-        color:white;
-
-        font-size:13px;
-
-        font-weight:800;
-
-        cursor:pointer;
-    }
-
-
-    .mobile-menu-open{
-        width:40px;
-
-        height:40px;
-
-        border:
-            1px solid
-            rgba(255,255,255,.18);
-
-        border-radius:10px;
-
-        background:
-            rgba(255,255,255,.08);
-
-        color:white;
-
-        font-size:20px;
-
-        cursor:pointer;
-    }
-
-
-    .mobile-content{
+    .content-panel{
         height:
             calc(
-                100% - 52px
+                100svh - 124px
             );
 
-        overflow:auto;
-
         padding:
-            25px
-            20px
-            30px;
+            27px
+            21px
+            34px;
 
-        border-radius:18px;
-
-        background:
-            rgba(249,253,251,.98);
-
-        color:
-            var(--text);
+        border-radius:20px;
     }
 
 
-    .mobile-content h1{
-        margin-bottom:15px;
-
-        color:#075e49;
-
-        font-size:28px;
+    .content-panel h1{
+        font-size:30px;
     }
 
 
-    .mobile-content .lead{
+    .lead{
         font-size:15px;
 
         line-height:1.7;
     }
 
 
-    .mobile-content
-    .intro-grid,
-
-    .mobile-content
     .lesson-grid,
-
-    .mobile-content
     .library-grid,
-
-    .mobile-content
     .memory-grid{
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
 
-    .mobile-content
+    /* HÀNH TRÌNH:
+       giữ 5 nút nằm ngang trên mobile */
+
     .timeline{
+        margin-top:35px;
+
         grid-template-columns:
-            1fr;
+            repeat(5,1fr);
 
-        gap:15px;
+        gap:4px;
     }
 
 
-    .mobile-content
     .timeline::before{
-        display:none;
-    }
-
-
-    /* =====================================================
-       MOBILE DRAWER
-    ====================================================== */
-
-    .mobile-drawer{
-        position:absolute;
-
-        top:95px;
-
-        right:14px;
-
-        width:220px;
-
-        padding:12px;
-
-        border-radius:14px;
-
-        background:
-            rgba(3,30,47,.97);
-
-        box-shadow:
-            0 20px 60px
-            rgba(0,0,0,.28);
-
-        display:none;
-
-        z-index:100;
-    }
-
-
-    .mobile-drawer.open{
         display:block;
+
+        left:5%;
+        right:5%;
+
+        top:22px;
     }
 
 
-    .drawer-btn{
-        width:100%;
+    .dot{
+        width:44px;
+        height:44px;
 
-        padding:
-            11px
-            12px;
+        border-width:3px;
 
-        margin-bottom:5px;
-
-        border:0;
-
-        border-radius:8px;
-
-        background:
-            transparent;
-
-        color:white;
-
-        text-align:left;
-
-        cursor:pointer;
+        font-size:13px;
     }
 
 
-    .drawer-btn:hover{
-        background:
-            rgba(255,255,255,.08);
+    .milestone h3{
+        margin-top:9px;
+
+        font-size:
+            clamp(
+                7px,
+                2vw,
+                10px
+            );
+
+        line-height:1.2;
     }
 
 }
 
 
 /* =========================================================
-   20. GIẢM CHUYỂN ĐỘNG NẾU THIẾT BỊ YÊU CẦU
+   19. MÀN HÌNH MOBILE NHỎ
+========================================================= */
+
+@media(max-width:420px){
+
+    .hero{
+        top:40%;
+    }
+
+
+    .program{
+        font-size:17px;
+    }
+
+
+    .hero-title{
+        font-size:43px;
+    }
+
+
+    .values{
+        font-size:14px;
+    }
+
+
+    .mentor{
+        font-size:13px;
+    }
+
+
+    .nav-number{
+        font-size:14px;
+    }
+
+
+    .nav-label{
+        font-size:7px;
+    }
+
+}
+
+
+/* =========================================================
+   20. REDUCED MOTION
 ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
@@ -1834,9 +1477,11 @@ button{
     *,
     *::before,
     *::after{
-        animation:none !important;
-        transition:none !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
     }
+
 }
 
 </style>
@@ -1847,418 +1492,231 @@ button{
 
 <div class="app">
 
-    <!-- =====================================================
-         BACKGROUND
-    ====================================================== -->
 
-    <div class="bg"></div>
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
 
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
-    <header class="header">
-
-        <div class="brand">
-
-            <img
-                src="assets/images/Logo-pvep.png"
-                alt="PVEP"
-                class="logo"
-            >
-
-            <div class="brand-divider"></div>
-
-            <div>
-
-                <div class="brand-name">
-                    PVEP
-                </div>
-
-                <div class="brand-company">
-                    TỔNG CÔNG TY THĂM DÒ KHAI THÁC DẦU KHÍ
-                </div>
-
-            </div>
-
-        </div>
-
-    </header>
+<div class="background"></div>
 
 
-    <!-- =====================================================
-         DESKTOP HOME
-    ====================================================== -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-    <section
-        class="view active desktop-home"
-        id="desktopHome"
-    >
+<header class="header">
 
-        <div class="hero">
+    <div class="brand">
 
-            <div class="program">
-                CHƯƠNG TRÌNH
-            </div>
-
-            <div class="hero-title">
-                NHÂN VIÊN<br>
-                TÀI NĂNG
-            </div>
-
-            <div class="green-line"></div>
-
-            <div class="values">
-                HỌC HỎI
-                &nbsp;•&nbsp;
-                KẾT NỐI
-                &nbsp;•&nbsp;
-                PHÁT TRIỂN
-            </div>
-
-            <div class="mentor">
-                Phó Tổng giám đốc Ngô Khánh Xạ
-                hướng dẫn và đồng hành
-            </div>
-
-            <div class="years">
-                2025 — 2026
-            </div>
-
-        </div>
-
-
-        <!-- Không còn Khám phá hành trình -->
-
-
-        <nav
-            class="main-nav"
-            aria-label="Menu chính"
+        <img
+            src="assets/images/Logo-pvep.png"
+            alt="PVEP"
+            class="logo"
         >
 
-            <button
-                class="nav-btn"
-                type="button"
-                onclick="navigate('intro')"
-            >
+        <div class="brand-divider"></div>
 
-                <span class="nav-number">
-                    01
-                </span>
+        <div>
 
-                <span class="nav-label">
-                    GIỚI THIỆU
-                </span>
-
-            </button>
-
-
-            <button
-                class="nav-btn"
-                type="button"
-                onclick="navigate('journey')"
-            >
-
-                <span class="nav-number">
-                    02
-                </span>
-
-                <span class="nav-label">
-                    HÀNH TRÌNH
-                </span>
-
-            </button>
-
-
-            <button
-                class="nav-btn"
-                type="button"
-                onclick="navigate('lessons')"
-            >
-
-                <span class="nav-number">
-                    03
-                </span>
-
-                <span class="nav-label">
-                    BUỔI HỌC
-                </span>
-
-            </button>
-
-
-            <button
-                class="nav-btn"
-                type="button"
-                onclick="navigate('library')"
-            >
-
-                <span class="nav-number">
-                    04
-                </span>
-
-                <span class="nav-label">
-                    THƯ VIỆN
-                </span>
-
-            </button>
-
-
-            <button
-                class="nav-btn"
-                type="button"
-                onclick="navigate('memories')"
-            >
-
-                <span class="nav-number">
-                    05
-                </span>
-
-                <span class="nav-label">
-                    ĐIỀU ĐỌNG LẠI
-                </span>
-
-            </button>
-
-        </nav>
-
-    </section>
-
-
-    <!-- =====================================================
-         MOBILE HOME
-    ====================================================== -->
-
-    <section
-        class="view mobile-home"
-        id="mobileHome"
-    >
-
-        <div class="mobile-hero">
-
-            <div class="mobile-program">
-                CHƯƠNG TRÌNH
+            <div class="brand-name">
+                PVEP
             </div>
 
-            <div class="mobile-title">
-                NHÂN VIÊN<br>
-                TÀI NĂNG
-            </div>
-
-            <div class="mobile-line"></div>
-
-            <div class="mobile-values">
-                HỌC HỎI • KẾT NỐI • PHÁT TRIỂN
-            </div>
-
-            <div class="mobile-mentor">
-                Phó Tổng giám đốc Ngô Khánh Xạ
-                hướng dẫn và đồng hành
-            </div>
-
-            <div class="mobile-years">
-                2025 — 2026
+            <div class="brand-company">
+                TỔNG CÔNG TY THĂM DÒ KHAI THÁC DẦU KHÍ
             </div>
 
         </div>
 
+    </div>
 
-        <!-- 5 MENU MOBILE -->
-
-        <div class="mobile-menu">
-
-            <button
-                class="mobile-menu-btn"
-                type="button"
-                onclick="navigate('intro')"
-            >
-
-                <span class="mobile-menu-no">
-                    01
-                </span>
-
-                <span class="mobile-menu-label">
-                    GIỚI THIỆU
-                </span>
-
-            </button>
+</header>
 
 
-            <button
-                class="mobile-menu-btn"
-                type="button"
-                onclick="navigate('journey')"
-            >
+<!-- =========================================================
+     HOME
+========================================================= -->
 
-                <span class="mobile-menu-no">
-                    02
-                </span>
-
-                <span class="mobile-menu-label">
-                    HÀNH TRÌNH
-                </span>
-
-            </button>
+<section
+    class="view active"
+    id="homeView"
+>
 
 
-            <button
-                class="mobile-menu-btn"
-                type="button"
-                onclick="navigate('lessons')"
-            >
+    <div class="hero">
 
-                <span class="mobile-menu-no">
-                    03
-                </span>
-
-                <span class="mobile-menu-label">
-                    BUỔI HỌC
-                </span>
-
-            </button>
-
-
-            <button
-                class="mobile-menu-btn"
-                type="button"
-                onclick="navigate('library')"
-            >
-
-                <span class="mobile-menu-no">
-                    04
-                </span>
-
-                <span class="mobile-menu-label">
-                    THƯ VIỆN
-                </span>
-
-            </button>
-
-
-            <button
-                class="mobile-menu-btn"
-                type="button"
-                onclick="navigate('memories')"
-            >
-
-                <span class="mobile-menu-no">
-                    05
-                </span>
-
-                <span class="mobile-menu-label">
-                    ĐỌNG LẠI
-                </span>
-
-            </button>
-
+        <div class="program">
+            CHƯƠNG TRÌNH
         </div>
 
-    </section>
+
+        <div class="hero-title">
+            NHÂN VIÊN<br>
+            TÀI NĂNG
+        </div>
+
+
+        <div class="green-line"></div>
+
+
+        <div class="values">
+            HỌC HỎI
+            &nbsp;•&nbsp;
+            KẾT NỐI
+            &nbsp;•&nbsp;
+            PHÁT TRIỂN
+        </div>
+
+
+        <div class="mentor">
+            Phó Tổng giám đốc Ngô Khánh Xạ
+            hướng dẫn và đồng hành
+        </div>
+
+
+        <div class="years">
+            2025 — 2026
+        </div>
+
+    </div>
+
 
 
     <!-- =====================================================
-         DESKTOP DASHBOARD
+         5 MENU
     ====================================================== -->
 
-    <section
-        class="view dashboard"
-        id="desktopDashboard"
+    <nav
+        class="main-nav"
+        aria-label="Menu chính"
     >
 
-        <div class="dashboard-shell">
 
-            <aside class="sidebar">
+        <!-- 01 -->
 
-                <button
-                    class="home-btn"
-                    type="button"
-                    onclick="navigate('home')"
-                >
-                    ← TRANG CHỦ
-                </button>
+        <button
+            class="nav-btn"
+            type="button"
+            onclick="openIntro()"
+        >
 
+            <span class="nav-number">
+                01
+            </span>
 
-                <div class="side-menu">
+            <span class="nav-label">
+                GIỚI THIỆU
+            </span>
 
-                    <button
-                        class="side-btn"
-                        data-route="intro"
-                        type="button"
-                        onclick="navigate('intro')"
-                    >
-                        01 &nbsp; GIỚI THIỆU
-                    </button>
+        </button>
 
 
-                    <button
-                        class="side-btn"
-                        data-route="journey"
-                        type="button"
-                        onclick="navigate('journey')"
-                    >
-                        02 &nbsp; HÀNH TRÌNH
-                    </button>
+
+        <!-- 02 -->
+
+        <button
+            class="nav-btn"
+            type="button"
+            onclick="navigate('journey')"
+        >
+
+            <span class="nav-number">
+                02
+            </span>
+
+            <span class="nav-label">
+                HÀNH TRÌNH
+            </span>
+
+        </button>
 
 
-                    <button
-                        class="side-btn"
-                        data-route="lessons"
-                        type="button"
-                        onclick="navigate('lessons')"
-                    >
-                        03 &nbsp; BUỔI HỌC
-                    </button>
+
+        <!-- 03 -->
+
+        <button
+            class="nav-btn"
+            type="button"
+            onclick="navigate('lessons')"
+        >
+
+            <span class="nav-number">
+                03
+            </span>
+
+            <span class="nav-label">
+                BUỔI HỌC
+            </span>
+
+        </button>
 
 
-                    <button
-                        class="side-btn"
-                        data-route="library"
-                        type="button"
-                        onclick="navigate('library')"
-                    >
-                        04 &nbsp; THƯ VIỆN
-                    </button>
+
+        <!-- 04 -->
+
+        <button
+            class="nav-btn"
+            type="button"
+            onclick="navigate('library')"
+        >
+
+            <span class="nav-number">
+                04
+            </span>
+
+            <span class="nav-label">
+                THƯ VIỆN
+            </span>
+
+        </button>
 
 
-                    <button
-                        class="side-btn"
-                        data-route="memories"
-                        type="button"
-                        onclick="navigate('memories')"
-                    >
-                        05 &nbsp; ĐIỀU ĐỌNG LẠI
-                    </button>
 
-                </div>
+        <!-- 05 -->
 
-            </aside>
+        <button
+            class="nav-btn"
+            type="button"
+            onclick="navigate('memories')"
+        >
 
+            <span class="nav-number">
+                05
+            </span>
 
-            <main
-                class="content-panel"
-                id="desktopContent"
-            >
-            </main>
+            <span class="nav-label">
+                ĐIỀU ĐỌNG LẠI
+            </span>
 
-        </div>
-
-    </section>
+        </button>
 
 
-    <!-- =====================================================
-         MOBILE DASHBOARD
-    ====================================================== -->
+    </nav>
 
-    <section
-        class="mobile-dashboard"
-        id="mobileDashboard"
-    >
 
-        <div class="mobile-topbar">
+</section>
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<section
+    class="view dashboard"
+    id="dashboardView"
+>
+
+
+    <div class="dashboard-shell">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
 
             <button
-                class="mobile-back"
+                class="home-btn"
                 type="button"
                 onclick="navigate('home')"
             >
@@ -2266,528 +1724,475 @@ button{
             </button>
 
 
-            <button
-                class="mobile-menu-open"
-                type="button"
-                onclick="toggleDrawer()"
-                aria-label="Mở menu"
-            >
-                ☰
-            </button>
+            <div class="side-menu">
 
-        </div>
 
+                <button
+                    class="side-btn"
+                    type="button"
+                    onclick="openIntro()"
+                >
+                    01 &nbsp; GIỚI THIỆU
+                </button>
+
+
+                <button
+                    class="side-btn"
+                    data-route="journey"
+                    type="button"
+                    onclick="navigate('journey')"
+                >
+                    02 &nbsp; HÀNH TRÌNH
+                </button>
+
+
+                <button
+                    class="side-btn"
+                    data-route="lessons"
+                    type="button"
+                    onclick="navigate('lessons')"
+                >
+                    03 &nbsp; BUỔI HỌC
+                </button>
+
+
+                <button
+                    class="side-btn"
+                    data-route="library"
+                    type="button"
+                    onclick="navigate('library')"
+                >
+                    04 &nbsp; THƯ VIỆN
+                </button>
+
+
+                <button
+                    class="side-btn"
+                    data-route="memories"
+                    type="button"
+                    onclick="navigate('memories')"
+                >
+                    05 &nbsp; ĐIỀU ĐỌNG LẠI
+                </button>
+
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- CONTENT -->
 
         <main
-            class="mobile-content"
-            id="mobileContent"
+            class="content-panel"
+            id="contentPanel"
         >
         </main>
 
 
-        <div
-            class="mobile-drawer"
-            id="mobileDrawer"
-        >
+    </div>
 
-            <button
-                class="drawer-btn"
-                type="button"
-                onclick="navigate('intro')"
-            >
-                01 — GIỚI THIỆU
-            </button>
+</section>
 
-
-            <button
-                class="drawer-btn"
-                type="button"
-                onclick="navigate('journey')"
-            >
-                02 — HÀNH TRÌNH
-            </button>
-
-
-            <button
-                class="drawer-btn"
-                type="button"
-                onclick="navigate('lessons')"
-            >
-                03 — BUỔI HỌC
-            </button>
-
-
-            <button
-                class="drawer-btn"
-                type="button"
-                onclick="navigate('library')"
-            >
-                04 — THƯ VIỆN
-            </button>
-
-
-            <button
-                class="drawer-btn"
-                type="button"
-                onclick="navigate('memories')"
-            >
-                05 — ĐIỀU ĐỌNG LẠI
-            </button>
-
-        </div>
-
-    </section>
 
 </div>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
 <script>
 
-
 /* =========================================================
-   NỘI DUNG 5 MENU
+   TRANG GIỚI THIỆU MỚI
 ========================================================= */
 
-const pages = {
+function openIntro(){
 
-
-    intro: `
-
-        <div class="section-kicker">
-            01
-        </div>
-
-        <h1>
-            GIỚI THIỆU
-        </h1>
-
-        <p class="lead">
-            Chương trình Nhân viên Tài năng PVEP
-            là hành trình học hỏi, kết nối và phát triển
-            dành cho đội ngũ nhân sự tài năng của Tổng công ty,
-            dưới sự hướng dẫn và đồng hành của
-            Phó Tổng giám đốc Ngô Khánh Xạ.
-        </p>
-
-        <div class="intro-grid">
-
-            <div class="info-card">
-
-                <div class="info-num">
-                    01
-                </div>
-
-                <h3>
-                    HỌC HỎI
-                </h3>
-
-                <p>
-                    Mở rộng kiến thức,
-                    góc nhìn và tư duy
-                    trong công việc.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="info-num">
-                    02
-                </div>
-
-                <h3>
-                    KẾT NỐI
-                </h3>
-
-                <p>
-                    Tăng cường chia sẻ,
-                    kết nối giữa các lĩnh vực
-                    và các đơn vị.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="info-num">
-                    03
-                </div>
-
-                <h3>
-                    PHÁT TRIỂN
-                </h3>
-
-                <p>
-                    Từng bước phát triển năng lực
-                    và khả năng đóng góp
-                    cho PVEP.
-                </p>
-
-            </div>
-
-        </div>
-
-    `,
-
-
-    journey: `
-
-        <div class="section-kicker">
-            02
-        </div>
-
-        <h1>
-            HÀNH TRÌNH
-        </h1>
-
-        <p class="lead">
-            Hành trình 2025 — 2026
-            không chỉ là những buổi học,
-            mà còn là quá trình chia sẻ,
-            trải nghiệm, kết nối
-            và cùng nhau trưởng thành.
-        </p>
-
-        <div class="timeline">
-
-            <div class="milestone">
-                <div class="dot">01</div>
-                <h3>KHỞI ĐẦU</h3>
-            </div>
-
-            <div class="milestone">
-                <div class="dot">02</div>
-                <h3>KẾT NỐI</h3>
-            </div>
-
-            <div class="milestone">
-                <div class="dot">03</div>
-                <h3>HỌC HỎI</h3>
-            </div>
-
-            <div class="milestone">
-                <div class="dot">04</div>
-                <h3>TRẢI NGHIỆM</h3>
-            </div>
-
-            <div class="milestone">
-                <div class="dot">05</div>
-                <h3>PHÁT TRIỂN</h3>
-            </div>
-
-        </div>
-
-    `,
-
-
-    lessons: `
-
-        <div class="section-kicker">
-            03
-        </div>
-
-        <h1>
-            CÁC BUỔI HỌC
-        </h1>
-
-        <p class="lead">
-            Chọn từng buổi để xem nội dung,
-            tài liệu, hình ảnh, bài viết
-            và những dấu ấn đáng nhớ.
-        </p>
-
-        <div class="lesson-grid">
-
-            <button
-                class="lesson-card"
-                type="button"
-            >
-
-                <div class="lesson-no">
-                    01
-                </div>
-
-                <h3>
-                    BUỔI 1
-                </h3>
-
-                <p>
-                    Nội dung, tài liệu
-                    và hình ảnh
-                    của buổi học thứ nhất.
-                </p>
-
-            </button>
-
-
-            <button
-                class="lesson-card"
-                type="button"
-            >
-
-                <div class="lesson-no">
-                    02
-                </div>
-
-                <h3>
-                    BUỔI 2
-                </h3>
-
-                <p>
-                    Nội dung, tài liệu
-                    và hình ảnh
-                    của buổi học thứ hai.
-                </p>
-
-            </button>
-
-
-            <button
-                class="lesson-card"
-                type="button"
-            >
-
-                <div class="lesson-no">
-                    03
-                </div>
-
-                <h3>
-                    BUỔI 3
-                </h3>
-
-                <p>
-                    Nội dung, tài liệu
-                    và hình ảnh
-                    của buổi học thứ ba.
-                </p>
-
-            </button>
-
-
-            <button
-                class="lesson-card"
-                type="button"
-            >
-
-                <div class="lesson-no">
-                    04
-                </div>
-
-                <h3>
-                    BUỔI 4
-                </h3>
-
-                <p>
-                    Nội dung, tài liệu
-                    và hình ảnh
-                    của buổi học thứ tư.
-                </p>
-
-            </button>
-
-
-            <button
-                class="lesson-card"
-                type="button"
-            >
-
-                <div class="lesson-no">
-                    05
-                </div>
-
-                <h3>
-                    BUỔI 5
-                </h3>
-
-                <p>
-                    Nội dung, tài liệu
-                    và hình ảnh
-                    của buổi học thứ năm.
-                </p>
-
-            </button>
-
-        </div>
-
-    `,
-
-
-    library: `
-
-        <div class="section-kicker">
-            04
-        </div>
-
-        <h1>
-            THƯ VIỆN
-        </h1>
-
-        <p class="lead">
-            Không gian lưu giữ các tư liệu,
-            hình ảnh và bài viết
-            của Chương trình Nhân viên Tài năng PVEP.
-        </p>
-
-        <div class="library-grid">
-
-            <div class="library-card">
-
-                <div class="library-icon">
-                    📚
-                </div>
-
-                <h3>
-                    TÀI LIỆU
-                </h3>
-
-                <p>
-                    Slide,
-                    tài liệu học tập,
-                    tài liệu tham khảo
-                    và các sản phẩm học tập.
-                </p>
-
-            </div>
-
-
-            <div class="library-card">
-
-                <div class="library-icon">
-                    📷
-                </div>
-
-                <h3>
-                    HÌNH ẢNH
-                </h3>
-
-                <p>
-                    Những khoảnh khắc đáng nhớ
-                    trong từng buổi học
-                    và hoạt động.
-                </p>
-
-            </div>
-
-
-            <div class="library-card">
-
-                <div class="library-icon">
-                    📰
-                </div>
-
-                <h3>
-                    BÀI VIẾT
-                </h3>
-
-                <p>
-                    Tin bài
-                    và những nội dung
-                    liên quan đến chương trình.
-                </p>
-
-            </div>
-
-        </div>
-
-    `,
-
-
-    memories: `
-
-        <div class="section-kicker">
-            05
-        </div>
-
-        <h1>
-            ĐIỀU ĐỌNG LẠI
-        </h1>
-
-        <p class="lead">
-            Những lời nhắn,
-            cảm xúc,
-            kỷ niệm
-            và món quà tinh thần
-            được lưu giữ
-            sau hành trình.
-        </p>
-
-        <div class="memory-grid">
-
-            <button
-                class="memory-card"
-                type="button"
-            >
-
-                <h3>
-                    LƯU BÚT
-                </h3>
-
-                <p>
-                    Những chia sẻ,
-                    lời nhắn
-                    và cảm nhận
-                    của các thành viên
-                    Nhóm Nhân viên Tài năng.
-                </p>
-
-            </button>
-
-
-            <button
-                class="memory-card"
-                type="button"
-                onclick="
-                    window.location.href =
-                    'Qua%20tang%20thay/';
-                "
-            >
-
-                <h3>
-                    MÓN QUÀ TẶNG THẦY
-                </h3>
-
-                <p>
-                    Những tình cảm
-                    và món quà
-                    dành tặng
-                    người thầy
-                    đã hướng dẫn
-                    và đồng hành
-                    cùng chương trình.
-                </p>
-
-            </button>
-
-        </div>
-
-    `
-
-};
-
-
-/* =========================================================
-   KIỂM TRA MOBILE
-========================================================= */
-
-function isMobile(){
-
-    return
-        window.innerWidth <= 800;
+    window.location.href =
+        "01_Gioi-thieu/";
 
 }
 
 
 /* =========================================================
-   NAVIGATION
+   NỘI DUNG CÁC PHẦN CÒN LẠI
+========================================================= */
+
+const pages = {
+
+
+journey: `
+
+    <div class="section-kicker">
+        02
+    </div>
+
+    <h1>
+        HÀNH TRÌNH
+    </h1>
+
+    <p class="lead">
+        Hành trình 2025 — 2026
+        không chỉ là những buổi học,
+        mà còn là quá trình chia sẻ,
+        trải nghiệm, kết nối
+        và cùng nhau trưởng thành.
+    </p>
+
+
+    <div class="timeline">
+
+
+        <div class="milestone">
+
+            <div class="dot">
+                01
+            </div>
+
+            <h3>
+                KHỞI ĐẦU
+            </h3>
+
+        </div>
+
+
+        <div class="milestone">
+
+            <div class="dot">
+                02
+            </div>
+
+            <h3>
+                LÀM QUEN
+            </h3>
+
+        </div>
+
+
+        <div class="milestone">
+
+            <div class="dot">
+                03
+            </div>
+
+            <h3>
+                HỌC HỎI
+            </h3>
+
+        </div>
+
+
+        <div class="milestone">
+
+            <div class="dot">
+                04
+            </div>
+
+            <h3>
+                TRẢI NGHIỆM
+            </h3>
+
+        </div>
+
+
+        <div class="milestone">
+
+            <div class="dot">
+                05
+            </div>
+
+            <h3>
+                TRƯỞNG THÀNH
+            </h3>
+
+        </div>
+
+
+    </div>
+
+`,
+
+
+lessons: `
+
+    <div class="section-kicker">
+        03
+    </div>
+
+    <h1>
+        CÁC BUỔI HỌC
+    </h1>
+
+    <p class="lead">
+        Mỗi buổi học là một dấu mốc
+        trong hành trình phát triển,
+        nơi lưu giữ nội dung,
+        tài liệu, hình ảnh
+        và những chia sẻ đáng nhớ.
+    </p>
+
+
+    <div class="lesson-grid">
+
+
+        <div class="lesson-card">
+
+            <div class="lesson-no">
+                01
+            </div>
+
+            <h3>
+                BUỔI 1
+            </h3>
+
+            <p>
+                Nội dung, tài liệu,
+                hình ảnh và dấu ấn
+                của buổi học thứ nhất.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-card">
+
+            <div class="lesson-no">
+                02
+            </div>
+
+            <h3>
+                BUỔI 2
+            </h3>
+
+            <p>
+                Nội dung, tài liệu,
+                hình ảnh và dấu ấn
+                của buổi học thứ hai.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-card">
+
+            <div class="lesson-no">
+                03
+            </div>
+
+            <h3>
+                BUỔI 3
+            </h3>
+
+            <p>
+                Nội dung, tài liệu,
+                hình ảnh và dấu ấn
+                của buổi học thứ ba.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-card">
+
+            <div class="lesson-no">
+                04
+            </div>
+
+            <h3>
+                BUỔI 4
+            </h3>
+
+            <p>
+                Nội dung, tài liệu,
+                hình ảnh và dấu ấn
+                của buổi học thứ tư.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-card">
+
+            <div class="lesson-no">
+                05
+            </div>
+
+            <h3>
+                BUỔI 5
+            </h3>
+
+            <p>
+                Nội dung, tài liệu,
+                hình ảnh và dấu ấn
+                của buổi học thứ năm.
+            </p>
+
+        </div>
+
+
+    </div>
+
+`,
+
+
+library: `
+
+    <div class="section-kicker">
+        04
+    </div>
+
+    <h1>
+        THƯ VIỆN
+    </h1>
+
+    <p class="lead">
+        Không gian lưu giữ
+        các tài liệu, hình ảnh
+        và bài viết của
+        Chương trình Nhân viên Tài năng PVEP.
+    </p>
+
+
+    <div class="library-grid">
+
+
+        <div class="library-card">
+
+            <div class="library-icon">
+                📚
+            </div>
+
+            <h3>
+                TÀI LIỆU
+            </h3>
+
+            <p>
+                Slide, tài liệu học tập,
+                tài liệu tham khảo
+                và các sản phẩm học tập.
+            </p>
+
+        </div>
+
+
+        <div class="library-card">
+
+            <div class="library-icon">
+                📷
+            </div>
+
+            <h3>
+                HÌNH ẢNH
+            </h3>
+
+            <p>
+                Những khoảnh khắc
+                đáng nhớ trong các buổi học
+                và hoạt động của chương trình.
+            </p>
+
+        </div>
+
+
+        <div class="library-card">
+
+            <div class="library-icon">
+                📰
+            </div>
+
+            <h3>
+                BÀI VIẾT
+            </h3>
+
+            <p>
+                Tin bài và những nội dung
+                liên quan đến hành trình
+                Nhân viên Tài năng.
+            </p>
+
+        </div>
+
+
+    </div>
+
+`,
+
+
+memories: `
+
+    <div class="section-kicker">
+        05
+    </div>
+
+    <h1>
+        ĐIỀU ĐỌNG LẠI
+    </h1>
+
+    <p class="lead">
+        Những lời nhắn,
+        cảm xúc, kỷ niệm
+        và những món quà tinh thần
+        được lưu giữ sau hành trình.
+    </p>
+
+
+    <div class="memory-grid">
+
+
+        <button
+            class="memory-card"
+            type="button"
+        >
+
+            <h3>
+                LƯU BÚT
+            </h3>
+
+            <p>
+                Những chia sẻ,
+                lời nhắn và cảm nhận
+                của các thành viên
+                Nhóm Nhân viên Tài năng.
+            </p>
+
+        </button>
+
+
+        <button
+            class="memory-card"
+            type="button"
+            onclick="
+                window.location.href =
+                'Qua%20tang%20thay/';
+            "
+        >
+
+            <h3>
+                MÓN QUÀ TẶNG THẦY
+            </h3>
+
+            <p>
+                Những tình cảm
+                và món quà dành tặng
+                người thầy đã hướng dẫn
+                và đồng hành cùng chương trình.
+            </p>
+
+        </button>
+
+
+    </div>
+
+`
+
+};
+
+
+/* =========================================================
+   ROUTER
 ========================================================= */
 
 function navigate(route){
+
 
     if(route === "home"){
 
@@ -2797,13 +2202,16 @@ function navigate(route){
         showHome();
 
         return;
+
     }
 
 
     if(!pages[route]){
 
-        route =
-            "home";
+        showHome();
+
+        return;
+
     }
 
 
@@ -2822,67 +2230,26 @@ function navigate(route){
 
 function showHome(){
 
-    document
-        .getElementById(
-            "desktopDashboard"
-        )
+    const home =
+        document.getElementById(
+            "homeView"
+        );
+
+
+    const dashboard =
+        document.getElementById(
+            "dashboardView"
+        );
+
+
+    home
+        .classList
+        .add("active");
+
+
+    dashboard
         .classList
         .remove("active");
-
-
-    document
-        .getElementById(
-            "mobileDashboard"
-        )
-        .classList
-        .remove("active");
-
-
-    document
-        .getElementById(
-            "mobileDrawer"
-        )
-        .classList
-        .remove("open");
-
-
-    if(
-        window.innerWidth <= 800
-    ){
-
-        document
-            .getElementById(
-                "mobileHome"
-            )
-            .classList
-            .add("active");
-
-
-        document
-            .getElementById(
-                "desktopHome"
-            )
-            .classList
-            .remove("active");
-
-    }else{
-
-        document
-            .getElementById(
-                "desktopHome"
-            )
-            .classList
-            .add("active");
-
-
-        document
-            .getElementById(
-                "mobileHome"
-            )
-            .classList
-            .remove("active");
-
-    }
 
 }
 
@@ -2893,125 +2260,52 @@ function showHome(){
 
 function showDashboard(route){
 
-    document
-        .getElementById(
-            "desktopHome"
-        )
+    const home =
+        document.getElementById(
+            "homeView"
+        );
+
+
+    const dashboard =
+        document.getElementById(
+            "dashboardView"
+        );
+
+
+    const panel =
+        document.getElementById(
+            "contentPanel"
+        );
+
+
+    home
         .classList
         .remove("active");
 
 
-    document
-        .getElementById(
-            "mobileHome"
-        )
-        .classList
-        .remove("active");
-
-
-    /* MOBILE */
-
-    if(
-        window.innerWidth <= 800
-    ){
-
-        const mobileDashboard =
-            document.getElementById(
-                "mobileDashboard"
-            );
-
-
-        const mobileContent =
-            document.getElementById(
-                "mobileContent"
-            );
-
-
-        mobileContent.innerHTML =
-            pages[route];
-
-
-        mobileContent.scrollTop =
-            0;
-
-
-        mobileDashboard
-            .classList
-            .add("active");
-
-
-        document
-            .getElementById(
-                "desktopDashboard"
-            )
-            .classList
-            .remove("active");
-
-
-        document
-            .getElementById(
-                "mobileDrawer"
-            )
-            .classList
-            .remove("open");
-
-
-        return;
-
-    }
-
-
-    /* DESKTOP */
-
-    const desktopDashboard =
-        document.getElementById(
-            "desktopDashboard"
-        );
-
-
-    const desktopContent =
-        document.getElementById(
-            "desktopContent"
-        );
-
-
-    desktopContent.innerHTML =
-        pages[route];
-
-
-    desktopContent.scrollTop =
-        0;
-
-
-    desktopContent
-        .classList
-        .remove(
-            "content-animate"
-        );
-
-
-    void
-        desktopContent.offsetWidth;
-
-
-    desktopContent
-        .classList
-        .add(
-            "content-animate"
-        );
-
-
-    desktopDashboard
+    dashboard
         .classList
         .add("active");
 
 
-    document
-        .getElementById(
-            "mobileDashboard"
-        )
-        .classList
-        .remove("active");
+    panel.innerHTML =
+        pages[route];
+
+
+    panel.classList.remove(
+        "content-animate"
+    );
+
+
+    void panel.offsetWidth;
+
+
+    panel.classList.add(
+        "content-animate"
+    );
+
+
+    panel.scrollTop = 0;
 
 
     document
@@ -3033,28 +2327,12 @@ function showDashboard(route){
 
 
 /* =========================================================
-   MOBILE DRAWER
-========================================================= */
-
-function toggleDrawer(){
-
-    document
-        .getElementById(
-            "mobileDrawer"
-        )
-        .classList
-        .toggle("open");
-
-}
-
-
-/* =========================================================
-   LOAD ROUTE
+   ĐỌC HASH
 ========================================================= */
 
 function loadRoute(){
 
-    const route =
+    let route =
         window.location.hash
         .replace(
             "#/",
@@ -3105,16 +2383,6 @@ window.addEventListener(
 window.addEventListener(
     "load",
     loadRoute
-);
-
-
-window.addEventListener(
-    "resize",
-    function(){
-
-        loadRoute();
-
-    }
 );
 
 </script>
