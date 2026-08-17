@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
@@ -31,10 +31,7 @@ body{
 }
 
 body{
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
+    font-family:"Segoe UI",Arial,sans-serif;
 
     background:
         radial-gradient(
@@ -50,7 +47,6 @@ body{
         );
 
     color:#fff;
-
     overflow-x:hidden;
 }
 
@@ -60,21 +56,21 @@ body{
 ========================================================= */
 
 .header{
-    min-height:76px;
+    min-height:78px;
 
-    padding:14px 4.5%;
+    padding:12px 4%;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    gap:20px;
+    gap:24px;
 
     border-bottom:
         1px solid rgba(255,255,255,.12);
 
     background:
-        rgba(2,24,39,.76);
+        rgba(2,24,39,.82);
 
     backdrop-filter:blur(14px);
 
@@ -82,18 +78,44 @@ body{
     z-index:30;
 }
 
+
+/* BRAND */
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:17px;
+    flex-shrink:0;
+}
+
+.home-link{
+    color:rgba(255,255,255,.82);
+
+    text-decoration:none;
+
+    font-size:11px;
+    font-weight:700;
+
+    white-space:nowrap;
+
+    transition:.2s ease;
+}
+
+.home-link:hover{
+    color:var(--green);
+}
+
 .brand{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:11px;
 }
 
 .logo-circle{
-    width:42px;
-    height:42px;
+    width:40px;
+    height:40px;
 
     border:2px solid var(--green);
-
     border-radius:50%;
 
     display:flex;
@@ -103,14 +125,14 @@ body{
     color:var(--green);
 
     font-weight:800;
-    font-size:11px;
+    font-size:10px;
 }
 
 .brand-text strong{
     display:block;
 
-    font-size:17px;
-    letter-spacing:.4px;
+    font-size:15px;
+    letter-spacing:.3px;
 }
 
 .brand-text span{
@@ -118,34 +140,65 @@ body{
 
     margin-top:3px;
 
-    color:rgba(255,255,255,.67);
+    color:rgba(255,255,255,.60);
 
-    font-size:9px;
-    letter-spacing:1px;
+    font-size:8px;
+    letter-spacing:.8px;
 }
 
-.home-btn{
-    text-decoration:none;
+
+/* =========================================================
+   MENU 01–05
+========================================================= */
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+
+    gap:18px;
+}
+
+.nav a{
+    position:relative;
+
+    padding:9px 0;
 
     color:#fff;
 
-    padding:9px 15px;
+    text-decoration:none;
 
-    border:
-        1px solid rgba(255,255,255,.18);
-
-    border-radius:30px;
-
-    font-size:11px;
+    font-size:10px;
     font-weight:700;
 
-    transition:.25s ease;
+    white-space:nowrap;
+
+    transition:.2s ease;
 }
 
-.home-btn:hover{
-    color:#05283f;
+.nav a:hover{
+    color:var(--green);
+}
+
+.nav a.active{
+    color:var(--green);
+    font-weight:800;
+}
+
+.nav a.active::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:1px;
+
+    height:2px;
+
+    border-radius:20px;
+
     background:var(--green);
-    border-color:var(--green);
 }
 
 
@@ -154,7 +207,7 @@ body{
 ========================================================= */
 
 .intro{
-    width:min(1180px, calc(100% - 40px));
+    width:min(1180px,calc(100% - 40px));
 
     margin:auto;
 
@@ -175,12 +228,7 @@ body{
 }
 
 .intro h1{
-    font-size:
-        clamp(
-            29px,
-            4vw,
-            48px
-        );
+    font-size:clamp(29px,4vw,48px);
 
     line-height:1.12;
 
@@ -206,13 +254,9 @@ body{
 .viewer-section{
     width:100%;
 
-    min-height:
-        calc(100vh - 220px);
+    min-height:calc(100vh - 220px);
 
-    padding:
-        14px
-        18px
-        32px;
+    padding:14px 18px 32px;
 
     display:flex;
     flex-direction:column;
@@ -225,9 +269,9 @@ body{
 .book-stage{
     position:relative;
 
-    width:min(1180px, 96vw);
+    width:min(1180px,96vw);
 
-    height:min(73vh, 760px);
+    height:min(73vh,760px);
 
     min-height:480px;
 
@@ -237,9 +281,6 @@ body{
 
     perspective:2200px;
 }
-
-
-/* ánh sáng nền */
 
 .book-stage::before{
     content:"";
@@ -304,9 +345,6 @@ body{
     box-shadow:
         inset 0 0 12px rgba(0,0,0,.055);
 }
-
-
-/* CANVAS PDF */
 
 .page canvas{
     display:block;
@@ -392,7 +430,7 @@ body{
 ========================================================= */
 
 .controls{
-    width:min(820px, 94vw);
+    width:min(820px,94vw);
 
     margin-top:17px;
 
@@ -513,15 +551,56 @@ body{
    MOBILE
 ========================================================= */
 
-@media(max-width:700px){
+@media(max-width:900px){
 
     .header{
-        min-height:62px;
+        flex-wrap:wrap;
 
-        padding:
-            10px
-            14px;
+        padding:11px 16px;
     }
+
+    .header-left{
+        width:100%;
+    }
+
+    .nav{
+        width:100%;
+
+        display:grid;
+        grid-template-columns:repeat(5,1fr);
+
+        gap:3px;
+
+        padding-top:7px;
+
+        border-top:
+            1px solid rgba(255,255,255,.10);
+    }
+
+    .nav a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        text-align:center;
+
+        white-space:normal;
+
+        font-size:7.5px;
+        line-height:1.2;
+
+        padding:6px 1px;
+    }
+
+    .nav a.active::after{
+        left:20%;
+        right:20%;
+    }
+
+}
+
+
+@media(max-width:700px){
 
     .logo-circle{
         width:35px;
@@ -538,23 +617,14 @@ body{
         display:none;
     }
 
-    .home-btn{
+    .home-link{
         font-size:9px;
-
-        padding:
-            8px
-            11px;
     }
 
-
     .intro{
-        width:
-            calc(100% - 30px);
+        width:calc(100% - 30px);
 
-        padding:
-            24px
-            0
-            10px;
+        padding:24px 0 10px;
     }
 
     .intro h1{
@@ -567,33 +637,17 @@ body{
         line-height:1.55;
     }
 
-
     .viewer-section{
-        padding:
-            4px
-            6px
-            25px;
+        padding:4px 6px 25px;
     }
-
-
-    /*
-       MOBILE:
-       sách chuyển sang PORTRAIT
-       và vẫn lật trang bằng swipe
-    */
 
     .book-stage{
         width:96vw;
 
-        height:
-            min(
-                70vh,
-                680px
-            );
+        height:min(70vh,680px);
 
         min-height:430px;
     }
-
 
     .controls{
         gap:7px;
@@ -606,9 +660,7 @@ body{
 
         height:39px;
 
-        padding:
-            0
-            12px;
+        padding:0 12px;
 
         font-size:11px;
     }
@@ -640,18 +692,19 @@ body{
         min-height:400px;
     }
 
+    .nav a{
+        font-size:6.5px;
+    }
+
 }
 
-
-/* =========================================================
-   FULLSCREEN
-========================================================= */
 
 :fullscreen{
     background:#021a2b;
 }
 
 </style>
+
 </head>
 
 
@@ -659,39 +712,87 @@ body{
 
 
 <!-- =====================================================
-     HEADER
+     HEADER + MENU
 ===================================================== -->
 
 <header class="header">
 
-    <div class="brand">
 
-        <div class="logo-circle">
-            PVEP
+    <div class="header-left">
+
+
+        <a
+            class="home-link"
+            href="../index.html"
+        >
+            ← TRANG CHÍNH
+        </a>
+
+
+        <div class="brand">
+
+
+            <div class="logo-circle">
+                PVEP
+            </div>
+
+
+            <div class="brand-text">
+
+                <strong>
+                    THƯ VIỆN PVEP
+                </strong>
+
+                <span>
+                    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+                </span>
+
+            </div>
+
+
         </div>
 
-        <div class="brand-text">
-
-            <strong>THƯ VIỆN PVEP</strong>
-
-            <span>
-                CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
-            </span>
-
-        </div>
 
     </div>
 
 
-    <a
-        class="home-btn"
-        href="../index.html"
-    >
-        ← TRANG CHÍNH
-    </a>
+    <!-- MENU CHUẨN -->
+
+    <nav class="nav">
+
+
+        <a href="../01_Gioi-thieu/">
+            01 GIỚI THIỆU
+        </a>
+
+
+        <a href="../02_Hanh-trinh/">
+            02 HÀNH TRÌNH
+        </a>
+
+
+        <a href="../02_Các-buổi-học/">
+            03 BUỔI HỌC
+        </a>
+
+
+        <a
+            class="active"
+            href="./"
+        >
+            04 THƯ VIỆN
+        </a>
+
+
+        <a href="../Dieu dong lai/">
+            05 ĐIỀU ĐỌNG LẠI
+        </a>
+
+
+    </nav>
+
 
 </header>
-
 
 
 <!-- =====================================================
@@ -700,13 +801,16 @@ body{
 
 <section class="intro">
 
+
     <div class="kicker">
         04 · THƯ VIỆN
     </div>
 
+
     <h1>
         Sổ tay Quản lý dự án dầu khí
     </h1>
+
 
     <p>
         Lật từng trang để đọc tài liệu.
@@ -714,8 +818,8 @@ body{
         sang trái hoặc sang phải như một quyển sách thật.
     </p>
 
-</section>
 
+</section>
 
 
 <!-- =====================================================
@@ -724,12 +828,12 @@ body{
 
 <section class="viewer-section">
 
+
     <div
         class="book-stage"
         id="bookStage"
     >
 
-        <!-- LOADING -->
 
         <div
             class="loading"
@@ -749,12 +853,10 @@ body{
         </div>
 
 
-        <!-- BOOK -->
-
         <div id="book"></div>
 
-    </div>
 
+    </div>
 
 
     <!-- CONTROLS -->
@@ -763,6 +865,7 @@ body{
         class="controls"
         id="controls"
     >
+
 
         <button
             class="control-btn"
@@ -777,7 +880,10 @@ body{
         <div class="page-info">
 
             Trang
-            <strong id="currentPage">1</strong>
+
+            <strong id="currentPage">
+                1
+            </strong>
 
             /
 
@@ -807,12 +913,16 @@ body{
             ⛶
         </button>
 
+
     </div>
 
 
     <div class="help">
-        Máy tính: bấm góc trang hoặc dùng ← → &nbsp; • &nbsp;
+
+        Máy tính: bấm góc trang hoặc dùng ← →
+        &nbsp; • &nbsp;
         Điện thoại: vuốt sang trái / phải để lật trang
+
     </div>
 
 
@@ -820,43 +930,47 @@ body{
         class="error-box"
         id="errorBox"
     >
+
         Không mở được sách.
         Hãy kiểm tra file
+
         <strong>
             so-tay-quan-ly-du-an-dau-khi.pdf
         </strong>
+
         đã nằm cùng thư mục với
-        <strong>index.html</strong>
+
+        <strong>
+            index.html
+        </strong>
+
         hay chưa.
+
     </div>
+
 
 </section>
 
 
-
-<!-- =====================================================
-     PDF.JS
-===================================================== -->
+<!-- PDF.JS -->
 
 <script
 src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js">
 </script>
 
 
-<!-- =====================================================
-     PAGE FLIP
-===================================================== -->
+<!-- PAGE FLIP -->
 
 <script
 src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js">
 </script>
 
 
-
 <script>
 
+
 /* =========================================================
-   01. FILE PDF
+   FILE PDF
 ========================================================= */
 
 const PDF_URL =
@@ -864,7 +978,7 @@ const PDF_URL =
 
 
 /* =========================================================
-   02. PDF.JS WORKER
+   PDF.JS WORKER
 ========================================================= */
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -872,7 +986,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
 
 /* =========================================================
-   03. ELEMENTS
+   ELEMENTS
 ========================================================= */
 
 const bookElement =
@@ -910,7 +1024,7 @@ let pageFlip = null;
 
 
 /* =========================================================
-   04. LOAD PDF
+   LOAD PDF
 ========================================================= */
 
 async function loadBook(){
@@ -928,14 +1042,9 @@ async function loadBook(){
             pdf.numPages;
 
 
-        /*
-        ----------------------------------------------
-        ĐỌC KÍCH THƯỚC TRANG ĐẦU
-        ----------------------------------------------
-        */
-
         const firstPage =
             await pdf.getPage(1);
+
 
         const firstViewport =
             firstPage.getViewport({
@@ -948,24 +1057,15 @@ async function loadBook(){
             firstViewport.width;
 
 
-        /*
-        Base width / height cho StPageFlip.
-        Giữ tỷ lệ thật của tài liệu.
-        */
+        const BASE_WIDTH =
+            520;
 
-        const BASE_WIDTH = 520;
 
         const BASE_HEIGHT =
             Math.round(
                 BASE_WIDTH * ratio
             );
 
-
-        /*
-        ----------------------------------------------
-        TẠO TỪNG PAGE HTML
-        ----------------------------------------------
-        */
 
         const pageElements = [];
 
@@ -988,11 +1088,6 @@ async function loadBook(){
                     pageNumber
                 );
 
-
-            /*
-            Render độ phân giải khá cao
-            để chữ vẫn sắc trên desktop/mobile.
-            */
 
             const baseViewport =
                 pdfPage.getViewport({
@@ -1053,12 +1148,6 @@ async function loadBook(){
             }).promise;
 
 
-            /*
-            ------------------------------------------
-            PAGE CONTAINER
-            ------------------------------------------
-            */
-
             const page =
                 document.createElement(
                     "div"
@@ -1068,10 +1157,6 @@ async function loadBook(){
             page.className =
                 "page";
 
-
-            /*
-            Trang đầu và cuối giống bìa cứng.
-            */
 
             if(
                 pageNumber === 1 ||
@@ -1103,12 +1188,6 @@ async function loadBook(){
         }
 
 
-        /*
-        ----------------------------------------------
-        KHỞI TẠO FLIPBOOK
-        ----------------------------------------------
-        */
-
         pageFlip =
             new St.PageFlip(
                 bookElement,
@@ -1120,21 +1199,14 @@ async function loadBook(){
                     height:
                         BASE_HEIGHT,
 
-
-                    /*
-                    Stretch giúp responsive.
-                    */
-
                     size:
                         "stretch",
-
 
                     minWidth:
                         280,
 
                     maxWidth:
                         620,
-
 
                     minHeight:
                         Math.round(
@@ -1146,48 +1218,26 @@ async function loadBook(){
                             620 * ratio
                         ),
 
-
                     drawShadow:
                         true,
-
 
                     flippingTime:
                         850,
 
-
-                    /*
-                    Quan trọng:
-                    màn nhỏ chuyển sang
-                    1 trang portrait.
-                    */
-
                     usePortrait:
                         true,
-
 
                     startZIndex:
                         10,
 
-
                     autoSize:
                         true,
-
 
                     maxShadowOpacity:
                         0.42,
 
-
-                    /*
-                    Trang 1 là cover.
-                    */
-
                     showCover:
                         true,
-
-
-                    /*
-                    Hỗ trợ thao tác touch mobile.
-                    */
 
                     mobileScrollSupport:
                         true
@@ -1201,12 +1251,6 @@ async function loadBook(){
         );
 
 
-        /*
-        ----------------------------------------------
-        PAGE COUNTER
-        ----------------------------------------------
-        */
-
         pageFlip.on(
             "flip",
             function(e){
@@ -1217,11 +1261,6 @@ async function loadBook(){
             }
         );
 
-
-        /*
-        Khi đổi portrait / landscape,
-        thư viện tự cập nhật.
-        */
 
         pageFlip.on(
             "changeOrientation",
@@ -1244,17 +1283,12 @@ async function loadBook(){
         );
 
 
-        /*
-        ----------------------------------------------
-        XONG
-        ----------------------------------------------
-        */
-
         loading.classList.add(
             "hide"
         );
 
     }
+
 
     catch(error){
 
@@ -1277,9 +1311,8 @@ async function loadBook(){
 }
 
 
-
 /* =========================================================
-   05. BUTTONS
+   BUTTONS
 ========================================================= */
 
 prevBtn.addEventListener(
@@ -1310,9 +1343,8 @@ nextBtn.addEventListener(
 );
 
 
-
 /* =========================================================
-   06. KEYBOARD
+   KEYBOARD
 ========================================================= */
 
 document.addEventListener(
@@ -1347,9 +1379,8 @@ document.addEventListener(
 );
 
 
-
 /* =========================================================
-   07. FULLSCREEN
+   FULLSCREEN
 ========================================================= */
 
 fullscreenBtn.addEventListener(
@@ -1378,6 +1409,7 @@ fullscreenBtn.addEventListener(
 
         }
 
+
         catch(error){
 
             console.log(
@@ -1390,12 +1422,12 @@ fullscreenBtn.addEventListener(
 );
 
 
-
 /* =========================================================
-   08. START
+   START
 ========================================================= */
 
 loadBook();
+
 
 </script>
 
