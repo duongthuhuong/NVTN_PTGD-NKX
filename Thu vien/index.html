@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
 
 <meta charset="UTF-8">
@@ -8,6 +9,10 @@
 <title>Sổ tay Quản lý dự án dầu khí | Thư viện NVTN PVEP</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -52,153 +57,233 @@ body{
 
 
 /* =========================================================
-   HEADER
+   HEADER TRÊN
 ========================================================= */
 
-.header{
-    min-height:78px;
+.topbar{
 
-    padding:12px 4%;
+    width:100%;
+    min-height:70px;
+
+    padding:12px 5vw;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    gap:24px;
+    gap:20px;
+
+    background:rgba(2,24,39,.94);
 
     border-bottom:
-        1px solid rgba(255,255,255,.12);
-
-    background:
-        rgba(2,24,39,.82);
-
-    backdrop-filter:blur(14px);
+        1px solid rgba(255,255,255,.10);
 
     position:relative;
-    z-index:30;
+    z-index:100;
 }
 
 
-/* BRAND */
+.brand{
 
-.header-left{
     display:flex;
     align-items:center;
-    gap:17px;
-    flex-shrink:0;
+    gap:12px;
 }
 
-.home-link{
-    color:rgba(255,255,255,.82);
+
+.logo-circle{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:2px solid var(--green);
+    border-radius:50%;
+
+    color:var(--green);
+
+    font-size:10px;
+    font-weight:800;
+}
+
+
+.brand-text strong{
+
+    display:block;
+
+    font-size:17px;
+    letter-spacing:.5px;
+}
+
+
+.brand-text span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:rgba(255,255,255,.62);
+
+    font-size:9px;
+    letter-spacing:.8px;
+}
+
+
+.home-button{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 16px;
+
+    border:
+        1px solid rgba(255,255,255,.22);
+
+    border-radius:30px;
+
+    color:#fff;
 
     text-decoration:none;
 
     font-size:11px;
     font-weight:700;
 
-    white-space:nowrap;
+    letter-spacing:.5px;
 
-    transition:.2s ease;
+    transition:.25s ease;
 }
 
-.home-link:hover{
-    color:var(--green);
+
+.home-button:hover{
+
+    background:var(--green);
+
+    border-color:var(--green);
+
+    color:#062238;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:11px;
-}
 
-.logo-circle{
-    width:40px;
-    height:40px;
+/* =========================================================
+   THANH MENU 5 MỤC
+========================================================= */
 
-    border:2px solid var(--green);
-    border-radius:50%;
+.menu-bar{
+
+    position:sticky;
+    top:0;
+
+    z-index:99;
+
+    width:100%;
+    min-height:54px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    color:var(--green);
+    padding:0 4vw;
 
-    font-weight:800;
-    font-size:10px;
-}
+    background:#063b50;
 
-.brand-text strong{
-    display:block;
+    border-bottom:
+        1px solid rgba(255,255,255,.13);
 
-    font-size:15px;
-    letter-spacing:.3px;
-}
-
-.brand-text span{
-    display:block;
-
-    margin-top:3px;
-
-    color:rgba(255,255,255,.60);
-
-    font-size:8px;
-    letter-spacing:.8px;
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.12);
 }
 
 
-/* =========================================================
-   MENU 01–05
-========================================================= */
+.main-nav{
 
-.nav{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
+    width:min(1100px,100%);
 
-    gap:18px;
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    align-items:stretch;
 }
 
-.nav a{
+
+.main-nav a{
+
     position:relative;
 
-    padding:9px 0;
+    min-height:54px;
 
-    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:8px 10px;
+
+    color:rgba(255,255,255,.88);
 
     text-decoration:none;
+    text-align:center;
 
-    font-size:10px;
+    font-size:11px;
+    line-height:1.25;
+
     font-weight:700;
+    letter-spacing:.3px;
 
-    white-space:nowrap;
-
-    transition:.2s ease;
+    transition:
+        background .2s ease,
+        color .2s ease;
 }
 
-.nav a:hover{
-    color:var(--green);
+
+.main-nav a:hover{
+
+    color:var(--green-light);
+
+    background:
+        rgba(255,255,255,.04);
 }
 
-.nav a.active{
-    color:var(--green);
-    font-weight:800;
+
+.main-nav a.active{
+
+    color:var(--green-light);
+
+    background:
+        rgba(98,201,71,.07);
 }
 
-.nav a.active::after{
+
+.main-nav a.active::after{
+
     content:"";
 
     position:absolute;
 
-    left:0;
-    right:0;
-    bottom:1px;
+    left:20%;
+    right:20%;
+    bottom:0;
 
-    height:2px;
+    height:3px;
 
-    border-radius:20px;
+    border-radius:
+        3px 3px 0 0;
 
     background:var(--green);
+}
+
+
+.menu-number{
+
+    margin-right:5px;
+
+    color:var(--green);
+
+    font-weight:800;
 }
 
 
@@ -207,35 +292,47 @@ body{
 ========================================================= */
 
 .intro{
+
     width:min(1180px,calc(100% - 40px));
 
     margin:auto;
 
-    padding:36px 0 22px;
+    padding:34px 0 18px;
 
     text-align:center;
 }
 
+
 .kicker{
+
+    margin-bottom:10px;
+
     color:var(--green-light);
 
     font-size:11px;
     font-weight:800;
 
     letter-spacing:2.4px;
-
-    margin-bottom:10px;
 }
 
+
 .intro h1{
-    font-size:clamp(29px,4vw,48px);
+
+    font-size:
+        clamp(
+            29px,
+            4vw,
+            48px
+        );
 
     line-height:1.12;
 
     letter-spacing:-1px;
 }
 
+
 .intro p{
+
     max-width:720px;
 
     margin:13px auto 0;
@@ -243,20 +340,26 @@ body{
     color:var(--muted);
 
     font-size:14px;
+
     line-height:1.65;
 }
 
 
 /* =========================================================
-   BOOK AREA
+   VIEWER
 ========================================================= */
 
 .viewer-section{
+
     width:100%;
 
-    min-height:calc(100vh - 220px);
+    min-height:
+        calc(100vh - 250px);
 
-    padding:14px 18px 32px;
+    padding:
+        14px
+        18px
+        32px;
 
     display:flex;
     flex-direction:column;
@@ -264,9 +367,8 @@ body{
 }
 
 
-/* KHUNG SÁCH */
-
 .book-stage{
+
     position:relative;
 
     width:min(1180px,96vw);
@@ -282,7 +384,9 @@ body{
     perspective:2200px;
 }
 
+
 .book-stage::before{
+
     content:"";
 
     position:absolute;
@@ -305,9 +409,8 @@ body{
 }
 
 
-/* BOOK */
-
 #book{
+
     width:100%;
     height:100%;
 
@@ -317,9 +420,12 @@ body{
 }
 
 
-/* PAGE */
+/* =========================================================
+   PAGE
+========================================================= */
 
 .page{
+
     background:#fff;
 
     overflow:hidden;
@@ -334,7 +440,9 @@ body{
     position:relative;
 }
 
+
 .page::after{
+
     content:"";
 
     position:absolute;
@@ -346,7 +454,9 @@ body{
         inset 0 0 12px rgba(0,0,0,.055);
 }
 
+
 .page canvas{
+
     display:block;
 
     width:100% !important;
@@ -363,8 +473,8 @@ body{
 ========================================================= */
 
 .loading{
-    position:absolute;
 
+    position:absolute;
     inset:0;
 
     z-index:20;
@@ -390,12 +500,16 @@ body{
         visibility .4s ease;
 }
 
+
 .loading.hide{
+
     opacity:0;
     visibility:hidden;
 }
 
+
 .spinner{
+
     width:44px;
     height:44px;
 
@@ -406,21 +520,30 @@ body{
 
     border-radius:50%;
 
-    animation:spin .8s linear infinite;
+    animation:
+        spin .8s linear infinite;
 }
 
+
 @keyframes spin{
+
     to{
         transform:rotate(360deg);
     }
+
 }
 
+
 .loading strong{
+
     font-size:14px;
 }
 
+
 .loading span{
+
     color:rgba(255,255,255,.63);
+
     font-size:11px;
 }
 
@@ -430,6 +553,7 @@ body{
 ========================================================= */
 
 .controls{
+
     width:min(820px,94vw);
 
     margin-top:17px;
@@ -444,7 +568,9 @@ body{
     z-index:10;
 }
 
+
 .control-btn{
+
     border:0;
 
     min-width:48px;
@@ -472,7 +598,9 @@ body{
     transition:.22s ease;
 }
 
+
 .control-btn:hover{
+
     transform:translateY(-2px);
 
     background:
@@ -482,7 +610,9 @@ body{
         rgba(142,225,113,.55);
 }
 
+
 .page-info{
+
     min-width:130px;
 
     text-align:center;
@@ -491,19 +621,19 @@ body{
 
     font-size:12px;
 
-    font-variant-numeric:tabular-nums;
+    font-variant-numeric:
+        tabular-nums;
 }
 
+
 .page-info strong{
+
     color:var(--green-light);
 }
 
 
-/* =========================================================
-   HELP
-========================================================= */
-
 .help{
+
     margin-top:12px;
 
     text-align:center;
@@ -521,6 +651,7 @@ body{
 ========================================================= */
 
 .error-box{
+
     display:none;
 
     width:min(650px,90vw);
@@ -542,7 +673,9 @@ body{
     line-height:1.7;
 }
 
+
 .error-box.show{
+
     display:block;
 }
 
@@ -551,97 +684,141 @@ body{
    MOBILE
 ========================================================= */
 
-@media(max-width:900px){
-
-    .header{
-        flex-wrap:wrap;
-
-        padding:11px 16px;
-    }
-
-    .header-left{
-        width:100%;
-    }
-
-    .nav{
-        width:100%;
-
-        display:grid;
-        grid-template-columns:repeat(5,1fr);
-
-        gap:3px;
-
-        padding-top:7px;
-
-        border-top:
-            1px solid rgba(255,255,255,.10);
-    }
-
-    .nav a{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-
-        text-align:center;
-
-        white-space:normal;
-
-        font-size:7.5px;
-        line-height:1.2;
-
-        padding:6px 1px;
-    }
-
-    .nav a.active::after{
-        left:20%;
-        right:20%;
-    }
-
-}
-
-
 @media(max-width:700px){
 
+    .topbar{
+
+        min-height:64px;
+
+        padding:
+            10px
+            15px;
+    }
+
+
     .logo-circle{
+
         width:35px;
         height:35px;
 
         font-size:9px;
     }
 
+
     .brand-text strong{
+
         font-size:14px;
     }
 
+
     .brand-text span{
+
         display:none;
     }
 
-    .home-link{
+
+    .home-button{
+
+        padding:
+            8px
+            10px;
+
         font-size:9px;
     }
 
-    .intro{
-        width:calc(100% - 30px);
 
-        padding:24px 0 10px;
+    /* GIỮ ĐỦ 5 MENU */
+
+    .menu-bar{
+
+        padding:0 3px;
+
+        min-height:52px;
     }
 
+
+    .main-nav{
+
+        grid-template-columns:
+            repeat(5,1fr);
+    }
+
+
+    .main-nav a{
+
+        min-height:52px;
+
+        padding:
+            5px
+            2px;
+
+        flex-direction:column;
+
+        gap:2px;
+
+        font-size:
+            clamp(
+                6.4px,
+                2vw,
+                8.5px
+            );
+
+        line-height:1.15;
+    }
+
+
+    .menu-number{
+
+        margin-right:0;
+
+        font-size:12px;
+    }
+
+
+    .main-nav a.active::after{
+
+        left:15%;
+        right:15%;
+    }
+
+
+    .intro{
+
+        width:
+            calc(100% - 30px);
+
+        padding:
+            24px
+            0
+            10px;
+    }
+
+
     .intro h1{
+
         font-size:26px;
     }
 
+
     .intro p{
+
         font-size:12px;
 
         line-height:1.55;
     }
 
+
     .viewer-section{
-        padding:4px 6px 25px;
+
+        padding:
+            4px
+            6px
+            25px;
     }
 
+
     .book-stage{
+
         width:96vw;
 
         height:min(70vh,680px);
@@ -649,13 +826,17 @@ body{
         min-height:430px;
     }
 
+
     .controls{
+
         gap:7px;
 
         margin-top:9px;
     }
 
+
     .control-btn{
+
         min-width:43px;
 
         height:39px;
@@ -665,13 +846,17 @@ body{
         font-size:11px;
     }
 
+
     .page-info{
+
         min-width:100px;
 
         font-size:11px;
     }
 
+
     .help{
+
         font-size:9px;
 
         padding:0 18px;
@@ -683,23 +868,35 @@ body{
 @media(max-width:420px){
 
     .intro h1{
+
         font-size:23px;
     }
 
+
     .book-stage{
+
         height:67vh;
 
         min-height:400px;
     }
 
-    .nav a{
-        font-size:6.5px;
+
+    .main-nav a{
+
+        font-size:6px;
+    }
+
+
+    .menu-number{
+
+        font-size:11px;
     }
 
 }
 
 
 :fullscreen{
+
     background:#021a2b;
 }
 
@@ -712,43 +909,29 @@ body{
 
 
 <!-- =====================================================
-     HEADER + MENU
+     HEADER
 ===================================================== -->
 
-<header class="header">
+<header class="topbar">
 
 
-    <div class="header-left">
+    <div class="brand">
 
 
-        <a
-            class="home-link"
-            href="../index.html"
-        >
-            ← TRANG CHÍNH
-        </a>
+        <div class="logo-circle">
+            PVEP
+        </div>
 
 
-        <div class="brand">
+        <div class="brand-text">
 
+            <strong>
+                THƯ VIỆN PVEP
+            </strong>
 
-            <div class="logo-circle">
-                PVEP
-            </div>
-
-
-            <div class="brand-text">
-
-                <strong>
-                    THƯ VIỆN PVEP
-                </strong>
-
-                <span>
-                    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
-                </span>
-
-            </div>
-
+            <span>
+                CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+            </span>
 
         </div>
 
@@ -756,23 +939,63 @@ body{
     </div>
 
 
-    <!-- MENU CHUẨN -->
+    <a
+        class="home-button"
+        href="../index.html"
+    >
+        ← TRANG CHÍNH
+    </a>
 
-    <nav class="nav">
+
+</header>
+
+
+<!-- =====================================================
+     THANH MENU 5 MỤC
+===================================================== -->
+
+<div class="menu-bar">
+
+
+    <nav class="main-nav">
 
 
         <a href="../01_Gioi-thieu/">
-            01 GIỚI THIỆU
+
+            <span class="menu-number">
+                01
+            </span>
+
+            <span>
+                GIỚI THIỆU
+            </span>
+
         </a>
 
 
         <a href="../02_Hanh-trinh/">
-            02 HÀNH TRÌNH
+
+            <span class="menu-number">
+                02
+            </span>
+
+            <span>
+                HÀNH TRÌNH
+            </span>
+
         </a>
 
 
         <a href="../02_Các-buổi-học/">
-            03 BUỔI HỌC
+
+            <span class="menu-number">
+                03
+            </span>
+
+            <span>
+                BUỔI HỌC
+            </span>
+
         </a>
 
 
@@ -780,19 +1003,35 @@ body{
             class="active"
             href="./"
         >
-            04 THƯ VIỆN
+
+            <span class="menu-number">
+                04
+            </span>
+
+            <span>
+                THƯ VIỆN
+            </span>
+
         </a>
 
 
         <a href="../Dieu dong lai/">
-            05 ĐIỀU ĐỌNG LẠI
+
+            <span class="menu-number">
+                05
+            </span>
+
+            <span>
+                ĐIỀU ĐỌNG LẠI
+            </span>
+
         </a>
 
 
     </nav>
 
 
-</header>
+</div>
 
 
 <!-- =====================================================
@@ -813,9 +1052,11 @@ body{
 
 
     <p>
+
         Lật từng trang để đọc tài liệu.
         Trên điện thoại có thể vuốt trực tiếp
         sang trái hoặc sang phải như một quyển sách thật.
+
     </p>
 
 
@@ -840,15 +1081,19 @@ body{
             id="loading"
         >
 
+
             <div class="spinner"></div>
+
 
             <strong>
                 Đang mở sách...
             </strong>
 
+
             <span id="loadingText">
                 Đang chuẩn bị các trang
             </span>
+
 
         </div>
 
@@ -860,6 +1105,7 @@ body{
 
 
     <!-- CONTROLS -->
+
 
     <div
         class="controls"
@@ -942,9 +1188,7 @@ body{
 
         <strong>
             index.html
-        </strong>
-
-        hay chưa.
+        </strong>.
 
     </div>
 
@@ -952,14 +1196,18 @@ body{
 </section>
 
 
-<!-- PDF.JS -->
+<!-- =====================================================
+     PDF.JS
+===================================================== -->
 
 <script
 src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js">
 </script>
 
 
-<!-- PAGE FLIP -->
+<!-- =====================================================
+     PAGE FLIP
+===================================================== -->
 
 <script
 src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js">
@@ -967,7 +1215,6 @@ src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js">
 
 
 <script>
-
 
 /* =========================================================
    FILE PDF
@@ -1032,7 +1279,10 @@ async function loadBook(){
     try{
 
         const loadingTask =
-            pdfjsLib.getDocument(PDF_URL);
+            pdfjsLib.getDocument(
+                PDF_URL
+            );
+
 
         const pdf =
             await loadingTask.promise;
@@ -1234,7 +1484,7 @@ async function loadBook(){
                         true,
 
                     maxShadowOpacity:
-                        0.42,
+                        .42,
 
                     showCover:
                         true,
@@ -1257,27 +1507,6 @@ async function loadBook(){
 
                 currentPage.textContent =
                     e.data + 1;
-
-            }
-        );
-
-
-        pageFlip.on(
-            "changeOrientation",
-            function(){
-
-                setTimeout(
-                    function(){
-
-                        window.dispatchEvent(
-                            new Event(
-                                "resize"
-                            )
-                        );
-
-                    },
-                    100
-                );
 
             }
         );
@@ -1394,21 +1623,20 @@ fullscreenBtn.addEventListener(
             ){
 
                 await
-                bookStage
-                .requestFullscreen();
+                    bookStage
+                    .requestFullscreen();
 
             }
 
             else{
 
                 await
-                document
-                .exitFullscreen();
+                    document
+                    .exitFullscreen();
 
             }
 
         }
-
 
         catch(error){
 
@@ -1427,7 +1655,6 @@ fullscreenBtn.addEventListener(
 ========================================================= */
 
 loadBook();
-
 
 </script>
 
