@@ -15,18 +15,10 @@
 :root{
     --pvep-green:#62c947;
     --pvep-green-light:#8ee171;
-
     --navy:#05283f;
     --navy-deep:#031a2b;
-
     --white:#ffffff;
-
-    --text:#183c32;
-    --muted:#62756e;
-
-    --line:rgba(255,255,255,.20);
 }
-
 
 /* =========================================================
    02. RESET
@@ -44,10 +36,6 @@ body{
     height:100%;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     overflow:hidden;
 
@@ -61,19 +49,12 @@ body{
     text-rendering:optimizeLegibility;
 
     background:var(--navy-deep);
-
     color:white;
 }
 
-button,
 a{
     font:inherit;
 }
-
-button{
-    border:0;
-}
-
 
 /* =========================================================
    03. APP
@@ -84,14 +65,11 @@ button{
 
     width:100vw;
     height:100vh;
-
     min-height:640px;
 
     overflow:hidden;
-
     isolation:isolate;
 }
-
 
 /* =========================================================
    04. BACKGROUND
@@ -113,7 +91,6 @@ button{
     transform:scale(1.01);
 }
 
-
 .background::before{
     content:"";
 
@@ -132,7 +109,6 @@ button{
         );
 }
 
-
 .background::after{
     content:"";
 
@@ -146,7 +122,6 @@ button{
             rgba(0,0,0,.10)
         );
 }
-
 
 /* =========================================================
    05. HEADER
@@ -166,18 +141,14 @@ button{
     display:flex;
     align-items:center;
 
-    padding:
-        24px
-        5.3%;
+    padding:24px 5.3%;
 }
-
 
 .brand{
     display:flex;
     align-items:center;
 
     opacity:0;
-
     transform:translateY(-14px);
 
     animation:
@@ -187,7 +158,6 @@ button{
         .05s
         forwards;
 }
-
 
 .logo{
     width:88px;
@@ -202,37 +172,30 @@ button{
         );
 }
 
-
 .brand-divider{
     width:1px;
     height:75px;
 
-    margin:
-        0
-        22px;
+    margin:0 22px;
 
     background:
         rgba(255,255,255,.78);
 }
-
 
 .brand-name{
     font-size:29px;
     line-height:1;
 
     font-weight:800;
-
     letter-spacing:.8px;
 
     color:white;
 }
 
-
 .brand-company{
     margin-top:9px;
 
     font-size:16px;
-
     font-weight:400;
 
     letter-spacing:.65px;
@@ -241,36 +204,8 @@ button{
         rgba(255,255,255,.91);
 }
 
-
 /* =========================================================
-   06. VIEW
-========================================================= */
-
-.view{
-    position:absolute;
-    inset:0;
-
-    z-index:10;
-
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-
-    transition:
-        opacity .38s ease,
-        visibility .38s ease;
-}
-
-
-.view.active{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-}
-
-
-/* =========================================================
-   07. HOME HERO
+   06. HERO
 ========================================================= */
 
 .hero{
@@ -286,8 +221,7 @@ button{
     z-index:25;
 }
 
-
-/* CHƯƠNG TRÌNH - KHÓA FONT TIẾNG VIỆT */
+/* CHƯƠNG TRÌNH */
 
 .program{
     margin-bottom:22px;
@@ -312,14 +246,12 @@ button{
     line-height:1.2;
 
     font-weight:800;
-
     letter-spacing:.5px;
 
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
 
     opacity:0;
-
     transform:translateX(-20px);
 
     animation:
@@ -329,7 +261,6 @@ button{
         .20s
         forwards;
 }
-
 
 /* NHÂN VIÊN TÀI NĂNG */
 
@@ -354,7 +285,6 @@ button{
     line-height:.94;
 
     font-weight:800;
-
     letter-spacing:1.2px;
 
     text-transform:uppercase;
@@ -367,7 +297,6 @@ button{
         rgba(0,0,0,.25);
 
     opacity:0;
-
     transform:translateX(-24px);
 
     animation:
@@ -378,20 +307,15 @@ button{
         forwards;
 }
 
-
 .green-line{
     width:min(520px,100%);
     height:3px;
 
-    margin:
-        26px
-        0
-        19px;
+    margin:26px 0 19px;
 
     background:var(--pvep-green);
 
     transform-origin:left center;
-
     transform:scaleX(0);
 
     animation:
@@ -401,7 +325,6 @@ button{
         .72s
         forwards;
 }
-
 
 .values{
     margin-bottom:17px;
@@ -416,7 +339,6 @@ button{
         );
 
     letter-spacing:.7px;
-
     white-space:nowrap;
 
     opacity:0;
@@ -428,7 +350,6 @@ button{
         .86s
         forwards;
 }
-
 
 .mentor{
     max-width:650px;
@@ -445,7 +366,6 @@ button{
         );
 
     line-height:1.5;
-
     font-weight:500;
 
     opacity:0;
@@ -458,12 +378,10 @@ button{
         forwards;
 }
 
-
 .years{
     color:white;
 
     font-size:20px;
-
     font-weight:800;
 
     letter-spacing:2px;
@@ -478,9 +396,8 @@ button{
         forwards;
 }
 
-
 /* =========================================================
-   08. MENU CHÍNH
+   07. MENU CHÍNH
 ========================================================= */
 
 .main-nav{
@@ -493,9 +410,7 @@ button{
     z-index:40;
 
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
+    grid-template-columns:repeat(5,1fr);
 
     gap:26px;
 
@@ -509,7 +424,6 @@ button{
         forwards;
 }
 
-
 .nav-btn{
     position:relative;
 
@@ -520,16 +434,14 @@ button{
 
     gap:9px;
 
-    padding:
-        8px
-        2px
-        11px;
+    padding:8px 2px 11px;
 
     background:transparent;
 
     color:white;
 
     text-align:left;
+    text-decoration:none;
 
     cursor:pointer;
 
@@ -538,12 +450,10 @@ button{
         opacity .25s ease;
 }
 
-
 .nav-number{
     color:white;
 
     font-size:20px;
-
     font-weight:800;
 
     transition:
@@ -551,13 +461,11 @@ button{
         text-shadow .25s ease;
 }
 
-
 .nav-label{
     color:
         rgba(255,255,255,.93);
 
     font-size:14px;
-
     font-weight:600;
 
     letter-spacing:.4px;
@@ -567,7 +475,6 @@ button{
     transition:
         color .25s ease;
 }
-
 
 .nav-btn::after{
     content:"";
@@ -590,506 +497,24 @@ button{
         width .30s ease;
 }
 
-
 .nav-btn:hover{
     transform:translateY(-4px);
 }
-
 
 .nav-btn:hover .nav-number{
     color:var(--pvep-green);
 }
 
-
 .nav-btn:hover .nav-label{
     color:white;
 }
-
 
 .nav-btn:hover::after{
     width:64px;
 }
 
-
 /* =========================================================
-   09. DASHBOARD POPUP
-========================================================= */
-
-.dashboard{
-    padding:
-        152px
-        5.3%
-        38px;
-
-    background:
-        rgba(2,20,33,.70);
-
-    backdrop-filter:
-        blur(7px);
-}
-
-
-.dashboard-shell{
-    width:100%;
-    height:100%;
-
-    max-width:1520px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        224px
-        1fr;
-
-    gap:28px;
-}
-
-
-/* =========================================================
-   10. SIDEBAR
-========================================================= */
-
-.sidebar{
-    height:100%;
-
-    padding:
-        24px
-        17px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.14);
-
-    border-radius:18px;
-
-    background:
-        rgba(4,32,49,.72);
-
-    backdrop-filter:
-        blur(12px);
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.12);
-}
-
-
-.home-btn{
-    width:100%;
-
-    margin-bottom:21px;
-
-    padding:
-        13px
-        14px;
-
-    border-radius:10px;
-
-    background:
-        rgba(98,201,71,.17);
-
-    color:white;
-
-    font-weight:800;
-
-    text-align:left;
-
-    cursor:pointer;
-}
-
-
-.side-menu{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:7px;
-}
-
-
-.side-btn{
-    width:100%;
-
-    padding:
-        12px
-        13px;
-
-    border-radius:9px;
-
-    background:transparent;
-
-    color:
-        rgba(255,255,255,.76);
-
-    cursor:pointer;
-
-    text-align:left;
-}
-
-
-.side-btn:hover{
-    color:white;
-
-    background:
-        rgba(255,255,255,.07);
-}
-
-
-.side-btn.active{
-    color:white;
-
-    background:
-        rgba(255,255,255,.10);
-
-    border-left:
-        3px solid
-        var(--pvep-green);
-}
-
-
-/* =========================================================
-   11. CONTENT PANEL
-========================================================= */
-
-.content-panel{
-    height:100%;
-
-    overflow:auto;
-
-    padding:
-        42px
-        48px
-        45px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.18);
-
-    border-radius:21px;
-
-    background:
-        rgba(249,253,251,.97);
-
-    color:var(--text);
-
-    box-shadow:
-        0 28px 80px
-        rgba(0,0,0,.22);
-}
-
-
-.content-animate{
-    animation:
-        panelIn
-        .38s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-
-.section-kicker{
-    margin-bottom:8px;
-
-    color:var(--pvep-green);
-
-    font-size:17px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-}
-
-
-.content-panel h1{
-    margin-bottom:19px;
-
-    color:#075e49;
-
-    font-size:
-        clamp(
-            31px,
-            3vw,
-            42px
-        );
-}
-
-
-.lead{
-    max-width:930px;
-
-    margin-bottom:31px;
-
-    color:#4f625c;
-
-    font-size:18px;
-
-    line-height:1.8;
-}
-
-
-/* =========================================================
-   12. HÀNH TRÌNH
-========================================================= */
-
-.timeline{
-    position:relative;
-
-    margin-top:45px;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    gap:12px;
-}
-
-
-.timeline::before{
-    content:"";
-
-    position:absolute;
-
-    top:30px;
-    left:7%;
-    right:7%;
-
-    height:2px;
-
-    background:
-        rgba(7,94,73,.17);
-}
-
-
-.milestone{
-    position:relative;
-
-    z-index:2;
-
-    text-align:center;
-}
-
-
-.dot{
-    width:60px;
-    height:60px;
-
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border:
-        4px solid
-        #eff7f2;
-
-    border-radius:50%;
-
-    background:#075e49;
-
-    color:white;
-
-    font-weight:800;
-
-    box-shadow:
-        0 7px 20px
-        rgba(7,94,73,.13);
-}
-
-
-.milestone h3{
-    margin-top:15px;
-
-    color:#075e49;
-
-    font-size:16px;
-}
-
-
-/* =========================================================
-   13. BUỔI HỌC
-========================================================= */
-
-.lesson-grid{
-    margin-top:30px;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    gap:16px;
-}
-
-
-.lesson-card{
-    min-height:190px;
-
-    padding:25px;
-
-    border:
-        1px solid
-        #edf3ef;
-
-    border-radius:17px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #ffffff,
-            #eef7f2
-        );
-
-    box-shadow:
-        0 9px 28px
-        rgba(0,0,0,.075);
-
-    text-align:left;
-}
-
-
-.lesson-no{
-    margin-bottom:29px;
-
-    color:var(--pvep-green);
-
-    font-size:31px;
-
-    font-weight:800;
-}
-
-
-.lesson-card h3{
-    margin-bottom:8px;
-
-    color:#075e49;
-
-    font-size:19px;
-}
-
-
-.lesson-card p{
-    color:#697a74;
-
-    font-size:14px;
-
-    line-height:1.55;
-}
-
-
-/* =========================================================
-   14. THƯ VIỆN
-========================================================= */
-
-.library-grid{
-    margin-top:31px;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:20px;
-}
-
-
-.library-card{
-    min-height:210px;
-
-    padding:31px;
-
-    border:
-        1px solid
-        #edf3ef;
-
-    border-radius:18px;
-
-    background:white;
-
-    box-shadow:
-        0 9px 28px
-        rgba(0,0,0,.065);
-}
-
-
-.library-icon{
-    margin-bottom:16px;
-
-    font-size:34px;
-}
-
-
-.library-card h3{
-    margin-bottom:9px;
-
-    color:#075e49;
-}
-
-
-.library-card p{
-    color:#6b7a75;
-
-    line-height:1.6;
-}
-
-
-/* =========================================================
-   15. ĐIỀU ĐỌNG LẠI
-========================================================= */
-
-.memory-grid{
-    margin-top:31px;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:20px;
-}
-
-
-.memory-card{
-    min-height:220px;
-
-    padding:33px;
-
-    border-radius:19px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #075e49,
-            #0d8262
-        );
-
-    color:white;
-
-    text-align:left;
-
-    cursor:pointer;
-}
-
-
-.memory-card h3{
-    margin-bottom:13px;
-
-    font-size:23px;
-}
-
-
-.memory-card p{
-    color:
-        rgba(255,255,255,.84);
-
-    line-height:1.7;
-}
-
-
-/* =========================================================
-   16. ANIMATION
+   08. ANIMATION
 ========================================================= */
 
 @keyframes fadeDown{
@@ -1100,7 +525,6 @@ button{
     }
 }
 
-
 @keyframes fadeLeft{
 
     to{
@@ -1109,14 +533,12 @@ button{
     }
 }
 
-
 @keyframes fadeIn{
 
     to{
         opacity:1;
     }
 }
-
 
 @keyframes lineGrow{
 
@@ -1125,29 +547,8 @@ button{
     }
 }
 
-
-@keyframes panelIn{
-
-    from{
-        opacity:0;
-
-        transform:
-            translateY(15px)
-            scale(.992);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
 /* =========================================================
-   17. TABLET
+   09. TABLET
 ========================================================= */
 
 @media(max-width:1100px){
@@ -1163,17 +564,10 @@ button{
     .nav-label{
         font-size:12px;
     }
-
-    .lesson-grid{
-        grid-template-columns:
-            repeat(3,1fr);
-    }
-
 }
 
-
 /* =========================================================
-   18. MOBILE
+   10. MOBILE
 ========================================================= */
 
 @media(max-width:800px){
@@ -1182,69 +576,48 @@ button{
         overflow:hidden;
     }
 
-
     .app{
         min-height:100svh;
     }
 
-
     .background{
-        background-position:
-            68% center;
+        background-position:68% center;
     }
-
 
     .header{
         height:104px;
-
-        padding:
-            17px
-            5%;
+        padding:17px 5%;
     }
-
 
     .logo{
         width:61px;
     }
 
-
     .brand-divider{
         height:54px;
-
-        margin:
-            0
-            13px;
+        margin:0 13px;
     }
-
 
     .brand-name{
         font-size:20px;
     }
 
-
     .brand-company{
         font-size:10px;
-
         letter-spacing:.3px;
     }
-
 
     .hero{
         left:5%;
         top:42%;
-
         width:90%;
     }
 
-
     .program{
         margin-bottom:14px;
-
         font-size:19px;
-
         letter-spacing:.35px;
     }
-
 
     .hero-title{
         font-size:
@@ -1255,33 +628,23 @@ button{
             );
     }
 
-
     .green-line{
-        margin:
-            18px
-            0
-            15px;
+        margin:18px 0 15px;
     }
-
 
     .values{
         white-space:normal;
-
         font-size:16px;
     }
 
-
     .mentor{
         max-width:90%;
-
         font-size:14px;
     }
-
 
     .years{
         font-size:18px;
     }
-
 
     /* GIỮ 5 NÚT TRÊN MOBILE */
 
@@ -1291,41 +654,31 @@ button{
         bottom:18px;
 
         display:grid;
-
-        grid-template-columns:
-            repeat(5,1fr);
+        grid-template-columns:repeat(5,1fr);
 
         gap:4px;
     }
-
 
     .nav-btn{
         min-height:50px;
 
         display:flex;
-
         flex-direction:column;
 
         justify-content:flex-start;
-
         align-items:center;
 
         gap:3px;
 
-        padding:
-            5px
-            1px;
+        padding:5px 1px;
 
         text-align:center;
     }
 
-
     .nav-number{
         font-size:15px;
-
         color:var(--pvep-green);
     }
-
 
     .nav-label{
         font-size:
@@ -1338,121 +691,17 @@ button{
         line-height:1.15;
 
         white-space:normal;
-
         text-align:center;
     }
 
-
     .nav-btn::after{
         left:50%;
-
-        transform:
-            translateX(-50%);
+        transform:translateX(-50%);
     }
-
-
-    /* POPUP MOBILE */
-
-    .dashboard{
-        padding:
-            108px
-            12px
-            14px;
-    }
-
-
-    .dashboard-shell{
-        display:block;
-    }
-
-
-    .sidebar{
-        display:none;
-    }
-
-
-    .content-panel{
-        height:
-            calc(
-                100svh - 124px
-            );
-
-        padding:
-            27px
-            21px
-            34px;
-
-        border-radius:20px;
-    }
-
-
-    .content-panel h1{
-        font-size:30px;
-    }
-
-
-    .lead{
-        font-size:15px;
-
-        line-height:1.7;
-    }
-
-
-    .lesson-grid,
-    .library-grid,
-    .memory-grid{
-        grid-template-columns:1fr;
-    }
-
-
-    .timeline{
-        margin-top:35px;
-
-        grid-template-columns:
-            repeat(5,1fr);
-
-        gap:4px;
-    }
-
-
-    .timeline::before{
-        display:block;
-
-        left:5%;
-        right:5%;
-
-        top:22px;
-    }
-
-
-    .dot{
-        width:44px;
-        height:44px;
-
-        border-width:3px;
-
-        font-size:13px;
-    }
-
-
-    .milestone h3{
-        margin-top:9px;
-
-        font-size:
-            clamp(
-                7px,
-                2vw,
-                10px
-            );
-
-        line-height:1.2;
-    }
-
 }
 
-
 /* =========================================================
-   19. MÀN HÌNH MOBILE NHỎ
+   11. MOBILE NHỎ
 ========================================================= */
 
 @media(max-width:420px){
@@ -1461,41 +710,33 @@ button{
         top:40%;
     }
 
-
     .program{
         font-size:17px;
     }
-
 
     .hero-title{
         font-size:43px;
     }
 
-
     .values{
         font-size:14px;
     }
-
 
     .mentor{
         font-size:13px;
     }
 
-
     .nav-number{
         font-size:14px;
     }
 
-
     .nav-label{
         font-size:7px;
     }
-
 }
 
-
 /* =========================================================
-   20. REDUCED MOTION
+   12. REDUCED MOTION
 ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
@@ -1507,7 +748,6 @@ button{
         animation-iteration-count:1 !important;
         transition-duration:.01ms !important;
     }
-
 }
 
 </style>
@@ -1519,46 +759,45 @@ button{
 <div class="app">
 
 
-<div class="background"></div>
+    <!-- ẢNH NỀN -->
+
+    <div class="background"></div>
 
 
-<header class="header">
+    <!-- HEADER -->
 
-    <div class="brand">
+    <header class="header">
 
-        <img
-            src="assets/images/Logo-pvep.png"
-            alt="PVEP"
-            class="logo"
-        >
+        <div class="brand">
 
-        <div class="brand-divider"></div>
+            <img
+                src="assets/images/Logo-pvep.png"
+                alt="PVEP"
+                class="logo"
+            >
 
-        <div>
+            <div class="brand-divider"></div>
 
-            <div class="brand-name">
-                PVEP
-            </div>
+            <div>
 
-            <div class="brand-company">
-                TỔNG CÔNG TY THĂM DÒ KHAI THÁC DẦU KHÍ
+                <div class="brand-name">
+                    PVEP
+                </div>
+
+                <div class="brand-company">
+                    TỔNG CÔNG TY THĂM DÒ KHAI THÁC DẦU KHÍ
+                </div>
+
             </div>
 
         </div>
 
-    </div>
-
-</header>
+    </header>
 
 
+    <!-- NỘI DUNG COVER -->
 
-<section
-    class="view active"
-    id="homeView"
->
-
-
-    <div class="hero">
+    <main class="hero">
 
         <div class="program">
             CHƯƠNG TRÌNH
@@ -1593,9 +832,18 @@ button{
             2025 — 2026
         </div>
 
-    </div>
+    </main>
 
 
+    <!-- =====================================================
+         MENU CHUẨN
+         
+         01 = 01_Gioi-thieu
+         02 = 02_Hanh-trinh
+         03 = 02_Các-buổi-học
+         04 = Thu vien
+         05 = Dieu dong lai
+    ====================================================== -->
 
     <nav
         class="main-nav"
@@ -1603,708 +851,100 @@ button{
     >
 
 
-        <button
+        <!-- 01 GIỚI THIỆU -->
+
+        <a
             class="nav-btn"
-            type="button"
-            onclick="openIntro()"
+            href="01_Gioi-thieu/"
         >
 
-            <span class="nav-number">01</span>
+            <span class="nav-number">
+                01
+            </span>
 
             <span class="nav-label">
                 GIỚI THIỆU
             </span>
 
-        </button>
+        </a>
 
 
-        <button
+        <!-- 02 HÀNH TRÌNH -->
+
+        <a
             class="nav-btn"
-            type="button"
-           onclick="window.location.href='02_Hanh-trinh/'"
+            href="02_Hanh-trinh/"
         >
 
-            <span class="nav-number">02</span>
+            <span class="nav-number">
+                02
+            </span>
 
             <span class="nav-label">
                 HÀNH TRÌNH
             </span>
 
-        </button>
+        </a>
 
 
-        <button
+        <!-- 03 BUỔI HỌC -->
+
+        <a
             class="nav-btn"
-            type="button"
-           onclick="window.location.href='02_Các-buoi-hoc/'"
+            href="02_Các-buổi-học/"
         >
 
-            <span class="nav-number">03</span>
+            <span class="nav-number">
+                03
+            </span>
 
             <span class="nav-label">
                 BUỔI HỌC
             </span>
 
-        </button>
+        </a>
 
 
-        <button
+        <!-- 04 THƯ VIỆN -->
+
+        <a
             class="nav-btn"
-            type="button"
-           onclick="window.location.href='Thu vien/'"
+            href="Thu vien/"
         >
 
-            <span class="nav-number">04</span>
+            <span class="nav-number">
+                04
+            </span>
 
             <span class="nav-label">
                 THƯ VIỆN
             </span>
 
-        </button>
+        </a>
 
 
-        <button
+        <!-- 05 ĐIỀU ĐỌNG LẠI -->
+
+        <a
             class="nav-btn"
-            type="button"
-            onclick="navigate('memories')"
+            href="Dieu dong lai/"
         >
 
-            <span class="nav-number">05</span>
+            <span class="nav-number">
+                05
+            </span>
 
             <span class="nav-label">
                 ĐIỀU ĐỌNG LẠI
             </span>
 
-        </button>
+        </a>
 
 
     </nav>
 
 
-</section>
-
-
-
-<section
-    class="view dashboard"
-    id="dashboardView"
->
-
-
-    <div class="dashboard-shell">
-
-
-        <aside class="sidebar">
-
-
-            <button
-                class="home-btn"
-                type="button"
-                onclick="navigate('home')"
-            >
-                ← TRANG CHỦ
-            </button>
-
-
-            <div class="side-menu">
-
-
-                <button
-                    class="side-btn"
-                    type="button"
-                    onclick="openIntro()"
-                >
-                    01 &nbsp; GIỚI THIỆU
-                </button>
-
-
-                <button
-                    class="side-btn"
-                    data-route="journey"
-                    type="button"
-                    onclick="navigate('journey')"
-                >
-                    02 &nbsp; HÀNH TRÌNH
-                </button>
-
-
-                <button
-                    class="side-btn"
-                    data-route="lessons"
-                    type="button"
-                    onclick="navigate('lessons')"
-                >
-                    03 &nbsp; BUỔI HỌC
-                </button>
-
-
-                <button
-                    class="side-btn"
-                    data-route="library"
-                    type="button"
-                    onclick="navigate('library')"
-                >
-                    04 &nbsp; THƯ VIỆN
-                </button>
-
-
-                <button
-                    class="side-btn"
-                    data-route="memories"
-                    type="button"
-                    onclick="navigate('memories')"
-                >
-                    05 &nbsp; ĐIỀU ĐỌNG LẠI
-                </button>
-
-
-            </div>
-
-        </aside>
-
-
-
-        <main
-            class="content-panel"
-            id="contentPanel"
-        >
-        </main>
-
-
-    </div>
-
-</section>
-
-
 </div>
-
-
-
-<script>
-
-
-function openIntro(){
-
-    window.location.href =
-        "01_Gioi-thieu/";
-
-}
-
-
-const pages = {
-
-
-journey: `
-
-    <div class="section-kicker">
-        02
-    </div>
-
-    <h1>
-        HÀNH TRÌNH
-    </h1>
-
-    <p class="lead">
-        Hành trình 2025 — 2026
-        không chỉ là những buổi học,
-        mà còn là quá trình chia sẻ,
-        trải nghiệm, kết nối
-        và cùng nhau trưởng thành.
-    </p>
-
-
-    <div class="timeline">
-
-
-        <div class="milestone">
-
-            <div class="dot">01</div>
-
-            <h3>KHỞI ĐẦU</h3>
-
-        </div>
-
-
-        <div class="milestone">
-
-            <div class="dot">02</div>
-
-            <h3>LÀM QUEN</h3>
-
-        </div>
-
-
-        <div class="milestone">
-
-            <div class="dot">03</div>
-
-            <h3>HỌC HỎI</h3>
-
-        </div>
-
-
-        <div class="milestone">
-
-            <div class="dot">04</div>
-
-            <h3>TRẢI NGHIỆM</h3>
-
-        </div>
-
-
-        <div class="milestone">
-
-            <div class="dot">05</div>
-
-            <h3>TRƯỞNG THÀNH</h3>
-
-        </div>
-
-
-    </div>
-
-`,
-
-
-lessons: `
-
-    <div class="section-kicker">
-        03
-    </div>
-
-    <h1>
-        CÁC BUỔI HỌC
-    </h1>
-
-    <p class="lead">
-        Mỗi buổi học là một dấu mốc
-        trong hành trình phát triển,
-        nơi lưu giữ nội dung,
-        tài liệu, hình ảnh
-        và những chia sẻ đáng nhớ.
-    </p>
-
-
-    <div class="lesson-grid">
-
-
-        <div class="lesson-card">
-
-            <div class="lesson-no">01</div>
-
-            <h3>BUỔI 1</h3>
-
-            <p>
-                Nội dung, tài liệu,
-                hình ảnh và dấu ấn
-                của buổi học thứ nhất.
-            </p>
-
-        </div>
-
-
-        <div class="lesson-card">
-
-            <div class="lesson-no">02</div>
-
-            <h3>BUỔI 2</h3>
-
-            <p>
-                Nội dung, tài liệu,
-                hình ảnh và dấu ấn
-                của buổi học thứ hai.
-            </p>
-
-        </div>
-
-
-        <div class="lesson-card">
-
-            <div class="lesson-no">03</div>
-
-            <h3>BUỔI 3</h3>
-
-            <p>
-                Nội dung, tài liệu,
-                hình ảnh và dấu ấn
-                của buổi học thứ ba.
-            </p>
-
-        </div>
-
-
-        <div class="lesson-card">
-
-            <div class="lesson-no">04</div>
-
-            <h3>BUỔI 4</h3>
-
-            <p>
-                Nội dung, tài liệu,
-                hình ảnh và dấu ấn
-                của buổi học thứ tư.
-            </p>
-
-        </div>
-
-
-        <div class="lesson-card">
-
-            <div class="lesson-no">05</div>
-
-            <h3>BUỔI 5</h3>
-
-            <p>
-                Nội dung, tài liệu,
-                hình ảnh và dấu ấn
-                của buổi học thứ năm.
-            </p>
-
-        </div>
-
-
-    </div>
-
-`,
-
-
-library: `
-
-    <div class="section-kicker">
-        04
-    </div>
-
-    <h1>
-        THƯ VIỆN
-    </h1>
-
-    <p class="lead">
-        Không gian lưu giữ
-        các tài liệu, hình ảnh
-        và bài viết của
-        Chương trình Nhân viên Tài năng PVEP.
-    </p>
-
-
-    <div class="library-grid">
-
-
-        <div class="library-card">
-
-            <div class="library-icon">
-                📚
-            </div>
-
-            <h3>TÀI LIỆU</h3>
-
-            <p>
-                Slide, tài liệu học tập,
-                tài liệu tham khảo
-                và các sản phẩm học tập.
-            </p>
-
-        </div>
-
-
-        <div class="library-card">
-
-            <div class="library-icon">
-                📷
-            </div>
-
-            <h3>HÌNH ẢNH</h3>
-
-            <p>
-                Những khoảnh khắc
-                đáng nhớ trong các buổi học
-                và hoạt động của chương trình.
-            </p>
-
-        </div>
-
-
-        <div class="library-card">
-
-            <div class="library-icon">
-                📰
-            </div>
-
-            <h3>BÀI VIẾT</h3>
-
-            <p>
-                Tin bài và những nội dung
-                liên quan đến hành trình
-                Nhân viên Tài năng.
-            </p>
-
-        </div>
-
-
-    </div>
-
-`,
-
-
-memories: `
-
-    <div class="section-kicker">
-        05
-    </div>
-
-    <h1>
-        ĐIỀU ĐỌNG LẠI
-    </h1>
-
-    <p class="lead">
-        Những lời nhắn,
-        cảm xúc, kỷ niệm
-        và những món quà tinh thần
-        được lưu giữ sau hành trình.
-    </p>
-
-
-    <div class="memory-grid">
-
-
-        <button
-            class="memory-card"
-            type="button"
-        >
-
-            <h3>
-                LƯU BÚT
-            </h3>
-
-            <p>
-                Những chia sẻ,
-                lời nhắn và cảm nhận
-                của các thành viên
-                Nhóm Nhân viên Tài năng.
-            </p>
-
-        </button>
-
-
-        <button
-            class="memory-card"
-            type="button"
-            onclick="
-                window.location.href =
-                'Qua%20tang%20thay/';
-            "
-        >
-
-            <h3>
-                MÓN QUÀ TẶNG THẦY
-            </h3>
-
-            <p>
-                Những tình cảm
-                và món quà dành tặng
-                người thầy đã hướng dẫn
-                và đồng hành cùng chương trình.
-            </p>
-
-        </button>
-
-
-    </div>
-
-`
-
-};
-
-
-
-function navigate(route){
-if(route === "library"){
-    window.location.href = "Thu vien/";
-    return;
-}
-    if(route === "memories"){
-        window.location.href = "Dieu dong lai/";
-        return;
-    }
-    if(route === "home"){
-
-        window.location.hash =
-            "#/home";
-
-        showHome();
-
-        return;
-
-    }
-
-
-    if(!pages[route]){
-
-        showHome();
-
-        return;
-
-    }
-
-
-    window.location.hash =
-        "#/" + route;
-
-
-    showDashboard(route);
-
-}
-
-
-
-function showHome(){
-
-    const home =
-        document.getElementById(
-            "homeView"
-        );
-
-
-    const dashboard =
-        document.getElementById(
-            "dashboardView"
-        );
-
-
-    home
-        .classList
-        .add("active");
-
-
-    dashboard
-        .classList
-        .remove("active");
-
-}
-
-
-
-function showDashboard(route){
-
-    const home =
-        document.getElementById(
-            "homeView"
-        );
-
-
-    const dashboard =
-        document.getElementById(
-            "dashboardView"
-        );
-
-
-    const panel =
-        document.getElementById(
-            "contentPanel"
-        );
-
-
-    home
-        .classList
-        .remove("active");
-
-
-    dashboard
-        .classList
-        .add("active");
-
-
-    panel.innerHTML =
-        pages[route];
-
-
-    panel.classList.remove(
-        "content-animate"
-    );
-
-
-    void panel.offsetWidth;
-
-
-    panel.classList.add(
-        "content-animate"
-    );
-
-
-    panel.scrollTop = 0;
-
-
-    document
-        .querySelectorAll(
-            ".side-btn"
-        )
-        .forEach(
-            function(btn){
-
-                btn.classList.toggle(
-                    "active",
-                    btn.dataset.route === route
-                );
-
-            }
-        );
-
-}
-
-
-
-function loadRoute(){
-
-    let route =
-        window.location.hash
-        .replace(
-            "#/",
-            ""
-        );
-
-
-    if(
-        !route ||
-        route === "home"
-    ){
-
-        showHome();
-
-        return;
-
-    }
-
-
-    if(
-        pages[route]
-    ){
-
-        showDashboard(
-            route
-        );
-
-        return;
-
-    }
-
-
-    showHome();
-
-}
-
-
-
-window.addEventListener(
-    "hashchange",
-    loadRoute
-);
-
-
-window.addEventListener(
-    "load",
-    loadRoute
-);
-
-</script>
 
 </body>
 </html>
