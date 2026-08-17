@@ -82,7 +82,6 @@ body::before{
         infinite alternate;
 }
 
-
 @keyframes floatGlow{
 
     from{
@@ -92,83 +91,38 @@ body::before{
     to{
         transform:translate(-50px,50px);
     }
-
 }
 
 
 /* =========================================================
-   HEADER
+   HEADER TRÊN
 ========================================================= */
 
 .topbar{
 
     width:100%;
 
-    min-height:78px;
+    min-height:70px;
 
-    padding:
-        12px
-        4%;
+    padding:12px 5vw;
 
     display:flex;
 
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 
-    gap:24px;
+    gap:20px;
+
+    background:
+        rgba(2,27,46,.94);
 
     border-bottom:
         1px solid
-        rgba(255,255,255,.12);
+        rgba(255,255,255,.10);
 
-    background:
-        rgba(2,27,46,.82);
-
-    backdrop-filter:
-        blur(12px);
-
-    position:sticky;
-
-    top:0;
+    position:relative;
 
     z-index:100;
-}
-
-
-/* HEADER TRÁI */
-
-.header-left{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:17px;
-
-    flex-shrink:0;
-}
-
-
-.back-home{
-
-    text-decoration:none;
-
-    color:
-        rgba(255,255,255,.82);
-
-    font-size:11px;
-
-    font-weight:700;
-
-    white-space:nowrap;
-
-    transition:.2s ease;
-}
-
-
-.back-home:hover{
-
-    color:#62c947;
 }
 
 
@@ -178,14 +132,19 @@ body::before{
 
     align-items:center;
 
-    gap:11px;
+    gap:12px;
 }
 
 
 .logo-circle{
 
-    width:40px;
-    height:40px;
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
 
     border:
         2px solid
@@ -193,16 +152,11 @@ body::before{
 
     border-radius:50%;
 
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
     color:#62c947;
 
-    font-weight:800;
-
     font-size:10px;
+
+    font-weight:800;
 }
 
 
@@ -210,9 +164,9 @@ body::before{
 
     display:block;
 
-    font-size:15px;
+    font-size:17px;
 
-    letter-spacing:.3px;
+    letter-spacing:.5px;
 }
 
 
@@ -220,85 +174,196 @@ body::before{
 
     display:block;
 
-    margin-top:3px;
-
-    font-size:8px;
-
-    letter-spacing:.8px;
+    margin-top:4px;
 
     color:
-        rgba(255,255,255,.60);
+        rgba(255,255,255,.62);
+
+    font-size:9px;
+
+    letter-spacing:.8px;
 }
 
 
-/* =========================================================
-   MENU 01–05
-========================================================= */
+.home-button{
 
-.nav{
-
-    display:flex;
+    display:inline-flex;
 
     align-items:center;
 
-    justify-content:flex-end;
-
-    gap:18px;
-}
-
-
-.nav a{
-
-    position:relative;
+    justify-content:center;
 
     padding:
-        9px
-        0;
+        10px
+        16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    border-radius:30px;
 
     color:#ffffff;
 
     text-decoration:none;
 
-    font-size:10px;
+    font-size:11px;
 
     font-weight:700;
 
-    white-space:nowrap;
+    letter-spacing:.5px;
 
-    transition:.2s ease;
+    transition:.25s ease;
 }
 
 
-.nav a:hover{
+.home-button:hover{
 
-    color:#62c947;
+    background:#62c947;
+
+    border-color:#62c947;
+
+    color:#062238;
 }
 
 
-.nav a.active{
+/* =========================================================
+   THANH MENU 5 MỤC
+   LUÔN HIỂN THỊ THÀNH MỘT HÀNG RIÊNG
+========================================================= */
 
-    color:#62c947;
+.menu-bar{
 
-    font-weight:800;
+    position:sticky;
+
+    top:0;
+
+    z-index:99;
+
+    width:100%;
+
+    min-height:54px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:
+        0
+        4vw;
+
+    background:#063b50;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.13);
+
+    box-shadow:
+        0
+        5px
+        20px
+        rgba(0,0,0,.12);
 }
 
 
-.nav a.active::after{
+.main-nav{
+
+    width:min(1100px,100%);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    align-items:stretch;
+}
+
+
+.main-nav a{
+
+    position:relative;
+
+    min-height:54px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:
+        8px
+        10px;
+
+    color:
+        rgba(255,255,255,.88);
+
+    text-decoration:none;
+
+    text-align:center;
+
+    font-size:11px;
+
+    line-height:1.25;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.main-nav a:hover{
+
+    color:#8ee171;
+
+    background:
+        rgba(255,255,255,.04);
+}
+
+
+.main-nav a.active{
+
+    color:#8ee171;
+
+    background:
+        rgba(98,201,71,.07);
+}
+
+
+.main-nav a.active::after{
 
     content:"";
 
     position:absolute;
 
-    left:0;
-    right:0;
+    left:20%;
+    right:20%;
 
-    bottom:1px;
+    bottom:0;
 
-    height:2px;
+    height:3px;
 
-    border-radius:20px;
+    border-radius:
+        3px
+        3px
+        0
+        0;
 
     background:#62c947;
+}
+
+
+.menu-number{
+
+    margin-right:5px;
+
+    color:#62c947;
+
+    font-weight:800;
 }
 
 
@@ -310,11 +375,10 @@ body::before{
 
     max-width:1100px;
 
-    margin:
-        0 auto;
+    margin:0 auto;
 
     padding:
-        90px
+        75px
         30px
         55px;
 
@@ -324,6 +388,8 @@ body::before{
 
 .number{
 
+    margin-bottom:18px;
+
     color:#8ee171;
 
     font-size:13px;
@@ -331,12 +397,12 @@ body::before{
     font-weight:700;
 
     letter-spacing:4px;
-
-    margin-bottom:18px;
 }
 
 
 .hero h1{
+
+    margin-bottom:25px;
 
     font-size:
         clamp(
@@ -348,8 +414,6 @@ body::before{
     line-height:1;
 
     letter-spacing:-2px;
-
-    margin-bottom:25px;
 }
 
 
@@ -358,11 +422,11 @@ body::before{
     width:85px;
     height:3px;
 
-    background:#62c947;
-
     margin:
         0 auto
         28px;
+
+    background:#62c947;
 }
 
 
@@ -394,8 +458,7 @@ body::before{
 
     max-width:920px;
 
-    margin:
-        0 auto;
+    margin:0 auto;
 
     padding:
         10px
@@ -460,17 +523,17 @@ body::before{
 
 .poem-title{
 
+    margin-bottom:45px;
+
     text-align:center;
+
+    color:#8ee171;
 
     font-size:14px;
 
     font-weight:700;
 
     letter-spacing:4px;
-
-    color:#8ee171;
-
-    margin-bottom:45px;
 }
 
 
@@ -511,53 +574,16 @@ body::before{
 }
 
 
-.stanza:nth-child(1){
-    animation-delay:.10s;
-}
-
-.stanza:nth-child(2){
-    animation-delay:.18s;
-}
-
-.stanza:nth-child(3){
-    animation-delay:.26s;
-}
-
-.stanza:nth-child(4){
-    animation-delay:.34s;
-}
-
-.stanza:nth-child(5){
-    animation-delay:.42s;
-}
-
-.stanza:nth-child(6){
-    animation-delay:.50s;
-}
-
-.stanza:nth-child(7){
-    animation-delay:.58s;
-}
-
-.stanza:nth-child(8){
-    animation-delay:.66s;
-}
-
-.stanza:nth-child(9){
-    animation-delay:.74s;
-}
-
-.stanza:nth-child(10){
-    animation-delay:.82s;
-}
-
-.stanza:nth-child(11){
-    animation-delay:.90s;
-}
-
-.stanza:nth-child(12){
-    animation-delay:.98s;
-}
+.stanza:nth-child(1){animation-delay:.10s;}
+.stanza:nth-child(2){animation-delay:.18s;}
+.stanza:nth-child(3){animation-delay:.26s;}
+.stanza:nth-child(4){animation-delay:.34s;}
+.stanza:nth-child(5){animation-delay:.42s;}
+.stanza:nth-child(6){animation-delay:.50s;}
+.stanza:nth-child(7){animation-delay:.58s;}
+.stanza:nth-child(8){animation-delay:.66s;}
+.stanza:nth-child(9){animation-delay:.74s;}
+.stanza:nth-child(10){animation-delay:.82s;}
 
 
 @keyframes appear{
@@ -568,14 +594,12 @@ body::before{
 
         transform:
             translateY(0);
-
     }
-
 }
 
 
 /* =========================================================
-   CÂU TRỌNG TÂM
+   CÂU NHẤN
 ========================================================= */
 
 .highlight{
@@ -656,12 +680,12 @@ body::before{
         Helvetica,
         sans-serif;
 
+    color:
+        rgba(255,255,255,.45);
+
     font-size:11px;
 
     letter-spacing:2px;
-
-    color:
-        rgba(255,255,255,.45);
 }
 
 
@@ -670,10 +694,6 @@ body::before{
 ========================================================= */
 
 footer{
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.10);
 
     padding:
         32px
@@ -685,6 +705,10 @@ footer{
     justify-content:space-between;
 
     align-items:center;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.10);
 
     color:
         rgba(255,255,255,.48);
@@ -706,80 +730,20 @@ footer{
 
 
 /* =========================================================
-   TABLET / MOBILE
+   MOBILE
 ========================================================= */
 
-@media(max-width:900px){
+@media(max-width:700px){
 
     .topbar{
 
-        flex-wrap:wrap;
+        min-height:64px;
 
         padding:
-            11px
-            16px;
+            10px
+            15px;
     }
 
-
-    .header-left{
-
-        width:100%;
-    }
-
-
-    .nav{
-
-        width:100%;
-
-        display:grid;
-
-        grid-template-columns:
-            repeat(
-                5,
-                1fr
-            );
-
-        gap:3px;
-
-        padding-top:7px;
-
-        border-top:
-            1px solid
-            rgba(255,255,255,.10);
-    }
-
-
-    .nav a{
-
-        display:flex;
-
-        align-items:center;
-        justify-content:center;
-
-        text-align:center;
-
-        white-space:normal;
-
-        font-size:7.5px;
-
-        line-height:1.2;
-
-        padding:
-            6px
-            1px;
-    }
-
-
-    .nav a.active::after{
-
-        left:20%;
-        right:20%;
-    }
-
-}
-
-
-@media(max-width:700px){
 
     .logo-circle{
 
@@ -802,16 +766,77 @@ footer{
     }
 
 
-    .back-home{
+    .home-button{
+
+        padding:
+            8px
+            10px;
 
         font-size:9px;
+    }
+
+
+    /* VẪN GIỮ ĐỦ 5 MENU */
+
+    .menu-bar{
+
+        padding:
+            0
+            3px;
+
+        min-height:52px;
+    }
+
+
+    .main-nav{
+
+        grid-template-columns:
+            repeat(5,1fr);
+    }
+
+
+    .main-nav a{
+
+        min-height:52px;
+
+        padding:
+            5px
+            2px;
+
+        flex-direction:column;
+
+        gap:2px;
+
+        font-size:
+            clamp(
+                6.4px,
+                2vw,
+                8.5px
+            );
+
+        line-height:1.15;
+    }
+
+
+    .menu-number{
+
+        margin-right:0;
+
+        font-size:12px;
+    }
+
+
+    .main-nav a.active::after{
+
+        left:15%;
+        right:15%;
     }
 
 
     .hero{
 
         padding:
-            65px
+            55px
             22px
             40px;
     }
@@ -878,38 +903,21 @@ footer{
 
 @media(max-width:420px){
 
-    .nav a{
-
-        font-size:6.4px;
-    }
-
-
     .hero h1{
 
         font-size:42px;
     }
 
-}
+
+    .main-nav a{
+
+        font-size:6px;
+    }
 
 
-/* =========================================================
-   GIẢM CHUYỂN ĐỘNG
-========================================================= */
+    .menu-number{
 
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation-duration:
-            .01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            .01ms !important;
+        font-size:11px;
     }
 
 }
@@ -929,37 +937,23 @@ footer{
 <header class="topbar">
 
 
-    <div class="header-left">
+    <div class="brand">
 
 
-        <a
-            class="back-home"
-            href="../index.html"
-        >
-            ← TRANG CHÍNH
-        </a>
+        <div class="logo-circle">
+            PVEP
+        </div>
 
 
-        <div class="brand">
+        <div class="brand-text">
 
-
-            <div class="logo-circle">
+            <strong>
                 PVEP
-            </div>
+            </strong>
 
-
-            <div class="brand-text">
-
-                <strong>
-                    PVEP
-                </strong>
-
-                <span>
-                    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
-                </span>
-
-            </div>
-
+            <span>
+                CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+            </span>
 
         </div>
 
@@ -967,28 +961,75 @@ footer{
     </div>
 
 
-    <!-- MENU CHUẨN 01–05 -->
+    <a
+        class="home-button"
+        href="../index.html"
+    >
+        ← TRANG CHÍNH
+    </a>
 
-    <nav class="nav">
+
+</header>
+
+
+<!-- =====================================================
+     THANH MENU 5 MỤC
+===================================================== -->
+
+<div class="menu-bar">
+
+    <nav class="main-nav">
 
 
         <a href="../01_Gioi-thieu/">
-            01 GIỚI THIỆU
+
+            <span class="menu-number">
+                01
+            </span>
+
+            <span>
+                GIỚI THIỆU
+            </span>
+
         </a>
 
 
         <a href="../02_Hanh-trinh/">
-            02 HÀNH TRÌNH
+
+            <span class="menu-number">
+                02
+            </span>
+
+            <span>
+                HÀNH TRÌNH
+            </span>
+
         </a>
 
 
         <a href="../02_Các-buổi-học/">
-            03 BUỔI HỌC
+
+            <span class="menu-number">
+                03
+            </span>
+
+            <span>
+                BUỔI HỌC
+            </span>
+
         </a>
 
 
         <a href="../Thu vien/">
-            04 THƯ VIỆN
+
+            <span class="menu-number">
+                04
+            </span>
+
+            <span>
+                THƯ VIỆN
+            </span>
+
         </a>
 
 
@@ -996,34 +1037,37 @@ footer{
             class="active"
             href="./"
         >
-            05 ĐIỀU ĐỌNG LẠI
+
+            <span class="menu-number">
+                05
+            </span>
+
+            <span>
+                ĐIỀU ĐỌNG LẠI
+            </span>
+
         </a>
 
 
     </nav>
 
-
-</header>
+</div>
 
 
 <!-- =====================================================
-     MỞ ĐẦU
+     HERO
 ===================================================== -->
 
 <section class="hero">
 
 
     <div class="number">
-
         05 · ĐIỀU ĐỌNG LẠI
-
     </div>
 
 
     <h1>
-
         Điều đọng lại
-
     </h1>
 
 
@@ -1054,9 +1098,7 @@ footer{
 
 
         <div class="poem-title">
-
             MỘT HÀNH TRÌNH · NHỮNG ĐIỀU Ở LẠI
-
         </div>
 
 
@@ -1064,72 +1106,90 @@ footer{
 
 
             <div class="stanza">
+
                 Tưởng học vài chuyên đề<br>
                 Ai ngờ học nhiều thế<br>
                 Học chuyện làm chuyên môn<br>
                 Học cách nhìn sự việc
+
             </div>
 
 
             <div class="stanza">
+
                 Thầy kể chuyện dầu khí<br>
                 Về vòng đời của mỏ<br>
                 Từ tìm kiếm thăm dò<br>
                 Đến thiết kế ngày mai
+
             </div>
 
 
             <div class="stanza">
+
                 Thầy chỉ cho từng bước<br>
                 Trong chuỗi dài giá trị<br>
                 Để mỗi người nhìn thấy<br>
                 Những kết nối quanh mình
+
             </div>
 
 
             <div class="stanza">
+
                 Thầy nói về trữ lượng<br>
                 Về những điều phía sau<br>
                 Một phát hiện thành công<br>
                 Là biết bao nỗ lực
+
             </div>
 
 
             <div class="stanza">
+
                 Có những buổi học dài<br>
                 Nhiều điều nghe rất khó<br>
                 Đến khi vào công việc<br>
                 Lại thấy mình tự tin
+
             </div>
 
 
             <div class="stanza">
+
                 Thầy dạy làm cho đúng<br>
                 Trước khi làm cho hay<br>
                 Giữ tự trọng nghề nghiệp<br>
                 Trong từng việc hằng ngày
+
             </div>
 
 
             <div class="stanza">
+
                 Thầy không cho đáp án<br>
                 Mà gợi những hướng đi<br>
                 Làm nghề không chỉ giỏi<br>
                 Mà còn phải đàng hoàng
+
             </div>
 
 
             <div class="stanza">
+
                 Thầy nói về tiêu chuẩn<br>
                 Của những người đi xa<br>
                 Muốn bước ra thế giới<br>
                 Phải chuẩn bị từ đầu
+
             </div>
 
 
             <div class="stanza">
+
                 Bao điều rồi sẽ nhớ<br>
                 Bao điều rồi phai mau
+
             </div>
 
 
@@ -1143,10 +1203,12 @@ footer{
 
 
             <div class="stanza">
+
                 Vẫn chung một mái nhà<br>
                 Cùng một đường dầu khí<br>
                 Vẫn mang theo câu hỏi<br>
                 Thầy gửi giữa hành trình
+
             </div>
 
 
@@ -1197,9 +1259,7 @@ footer{
 
 
     <div>
-
         PVEP · CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
-
     </div>
 
 
@@ -1207,9 +1267,7 @@ footer{
         class="footer-home"
         href="../index.html"
     >
-
         TRỞ VỀ TRANG CHÍNH ↑
-
     </a>
 
 
