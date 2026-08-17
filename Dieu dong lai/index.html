@@ -1,610 +1,1221 @@
-
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Điều đọng lại | Nhân viên Tài năng PVEP</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background:
-                radial-gradient(circle at 80% 10%,
-                    rgba(98,201,71,0.12),
-                    transparent 30%),
-                linear-gradient(
-                    145deg,
-                    #021b2e 0%,
-                    #05283f 42%,
-                    #073b50 100%
-                );
-
-            color: #ffffff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* ==========================================
-           NỀN CHUYỂN ĐỘNG NHẸ
-        ========================================== */
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(98,201,71,0.09),
-                    transparent 68%
-                );
-
-            top: -180px;
-            right: -150px;
-
-            pointer-events: none;
-
-            animation: floatGlow 9s ease-in-out infinite alternate;
-        }
-
-        @keyframes floatGlow {
-            from {
-                transform: translate(0,0);
-            }
-
-            to {
-                transform: translate(-50px,50px);
-            }
-        }
-
-        /* ==========================================
-           HEADER
-        ========================================== */
-
-        .topbar {
-            width: 100%;
-            padding: 25px 5vw;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-
-            background: rgba(2,27,46,0.65);
-            backdrop-filter: blur(12px);
-
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .brand {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .brand strong {
-            font-size: 20px;
-            letter-spacing: 1px;
-        }
 
-        .brand span {
-            font-size: 11px;
-            letter-spacing: 1.4px;
-            color: rgba(255,255,255,0.68);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .back-home {
-            text-decoration: none;
-            color: #ffffff;
+<title>Điều đọng lại | Nhân viên Tài năng PVEP</title>
 
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
+<style>
 
-            border: 1px solid rgba(255,255,255,0.22);
-            border-radius: 30px;
+/* =========================================================
+   RESET
+========================================================= */
 
-            padding: 11px 18px;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-            transition: 0.3s ease;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .back-home:hover {
-            background: #62c947;
-            border-color: #62c947;
-            color: #062238;
-        }
+body{
+    font-family:Arial,Helvetica,sans-serif;
 
-        /* ==========================================
-           PHẦN MỞ ĐẦU
-        ========================================== */
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(98,201,71,.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #021b2e 0%,
+            #05283f 42%,
+            #073b50 100%
+        );
 
-        .hero {
-            max-width: 1100px;
-            margin: 0 auto;
+    color:#ffffff;
 
-            padding: 90px 30px 55px;
+    min-height:100vh;
 
-            text-align: center;
-        }
+    overflow-x:hidden;
+}
 
-        .number {
-            color: #8ee171;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 4px;
 
-            margin-bottom: 18px;
-        }
+/* =========================================================
+   NỀN CHUYỂN ĐỘNG
+========================================================= */
 
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 82px);
-            line-height: 1;
-            letter-spacing: -2px;
+body::before{
 
-            margin-bottom: 25px;
-        }
+    content:"";
 
-        .green-line {
-            width: 85px;
-            height: 3px;
+    position:fixed;
 
-            background: #62c947;
+    width:500px;
+    height:500px;
 
-            margin: 0 auto 28px;
-        }
+    border-radius:50%;
 
-        .intro {
-            max-width: 690px;
-            margin: auto;
+    background:
+        radial-gradient(
+            circle,
+            rgba(98,201,71,.09),
+            transparent 68%
+        );
 
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 19px;
-            line-height: 1.8;
+    top:-180px;
+    right:-150px;
 
-            color: rgba(255,255,255,0.76);
-        }
+    pointer-events:none;
 
-        /* ==========================================
-           KHUNG BÀI THƠ
-        ========================================== */
+    animation:
+        floatGlow
+        9s
+        ease-in-out
+        infinite alternate;
+}
 
-        .poem-wrap {
-            max-width: 920px;
-            margin: 0 auto;
 
-            padding: 10px 25px 110px;
-        }
+@keyframes floatGlow{
 
-        .poem-card {
-            position: relative;
+    from{
+        transform:translate(0,0);
+    }
 
-            padding: 70px 80px;
+    to{
+        transform:translate(-50px,50px);
+    }
 
-            border-radius: 24px;
+}
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.095),
-                    rgba(255,255,255,0.035)
-                );
 
-            border: 1px solid rgba(255,255,255,0.14);
+/* =========================================================
+   HEADER
+========================================================= */
 
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.24);
+.topbar{
 
-            backdrop-filter: blur(12px);
-        }
+    width:100%;
 
-        .poem-card::before {
-            content: "“";
+    min-height:78px;
 
-            position: absolute;
-            top: 22px;
-            left: 35px;
+    padding:
+        12px
+        4%;
 
-            font-family: Georgia, serif;
-            font-size: 95px;
-            line-height: 1;
+    display:flex;
 
-            color: rgba(98,201,71,0.22);
-        }
+    justify-content:space-between;
+    align-items:center;
 
-        .poem-title {
-            text-align: center;
+    gap:24px;
 
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 4px;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.12);
 
-            color: #8ee171;
+    background:
+        rgba(2,27,46,.82);
 
-            margin-bottom: 45px;
-        }
+    backdrop-filter:
+        blur(12px);
 
-        .poem {
-            max-width: 520px;
-            margin: auto;
+    position:sticky;
 
-            font-family: Georgia, "Times New Roman", serif;
+    top:0;
 
-            font-size: 20px;
-            line-height: 1.75;
+    z-index:100;
+}
 
-            color: rgba(255,255,255,0.92);
-        }
 
-        .stanza {
-            margin-bottom: 29px;
+/* HEADER TRÁI */
 
-            opacity: 0;
-            transform: translateY(18px);
+.header-left{
 
-            animation: appear 0.8s ease forwards;
-        }
+    display:flex;
 
-        .stanza:nth-child(1)  { animation-delay: .10s; }
-        .stanza:nth-child(2)  { animation-delay: .18s; }
-        .stanza:nth-child(3)  { animation-delay: .26s; }
-        .stanza:nth-child(4)  { animation-delay: .34s; }
-        .stanza:nth-child(5)  { animation-delay: .42s; }
-        .stanza:nth-child(6)  { animation-delay: .50s; }
-        .stanza:nth-child(7)  { animation-delay: .58s; }
-        .stanza:nth-child(8)  { animation-delay: .66s; }
-        .stanza:nth-child(9)  { animation-delay: .74s; }
-        .stanza:nth-child(10) { animation-delay: .82s; }
-        .stanza:nth-child(11) { animation-delay: .90s; }
-        .stanza:nth-child(12) { animation-delay: .98s; }
+    align-items:center;
 
-        @keyframes appear {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    gap:17px;
 
-        /* CÂU TRỌNG TÂM */
+    flex-shrink:0;
+}
 
-        .highlight {
-            margin: 45px -25px;
 
-            padding: 28px 25px;
+.back-home{
 
-            text-align: center;
+    text-decoration:none;
 
-            border-top: 1px solid rgba(142,225,113,0.30);
-            border-bottom: 1px solid rgba(142,225,113,0.30);
+    color:
+        rgba(255,255,255,.82);
 
-            color: #a5ed8b;
+    font-size:11px;
 
-            font-size: 23px;
-            line-height: 1.7;
+    font-weight:700;
 
-            font-style: italic;
-        }
+    white-space:nowrap;
 
-        /* ==========================================
-           KẾT
-        ========================================== */
+    transition:.2s ease;
+}
 
-        .ending {
-            margin-top: 55px;
-            padding-top: 38px;
 
-            border-top: 1px solid rgba(255,255,255,0.12);
+.back-home:hover{
 
-            text-align: center;
-        }
+    color:#62c947;
+}
 
-        .ending p {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 22px;
-            line-height: 1.8;
-        }
 
-        .ending strong {
-            color: #8ee171;
-            font-weight: normal;
-        }
+.brand{
 
-        .signature {
-            margin-top: 35px;
+    display:flex;
 
-            font-family: Arial, Helvetica, sans-serif;
+    align-items:center;
 
-            font-size: 11px;
-            letter-spacing: 2px;
+    gap:11px;
+}
 
-            color: rgba(255,255,255,0.45);
-        }
 
-        /* ==========================================
-           FOOTER / MENU
-        ========================================== */
+.logo-circle{
 
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.10);
+    width:40px;
+    height:40px;
 
-            padding: 32px 5vw 38px;
+    border:
+        2px solid
+        #62c947;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    border-radius:50%;
 
-            color: rgba(255,255,255,0.48);
+    display:flex;
 
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
+    align-items:center;
+    justify-content:center;
 
-        .footer-home {
-            color: #8ee171;
-            text-decoration: none;
-            font-weight: 700;
-        }
+    color:#62c947;
 
-        /* ==========================================
-           MOBILE
-        ========================================== */
+    font-weight:800;
 
-        @media (max-width: 700px) {
+    font-size:10px;
+}
 
-            .topbar {
-                padding: 18px 20px;
-            }
 
-            .brand strong {
-                font-size: 17px;
-            }
+.brand-text strong{
 
-            .brand span {
-                display: none;
-            }
+    display:block;
 
-            .back-home {
-                padding: 9px 13px;
-                font-size: 10px;
-            }
+    font-size:15px;
 
-            .hero {
-                padding:
-                    65px
-                    22px
-                    40px;
-            }
+    letter-spacing:.3px;
+}
 
-            .hero h1 {
-                font-size: 48px;
-            }
 
-            .intro {
-                font-size: 17px;
-            }
+.brand-text span{
 
-            .poem-wrap {
-                padding:
-                    5px
-                    15px
-                    70px;
-            }
+    display:block;
 
-            .poem-card {
-                padding:
-                    55px
-                    28px;
-            }
+    margin-top:3px;
 
-            .poem {
-                font-size: 18px;
-                line-height: 1.75;
-            }
+    font-size:8px;
 
-            .highlight {
-                margin:
-                    38px
-                    -10px;
+    letter-spacing:.8px;
 
-                font-size: 20px;
-            }
+    color:
+        rgba(255,255,255,.60);
+}
 
-            footer {
-                flex-direction: column;
-                gap: 12px;
-                text-align: center;
-            }
-        }
 
-    </style>
+/* =========================================================
+   MENU 01–05
+========================================================= */
+
+.nav{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:18px;
+}
+
+
+.nav a{
+
+    position:relative;
+
+    padding:
+        9px
+        0;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    transition:.2s ease;
+}
+
+
+.nav a:hover{
+
+    color:#62c947;
+}
+
+
+.nav a.active{
+
+    color:#62c947;
+
+    font-weight:800;
+}
+
+
+.nav a.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:1px;
+
+    height:2px;
+
+    border-radius:20px;
+
+    background:#62c947;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    max-width:1100px;
+
+    margin:
+        0 auto;
+
+    padding:
+        90px
+        30px
+        55px;
+
+    text-align:center;
+}
+
+
+.number{
+
+    color:#8ee171;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    margin-bottom:18px;
+}
+
+
+.hero h1{
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            82px
+        );
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+    margin-bottom:25px;
+}
+
+
+.green-line{
+
+    width:85px;
+    height:3px;
+
+    background:#62c947;
+
+    margin:
+        0 auto
+        28px;
+}
+
+
+.intro{
+
+    max-width:690px;
+
+    margin:auto;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:19px;
+
+    line-height:1.8;
+
+    color:
+        rgba(255,255,255,.76);
+}
+
+
+/* =========================================================
+   KHUNG BÀI THƠ
+========================================================= */
+
+.poem-wrap{
+
+    max-width:920px;
+
+    margin:
+        0 auto;
+
+    padding:
+        10px
+        25px
+        110px;
+}
+
+
+.poem-card{
+
+    position:relative;
+
+    padding:
+        70px
+        80px;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.095),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    box-shadow:
+        0
+        30px
+        80px
+        rgba(0,0,0,.24);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.poem-card::before{
+
+    content:"“";
+
+    position:absolute;
+
+    top:22px;
+    left:35px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:95px;
+
+    line-height:1;
+
+    color:
+        rgba(98,201,71,.22);
+}
+
+
+.poem-title{
+
+    text-align:center;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:#8ee171;
+
+    margin-bottom:45px;
+}
+
+
+.poem{
+
+    max-width:520px;
+
+    margin:auto;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:20px;
+
+    line-height:1.75;
+
+    color:
+        rgba(255,255,255,.92);
+}
+
+
+.stanza{
+
+    margin-bottom:29px;
+
+    opacity:0;
+
+    transform:
+        translateY(18px);
+
+    animation:
+        appear
+        .8s
+        ease
+        forwards;
+}
+
+
+.stanza:nth-child(1){
+    animation-delay:.10s;
+}
+
+.stanza:nth-child(2){
+    animation-delay:.18s;
+}
+
+.stanza:nth-child(3){
+    animation-delay:.26s;
+}
+
+.stanza:nth-child(4){
+    animation-delay:.34s;
+}
+
+.stanza:nth-child(5){
+    animation-delay:.42s;
+}
+
+.stanza:nth-child(6){
+    animation-delay:.50s;
+}
+
+.stanza:nth-child(7){
+    animation-delay:.58s;
+}
+
+.stanza:nth-child(8){
+    animation-delay:.66s;
+}
+
+.stanza:nth-child(9){
+    animation-delay:.74s;
+}
+
+.stanza:nth-child(10){
+    animation-delay:.82s;
+}
+
+.stanza:nth-child(11){
+    animation-delay:.90s;
+}
+
+.stanza:nth-child(12){
+    animation-delay:.98s;
+}
+
+
+@keyframes appear{
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   CÂU TRỌNG TÂM
+========================================================= */
+
+.highlight{
+
+    margin:
+        45px
+        -25px;
+
+    padding:
+        28px
+        25px;
+
+    text-align:center;
+
+    border-top:
+        1px solid
+        rgba(142,225,113,.30);
+
+    border-bottom:
+        1px solid
+        rgba(142,225,113,.30);
+
+    color:#a5ed8b;
+
+    font-size:23px;
+
+    line-height:1.7;
+
+    font-style:italic;
+}
+
+
+/* =========================================================
+   KẾT
+========================================================= */
+
+.ending{
+
+    margin-top:55px;
+
+    padding-top:38px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.12);
+
+    text-align:center;
+}
+
+
+.ending p{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:22px;
+
+    line-height:1.8;
+}
+
+
+.ending strong{
+
+    color:#8ee171;
+
+    font-weight:normal;
+}
+
+
+.signature{
+
+    margin-top:35px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    color:
+        rgba(255,255,255,.45);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.10);
+
+    padding:
+        32px
+        5vw
+        38px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:
+        rgba(255,255,255,.48);
+
+    font-size:11px;
+
+    letter-spacing:1px;
+}
+
+
+.footer-home{
+
+    color:#8ee171;
+
+    text-decoration:none;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .topbar{
+
+        flex-wrap:wrap;
+
+        padding:
+            11px
+            16px;
+    }
+
+
+    .header-left{
+
+        width:100%;
+    }
+
+
+    .nav{
+
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(
+                5,
+                1fr
+            );
+
+        gap:3px;
+
+        padding-top:7px;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,.10);
+    }
+
+
+    .nav a{
+
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+
+        text-align:center;
+
+        white-space:normal;
+
+        font-size:7.5px;
+
+        line-height:1.2;
+
+        padding:
+            6px
+            1px;
+    }
+
+
+    .nav a.active::after{
+
+        left:20%;
+        right:20%;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .logo-circle{
+
+        width:35px;
+        height:35px;
+
+        font-size:9px;
+    }
+
+
+    .brand-text strong{
+
+        font-size:14px;
+    }
+
+
+    .brand-text span{
+
+        display:none;
+    }
+
+
+    .back-home{
+
+        font-size:9px;
+    }
+
+
+    .hero{
+
+        padding:
+            65px
+            22px
+            40px;
+    }
+
+
+    .hero h1{
+
+        font-size:48px;
+    }
+
+
+    .intro{
+
+        font-size:17px;
+    }
+
+
+    .poem-wrap{
+
+        padding:
+            5px
+            15px
+            70px;
+    }
+
+
+    .poem-card{
+
+        padding:
+            55px
+            28px;
+    }
+
+
+    .poem{
+
+        font-size:18px;
+
+        line-height:1.75;
+    }
+
+
+    .highlight{
+
+        margin:
+            38px
+            -10px;
+
+        font-size:20px;
+    }
+
+
+    footer{
+
+        flex-direction:column;
+
+        gap:12px;
+
+        text-align:center;
+    }
+
+}
+
+
+@media(max-width:420px){
+
+    .nav a{
+
+        font-size:6.4px;
+    }
+
+
+    .hero h1{
+
+        font-size:42px;
+    }
+
+}
+
+
+/* =========================================================
+   GIẢM CHUYỂN ĐỘNG
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
 
-    <header class="topbar">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-        <div class="brand">
-            <strong>PVEP</strong>
-            <span>CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG</span>
-        </div>
+<header class="topbar">
 
-        <a class="back-home" href="../index.html">
+
+    <div class="header-left">
+
+
+        <a
+            class="back-home"
+            href="../index.html"
+        >
             ← TRANG CHÍNH
         </a>
 
-    </header>
+
+        <div class="brand">
 
 
-    <!-- =========================
-         MỞ ĐẦU
-    ========================== -->
-
-    <section class="hero">
-
-        <div class="number">
-            05 · ĐIỀU ĐỌNG LẠI
-        </div>
-
-        <h1>Điều đọng lại</h1>
-
-        <div class="green-line"></div>
-
-        <p class="intro">
-            Sau những buổi học, có những kiến thức sẽ trở thành
-            công cụ cho công việc. Nhưng cũng có những điều ở lại
-            lâu hơn — trong cách nhìn nghề, nhìn mình và nhìn những
-            người đang cùng đi trên một hành trình.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         BÀI THƠ
-    ========================== -->
-
-    <main class="poem-wrap">
-
-        <article class="poem-card">
-
-            <div class="poem-title">
-                MỘT HÀNH TRÌNH · NHỮNG ĐIỀU Ở LẠI
+            <div class="logo-circle">
+                PVEP
             </div>
 
-            <div class="poem">
 
-                <div class="stanza">
-                    Tưởng học vài chuyên đề<br>
-                    Ai ngờ học nhiều thế<br>
-                    Học chuyện làm chuyên môn<br>
-                    Học cách nhìn sự việc
-                </div>
+            <div class="brand-text">
 
-                <div class="stanza">
-                    Thầy kể chuyện dầu khí<br>
-                    Về vòng đời của mỏ<br>
-                    Từ tìm kiếm thăm dò<br>
-                    Đến thiết kế ngày mai
-                </div>
+                <strong>
+                    PVEP
+                </strong>
 
-                <div class="stanza">
-                    Thầy chỉ cho từng bước<br>
-                    Trong chuỗi dài giá trị<br>
-                    Để mỗi người nhìn thấy<br>
-                    Những kết nối quanh mình
-                </div>
-
-                <div class="stanza">
-                    Thầy nói về trữ lượng<br>
-                    Về những điều phía sau<br>
-                    Một phát hiện thành công<br>
-                    Là biết bao nỗ lực
-                </div>
-
-                <div class="stanza">
-                    Có những buổi học dài<br>
-                    Nhiều điều nghe rất khó<br>
-                    Đến khi vào công việc<br>
-                    Lại thấy mình tự tin
-                </div>
-
-                <div class="stanza">
-                    Thầy dạy làm cho đúng<br>
-                    Trước khi làm cho hay<br>
-                    Giữ tự trọng nghề nghiệp<br>
-                    Trong từng việc hằng ngày
-                </div>
-
-                <div class="stanza">
-                    Thầy không cho đáp án<br>
-                    Mà gợi những hướng đi<br>
-                    Làm nghề không chỉ giỏi<br>
-                    Mà còn phải đàng hoàng
-                </div>
-
-                <div class="stanza">
-                    Thầy nói về tiêu chuẩn<br>
-                    Của những người đi xa<br>
-                    Muốn bước ra thế giới<br>
-                    Phải chuẩn bị từ đầu
-                </div>
-
-                <div class="stanza">
-                    Bao điều rồi sẽ nhớ<br>
-                    Bao điều rồi phai mau
-                </div>
-
-                <div class="highlight">
-                    Câu hỏi còn vương mãi<br>
-                    “Giá trị mình ở đâu?”
-                </div>
-
-                <div class="stanza">
-                    Vẫn chung một mái nhà<br>
-                    Cùng một đường dầu khí<br>
-                    Vẫn mang theo câu hỏi<br>
-                    Thầy gửi giữa hành trình
-                </div>
-
-                <div class="ending">
-
-                    <p>
-                        Mỗi bài học khép lại<br>
-                        Một con đường mở ra<br>
-                        <strong>Xin cảm ơn người thầy<br>
-                        Đã tận lòng dẫn lối!</strong>
-                    </p>
-
-                    <div class="signature">
-                        NHÂN VIÊN TÀI NĂNG · PVEP · 2025 — 2026
-                    </div>
-
-                </div>
+                <span>
+                    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+                </span>
 
             </div>
 
-        </article>
 
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <div>
-            PVEP · CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
         </div>
 
-        <a class="footer-home" href="../index.html">
-            TRỞ VỀ TRANG CHÍNH ↑
+
+    </div>
+
+
+    <!-- MENU CHUẨN 01–05 -->
+
+    <nav class="nav">
+
+
+        <a href="../01_Gioi-thieu/">
+            01 GIỚI THIỆU
         </a>
 
-    </footer>
+
+        <a href="../02_Hanh-trinh/">
+            02 HÀNH TRÌNH
+        </a>
+
+
+        <a href="../02_Các-buổi-học/">
+            03 BUỔI HỌC
+        </a>
+
+
+        <a href="../Thu vien/">
+            04 THƯ VIỆN
+        </a>
+
+
+        <a
+            class="active"
+            href="./"
+        >
+            05 ĐIỀU ĐỌNG LẠI
+        </a>
+
+
+    </nav>
+
+
+</header>
+
+
+<!-- =====================================================
+     MỞ ĐẦU
+===================================================== -->
+
+<section class="hero">
+
+
+    <div class="number">
+
+        05 · ĐIỀU ĐỌNG LẠI
+
+    </div>
+
+
+    <h1>
+
+        Điều đọng lại
+
+    </h1>
+
+
+    <div class="green-line"></div>
+
+
+    <p class="intro">
+
+        Sau những buổi học, có những kiến thức sẽ trở thành
+        công cụ cho công việc. Nhưng cũng có những điều ở lại
+        lâu hơn — trong cách nhìn nghề, nhìn mình và nhìn những
+        người đang cùng đi trên một hành trình.
+
+    </p>
+
+
+</section>
+
+
+<!-- =====================================================
+     BÀI THƠ
+===================================================== -->
+
+<main class="poem-wrap">
+
+
+    <article class="poem-card">
+
+
+        <div class="poem-title">
+
+            MỘT HÀNH TRÌNH · NHỮNG ĐIỀU Ở LẠI
+
+        </div>
+
+
+        <div class="poem">
+
+
+            <div class="stanza">
+                Tưởng học vài chuyên đề<br>
+                Ai ngờ học nhiều thế<br>
+                Học chuyện làm chuyên môn<br>
+                Học cách nhìn sự việc
+            </div>
+
+
+            <div class="stanza">
+                Thầy kể chuyện dầu khí<br>
+                Về vòng đời của mỏ<br>
+                Từ tìm kiếm thăm dò<br>
+                Đến thiết kế ngày mai
+            </div>
+
+
+            <div class="stanza">
+                Thầy chỉ cho từng bước<br>
+                Trong chuỗi dài giá trị<br>
+                Để mỗi người nhìn thấy<br>
+                Những kết nối quanh mình
+            </div>
+
+
+            <div class="stanza">
+                Thầy nói về trữ lượng<br>
+                Về những điều phía sau<br>
+                Một phát hiện thành công<br>
+                Là biết bao nỗ lực
+            </div>
+
+
+            <div class="stanza">
+                Có những buổi học dài<br>
+                Nhiều điều nghe rất khó<br>
+                Đến khi vào công việc<br>
+                Lại thấy mình tự tin
+            </div>
+
+
+            <div class="stanza">
+                Thầy dạy làm cho đúng<br>
+                Trước khi làm cho hay<br>
+                Giữ tự trọng nghề nghiệp<br>
+                Trong từng việc hằng ngày
+            </div>
+
+
+            <div class="stanza">
+                Thầy không cho đáp án<br>
+                Mà gợi những hướng đi<br>
+                Làm nghề không chỉ giỏi<br>
+                Mà còn phải đàng hoàng
+            </div>
+
+
+            <div class="stanza">
+                Thầy nói về tiêu chuẩn<br>
+                Của những người đi xa<br>
+                Muốn bước ra thế giới<br>
+                Phải chuẩn bị từ đầu
+            </div>
+
+
+            <div class="stanza">
+                Bao điều rồi sẽ nhớ<br>
+                Bao điều rồi phai mau
+            </div>
+
+
+            <div class="highlight">
+
+                Câu hỏi còn vương mãi<br>
+
+                “Giá trị mình ở đâu?”
+
+            </div>
+
+
+            <div class="stanza">
+                Vẫn chung một mái nhà<br>
+                Cùng một đường dầu khí<br>
+                Vẫn mang theo câu hỏi<br>
+                Thầy gửi giữa hành trình
+            </div>
+
+
+            <div class="ending">
+
+
+                <p>
+
+                    Mỗi bài học khép lại<br>
+
+                    Một con đường mở ra<br>
+
+                    <strong>
+
+                        Xin cảm ơn người thầy<br>
+
+                        Đã tận lòng dẫn lối!
+
+                    </strong>
+
+                </p>
+
+
+                <div class="signature">
+
+                    NHÂN VIÊN TÀI NĂNG · PVEP · 2025 — 2026
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </article>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div>
+
+        PVEP · CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG
+
+    </div>
+
+
+    <a
+        class="footer-home"
+        href="../index.html"
+    >
+
+        TRỞ VỀ TRANG CHÍNH ↑
+
+    </a>
+
+
+</footer>
+
 
 </body>
+
 </html>
