@@ -57,42 +57,34 @@ body{
 
 
 /* =========================================================
-   HEADER TRÊN
+   HEADER
 ========================================================= */
 
 .topbar{
-
     width:100%;
     min-height:70px;
-
     padding:12px 5vw;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     gap:20px;
 
     background:rgba(2,24,39,.94);
 
-    border-bottom:
-        1px solid rgba(255,255,255,.10);
+    border-bottom:1px solid rgba(255,255,255,.10);
 
     position:relative;
     z-index:100;
 }
 
-
 .brand{
-
     display:flex;
     align-items:center;
     gap:12px;
 }
 
-
 .logo-circle{
-
     width:42px;
     height:42px;
 
@@ -109,18 +101,14 @@ body{
     font-weight:800;
 }
 
-
 .brand-text strong{
-
     display:block;
 
     font-size:17px;
     letter-spacing:.5px;
 }
 
-
 .brand-text span{
-
     display:block;
 
     margin-top:4px;
@@ -131,52 +119,40 @@ body{
     letter-spacing:.8px;
 }
 
-
 .home-button{
-
     display:inline-flex;
     align-items:center;
     justify-content:center;
 
     padding:10px 16px;
 
-    border:
-        1px solid rgba(255,255,255,.22);
-
+    border:1px solid rgba(255,255,255,.22);
     border-radius:30px;
 
     color:#fff;
-
     text-decoration:none;
 
     font-size:11px;
     font-weight:700;
-
     letter-spacing:.5px;
 
     transition:.25s ease;
 }
 
-
 .home-button:hover{
-
     background:var(--green);
-
     border-color:var(--green);
-
     color:#062238;
 }
 
 
 /* =========================================================
-   THANH MENU 5 MỤC
+   MENU 5 MỤC
 ========================================================= */
 
 .menu-bar{
-
     position:sticky;
     top:0;
-
     z-index:99;
 
     width:100%;
@@ -190,29 +166,21 @@ body{
 
     background:#063b50;
 
-    border-bottom:
-        1px solid rgba(255,255,255,.13);
+    border-bottom:1px solid rgba(255,255,255,.13);
 
-    box-shadow:
-        0 5px 20px rgba(0,0,0,.12);
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
 }
 
-
 .main-nav{
-
     width:min(1100px,100%);
 
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
+    grid-template-columns:repeat(5,1fr);
 
     align-items:stretch;
 }
 
-
 .main-nav a{
-
     position:relative;
 
     min-height:54px;
@@ -239,27 +207,17 @@ body{
         color .2s ease;
 }
 
-
 .main-nav a:hover{
-
     color:var(--green-light);
-
-    background:
-        rgba(255,255,255,.04);
+    background:rgba(255,255,255,.04);
 }
-
 
 .main-nav a.active{
-
     color:var(--green-light);
-
-    background:
-        rgba(98,201,71,.07);
+    background:rgba(98,201,71,.07);
 }
 
-
 .main-nav a.active::after{
-
     content:"";
 
     position:absolute;
@@ -270,15 +228,12 @@ body{
 
     height:3px;
 
-    border-radius:
-        3px 3px 0 0;
+    border-radius:3px 3px 0 0;
 
     background:var(--green);
 }
 
-
 .menu-number{
-
     margin-right:5px;
 
     color:var(--green);
@@ -292,7 +247,6 @@ body{
 ========================================================= */
 
 .intro{
-
     width:min(1180px,calc(100% - 40px));
 
     margin:auto;
@@ -302,37 +256,25 @@ body{
     text-align:center;
 }
 
-
 .kicker{
-
     margin-bottom:10px;
 
     color:var(--green-light);
 
     font-size:11px;
     font-weight:800;
-
     letter-spacing:2.4px;
 }
 
-
 .intro h1{
-
-    font-size:
-        clamp(
-            29px,
-            4vw,
-            48px
-        );
+    font-size:clamp(29px,4vw,48px);
 
     line-height:1.12;
 
     letter-spacing:-1px;
 }
 
-
 .intro p{
-
     max-width:720px;
 
     margin:13px auto 0;
@@ -340,7 +282,6 @@ body{
     color:var(--muted);
 
     font-size:14px;
-
     line-height:1.65;
 }
 
@@ -350,25 +291,18 @@ body{
 ========================================================= */
 
 .viewer-section{
-
     width:100%;
 
-    min-height:
-        calc(100vh - 250px);
+    min-height:calc(100vh - 250px);
 
-    padding:
-        14px
-        18px
-        32px;
+    padding:14px 18px 32px;
 
     display:flex;
     flex-direction:column;
     align-items:center;
 }
 
-
 .book-stage{
-
     position:relative;
 
     width:min(1180px,96vw);
@@ -384,9 +318,7 @@ body{
     perspective:2200px;
 }
 
-
 .book-stage::before{
-
     content:"";
 
     position:absolute;
@@ -408,9 +340,7 @@ body{
     filter:blur(22px);
 }
 
-
 #book{
-
     width:100%;
     height:100%;
 
@@ -425,7 +355,6 @@ body{
 ========================================================= */
 
 .page{
-
     background:#fff;
 
     overflow:hidden;
@@ -440,9 +369,7 @@ body{
     position:relative;
 }
 
-
 .page::after{
-
     content:"";
 
     position:absolute;
@@ -454,9 +381,7 @@ body{
         inset 0 0 12px rgba(0,0,0,.055);
 }
 
-
 .page canvas{
-
     display:block;
 
     width:100% !important;
@@ -473,7 +398,6 @@ body{
 ========================================================= */
 
 .loading{
-
     position:absolute;
     inset:0;
 
@@ -500,48 +424,35 @@ body{
         visibility .4s ease;
 }
 
-
 .loading.hide{
-
     opacity:0;
     visibility:hidden;
 }
 
-
 .spinner{
-
     width:44px;
     height:44px;
 
-    border:
-        4px solid rgba(255,255,255,.16);
+    border:4px solid rgba(255,255,255,.16);
 
     border-top-color:var(--green);
 
     border-radius:50%;
 
-    animation:
-        spin .8s linear infinite;
+    animation:spin .8s linear infinite;
 }
 
-
 @keyframes spin{
-
     to{
         transform:rotate(360deg);
     }
-
 }
 
-
 .loading strong{
-
     font-size:14px;
 }
 
-
 .loading span{
-
     color:rgba(255,255,255,.63);
 
     font-size:11px;
@@ -553,7 +464,6 @@ body{
 ========================================================= */
 
 .controls{
-
     width:min(820px,94vw);
 
     margin-top:17px;
@@ -568,9 +478,7 @@ body{
     z-index:10;
 }
 
-
 .control-btn{
-
     border:0;
 
     min-width:48px;
@@ -580,11 +488,9 @@ body{
 
     border-radius:30px;
 
-    background:
-        rgba(255,255,255,.10);
+    background:rgba(255,255,255,.10);
 
-    border:
-        1px solid rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.15);
 
     color:#fff;
 
@@ -598,21 +504,15 @@ body{
     transition:.22s ease;
 }
 
-
 .control-btn:hover{
-
     transform:translateY(-2px);
 
-    background:
-        rgba(98,201,71,.20);
+    background:rgba(98,201,71,.20);
 
-    border-color:
-        rgba(142,225,113,.55);
+    border-color:rgba(142,225,113,.55);
 }
 
-
 .page-info{
-
     min-width:130px;
 
     text-align:center;
@@ -621,19 +521,14 @@ body{
 
     font-size:12px;
 
-    font-variant-numeric:
-        tabular-nums;
+    font-variant-numeric:tabular-nums;
 }
 
-
 .page-info strong{
-
     color:var(--green-light);
 }
 
-
 .help{
-
     margin-top:12px;
 
     text-align:center;
@@ -641,7 +536,6 @@ body{
     color:rgba(255,255,255,.43);
 
     font-size:10px;
-
     letter-spacing:.3px;
 }
 
@@ -651,7 +545,6 @@ body{
 ========================================================= */
 
 .error-box{
-
     display:none;
 
     width:min(650px,90vw);
@@ -662,20 +555,16 @@ body{
 
     border-radius:15px;
 
-    background:
-        rgba(180,30,30,.18);
+    background:rgba(180,30,30,.18);
 
-    border:
-        1px solid rgba(255,120,120,.35);
+    border:1px solid rgba(255,120,120,.35);
 
     text-align:center;
 
     line-height:1.7;
 }
 
-
 .error-box.show{
-
     display:block;
 }
 
@@ -687,136 +576,82 @@ body{
 @media(max-width:700px){
 
     .topbar{
-
         min-height:64px;
-
-        padding:
-            10px
-            15px;
+        padding:10px 15px;
     }
 
-
     .logo-circle{
-
         width:35px;
         height:35px;
-
         font-size:9px;
     }
 
-
     .brand-text strong{
-
         font-size:14px;
     }
 
-
     .brand-text span{
-
         display:none;
     }
 
-
     .home-button{
-
-        padding:
-            8px
-            10px;
-
+        padding:8px 10px;
         font-size:9px;
     }
 
-
     .menu-bar{
-
         padding:0 3px;
-
         min-height:52px;
     }
-
 
     .main-nav{
-
-        grid-template-columns:
-            repeat(5,1fr);
+        grid-template-columns:repeat(5,1fr);
     }
 
-
     .main-nav a{
-
         min-height:52px;
 
-        padding:
-            5px
-            2px;
+        padding:5px 2px;
 
         flex-direction:column;
 
         gap:2px;
 
-        font-size:
-            clamp(
-                6.4px,
-                2vw,
-                8.5px
-            );
+        font-size:clamp(6.4px,2vw,8.5px);
 
         line-height:1.15;
     }
 
-
     .menu-number{
-
         margin-right:0;
-
         font-size:12px;
     }
 
-
     .main-nav a.active::after{
-
         left:15%;
         right:15%;
     }
 
-
     .intro{
+        width:calc(100% - 30px);
 
-        width:
-            calc(100% - 30px);
-
-        padding:
-            24px
-            0
-            10px;
+        padding:24px 0 10px;
     }
 
-
     .intro h1{
-
         font-size:26px;
     }
 
-
     .intro p{
-
         font-size:12px;
-
         line-height:1.55;
     }
 
-
     .viewer-section{
-
-        padding:
-            4px
-            6px
-            25px;
+        padding:4px 6px 25px;
     }
 
-
     .book-stage{
-
         width:96vw;
 
         height:min(70vh,680px);
@@ -824,19 +659,14 @@ body{
         min-height:430px;
     }
 
-
     .controls{
-
         gap:7px;
 
         margin-top:9px;
     }
 
-
     .control-btn{
-
         min-width:43px;
-
         height:39px;
 
         padding:0 12px;
@@ -844,17 +674,13 @@ body{
         font-size:11px;
     }
 
-
     .page-info{
-
         min-width:100px;
 
         font-size:11px;
     }
 
-
     .help{
-
         font-size:9px;
 
         padding:0 18px;
@@ -866,27 +692,20 @@ body{
 @media(max-width:420px){
 
     .intro h1{
-
         font-size:23px;
     }
 
-
     .book-stage{
-
         height:67vh;
 
         min-height:400px;
     }
 
-
     .main-nav a{
-
         font-size:6px;
     }
 
-
     .menu-number{
-
         font-size:11px;
     }
 
@@ -894,7 +713,6 @@ body{
 
 
 :fullscreen{
-
     background:#021a2b;
 }
 
@@ -912,14 +730,11 @@ body{
 
 <header class="topbar">
 
-
     <div class="brand">
-
 
         <div class="logo-circle">
             PVEP
         </div>
-
 
         <div class="brand-text">
 
@@ -933,30 +748,29 @@ body{
 
         </div>
 
-
     </div>
 
 
     <a
         class="home-button"
-        href="../index.html"
+        href="../"
     >
         ← TRANG CHÍNH
     </a>
-
 
 </header>
 
 
 <!-- =====================================================
-     THANH MENU 5 MỤC
+     MENU CHUẨN
 ===================================================== -->
 
 <div class="menu-bar">
 
-
     <nav class="main-nav">
 
+
+        <!-- 01 GIỚI THIỆU -->
 
         <a href="../01-gioi-thieu/">
 
@@ -971,6 +785,8 @@ body{
         </a>
 
 
+        <!-- 02 HÀNH TRÌNH -->
+
         <a href="../02-hanh-trinh/">
 
             <span class="menu-number">
@@ -983,6 +799,8 @@ body{
 
         </a>
 
+
+        <!-- 03 CÁC BUỔI HỌC -->
 
         <a href="../03-cac-buoi-hoc/">
 
@@ -997,6 +815,8 @@ body{
         </a>
 
 
+        <!-- 04 ĐIỀU ĐỌNG LẠI -->
+
         <a href="../04-dieu-dong-lai/">
 
             <span class="menu-number">
@@ -1009,6 +829,8 @@ body{
 
         </a>
 
+
+        <!-- 05 THƯ VIỆN -->
 
         <a
             class="active"
@@ -1028,7 +850,6 @@ body{
 
     </nav>
 
-
 </div>
 
 
@@ -1038,16 +859,13 @@ body{
 
 <section class="intro">
 
-
     <div class="kicker">
         05 · THƯ VIỆN
     </div>
 
-
     <h1>
         Sổ tay Quản lý dự án dầu khí
     </h1>
-
 
     <p>
 
@@ -1056,7 +874,6 @@ body{
         sang trái hoặc sang phải như một quyển sách thật.
 
     </p>
-
 
 </section>
 
@@ -1067,49 +884,38 @@ body{
 
 <section class="viewer-section">
 
-
     <div
         class="book-stage"
         id="bookStage"
     >
-
 
         <div
             class="loading"
             id="loading"
         >
 
-
             <div class="spinner"></div>
-
 
             <strong>
                 Đang mở sách...
             </strong>
 
-
             <span id="loadingText">
                 Đang chuẩn bị các trang
             </span>
-
 
         </div>
 
 
         <div id="book"></div>
 
-
     </div>
-
-
-    <!-- CONTROLS -->
 
 
     <div
         class="controls"
         id="controls"
     >
-
 
         <button
             class="control-btn"
@@ -1157,7 +963,6 @@ body{
             ⛶
         </button>
 
-
     </div>
 
 
@@ -1189,7 +994,6 @@ body{
         </strong>.
 
     </div>
-
 
 </section>
 
