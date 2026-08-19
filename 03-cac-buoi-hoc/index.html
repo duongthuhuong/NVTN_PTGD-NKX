@@ -1,807 +1,1078 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Các buổi học | Chương trình Nhân viên Tài năng PVEP</title>
+<title>Các buổi học | Chương trình Nhân viên Tài năng PVEP</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+
+/* =========================================================
+   01. HỆ MÀU - ĐỒNG BỘ TRANG CHÍNH
+========================================================= */
+
+:root{
+    --pvep-green:#62c947;
+    --pvep-green-light:#8ee171;
+    --navy:#05283f;
+    --navy-deep:#031a2b;
+    --white:#ffffff;
+}
+
+/* =========================================================
+   02. RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f9fbf8 55%,
+            #ffffff 100%
+        );
+
+    color:var(--navy);
+}
+
+/* =========================================================
+   03. MENU
+========================================================= */
+
+.top-nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    width:100%;
+
+    background:var(--navy-deep);
+
+    box-shadow:
+        0 5px 20px rgba(3,26,43,.16);
+}
+
+.nav-inner{
+    max-width:1380px;
+    min-height:70px;
+
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    align-items:center;
+}
+
+.nav-link{
+    position:relative;
+
+    padding:25px 10px 21px;
+
+    text-align:center;
+    text-decoration:none;
+
+    color:rgba(255,255,255,.88);
+
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.4px;
+
+    white-space:nowrap;
+
+    transition:.25s ease;
+}
+
+.nav-link span{
+    margin-right:7px;
+
+    color:var(--pvep-green);
+
+    font-size:15px;
+    font-weight:800;
+}
+
+.nav-link:hover{
+    color:white;
+}
+
+.nav-link.active{
+    color:white;
+}
+
+.nav-link.active::after{
+    content:"";
+
+    position:absolute;
+
+    left:24%;
+    right:24%;
+    bottom:0;
+
+    height:3px;
+
+    border-radius:5px 5px 0 0;
+
+    background:var(--pvep-green);
+}
+
+/* =========================================================
+   04. PAGE
+========================================================= */
+
+.page{
+    width:min(1160px,calc(100% - 42px));
+
+    margin:38px auto 65px;
+}
+
+/* =========================================================
+   05. PHẦN MỞ - ĐÃ THU NHỎ
+========================================================= */
+
+.page-head{
+    max-width:980px;
+
+    margin-bottom:28px;
+}
+
+.eyebrow{
+    margin-bottom:8px;
+
+    color:var(--pvep-green);
+
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+}
+
+.page-title{
+    max-width:830px;
+
+    margin-bottom:13px;
+
+    color:var(--navy);
+
+    /* TIÊU ĐỀ ĐẦU NHỎ HƠN */
+    font-size:clamp(28px,3vw,38px);
+    line-height:1.16;
+
+    font-weight:750;
+    letter-spacing:-.5px;
+}
+
+.page-intro{
+    max-width:920px;
+
+    color:var(--navy);
+
+    font-size:16px;
+    line-height:1.7;
+
+    opacity:.82;
+}
+
+/* =========================================================
+   06. DÒNG HÀNH TRÌNH
+========================================================= */
+
+.journey-line{
+    margin-top:20px;
+
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    color:var(--navy);
+
+    font-size:12.5px;
+    font-weight:600;
+}
+
+.journey-line strong{
+    color:#319b36;
+    font-weight:800;
+}
+
+.journey-dot{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--pvep-green);
+}
+
+/* =========================================================
+   07. GRID
+========================================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+}
+
+/* =========================================================
+   08. CARD
+========================================================= */
+
+.card{
+    position:relative;
+
+    min-height:270px;
+
+    padding:29px 31px 24px;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    color:inherit;
+
+    background:white;
+
+    border:
+        1px solid rgba(5,40,63,.09);
+
+    border-radius:22px;
+
+    box-shadow:
+        0 10px 32px rgba(5,40,63,.07);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    top:-62px;
+    right:-50px;
+
+    border-radius:50%;
+
+    background:
+        rgba(98,201,71,.08);
+}
+
+.card:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(98,201,71,.40);
+
+    box-shadow:
+        0 16px 38px rgba(5,40,63,.12);
+}
+
+/* =========================================================
+   09. NỘI DUNG CARD
+========================================================= */
+
+.session{
+    margin-bottom:13px;
+
+    color:#319b36;
+
+    font-size:13px;
+    font-weight:800;
+
+    letter-spacing:1.3px;
+}
+
+.card h2{
+    margin-bottom:12px;
+
+    color:var(--navy);
+
+    font-size:25px;
+    line-height:1.18;
+
+    font-weight:750;
+
+    letter-spacing:-.4px;
+}
+
+.card p{
+    max-width:97%;
+
+    color:var(--navy);
+
+    font-size:15px;
+    line-height:1.65;
+
+    opacity:.76;
+}
+
+.divider{
+    height:1px;
+
+    margin:auto 0 17px;
+
+    background:
+        rgba(5,40,63,.10);
+}
+
+.card-bottom{
+    display:flex;
+
+    align-items:flex-end;
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:7px;
+}
+
+.tag{
+    padding:6px 11px;
+
+    border-radius:999px;
+
+    color:#277d30;
+
+    background:
+        rgba(98,201,71,.10);
+
+    font-size:11px;
+    font-weight:700;
+}
+
+.open{
+    flex-shrink:0;
+
+    color:#319b36;
+
+    font-size:11px;
+    font-weight:800;
+
+    white-space:nowrap;
+
+    transition:.2s ease;
+}
+
+.card:hover .open{
+    transform:translateX(4px);
+}
+
+/* =========================================================
+   10. BUỔI 05
+========================================================= */
+
+.card.featured{
+    grid-column:1 / -1;
+
+    min-height:235px;
+
+    background:
+        radial-gradient(
+            circle at 88% 10%,
+            rgba(142,225,113,.18),
+            transparent 28%
+        ),
+        linear-gradient(
+            115deg,
+            var(--navy-deep) 0%,
+            var(--navy) 58%,
+            #07584f 100%
+        );
+
+    border:none;
+
+    box-shadow:
+        0 15px 38px rgba(3,26,43,.18);
+}
+
+.card.featured .session{
+    color:var(--pvep-green-light);
+}
+
+.card.featured h2{
+    color:white;
+
+    font-size:27px;
+}
+
+.card.featured p{
+    max-width:900px;
+
+    color:white;
+
+    opacity:.85;
+}
+
+.card.featured .divider{
+    background:
+        rgba(255,255,255,.16);
+}
+
+.card.featured .tag{
+    color:white;
+
+    background:
+        rgba(255,255,255,.10);
+}
+
+.card.featured .open{
+    color:var(--pvep-green-light);
+}
+
+/* =========================================================
+   11. TO BE CONTINUED
+========================================================= */
+
+.continue-box{
+    min-height:250px;
+
+    margin-top:30px;
+
+    padding:42px 30px 32px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:white;
+
+    border:
+        1px solid rgba(5,40,63,.08);
+
+    border-radius:22px;
+
+    box-shadow:
+        0 9px 30px rgba(5,40,63,.05);
+}
+
+.continue-label{
+    margin-bottom:10px;
+
+    color:var(--pvep-green);
+
+    font-size:14px;
+    font-weight:800;
+
+    letter-spacing:2.8px;
+
+    text-transform:uppercase;
+}
+
+/* CÂU NHẤN CHÍNH Ở CUỐI */
+
+.continue-title{
+    color:var(--navy);
+
+    font-size:clamp(38px,4.5vw,54px);
+    line-height:1.12;
+
+    font-weight:800;
+    letter-spacing:-.7px;
+}
+
+/* =========================================================
+   12. DẤU CHẤM ĐỘNG
+========================================================= */
+
+.dots{
+    height:64px;
+    min-width:120px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:var(--pvep-green);
+
+    font-size:48px;
+    line-height:1;
+
+    font-weight:800;
+
+    letter-spacing:7px;
+}
+
+.dots::after{
+    content:".";
+    animation:dotsAnimation 2.4s infinite;
+}
+
+@keyframes dotsAnimation{
+
+    0%,
+    25%{
+        content:".";
     }
 
-    html {
-      scroll-behavior: smooth;
+    26%,
+    50%{
+        content:"..";
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 8% 8%, rgba(129, 183, 64, 0.10), transparent 24%),
-        radial-gradient(circle at 92% 84%, rgba(0, 109, 119, 0.10), transparent 26%),
-        #f4f7f3;
-      color: #14242a;
-      min-height: 100vh;
-      line-height: 1.65;
+    51%,
+    100%{
+        content:"...";
+    }
+}
+
+/* =========================================================
+   13. CÂU KẾT
+========================================================= */
+
+.closing{
+    margin-top:15px;
+
+    padding:28px 25px 12px;
+
+    text-align:center;
+}
+
+.closing-line{
+    width:48px;
+    height:3px;
+
+    margin:0 auto 18px;
+
+    border-radius:20px;
+
+    background:var(--pvep-green);
+}
+
+.closing p{
+    max-width:900px;
+
+    margin:auto;
+
+    color:var(--navy);
+
+    font-size:17px;
+    line-height:1.7;
+
+    font-weight:600;
+}
+
+/* =========================================================
+   14. MOBILE
+========================================================= */
+
+@media(max-width:860px){
+
+    .nav-inner{
+        display:flex;
+
+        min-height:60px;
+
+        overflow-x:auto;
+
+        scrollbar-width:none;
     }
 
-    /* =========================
-       MENU
-    ========================= */
-
-    .top-nav {
-      width: 100%;
-      background: #07151d;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.10);
+    .nav-inner::-webkit-scrollbar{
+        display:none;
     }
 
-    .nav-inner {
-      max-width: 1380px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: center;
-      min-height: 72px;
+    .nav-link{
+        min-width:max-content;
+
+        padding:20px 21px 17px;
+
+        font-size:12px;
     }
 
-    .nav-link {
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.70);
-      text-align: center;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-      padding: 26px 10px 22px;
-      position: relative;
-      transition: 0.25s ease;
-      white-space: nowrap;
+    .page{
+        width:min(100% - 26px,720px);
+
+        margin-top:28px;
     }
 
-    .nav-link span {
-      color: #70a936;
-      margin-right: 6px;
-      font-weight: 800;
+    .page-title{
+        font-size:31px;
     }
 
-    .nav-link:hover {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.025);
+    .page-intro{
+        font-size:15px;
     }
 
-    .nav-link.active {
-      color: #70a936;
+    .cards{
+        grid-template-columns:1fr;
+
+        gap:17px;
     }
 
-    .nav-link.active::after {
-      content: "";
-      position: absolute;
-      left: 22%;
-      right: 22%;
-      bottom: 0;
-      height: 3px;
-      border-radius: 10px 10px 0 0;
-      background: linear-gradient(90deg, #70a936, #00868c);
+    .card,
+    .card.featured{
+        grid-column:auto;
+
+        min-height:auto;
+
+        padding:25px 23px 22px;
+
+        border-radius:20px;
     }
 
-    /* =========================
-       PAGE
-    ========================= */
-
-    .page {
-      width: min(1180px, calc(100% - 40px));
-      margin: 42px auto 70px;
+    .card h2,
+    .card.featured h2{
+        font-size:23px;
     }
 
-    /* =========================
-       PHẦN MỞ - ĐÃ THU NHỎ
-    ========================= */
+    .card p,
+    .card.featured p{
+        max-width:100%;
 
-    .page-head {
-      margin-bottom: 30px;
+        font-size:14.5px;
     }
 
-    .eyebrow {
-      color: #08766f;
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 9px;
+    .divider{
+        margin-top:25px;
     }
 
-    .page-title {
-      max-width: 900px;
-      font-size: clamp(32px, 4vw, 46px);
-      line-height: 1.12;
-      letter-spacing: -1.2px;
-      font-weight: 800;
-      color: #10242a;
-      margin-bottom: 14px;
+    .continue-box{
+        min-height:220px;
+
+        padding:35px 22px 29px;
     }
 
-    .page-intro {
-      max-width: 900px;
-      font-size: 16px;
-      color: #59686c;
+    .continue-title{
+        font-size:38px;
     }
 
-    .journey-line {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 22px;
-      flex-wrap: wrap;
-      color: #537063;
-      font-size: 13px;
-      font-weight: 700;
+    .dots{
+        font-size:42px;
     }
 
-    .journey-line strong {
-      color: #08766f;
+    .closing p{
+        font-size:16px;
+    }
+}
+
+/* =========================================================
+   15. MOBILE NHỎ
+========================================================= */
+
+@media(max-width:520px){
+
+    .page{
+        width:calc(100% - 20px);
     }
 
-    .journey-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #7aaa3d;
+    .page-head{
+        margin-bottom:24px;
     }
 
-    /* =========================
-       CARDS
-    ========================= */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 26px;
+    .eyebrow{
+        font-size:11px;
     }
 
-    .card {
-      min-height: 290px;
-      background:
-        radial-gradient(circle at 97% 4%, rgba(123, 169, 61, 0.14), transparent 25%),
-        rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(12, 87, 82, 0.10);
-      border-radius: 28px;
-      padding: 31px 34px 25px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 14px 45px rgba(19, 58, 58, 0.06);
-      transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        border-color 0.28s ease;
+    .page-title{
+        font-size:28px;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      right: -50px;
-      top: -55px;
-      border-radius: 50%;
-      background: rgba(94, 148, 47, 0.055);
+    .page-intro{
+        font-size:14.5px;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 54px rgba(19, 58, 58, 0.12);
-      border-color: rgba(12, 119, 108, 0.20);
+    .journey-line{
+        display:none;
     }
 
-    .session {
-      color: #157848;
-      font-weight: 800;
-      font-size: 14px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 17px;
+    .card h2,
+    .card.featured h2{
+        font-size:21px;
     }
 
-    .card h2 {
-      font-size: 28px;
-      line-height: 1.17;
-      letter-spacing: -0.7px;
-      margin-bottom: 14px;
-      color: #11252c;
+    .card-bottom{
+        flex-direction:column;
+
+        align-items:flex-start;
     }
 
-    .card p {
-      font-size: 15.5px;
-      color: #5a676b;
-      max-width: 96%;
+    .continue-label{
+        font-size:12px;
     }
 
-    .divider {
-      height: 1px;
-      background: rgba(35, 84, 71, 0.10);
-      margin: auto 0 18px;
+    .continue-title{
+        font-size:34px;
     }
 
-    .card-bottom {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
+    .dots{
+        height:58px;
+
+        font-size:40px;
     }
 
-    .tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+    .closing p{
+        font-size:15.5px;
     }
+}
 
-    .tag {
-      font-size: 11px;
-      font-weight: 700;
-      color: #486358;
-      background: rgba(109, 145, 66, 0.10);
-      padding: 7px 12px;
-      border-radius: 999px;
-    }
-
-    .open {
-      font-size: 12px;
-      font-weight: 800;
-      color: #408029;
-      white-space: nowrap;
-      transition: 0.2s ease;
-    }
-
-    .card:hover .open {
-      transform: translateX(4px);
-    }
-
-    /* =========================
-       BUỔI 05
-    ========================= */
-
-    .card.featured {
-      grid-column: 1 / -1;
-      min-height: 270px;
-      background:
-        radial-gradient(circle at 85% 10%, rgba(111, 186, 80, 0.20), transparent 25%),
-        linear-gradient(115deg, #07354d 0%, #006b70 52%, #048269 100%);
-      border: none;
-      box-shadow: 0 20px 54px rgba(0, 88, 91, 0.18);
-    }
-
-    .card.featured .session {
-      color: #a9d75b;
-    }
-
-    .card.featured h2 {
-      color: #ffffff;
-      font-size: 31px;
-    }
-
-    .card.featured p {
-      color: rgba(255, 255, 255, 0.84);
-      max-width: 900px;
-    }
-
-    .card.featured .divider {
-      background: rgba(255,255,255,0.14);
-    }
-
-    .card.featured .tag {
-      color: rgba(255,255,255,0.90);
-      background: rgba(255,255,255,0.10);
-    }
-
-    .card.featured .open {
-      color: #c6ef78;
-    }
-
-    /* =========================
-       TO BE CONTINUED
-    ========================= */
-
-    .continue-box {
-      margin-top: 34px;
-      padding: 48px 34px 44px;
-      min-height: 230px;
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at 90% 15%, rgba(126, 173, 66, 0.13), transparent 28%),
-        rgba(255, 255, 255, 0.68);
-      border: 1px solid rgba(12, 87, 82, 0.09);
-      text-align: center;
-    }
-
-    .continue-label {
-      color: #6e9d38;
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      margin-bottom: 10px;
-    }
-
-    .continue-box h3 {
-      color: #123a3e;
-      font-size: 30px;
-      line-height: 1.25;
-      margin-bottom: 5px;
-    }
-
-    /* =========================
-       DẤU CHẤM ĐỘNG
-       . → .. → ...
-    ========================= */
-
-    .dots {
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #08766f;
-      font-size: 38px;
-      font-weight: 800;
-      letter-spacing: 5px;
-    }
-
-    .dots::after {
-      content: ".";
-      animation: dotAnimation 2.4s infinite;
-    }
-
-    @keyframes dotAnimation {
-      0%, 24% {
-        content: ".";
-      }
-
-      25%, 49% {
-        content: "..";
-      }
-
-      50%, 100% {
-        content: "...";
-      }
-    }
-
-    /* =========================
-       CÂU KẾT
-    ========================= */
-
-    .closing {
-      margin: 26px 0 0;
-      padding: 30px 28px;
-      text-align: center;
-    }
-
-    .closing-line {
-      width: 48px;
-      height: 3px;
-      margin: 0 auto 20px;
-      border-radius: 20px;
-      background: linear-gradient(90deg, #70a936, #00868c);
-    }
-
-    .closing p {
-      max-width: 920px;
-      margin: auto;
-      font-size: 18px;
-      line-height: 1.75;
-      color: #536367;
-    }
-
-    .closing strong {
-      color: #08766f;
-      font-weight: 800;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 860px) {
-
-      .nav-inner {
-        display: flex;
-        overflow-x: auto;
-        min-height: 60px;
-        scrollbar-width: none;
-      }
-
-      .nav-inner::-webkit-scrollbar {
-        display: none;
-      }
-
-      .nav-link {
-        min-width: max-content;
-        padding: 20px 21px 17px;
-        font-size: 12px;
-      }
-
-      .nav-link.active::after {
-        left: 18px;
-        right: 18px;
-      }
-
-      .page {
-        width: min(100% - 26px, 720px);
-        margin-top: 30px;
-      }
-
-      .page-title {
-        font-size: 36px;
-        letter-spacing: -1px;
-      }
-
-      .page-intro {
-        font-size: 15px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-      .card,
-      .card.featured {
-        grid-column: auto;
-        min-height: auto;
-        padding: 26px 23px 22px;
-        border-radius: 22px;
-      }
-
-      .card h2,
-      .card.featured h2 {
-        font-size: 24px;
-      }
-
-      .card p,
-      .card.featured p {
-        max-width: 100%;
-        font-size: 14.5px;
-      }
-
-      .divider {
-        margin-top: 27px;
-      }
-
-      .continue-box {
-        padding: 38px 22px 34px;
-        min-height: 200px;
-      }
-
-      .continue-box h3 {
-        font-size: 27px;
-      }
-
-      .closing {
-        padding: 28px 15px;
-      }
-    }
-
-    @media (max-width: 520px) {
-
-      .page {
-        width: calc(100% - 20px);
-      }
-
-      .page-title {
-        font-size: 32px;
-      }
-
-      .page-intro {
-        font-size: 14.5px;
-      }
-
-      .journey-line {
-        display: none;
-      }
-
-      .card {
-        border-radius: 20px;
-      }
-
-      .card h2,
-      .card.featured h2 {
-        font-size: 22px;
-      }
-
-      .card-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .open {
-        margin-top: 3px;
-      }
-
-      .continue-box {
-        margin-top: 22px;
-        border-radius: 21px;
-      }
-
-      .continue-label {
-        font-size: 12px;
-      }
-
-      .continue-box h3 {
-        font-size: 25px;
-      }
-
-      .dots {
-        font-size: 34px;
-      }
-
-      .closing p {
-        font-size: 16px;
-      }
-    }
-  </style>
+</style>
 </head>
-
 
 <body>
 
-  <!-- MENU -->
-  <nav class="top-nav">
-    <div class="nav-inner">
+<!-- =========================================================
+     MENU
+========================================================= -->
 
-      <a class="nav-link" href="../01-gioi-thieu/">
-        <span>01</span> GIỚI THIỆU
-      </a>
+<nav class="top-nav">
 
-      <a class="nav-link" href="../02-hanh-trinh/">
-        <span>02</span> HÀNH TRÌNH
-      </a>
+<div class="nav-inner">
 
-      <a class="nav-link active" href="./">
-        <span>03</span> CÁC BUỔI HỌC
-      </a>
+    <a class="nav-link" href="../01-gioi-thieu/">
+        <span>01</span>
+        GIỚI THIỆU
+    </a>
 
-      <a class="nav-link" href="../04-dieu-dong-lai/">
-        <span>04</span> ĐIỀU ĐỌNG LẠI
-      </a>
+    <a class="nav-link" href="../02-hanh-trinh/">
+        <span>02</span>
+        HÀNH TRÌNH
+    </a>
 
-      <a class="nav-link" href="../05-thu-vien/">
-        <span>05</span> THƯ VIỆN
-      </a>
+    <a class="nav-link active" href="./">
+        <span>03</span>
+        CÁC BUỔI HỌC
+    </a>
+
+    <a class="nav-link" href="../04-dieu-dong-lai/">
+        <span>04</span>
+        ĐIỀU ĐỌNG LẠI
+    </a>
+
+    <a class="nav-link" href="../05-thu-vien/">
+        <span>05</span>
+        THƯ VIỆN
+    </a>
+
+</div>
+
+</nav>
+
+<main class="page">
+
+<!-- =========================================================
+     PHẦN MỞ
+========================================================= -->
+
+<section class="page-head">
+
+    <div class="eyebrow">
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+    </div>
+
+    <h1 class="page-title">
+        Những chặng đầu của một hành trình
+    </h1>
+
+    <p class="page-intro">
+        Mỗi buổi học là một chặng tiếp nối:
+        từ định hướng phát triển cá nhân,
+        mở rộng góc nhìn về khoa học công nghệ và chuyển đổi số,
+        đưa kiến thức vào thực hành,
+        chuẩn bị cho môi trường làm việc quốc tế
+        và từng bước biến những ý tưởng thành giải pháp thực tế.
+    </p>
+
+    <div class="journey-line">
+
+        <strong>Phát triển cá nhân</strong>
+
+        <span class="journey-dot"></span>
+
+        <span>KHCN &amp; Chuyển đổi số</span>
+
+        <span class="journey-dot"></span>
+
+        <span>Học đi đôi với hành</span>
+
+        <span class="journey-dot"></span>
+
+        <span>Nhìn xa hơn</span>
+
+        <span class="journey-dot"></span>
+
+        <span>Ý tưởng thành giải pháp</span>
 
     </div>
-  </nav>
 
+</section>
 
-  <main class="page">
+<!-- =========================================================
+     CÁC BUỔI HỌC
+========================================================= -->
 
-    <!-- PHẦN MỞ -->
-    <section class="page-head">
+<section class="cards">
 
-      <div class="eyebrow">
-        Chương trình Nhân viên Tài năng PVEP
-      </div>
+<!-- BUỔI 01 -->
 
-      <h1 class="page-title">
-        Những chặng đầu của một hành trình
-      </h1>
+<a class="card" href="buoi-01/">
 
-      <p class="page-intro">
-        Mỗi buổi học là một chặng tiếp nối:
-        từ định hướng phát triển cá nhân, mở rộng góc nhìn về khoa học công nghệ
-        và chuyển đổi số, đưa kiến thức vào thực hành, chuẩn bị cho môi trường
-        làm việc quốc tế và từng bước biến những ý tưởng thành giải pháp thực tế.
-      </p>
+    <div class="session">
+        BUỔI 01
+    </div>
 
-      <div class="journey-line">
-        <strong>Phát triển cá nhân</strong>
-        <span class="journey-dot"></span>
-        <span>KHCN &amp; Chuyển đổi số</span>
-        <span class="journey-dot"></span>
-        <span>Học đi đôi với hành</span>
-        <span class="journey-dot"></span>
-        <span>Nhìn xa hơn</span>
-        <span class="journey-dot"></span>
-        <span>Ý tưởng thành giải pháp</span>
-      </div>
+    <h2>
+        Bắt đầu từ chính mình
+    </h2>
 
-    </section>
+    <p>
+        Xây dựng Kế hoạch phát triển cá nhân – IDP,
+        nhìn lại năng lực,
+        xác định mục tiêu nghề nghiệp
+        và con đường phát triển của mỗi học viên.
+    </p>
 
+    <div class="divider"></div>
 
-    <!-- CÁC BUỔI HỌC -->
-    <section class="cards">
+    <div class="card-bottom">
 
-      <!-- BUỔI 01 -->
-      <a class="card" href="buoi-01/">
-
-        <div class="session">BUỔI 01</div>
-
-        <h2>Bắt đầu từ chính mình</h2>
-
-        <p>
-          Xây dựng Kế hoạch phát triển cá nhân – IDP,
-          nhìn lại năng lực, xác định mục tiêu nghề nghiệp
-          và con đường phát triển của mỗi học viên.
-        </p>
-
-        <div class="divider"></div>
-
-        <div class="card-bottom">
-
-          <div class="tags">
+        <div class="tags">
             <span class="tag">IDP</span>
             <span class="tag">Phát triển cá nhân</span>
-          </div>
-
-          <div class="open">MỞ →</div>
-
         </div>
 
-      </a>
+        <div class="open">
+            MỞ →
+        </div>
 
+    </div>
 
-      <!-- BUỔI 02 -->
-      <a class="card" href="buoi-02/">
+</a>
 
-        <div class="session">BUỔI 02</div>
+<!-- BUỔI 02 -->
 
-        <h2>Mở rộng góc nhìn</h2>
+<a class="card" href="buoi-02/">
 
-        <p>
-          Từ phát triển cá nhân đến khoa học công nghệ,
-          chuyển đổi số và vai trò của mỗi người
-          trong bức tranh chung của PVEP.
-        </p>
+    <div class="session">
+        BUỔI 02
+    </div>
 
-        <div class="divider"></div>
+    <h2>
+        Mở rộng góc nhìn
+    </h2>
 
-        <div class="card-bottom">
+    <p>
+        Từ phát triển cá nhân đến khoa học công nghệ,
+        chuyển đổi số và vai trò của mỗi người
+        trong bức tranh chung của PVEP.
+    </p>
 
-          <div class="tags">
+    <div class="divider"></div>
+
+    <div class="card-bottom">
+
+        <div class="tags">
             <span class="tag">KHCN</span>
             <span class="tag">Chuyển đổi số</span>
             <span class="tag">Đổi mới</span>
-          </div>
-
-          <div class="open">MỞ →</div>
-
         </div>
 
-      </a>
+        <div class="open">
+            MỞ →
+        </div>
 
+    </div>
 
-      <!-- BUỔI 03 -->
-      <a class="card" href="buoi-03/">
+</a>
 
-        <div class="session">BUỔI 03</div>
+<!-- BUỔI 03 -->
 
-        <h2>Học đi đôi với hành</h2>
+<a class="card" href="buoi-03/">
 
-        <p>
-          Từ những bài toán chuyên môn thực tế,
-          học viên cùng nghiên cứu, trao đổi và từng bước hình thành
-          các sản phẩm cụ thể như bài báo khoa học,
-          Knowledge Platform và các đề xuất quản lý dự án.
-        </p>
+    <div class="session">
+        BUỔI 03
+    </div>
 
-        <div class="divider"></div>
+    <h2>
+        Học đi đôi với hành
+    </h2>
 
-        <div class="card-bottom">
+    <p>
+        Từ những bài toán chuyên môn thực tế,
+        học viên cùng nghiên cứu, trao đổi
+        và từng bước hình thành những sản phẩm cụ thể:
+        bài báo khoa học, Knowledge Platform
+        và các đề xuất quản lý dự án.
+    </p>
 
-          <div class="tags">
+    <div class="divider"></div>
+
+    <div class="card-bottom">
+
+        <div class="tags">
             <span class="tag">Nghiên cứu</span>
             <span class="tag">Knowledge Platform</span>
             <span class="tag">Thực hành</span>
-          </div>
-
-          <div class="open">MỞ →</div>
-
         </div>
 
-      </a>
+        <div class="open">
+            MỞ →
+        </div>
 
+    </div>
 
-      <!-- BUỔI 04 -->
-      <a class="card" href="buoi-04/">
+</a>
 
-        <div class="session">BUỔI 04</div>
+<!-- BUỔI 04 -->
 
-        <h2>Nhìn xa hơn – Sẵn sàng hơn</h2>
+<a class="card" href="buoi-04/">
 
-        <p>
-          Từ quản trị rủi ro, biến động địa chính trị
-          đến dự án dầu khí nước ngoài;
-          mở rộng góc nhìn và chuẩn bị năng lực
-          cho môi trường làm việc quốc tế.
-        </p>
+    <div class="session">
+        BUỔI 04
+    </div>
 
-        <div class="divider"></div>
+    <h2>
+        Nhìn xa hơn – Sẵn sàng hơn
+    </h2>
 
-        <div class="card-bottom">
+    <p>
+        Từ quản trị rủi ro,
+        biến động địa chính trị
+        đến dự án dầu khí nước ngoài;
+        mở rộng góc nhìn
+        và chuẩn bị năng lực
+        cho môi trường làm việc quốc tế.
+    </p>
 
-          <div class="tags">
+    <div class="divider"></div>
+
+    <div class="card-bottom">
+
+        <div class="tags">
             <span class="tag">Quản trị rủi ro</span>
             <span class="tag">Dự án quốc tế</span>
             <span class="tag">Năng lực quốc tế</span>
-          </div>
-
-          <div class="open">MỞ →</div>
-
         </div>
 
-      </a>
+        <div class="open">
+            MỞ →
+        </div>
 
+    </div>
 
-      <!-- BUỔI 05 -->
-      <a class="card featured" href="buoi-05/">
+</a>
 
-        <div class="session">BUỔI 05</div>
+<!-- BUỔI 05 -->
 
-        <h2>Từ ý tưởng đến giải pháp</h2>
+<a class="card featured" href="buoi-05/">
 
-        <p>
-          Những vấn đề trong công việc được chuyển thành
-          sáng kiến, ý tưởng và giải pháp thực tế –
-          nơi kiến thức được thử sức bằng khả năng ứng dụng.
-        </p>
+    <div class="session">
+        BUỔI 05
+    </div>
 
-        <div class="divider"></div>
+    <h2>
+        Từ ý tưởng đến giải pháp
+    </h2>
 
-        <div class="card-bottom">
+    <p>
+        Những vấn đề trong công việc
+        được chuyển thành sáng kiến,
+        ý tưởng và giải pháp thực tế –
+        nơi kiến thức được thử sức
+        bằng khả năng ứng dụng.
+    </p>
 
-          <div class="tags">
+    <div class="divider"></div>
+
+    <div class="card-bottom">
+
+        <div class="tags">
             <span class="tag">Sáng kiến</span>
             <span class="tag">Giải pháp</span>
             <span class="tag">Ứng dụng thực tế</span>
-          </div>
-
-          <div class="open">MỞ BUỔI 05 →</div>
-
         </div>
 
-      </a>
+        <div class="open">
+            MỞ BUỔI 05 →
+        </div>
 
-    </section>
+    </div>
 
+</a>
 
-    <!-- TO BE CONTINUED -->
-    <section class="continue-box">
+</section>
 
-      <div class="continue-label">
+<!-- =========================================================
+     TO BE CONTINUED
+========================================================= -->
+
+<section class="continue-box">
+
+    <div class="continue-label">
         TO BE CONTINUED
-      </div>
+    </div>
 
-      <h3>
+    <h3 class="continue-title">
         Hành trình vẫn tiếp tục
-      </h3>
+    </h3>
 
-      <div class="dots" aria-label="..."></div>
+    <div class="dots" aria-label="..."></div>
 
-    </section>
+</section>
 
+<!-- =========================================================
+     CÂU KẾT
+========================================================= -->
 
-    <!-- CÂU KẾT -->
-    <section class="closing">
+<section class="closing">
 
-      <div class="closing-line"></div>
+    <div class="closing-line"></div>
 
-      <p>
-        <strong>
-          Từ những chặng đầu tiên đến những chặng đường phía trước,
-          hành trình ấy vẫn tiếp tục – với sự đồng hành, sẻ chia
-          và cùng nhau trưởng thành.
-        </strong>
-      </p>
+    <p>
+        Từ những chặng đầu tiên đến những chặng đường phía trước,
+        hành trình ấy vẫn tiếp tục –
+        với sự đồng hành, sẻ chia
+        và cùng nhau trưởng thành.
+    </p>
 
-    </section>
+</section>
 
-  </main>
+</main>
 
 </body>
 </html>
