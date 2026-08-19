@@ -33,9 +33,22 @@ body {
     color: white;
 
     background:
-        radial-gradient(circle at 84% 16%, rgba(106,210,187,0.11), transparent 23%),
-        radial-gradient(circle at 14% 86%, rgba(89,142,181,0.09), transparent 24%),
-        linear-gradient(135deg, #073741 0%, #075b63 48%, #08796a 100%);
+        radial-gradient(
+            circle at 84% 16%,
+            rgba(106,210,187,0.11),
+            transparent 23%
+        ),
+        radial-gradient(
+            circle at 14% 86%,
+            rgba(89,142,181,0.09),
+            transparent 24%
+        ),
+        linear-gradient(
+            135deg,
+            #073741 0%,
+            #075b63 48%,
+            #08796a 100%
+        );
 }
 
 .hero::before {
@@ -44,11 +57,18 @@ body {
     inset: 0;
 
     background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px
+        );
 
     background-size: 48px 48px;
-    opacity: 0.28;
+    opacity: 0.27;
 }
 
 .hero::after {
@@ -63,7 +83,8 @@ body {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(255,255,255,0.06);
+    border:
+        1px solid rgba(255,255,255,0.06);
 
     box-shadow:
         0 0 0 55px rgba(255,255,255,0.018),
@@ -77,19 +98,23 @@ body {
     max-width: 1080px;
     margin: auto;
 
-    padding: 58px 22px 48px;
+    padding:
+        58px 22px 48px;
 }
 
 .eyebrow {
     display: inline-block;
 
-    padding: 7px 14px;
+    padding:
+        7px 14px;
 
     border-radius: 100px;
 
-    border: 1px solid rgba(255,255,255,0.28);
+    border:
+        1px solid rgba(255,255,255,0.28);
 
-    background: rgba(255,255,255,0.07);
+    background:
+        rgba(255,255,255,0.07);
 
     font-size: 13px;
     font-weight: bold;
@@ -97,7 +122,8 @@ body {
 }
 
 .hero h1 {
-    margin: 18px 0 6px;
+    margin:
+        18px 0 6px;
 
     font-size: 50px;
     line-height: 1.05;
@@ -121,7 +147,8 @@ body {
 
     font-size: 16px;
 
-    color: rgba(255,255,255,0.92);
+    color:
+        rgba(255,255,255,0.92);
 }
 
 /* ======================================================
@@ -133,7 +160,7 @@ body {
 
     margin-top: 30px;
 
-    min-height: 78px;
+    min-height: 80px;
 
     max-width: 850px;
 }
@@ -144,13 +171,16 @@ body {
     left: 0;
     top: 0;
 
-    padding: 11px 17px;
+    padding:
+        11px 17px;
 
     border-radius: 100px;
 
-    background: rgba(255,255,255,0.10);
+    background:
+        rgba(255,255,255,0.10);
 
-    border: 1px solid rgba(255,255,255,0.18);
+    border:
+        1px solid rgba(255,255,255,0.18);
 
     color: white;
 
@@ -159,9 +189,11 @@ body {
 
     opacity: 0;
 
-    transform: translateY(12px);
+    transform:
+        translateY(12px);
 
-    animation: questionFade 21s infinite;
+    animation:
+        questionFade 21s infinite;
 }
 
 .q1 { animation-delay: 0s; }
@@ -175,22 +207,26 @@ body {
 
     0% {
         opacity: 0;
-        transform: translateY(12px);
+        transform:
+            translateY(12px);
     }
 
     6% {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
     14% {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
     19% {
         opacity: 0;
-        transform: translateY(-8px);
+        transform:
+            translateY(-8px);
     }
 
     100% {
@@ -204,26 +240,39 @@ body {
 
 .container {
     max-width: 1050px;
+
     margin: auto;
-    padding: 34px 20px 65px;
+
+    padding:
+        34px 20px 65px;
 }
+
+/* ======================================================
+   BACK
+====================================================== */
 
 .back {
     display: inline-flex;
+
     align-items: center;
+
     gap: 6px;
 
     margin-bottom: 25px;
 
     color: #087666;
+
     font-weight: bold;
+
     text-decoration: none;
 
     transition: 0.2s;
 }
 
 .back:hover {
-    transform: translateX(-4px);
+    transform:
+        translateX(-4px);
+
     color: #054f46;
 }
 
@@ -236,13 +285,16 @@ body {
 
     border-radius: 16px;
 
-    padding: 30px 33px;
+    padding:
+        30px 33px;
 
     margin-bottom: 23px;
 
-    box-shadow: 0 5px 20px rgba(20,80,71,0.07);
+    box-shadow:
+        0 5px 20px rgba(20,80,71,0.07);
 
-    border: 1px solid rgba(8,118,102,0.07);
+    border:
+        1px solid rgba(8,118,102,0.07);
 }
 
 .section-no {
@@ -258,7 +310,8 @@ body {
 }
 
 .card h2 {
-    margin: 3px 0 18px;
+    margin:
+        3px 0 18px;
 
     padding-bottom: 11px;
 
@@ -266,23 +319,33 @@ body {
 
     font-size: 25px;
 
-    border-bottom: 2px solid #e4f0ed;
+    border-bottom:
+        2px solid #e4f0ed;
 }
 
 .card h3 {
-    color: #116e62;
+    color:
+        #116e62;
 }
 
 .highlight {
-    margin: 21px 0;
+    margin:
+        21px 0;
 
-    padding: 20px 23px;
+    padding:
+        20px 23px;
 
-    border-left: 5px solid #15947f;
+    border-left:
+        5px solid #15947f;
 
     border-radius: 9px;
 
-    background: linear-gradient(135deg, #eaf7f4, #f8fbfa);
+    background:
+        linear-gradient(
+            135deg,
+            #eaf7f4,
+            #f8fbfa
+        );
 }
 
 /* ======================================================
@@ -291,6 +354,7 @@ body {
 
 .big-message {
     position: relative;
+
     overflow: hidden;
 
     margin-bottom: 23px;
@@ -301,9 +365,15 @@ body {
 
     color: white;
 
-    background: linear-gradient(135deg, #064e59, #087666);
+    background:
+        linear-gradient(
+            135deg,
+            #064e59,
+            #087666
+        );
 
-    box-shadow: 0 10px 28px rgba(7,95,84,0.16);
+    box-shadow:
+        0 10px 28px rgba(7,95,84,0.16);
 }
 
 .big-message::after {
@@ -311,8 +381,8 @@ body {
 
     position: absolute;
 
-    right: 25px;
-    bottom: -56px;
+    right: 24px;
+    bottom: -58px;
 
     font-size: 180px;
 
@@ -320,7 +390,8 @@ body {
 }
 
 .big-message h2 {
-    margin: 0 0 12px;
+    margin:
+        0 0 12px;
 
     font-size: 29px;
 }
@@ -330,7 +401,8 @@ body {
 
     margin: 0;
 
-    color: rgba(255,255,255,0.92);
+    color:
+        rgba(255,255,255,0.92);
 }
 
 /* ======================================================
@@ -357,21 +429,27 @@ body {
 .project-step {
     min-width: 0;
 
-    padding: 18px 10px;
+    padding:
+        18px 10px;
 
     border-radius: 11px;
 
     text-align: center;
 
-    background: #f4faf9;
+    background:
+        #f4faf9;
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid #dcece8;
 }
 
 .project-arrow {
     color: #15947f;
+
     font-size: 22px;
+
     font-weight: bold;
+
     text-align: center;
 }
 
@@ -379,15 +457,19 @@ body {
     width: 42px;
     height: 42px;
 
-    margin: 0 auto 8px;
+    margin:
+        0 auto 8px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 50%;
 
-    background: #dff3ee;
+    background:
+        #dff3ee;
 
     font-size: 20px;
 }
@@ -417,7 +499,8 @@ body {
 .product-intro {
     text-align: center;
 
-    padding: 6px 0 16px;
+    padding:
+        6px 0 16px;
 }
 
 .product-intro strong {
@@ -431,9 +514,10 @@ body {
 }
 
 .product-intro p {
-    max-width: 790px;
+    max-width: 800px;
 
-    margin: 10px auto 0;
+    margin:
+        10px auto 0;
 
     color: #60736f;
 }
@@ -445,7 +529,8 @@ body {
 .product-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 16px;
 
@@ -454,15 +539,22 @@ body {
 
 .product-card {
     position: relative;
+
     overflow: hidden;
 
     padding: 25px;
 
     border-radius: 14px;
 
-    background: linear-gradient(145deg, #f7fbfa, #eef7f5);
+    background:
+        linear-gradient(
+            145deg,
+            #f7fbfa,
+            #eef7f5
+        );
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid #dcece8;
 }
 
 .product-icon {
@@ -472,7 +564,8 @@ body {
 }
 
 .product-card h3 {
-    margin: 4px 0 8px;
+    margin:
+        4px 0 8px;
 
     color: #075f54;
 
@@ -490,16 +583,59 @@ body {
 
     margin-top: 13px;
 
-    padding: 5px 10px;
+    padding:
+        5px 10px;
 
     border-radius: 100px;
 
-    background: #dff3ee;
+    background:
+        #dff3ee;
 
     color: #087666;
 
     font-size: 12px;
+
     font-weight: bold;
+}
+
+/* ======================================================
+   PAPER
+====================================================== */
+
+.paper-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.paper-step {
+    padding:
+        17px 19px;
+
+    border-radius: 11px;
+
+    background:
+        #f8fbfa;
+
+    border-left:
+        4px solid #15947f;
+}
+
+.paper-step strong {
+    display: block;
+
+    color: #075f54;
+}
+
+.paper-step span {
+    color: #5e716d;
+
+    font-size: 14px;
 }
 
 /* ======================================================
@@ -509,7 +645,8 @@ body {
 .platform-showcase {
     display: grid;
 
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns:
+        1.15fr 0.85fr;
 
     gap: 28px;
 
@@ -521,9 +658,15 @@ body {
 
     border-radius: 15px;
 
-    background: linear-gradient(135deg, #f3faf8, #ffffff);
+    background:
+        linear-gradient(
+            135deg,
+            #f3faf8,
+            #ffffff
+        );
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid #dcece8;
 }
 
 .platform-text h3 {
@@ -547,7 +690,8 @@ body {
 
     min-height: 320px;
 
-    background: #e8f2f0;
+    background:
+        #e8f2f0;
 }
 
 .platform-image img {
@@ -558,20 +702,22 @@ body {
 
     object-fit: cover;
 
-    opacity: 0.74;
+    opacity: 0.76;
 }
 
 .platform-image::after {
     content: "";
 
     position: absolute;
+
     inset: 0;
 
-    background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0.03),
-        rgba(255,255,255,0.20)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.18)
+        );
 
     pointer-events: none;
 }
@@ -583,11 +729,13 @@ body {
     right: 15px;
     bottom: 15px;
 
-    padding: 9px 12px;
+    padding:
+        9px 12px;
 
     border-radius: 9px;
 
-    background: rgba(5,79,71,0.80);
+    background:
+        rgba(5,79,71,0.80);
 
     color: white;
 
@@ -621,9 +769,11 @@ body {
 
     border-radius: 12px;
 
-    background: #f7fbfa;
+    background:
+        #f7fbfa;
 
-    border: 1px solid #e0efeb;
+    border:
+        1px solid #e0efeb;
 }
 
 .community-box strong {
@@ -651,49 +801,14 @@ body {
 }
 
 /* ======================================================
-   PAPER
-====================================================== */
-
-.paper-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 12px;
-
-    margin-top: 20px;
-}
-
-.paper-step {
-    padding: 17px 19px;
-
-    border-radius: 11px;
-
-    background: #f8fbfa;
-
-    border-left: 4px solid #15947f;
-}
-
-.paper-step strong {
-    display: block;
-
-    color: #075f54;
-}
-
-.paper-step span {
-    color: #5e716d;
-
-    font-size: 14px;
-}
-
-/* ======================================================
-   PM
+   PM GRID
 ====================================================== */
 
 .pm-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 14px;
 
@@ -707,7 +822,8 @@ body {
 
     background: #f8fbfa;
 
-    border-top: 4px solid #15947f;
+    border-top:
+        4px solid #15947f;
 }
 
 .pm-number {
@@ -721,7 +837,8 @@ body {
 .pm-card strong {
     display: block;
 
-    margin: 3px 0 5px;
+    margin:
+        3px 0 5px;
 
     color: #075f54;
 }
@@ -737,15 +854,19 @@ body {
 ====================================================== */
 
 .task {
-    margin: 14px 0;
+    margin:
+        14px 0;
 
-    padding: 19px 21px;
+    padding:
+        19px 21px;
 
     border-radius: 11px;
 
-    background: #f8fbfa;
+    background:
+        #f8fbfa;
 
-    border: 1px solid #e6f0ed;
+    border:
+        1px solid #e6f0ed;
 }
 
 .task h3 {
@@ -753,7 +874,7 @@ body {
 }
 
 /* ======================================================
-   DOCUMENT
+   DOCUMENTS
 ====================================================== */
 
 .document-list {
@@ -773,13 +894,16 @@ body {
 
     gap: 10px;
 
-    padding: 14px 18px;
+    padding:
+        14px 18px;
 
     border-radius: 9px;
 
-    background: #eef7f5;
+    background:
+        #eef7f5;
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid #dcece8;
 
     color: #087666;
 
@@ -791,11 +915,14 @@ body {
 }
 
 .document-link:hover {
-    transform: translateX(5px);
+    transform:
+        translateX(5px);
 
-    background: #dcefeb;
+    background:
+        #dcefeb;
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.06);
 }
 
 .document-note {
@@ -823,7 +950,8 @@ body {
 }
 
 .closing-title {
-    margin: 8px 0 14px;
+    margin:
+        8px 0 14px;
 
     color: #075f54;
 
@@ -845,7 +973,8 @@ body {
 ====================================================== */
 
 footer {
-    padding: 27px 18px;
+    padding:
+        27px 18px;
 
     background: #064f47;
 
@@ -869,13 +998,15 @@ footer {
 
     .project-arrow,
     .community-arrow {
-        transform: rotate(90deg);
+        transform:
+            rotate(90deg);
 
         text-align: center;
 
         line-height: 1;
 
-        margin: -2px 0;
+        margin:
+            -2px 0;
     }
 
     .platform-showcase {
@@ -894,7 +1025,8 @@ footer {
 @media (max-width: 760px) {
 
     .hero-inner {
-        padding: 45px 17px 42px;
+        padding:
+            45px 17px 42px;
     }
 
     .hero h1 {
@@ -910,13 +1042,14 @@ footer {
     }
 
     .question-stage {
-        min-height: 112px;
+        min-height: 115px;
     }
 
     .hero-question {
         max-width: 95%;
 
-        padding: 10px 14px;
+        padding:
+            10px 14px;
 
         border-radius: 13px;
 
@@ -926,12 +1059,14 @@ footer {
     }
 
     .container {
-        padding: 26px 14px 45px;
+        padding:
+            26px 14px 45px;
     }
 
     .card,
     .big-message {
-        padding: 23px 20px;
+        padding:
+            23px 20px;
     }
 
     .card h2 {
@@ -1003,12 +1138,14 @@ footer {
 
     .eyebrow {
         font-size: 11px;
+
         letter-spacing: 0.7px;
     }
 
     .card,
     .big-message {
-        padding: 21px 17px;
+        padding:
+            21px 17px;
     }
 
     .card h2 {
@@ -1022,7 +1159,6 @@ footer {
 
 </style>
 </head>
-
 
 <body>
 
@@ -1038,7 +1174,9 @@ footer {
         CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
     </span>
 
-    <h1>BUỔI 3</h1>
+    <h1>
+        BUỔI 3
+    </h1>
 
     <h2>
         HỌC ĐI ĐÔI VỚI HÀNH
@@ -1113,7 +1251,7 @@ footer {
         phân công trách nhiệm,
         phối hợp,
         xử lý vấn đề
-        và tạo ra những sản phẩm cụ thể.
+        và cùng nhau hoàn thiện sản phẩm.
     </p>
 
 </section>
@@ -1134,14 +1272,15 @@ footer {
     </h2>
 
     <p>
-        Buổi học không bắt đầu bằng lý thuyết quản lý dự án.
+        Buổi học không bắt đầu bằng lý thuyết Quản lý dự án.
         Thay vào đó,
-        các bài tập đang triển khai được nhìn như những dự án nhỏ:
+        chính các bài tập đang triển khai
+        được nhìn như những dự án nhỏ:
         có mục tiêu,
         có phạm vi,
         có phân vai,
         có người chịu trách nhiệm
-        và phải tạo ra sản phẩm cuối cùng.
+        và phải có sản phẩm cuối cùng.
     </p>
 
     <div class="project-flow">
@@ -1152,7 +1291,9 @@ footer {
             <small>Muốn giải quyết gì?</small>
         </div>
 
-        <div class="project-arrow">→</div>
+        <div class="project-arrow">
+            →
+        </div>
 
         <div class="project-step">
             <div class="step-icon">🎯</div>
@@ -1160,7 +1301,9 @@ footer {
             <small>Đích đến là gì?</small>
         </div>
 
-        <div class="project-arrow">→</div>
+        <div class="project-arrow">
+            →
+        </div>
 
         <div class="project-step">
             <div class="step-icon">👥</div>
@@ -1168,7 +1311,9 @@ footer {
             <small>Ai chịu trách nhiệm?</small>
         </div>
 
-        <div class="project-arrow">→</div>
+        <div class="project-arrow">
+            →
+        </div>
 
         <div class="project-step">
             <div class="step-icon">⚙️</div>
@@ -1176,7 +1321,9 @@ footer {
             <small>Làm – kiểm tra – điều chỉnh</small>
         </div>
 
-        <div class="project-arrow">→</div>
+        <div class="project-arrow">
+            →
+        </div>
 
         <div class="project-step">
             <div class="step-icon">📦</div>
@@ -1207,14 +1354,14 @@ footer {
 
         <p>
             Từ các nhiệm vụ được giao,
-            các thành viên không chỉ dừng ở việc trao đổi trên lớp
+            các thành viên không chỉ dừng lại ở việc trao đổi trên lớp
             mà đã trực tiếp cùng nhau xây dựng,
-            chỉnh sửa và hoàn thiện những sản phẩm có nội dung
-            và giá trị sử dụng rõ ràng.
+            chỉnh sửa
+            và tiếp tục hoàn thiện những sản phẩm
+            có nội dung chuyên môn và giá trị sử dụng rõ ràng.
         </p>
 
     </div>
-
 
     <div class="product-grid">
 
@@ -1230,7 +1377,7 @@ footer {
 
             <p>
                 Từ những vấn đề kỹ thuật thực tế,
-                các nhóm đã phát triển thành hai bài viết khoa học
+                các nhóm đã xây dựng hai bài báo
                 và tiếp tục hoàn thiện theo góp ý của PTGĐ:
                 làm rõ vấn đề,
                 tổng quan,
@@ -1257,12 +1404,14 @@ footer {
             </h3>
 
             <p>
-                Từ nhu cầu chia sẻ kinh nghiệm và xử lý các vấn đề kỹ thuật,
+                Từ nhu cầu chia sẻ kinh nghiệm
+                và xử lý các vấn đề kỹ thuật,
                 nhóm đã xây dựng một không gian
                 để đặt câu hỏi,
                 trao đổi,
                 phản biện
-                và lưu lại các nội dung có ích cho những người cùng chuyên môn.
+                và lưu lại những nội dung hữu ích
+                để những người cùng chuyên môn có thể tham khảo.
             </p>
 
             <span class="product-badge">
@@ -1298,59 +1447,99 @@ footer {
         vừa thể hiện rõ giá trị ứng dụng thực tế.
     </p>
 
-
     <div class="paper-grid">
 
         <div class="paper-step">
-            <strong>① Xác định vấn đề</strong>
+
+            <strong>
+                ① Xác định vấn đề
+            </strong>
+
             <span>
                 Bài toán kỹ thuật thực tế cần giải quyết là gì?
             </span>
+
         </div>
 
+
         <div class="paper-step">
-            <strong>② Tổng quan & khoảng trống</strong>
+
+            <strong>
+                ② Tổng quan & khoảng trống
+            </strong>
+
             <span>
                 Những phương pháp hiện có còn điểm nào cần tiếp tục xử lý?
             </span>
+
         </div>
 
+
         <div class="paper-step">
-            <strong>③ Phương pháp</strong>
+
+            <strong>
+                ③ Phương pháp
+            </strong>
+
             <span>
-                Cách tiếp cận, mô hình hay tham số nào được sử dụng?
+                Cách tiếp cận,
+                mô hình
+                hay tham số nào được sử dụng?
             </span>
+
         </div>
 
+
         <div class="paper-step">
-            <strong>④ Kiểm chứng</strong>
+
+            <strong>
+                ④ Kiểm chứng
+            </strong>
+
             <span>
                 Kết quả được đối chiếu với dữ liệu thực tế như thế nào?
             </span>
+
         </div>
 
+
         <div class="paper-step">
-            <strong>⑤ So sánh kết quả</strong>
+
+            <strong>
+                ⑤ So sánh kết quả
+            </strong>
+
             <span>
                 Phương pháp có tạo ra cải thiện hay không?
             </span>
+
         </div>
 
+
         <div class="paper-step">
-            <strong>⑥ Đề xuất áp dụng</strong>
+
+            <strong>
+                ⑥ Đề xuất áp dụng
+            </strong>
+
             <span>
                 Kết quả có thể hỗ trợ công việc thực tế như thế nào?
             </span>
+
         </div>
 
     </div>
 
-
     <div class="highlight">
+
         Quan trọng không phải là “có một bài báo”,
         mà là qua quá trình làm bài,
         các thành viên học được cách
-        <strong>đặt vấn đề – nghiên cứu – kiểm chứng – chỉnh sửa – hoàn thiện sản phẩm.</strong>
+
+        <strong>
+            đặt vấn đề – nghiên cứu – kiểm chứng – chỉnh sửa – hoàn thiện sản phẩm.
+        </strong>
+
     </div>
 
 </section>
@@ -1370,13 +1559,12 @@ footer {
         TỪ Ý TƯỞNG CHIA SẺ ĐẾN MỘT CỘNG ĐỒNG CHUYÊN MÔN
     </h2>
 
-
     <div class="platform-showcase">
 
         <div class="platform-text">
 
             <h3>
-                Chia sẻ kiến thức – cùng trao đổi vấn đề thực tế
+                Chia sẻ kiến thức – cùng trao đổi các vấn đề thực tế
             </h3>
 
             <p>
@@ -1389,7 +1577,7 @@ footer {
             </p>
 
             <p>
-                Điều đáng ghi nhận là từ một nhiệm vụ học tập,
+                Từ một nhiệm vụ học tập,
                 nhóm đã bước đầu hình thành
                 một <strong>cộng đồng chia sẻ kiến thức</strong>,
                 nơi mọi người có thể cùng trao đổi,
@@ -1399,11 +1587,12 @@ footer {
 
         </div>
 
-
         <div class="platform-image">
 
-            <img src="knowledge-platform.png"
-                 alt="Cộng đồng Chia sẻ tri thức PVEP">
+            <img
+                src="knowledge-platform.png"
+                alt="Cộng đồng Chia sẻ tri thức PVEP"
+            >
 
             <div class="platform-caption">
                 Cộng đồng “Chia sẻ tri thức” – một sản phẩm thực tế của quá trình học và thực hành
@@ -1421,21 +1610,27 @@ footer {
             <span>Đặt câu hỏi thực tế</span>
         </div>
 
-        <div class="community-arrow">→</div>
+        <div class="community-arrow">
+            →
+        </div>
 
         <div class="community-box">
             <strong>TRAO ĐỔI</strong>
             <span>Chia sẻ & phản biện</span>
         </div>
 
-        <div class="community-arrow">→</div>
+        <div class="community-arrow">
+            →
+        </div>
 
         <div class="community-box">
             <strong>GIẢI PHÁP</strong>
             <span>Cùng phân tích cách xử lý</span>
         </div>
 
-        <div class="community-arrow">→</div>
+        <div class="community-arrow">
+            →
+        </div>
 
         <div class="community-box">
             <strong>CHIA SẺ</strong>
@@ -1460,7 +1655,6 @@ footer {
     <h2>
         BA CÂU HỎI NHỎ NHƯNG RẤT THỰC TẾ
     </h2>
-
 
     <div class="pm-grid">
 
@@ -1542,17 +1736,20 @@ footer {
     <div class="highlight">
 
         Buổi 3 cho thấy việc học
-        không chỉ nằm ở nghe giảng hay đọc tài liệu.
+        không chỉ nằm ở nghe giảng
+        hay đọc tài liệu.
 
         <br><br>
 
         Khi cùng nhau làm một sản phẩm thực tế,
         các thành viên phải
+
         <strong>
             thống nhất mục tiêu,
             phối hợp,
             phân công,
             trao đổi,
+            tiếp nhận góp ý,
             chỉnh sửa
             và chịu trách nhiệm với kết quả cuối cùng.
         </strong>
@@ -1560,20 +1757,24 @@ footer {
     </div>
 
     <p>
-        Hai bài báo khoa học giúp các bạn
-        rèn cách tiếp cận một vấn đề kỹ thuật có hệ thống hơn.
+        Hai bài báo khoa học
+        giúp các bạn rèn cách tiếp cận
+        một vấn đề kỹ thuật có hệ thống hơn.
     </p>
 
     <p>
-        Knowledge Platform giúp các bạn
-        thử nghiệm cách chia sẻ
-        và cùng nhau trao đổi các vấn đề chuyên môn.
+        Knowledge Platform
+        giúp các bạn thử nghiệm cách chia sẻ,
+        trao đổi
+        và cùng nhau xử lý các vấn đề chuyên môn.
     </p>
 
     <p>
         Chính quá trình làm thật
         khiến những nội dung về Quản lý dự án
-        trở nên dễ hiểu và gần với công việc hơn.
+        trở nên dễ hiểu,
+        gần với công việc
+        và có ý nghĩa hơn.
     </p>
 
 </section>
@@ -1592,7 +1793,6 @@ footer {
     <h2>
         TIẾP TỤC HOÀN THIỆN NHỮNG SẢN PHẨM ĐÃ BẮT ĐẦU
     </h2>
-
 
     <div class="task">
 
@@ -1666,36 +1866,48 @@ footer {
         Bấm vào tên tài liệu để xem.
     </p>
 
-
     <div class="document-list">
 
-        <a class="document-link"
-           href="Kịch bản buổi 3 _ NVTN nhóm anh Xạ.docx">
+        <a
+            class="document-link"
+            href="Kịch bản buổi 3 _ NVTN nhóm anh Xạ.docx"
+        >
             📄 Kịch bản Buổi 3 – Quản lý dự án
         </a>
 
-        <a class="document-link"
-           href="Nền tảng Tri thức Công nghệ mỏ (R&E Knowledge Platform) (2).pdf">
+
+        <a
+            class="document-link"
+            href="Nền tảng Tri thức Công nghệ mỏ (R&E Knowledge Platform) (2).pdf"
+        >
             🌐 Đề cương R&amp;E Knowledge Platform
         </a>
 
-        <a class="document-link"
-           href="Ý kiến của anh Xạ với bài báo.docx">
+
+        <a
+            class="document-link"
+            href="Ý kiến của anh Xạ với bài báo.docx"
+        >
             📝 Ý kiến của PTGĐ Ngô Khánh Xạ đối với bài báo khoa học
         </a>
 
-        <a class="document-link"
-           href="Note Nhiệm vụ và tiến độ triển khai.png">
+
+        <a
+            class="document-link"
+            href="Note Nhiệm vụ và tiến độ triển khai.png"
+        >
             🗓️ Nhiệm vụ và tiến độ triển khai Chương trình NVTN
         </a>
 
-        <a class="document-link"
-           href="knowledge-platform.png">
+
+        <a
+            class="document-link"
+            href="knowledge-platform.png"
+        >
             🖼️ Hình ảnh cộng đồng Chia sẻ tri thức
         </a>
 
     </div>
-
 
     <p class="document-note">
         Hai bài báo khoa học sẽ được bổ sung vào danh mục
@@ -1720,12 +1932,13 @@ footer {
     </div>
 
     <p>
-        Giá trị của Buổi 3 không chỉ nằm ở kiến thức Quản lý dự án.
+        Giá trị của Buổi 3
+        không chỉ nằm ở kiến thức Quản lý dự án.
 
         <br><br>
 
-        Điều quan trọng hơn là các thành viên
-        đã thực sự cùng nhau làm việc,
+        Điều quan trọng hơn
+        là các thành viên đã thực sự cùng nhau làm việc,
         tạo ra những sản phẩm cụ thể,
         tiếp nhận góp ý,
         chỉnh sửa
@@ -1733,7 +1946,9 @@ footer {
 
         <br><br>
 
-        <strong>Học đi đôi với hành – và trưởng thành qua chính quá trình làm thật.</strong>
+        <strong>
+            Học đi đôi với hành – và trưởng thành qua chính quá trình làm thật.
+        </strong>
     </p>
 
 </section>
@@ -1747,9 +1962,13 @@ footer {
 
 
 <footer>
+
     CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+
     <br>
+
     Đồng hành cùng PTGĐ Ngô Khánh Xạ
+
 </footer>
 
 </body>
