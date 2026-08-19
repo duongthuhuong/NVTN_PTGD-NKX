@@ -7,6 +7,10 @@
   <title>Các buổi học | Chương trình Nhân viên Tài năng PVEP</title>
 
   <style>
+    /* =====================================================
+       RESET
+    ===================================================== */
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -18,261 +22,436 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: #17313a;
+
       background:
-        radial-gradient(circle at 8% 8%, rgba(129, 183, 64, 0.10), transparent 24%),
-        radial-gradient(circle at 92% 84%, rgba(0, 109, 119, 0.10), transparent 26%),
-        #f4f7f3;
-      color: #14242a;
+        radial-gradient(
+          circle at 5% 8%,
+          rgba(112, 169, 54, 0.08),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 95% 92%,
+          rgba(0, 112, 120, 0.07),
+          transparent 26%
+        ),
+        #f7f8f4;
+
+      line-height: 1.6;
       min-height: 100vh;
-      line-height: 1.65;
     }
 
-    /* =========================
+
+    /* =====================================================
        MENU
-    ========================= */
+    ===================================================== */
 
     .top-nav {
       width: 100%;
-      background: #07151d;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.10);
+
+      background: #071922;
+
+      box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.12);
     }
 
     .nav-inner {
       max-width: 1380px;
-      margin: auto;
+      min-height: 70px;
+
+      margin: 0 auto;
+
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       align-items: center;
-      min-height: 72px;
     }
 
     .nav-link {
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.70);
-      text-align: center;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-      padding: 26px 10px 22px;
       position: relative;
-      transition: 0.25s ease;
-      white-space: nowrap;
+
+      padding: 25px 10px 21px;
+
+      text-align: center;
+      text-decoration: none;
+
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+
+      color: rgba(255, 255, 255, 0.72);
+
+      transition:
+        color 0.25s ease,
+        background 0.25s ease;
     }
 
     .nav-link span {
-      color: #70a936;
       margin-right: 6px;
+
+      color: #73aa38;
+
       font-weight: 800;
     }
 
     .nav-link:hover {
       color: #ffffff;
-      background: rgba(255, 255, 255, 0.025);
+
+      background:
+        rgba(255, 255, 255, 0.025);
     }
 
     .nav-link.active {
-      color: #70a936;
+      color: #8dc346;
     }
 
     .nav-link.active::after {
       content: "";
+
       position: absolute;
-      left: 22%;
-      right: 22%;
+
+      left: 23%;
+      right: 23%;
       bottom: 0;
+
       height: 3px;
+
       border-radius: 10px 10px 0 0;
-      background: linear-gradient(90deg, #70a936, #00868c);
+
+      background:
+        linear-gradient(
+          90deg,
+          #7db33e,
+          #009397
+        );
     }
 
-    /* =========================
+
+    /* =====================================================
        PAGE
-    ========================= */
+    ===================================================== */
 
     .page {
-      width: min(1180px, calc(100% - 40px));
-      margin: 48px auto 70px;
+      width: min(1180px, calc(100% - 42px));
+
+      margin:
+        42px auto 70px;
     }
 
+
+    /* =====================================================
+       PHẦN MỞ ĐẦU
+    ===================================================== */
+
     .page-head {
-      margin-bottom: 34px;
+      max-width: 1050px;
+
+      margin-bottom: 30px;
+
+      padding:
+        4px 4px 2px;
     }
 
     .eyebrow {
-      color: #08766f;
-      font-size: 13px;
+      margin-bottom: 9px;
+
+      font-size: 12px;
       font-weight: 800;
+
+      letter-spacing: 1.8px;
+
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
+
+      color: #08766f;
     }
 
     .page-title {
-      max-width: 950px;
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.08;
-      letter-spacing: -1.8px;
-      font-weight: 800;
-      color: #10242a;
-      margin-bottom: 17px;
+      max-width: 820px;
+
+      margin-bottom: 15px;
+
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.12;
+
+      letter-spacing: -1px;
+
+      font-weight: 750;
+
+      color: #102b35;
     }
 
     .page-intro {
-      max-width: 900px;
-      font-size: 17px;
-      color: #59686c;
+      max-width: 930px;
+
+      font-size: 16px;
+      line-height: 1.75;
+
+      color: #5d6b70;
     }
 
+
+    /* =====================================================
+       DÒNG HÀNH TRÌNH
+    ===================================================== */
+
     .journey-line {
+      margin-top: 22px;
+
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 25px;
       flex-wrap: wrap;
-      color: #537063;
-      font-size: 13px;
-      font-weight: 700;
+
+      gap: 9px;
+
+      font-size: 12.5px;
+      font-weight: 650;
+
+      color: #5d756b;
     }
 
     .journey-line strong {
-      color: #08766f;
+      color: #11776f;
+
+      font-weight: 750;
     }
 
     .journey-dot {
-      width: 5px;
-      height: 5px;
+      width: 4px;
+      height: 4px;
+
       border-radius: 50%;
-      background: #7aaa3d;
+
+      background: #7cab40;
     }
 
-    /* =========================
-       CARDS
-    ========================= */
+
+    /* =====================================================
+       GRID
+    ===================================================== */
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 26px;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 22px;
     }
 
+
+    /* =====================================================
+       CARD
+    ===================================================== */
+
     .card {
-      min-height: 290px;
-      background:
-        radial-gradient(circle at 97% 4%, rgba(123, 169, 61, 0.14), transparent 25%),
-        rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(12, 87, 82, 0.10);
-      border-radius: 28px;
-      padding: 31px 34px 25px;
+      min-height: 258px;
+
+      padding:
+        27px 29px 23px;
+
       display: flex;
       flex-direction: column;
+
       position: relative;
+
       overflow: hidden;
+
       text-decoration: none;
+
       color: inherit;
-      box-shadow: 0 14px 45px rgba(19, 58, 58, 0.06);
+
+      border-radius: 22px;
+
+      border:
+        1px solid rgba(7, 74, 70, 0.10);
+
+      background:
+        radial-gradient(
+          circle at 97% 2%,
+          rgba(119, 170, 61, 0.10),
+          transparent 28%
+        ),
+        rgba(255, 255, 255, 0.91);
+
+      box-shadow:
+        0 12px 34px rgba(20, 55, 58, 0.055);
+
       transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        border-color 0.28s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
     }
 
     .card::before {
       content: "";
+
       position: absolute;
-      width: 140px;
-      height: 140px;
-      right: -50px;
-      top: -55px;
+
+      width: 118px;
+      height: 118px;
+
+      right: -46px;
+      top: -48px;
+
       border-radius: 50%;
-      background: rgba(94, 148, 47, 0.055);
+
+      background:
+        rgba(113, 169, 56, 0.055);
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 54px rgba(19, 58, 58, 0.12);
-      border-color: rgba(12, 119, 108, 0.20);
+      transform: translateY(-4px);
+
+      border-color:
+        rgba(7, 118, 106, 0.19);
+
+      box-shadow:
+        0 17px 42px rgba(20, 55, 58, 0.10);
     }
 
+
+    /* =====================================================
+       NỘI DUNG CARD
+    ===================================================== */
+
     .session {
-      color: #157848;
+      margin-bottom: 13px;
+
+      font-size: 12.5px;
       font-weight: 800;
-      font-size: 14px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 17px;
+
+      letter-spacing: 1.4px;
+
+      color: #16784a;
     }
 
     .card h2 {
-      font-size: 28px;
-      line-height: 1.17;
-      letter-spacing: -0.7px;
-      margin-bottom: 14px;
-      color: #11252c;
+      margin-bottom: 11px;
+
+      font-size: 25px;
+      line-height: 1.18;
+
+      letter-spacing: -0.45px;
+
+      font-weight: 730;
+
+      color: #112c35;
     }
 
     .card p {
-      font-size: 15.5px;
-      color: #5a676b;
-      max-width: 96%;
+      max-width: 97%;
+
+      font-size: 14.5px;
+      line-height: 1.68;
+
+      color: #606d71;
     }
 
     .divider {
       height: 1px;
-      background: rgba(35, 84, 71, 0.10);
-      margin: auto 0 18px;
+
+      margin:
+        auto 0 16px;
+
+      background:
+        rgba(33, 77, 69, 0.095);
     }
 
     .card-bottom {
       display: flex;
+
       align-items: flex-end;
       justify-content: space-between;
-      gap: 16px;
+
+      gap: 15px;
     }
 
     .tags {
       display: flex;
-      gap: 8px;
+
       flex-wrap: wrap;
+
+      gap: 7px;
     }
 
     .tag {
-      font-size: 11px;
-      font-weight: 700;
-      color: #486358;
-      background: rgba(109, 145, 66, 0.10);
-      padding: 7px 12px;
+      padding:
+        6px 10px;
+
       border-radius: 999px;
+
+      font-size: 10.5px;
+      font-weight: 700;
+
+      color: #526b61;
+
+      background:
+        rgba(111, 155, 64, 0.09);
     }
 
     .open {
-      font-size: 12px;
+      flex-shrink: 0;
+
+      font-size: 11px;
       font-weight: 800;
-      color: #408029;
+
       white-space: nowrap;
-      transition: 0.2s ease;
+
+      color: #4e842d;
+
+      transition:
+        transform 0.2s ease;
     }
 
     .card:hover .open {
-      transform: translateX(4px);
+      transform:
+        translateX(4px);
     }
 
-    /* =========================
+
+    /* =====================================================
        BUỔI 05
-    ========================= */
+       NỔI BẬT NHƯNG KHÔNG QUÁ NẶNG
+    ===================================================== */
 
     .card.featured {
       grid-column: 1 / -1;
-      min-height: 270px;
-      background:
-        radial-gradient(circle at 85% 10%, rgba(111, 186, 80, 0.20), transparent 25%),
-        linear-gradient(115deg, #07354d 0%, #006b70 52%, #048269 100%);
+
+      min-height: 235px;
+
+      padding:
+        29px 31px 23px;
+
       border: none;
-      box-shadow: 0 20px 54px rgba(0, 88, 91, 0.18);
+
+      background:
+        radial-gradient(
+          circle at 88% 8%,
+          rgba(139, 198, 74, 0.17),
+          transparent 27%
+        ),
+        linear-gradient(
+          115deg,
+          #07354b 0%,
+          #075f6d 52%,
+          #087c6e 100%
+        );
+
+      box-shadow:
+        0 15px 40px rgba(0, 86, 92, 0.16);
+    }
+
+    .card.featured::before {
+      background:
+        rgba(255, 255, 255, 0.035);
     }
 
     .card.featured .session {
@@ -280,136 +459,205 @@
     }
 
     .card.featured h2 {
+      font-size: 27px;
+
       color: #ffffff;
-      font-size: 31px;
     }
 
     .card.featured p {
-      color: rgba(255, 255, 255, 0.84);
-      max-width: 900px;
+      max-width: 930px;
+
+      color:
+        rgba(255, 255, 255, 0.84);
     }
 
     .card.featured .divider {
-      background: rgba(255,255,255,0.14);
+      background:
+        rgba(255, 255, 255, 0.14);
     }
 
     .card.featured .tag {
-      color: rgba(255,255,255,0.90);
-      background: rgba(255,255,255,0.10);
+      color:
+        rgba(255, 255, 255, 0.91);
+
+      background:
+        rgba(255, 255, 255, 0.10);
     }
 
     .card.featured .open {
-      color: #c6ef78;
+      color: #c7ed77;
     }
 
-    /* =========================
-       HÀNH TRÌNH TIẾP TỤC
-    ========================= */
+
+    /* =====================================================
+       TO BE CONTINUED
+    ===================================================== */
 
     .continue-box {
-      margin-top: 32px;
-      padding: 32px 34px;
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at 90% 15%, rgba(126, 173, 66, 0.13), transparent 28%),
-        rgba(255, 255, 255, 0.68);
-      border: 1px solid rgba(12, 87, 82, 0.09);
+      margin-top: 34px;
+
+      min-height: 235px;
+
+      padding:
+        42px 28px 38px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
       text-align: center;
+
+      border-radius: 23px;
+
+      border:
+        1px solid rgba(11, 86, 81, 0.09);
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(125, 176, 65, 0.095),
+          transparent 34%
+        ),
+        rgba(255, 255, 255, 0.76);
     }
 
     .continue-label {
-      color: #6e9d38;
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-    }
+      margin-bottom: 11px;
 
-    .continue-box h3 {
-      color: #123a3e;
-      font-size: 25px;
-      line-height: 1.25;
-      margin-bottom: 12px;
-    }
-
-    .continue-box p {
-      max-width: 850px;
-      margin: 0 auto;
-      color: #59686c;
-      font-size: 15.5px;
-    }
-
-    .next-sessions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .next-session {
-      min-width: 45px;
-      height: 45px;
-      padding: 0 14px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(8, 118, 111, 0.07);
-      border: 1px solid rgba(8, 118, 111, 0.12);
-      color: #08766f;
       font-size: 13px;
       font-weight: 800;
+
+      letter-spacing: 2.4px;
+
+      text-transform: uppercase;
+
+      color: #72a73a;
     }
 
-    .next-arrow {
-      color: #78a43f;
-      font-weight: 800;
+    .continue-title {
+      margin-bottom: 4px;
+
+      font-size: 30px;
+      line-height: 1.25;
+
+      font-weight: 720;
+
+      color: #173c43;
     }
 
-    /* =========================
+
+    /* =====================================================
+       DẤU CHẤM ĐỘNG
+       .  ->  ..  ->  ...
+    ===================================================== */
+
+    .animated-dots {
+      min-width: 90px;
+
+      height: 56px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 40px;
+      line-height: 1;
+
+      letter-spacing: 6px;
+
+      font-weight: 700;
+
+      color: #0d7773;
+    }
+
+    .animated-dots::after {
+      content: ".";
+
+      animation:
+        dots 2.4s infinite;
+    }
+
+    @keyframes dots {
+
+      0%,
+      20% {
+        content: ".";
+      }
+
+      21%,
+      45% {
+        content: "..";
+      }
+
+      46%,
+      100% {
+        content: "...";
+      }
+    }
+
+
+    /* =====================================================
        CÂU KẾT
-    ========================= */
+    ===================================================== */
 
     .closing {
-      margin: 34px 0 0;
-      padding: 38px 28px;
+      margin-top: 12px;
+
+      padding:
+        30px 24px 12px;
+
       text-align: center;
     }
 
     .closing-line {
-      width: 48px;
+      width: 42px;
       height: 3px;
-      margin: 0 auto 20px;
-      border-radius: 20px;
-      background: linear-gradient(90deg, #70a936, #00868c);
+
+      margin:
+        0 auto 18px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #79ac3c,
+          #008b8d
+        );
     }
 
     .closing p {
-      max-width: 920px;
-      margin: auto;
-      font-size: 18px;
-      line-height: 1.75;
-      color: #536367;
+      max-width: 890px;
+
+      margin: 0 auto;
+
+      font-size: 17px;
+      line-height: 1.7;
+
+      color: #53716d;
     }
 
     .closing strong {
-      color: #08766f;
-      font-weight: 800;
+      font-weight: 700;
+
+      color: #0a746d;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+
+    /* =====================================================
+       MOBILE / TABLET
+    ===================================================== */
 
     @media (max-width: 860px) {
 
       .nav-inner {
         display: flex;
-        overflow-x: auto;
+
         min-height: 60px;
+
+        overflow-x: auto;
+
         scrollbar-width: none;
       }
 
@@ -419,7 +667,10 @@
 
       .nav-link {
         min-width: max-content;
-        padding: 20px 21px 17px;
+
+        padding:
+          20px 21px 17px;
+
         font-size: 12px;
       }
 
@@ -429,12 +680,17 @@
       }
 
       .page {
-        width: min(100% - 26px, 720px);
-        margin-top: 32px;
+        width:
+          min(100% - 28px, 720px);
+
+        margin-top: 30px;
       }
 
       .page-title {
-        letter-spacing: -1px;
+        font-size:
+          clamp(30px, 7vw, 39px);
+
+        letter-spacing: -0.7px;
       }
 
       .page-intro {
@@ -443,53 +699,74 @@
 
       .cards {
         grid-template-columns: 1fr;
-        gap: 18px;
+
+        gap: 17px;
       }
 
       .card,
       .card.featured {
         grid-column: auto;
+
         min-height: auto;
-        padding: 26px 23px 22px;
-        border-radius: 22px;
+
+        padding:
+          24px 23px 21px;
+
+        border-radius: 20px;
       }
 
       .card h2,
       .card.featured h2 {
-        font-size: 24px;
+        font-size: 23px;
       }
 
       .card p,
       .card.featured p {
         max-width: 100%;
-        font-size: 14.5px;
+
+        font-size: 14.3px;
       }
 
       .divider {
-        margin-top: 27px;
+        margin-top: 25px;
       }
 
       .continue-box {
-        padding: 27px 22px;
+        min-height: 210px;
+
+        padding:
+          35px 22px 31px;
       }
 
-      .continue-box h3 {
-        font-size: 22px;
+      .continue-title {
+        font-size: 27px;
       }
 
-      .closing {
-        padding: 30px 15px;
+      .closing p {
+        font-size: 16px;
       }
     }
+
 
     @media (max-width: 520px) {
 
       .page {
-        width: calc(100% - 20px);
+        width:
+          calc(100% - 20px);
+      }
+
+      .page-head {
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
       }
 
       .page-title {
-        font-size: 35px;
+        font-size: 31px;
       }
 
       .page-intro {
@@ -501,37 +778,53 @@
       }
 
       .card {
-        border-radius: 20px;
+        border-radius: 18px;
       }
 
       .card h2,
       .card.featured h2 {
-        font-size: 22px;
+        font-size: 21px;
       }
 
       .card-bottom {
         flex-direction: column;
+
         align-items: flex-start;
       }
 
       .open {
-        margin-top: 3px;
+        margin-top: 2px;
       }
 
       .continue-box {
         margin-top: 22px;
-        border-radius: 21px;
+
+        border-radius: 19px;
       }
 
-      .next-session {
-        min-width: 40px;
-        height: 40px;
-        padding: 0 11px;
-        font-size: 12px;
+      .continue-label {
+        font-size: 11px;
+
+        letter-spacing: 2px;
+      }
+
+      .continue-title {
+        font-size: 24px;
+      }
+
+      .animated-dots {
+        height: 50px;
+
+        font-size: 35px;
+      }
+
+      .closing {
+        padding:
+          26px 12px 8px;
       }
 
       .closing p {
-        font-size: 16px;
+        font-size: 15.5px;
       }
     }
 
@@ -541,222 +834,430 @@
 
 <body>
 
-  <!-- MENU -->
+
+  <!-- =====================================================
+       MENU
+  ====================================================== -->
+
   <nav class="top-nav">
+
     <div class="nav-inner">
 
-      <a class="nav-link" href="../01-gioi-thieu/">
-        <span>01</span> GIỚI THIỆU
+      <a
+        class="nav-link"
+        href="../01-gioi-thieu/"
+      >
+        <span>01</span>
+        GIỚI THIỆU
       </a>
 
-      <a class="nav-link" href="../02-hanh-trinh/">
-        <span>02</span> HÀNH TRÌNH
+
+      <a
+        class="nav-link"
+        href="../02-hanh-trinh/"
+      >
+        <span>02</span>
+        HÀNH TRÌNH
       </a>
 
-      <a class="nav-link active" href="./">
-        <span>03</span> CÁC BUỔI HỌC
+
+      <a
+        class="nav-link active"
+        href="./"
+      >
+        <span>03</span>
+        CÁC BUỔI HỌC
       </a>
 
-      <a class="nav-link" href="../04-dieu-dong-lai/">
-        <span>04</span> ĐIỀU ĐỌNG LẠI
+
+      <a
+        class="nav-link"
+        href="../04-dieu-dong-lai/"
+      >
+        <span>04</span>
+        ĐIỀU ĐỌNG LẠI
       </a>
 
-      <a class="nav-link" href="../05-thu-vien/">
-        <span>05</span> THƯ VIỆN
+
+      <a
+        class="nav-link"
+        href="../05-thu-vien/"
+      >
+        <span>05</span>
+        THƯ VIỆN
       </a>
 
     </div>
+
   </nav>
 
 
+
+  <!-- =====================================================
+       PAGE
+  ====================================================== -->
+
   <main class="page">
 
-    <!-- PHẦN MỞ -->
+
+    <!-- ===================================================
+         PHẦN MỞ
+    ==================================================== -->
+
     <section class="page-head">
 
       <div class="eyebrow">
         Chương trình Nhân viên Tài năng PVEP
       </div>
 
+
       <h1 class="page-title">
-        Những chặng đầu của một hành trình còn tiếp tục
+        Những chặng đầu của một hành trình
       </h1>
 
+
       <p class="page-intro">
+
         Mỗi buổi học là một chặng tiếp nối:
-        từ định hướng phát triển cá nhân, mở rộng nhận thức về khoa học công nghệ
-        và chuyển đổi số, đưa kiến thức vào thực hành, chuẩn bị cho môi trường
-        làm việc quốc tế và từng bước biến những ý tưởng thành giải pháp thực tế.
-        Hành trình ấy không dừng lại ở đây – những buổi học tiếp theo
-        sẽ tiếp tục mở ra những câu chuyện, thử thách và trải nghiệm mới.
+        từ định hướng phát triển cá nhân,
+        mở rộng góc nhìn về khoa học công nghệ và chuyển đổi số,
+        đưa kiến thức vào thực hành,
+        chuẩn bị cho môi trường làm việc quốc tế
+        và từng bước biến những ý tưởng thành giải pháp thực tế.
+
       </p>
 
+
       <div class="journey-line">
-        <strong>Phát triển cá nhân</strong>
+
+        <strong>
+          Phát triển cá nhân
+        </strong>
+
         <span class="journey-dot"></span>
-        <span>KHCN & Chuyển đổi số</span>
+
+        <span>
+          KHCN &amp; Chuyển đổi số
+        </span>
+
         <span class="journey-dot"></span>
-        <span>Học đi đôi với hành</span>
+
+        <span>
+          Học đi đôi với hành
+        </span>
+
         <span class="journey-dot"></span>
-        <span>Nhìn xa hơn</span>
+
+        <span>
+          Nhìn xa hơn
+        </span>
+
         <span class="journey-dot"></span>
-        <span>Ý tưởng thành giải pháp</span>
-        <span class="journey-dot"></span>
-        <span>...</span>
+
+        <span>
+          Ý tưởng thành giải pháp
+        </span>
+
       </div>
 
     </section>
 
 
-    <!-- CÁC BUỔI ĐÃ ĐI QUA -->
+
+    <!-- ===================================================
+         CÁC BUỔI HỌC
+    ==================================================== -->
+
     <section class="cards">
 
-      <!-- BUỔI 01 -->
-      <a class="card" href="buoi-01/">
 
-        <div class="session">BUỔI 01</div>
+      <!-- =========================
+           BUỔI 01
+      ========================== -->
 
-        <h2>Định hướng phát triển cá nhân</h2>
+      <a
+        class="card"
+        href="buoi-01/"
+      >
+
+        <div class="session">
+          BUỔI 01
+        </div>
+
+
+        <h2>
+          Bắt đầu từ chính mình
+        </h2>
+
 
         <p>
           Xây dựng Kế hoạch phát triển cá nhân – IDP,
-          nhìn lại năng lực, xác định mục tiêu nghề nghiệp
-          và định hướng con đường phát triển của mỗi học viên.
+          nhìn lại năng lực,
+          xác định mục tiêu nghề nghiệp
+          và con đường phát triển của mỗi học viên.
         </p>
 
+
         <div class="divider"></div>
+
 
         <div class="card-bottom">
 
           <div class="tags">
-            <span class="tag">IDP</span>
-            <span class="tag">Phát triển cá nhân</span>
+
+            <span class="tag">
+              IDP
+            </span>
+
+            <span class="tag">
+              Phát triển cá nhân
+            </span>
+
           </div>
 
-          <div class="open">MỞ →</div>
+
+          <div class="open">
+            MỞ →
+          </div>
 
         </div>
 
       </a>
 
 
-      <!-- BUỔI 02 -->
-      <a class="card" href="buoi-02/">
 
-        <div class="session">BUỔI 02</div>
+      <!-- =========================
+           BUỔI 02
+      ========================== -->
 
-        <h2>Khoa học công nghệ & Chuyển đổi số</h2>
+      <a
+        class="card"
+        href="buoi-02/"
+      >
+
+        <div class="session">
+          BUỔI 02
+        </div>
+
+
+        <h2>
+          Mở rộng góc nhìn
+        </h2>
+
 
         <p>
-          Mở rộng góc nhìn về khoa học công nghệ,
-          chuyển đổi số và vai trò của mỗi cá nhân
-          trong hành trình đổi mới và phát triển của PVEP.
+          Từ phát triển cá nhân đến khoa học công nghệ,
+          chuyển đổi số và vai trò của mỗi người
+          trong bức tranh chung của PVEP.
         </p>
 
+
         <div class="divider"></div>
+
 
         <div class="card-bottom">
 
           <div class="tags">
-            <span class="tag">KHCN</span>
-            <span class="tag">Chuyển đổi số</span>
-            <span class="tag">Đổi mới</span>
+
+            <span class="tag">
+              KHCN
+            </span>
+
+            <span class="tag">
+              Chuyển đổi số
+            </span>
+
+            <span class="tag">
+              Đổi mới
+            </span>
+
           </div>
 
-          <div class="open">MỞ →</div>
+
+          <div class="open">
+            MỞ →
+          </div>
 
         </div>
 
       </a>
 
 
-      <!-- BUỔI 03 -->
-      <a class="card" href="buoi-03/">
 
-        <div class="session">BUỔI 03</div>
+      <!-- =========================
+           BUỔI 03
+      ========================== -->
 
-        <h2>Học đi đôi với hành</h2>
+      <a
+        class="card"
+        href="buoi-03/"
+      >
+
+        <div class="session">
+          BUỔI 03
+        </div>
+
+
+        <h2>
+          Học đi đôi với hành
+        </h2>
+
 
         <p>
           Từ những bài toán chuyên môn thực tế,
-          học viên cùng nghiên cứu, trao đổi và từng bước hình thành
-          các sản phẩm cụ thể như bài báo khoa học,
-          Knowledge Platform và các đề xuất quản lý dự án.
+          học viên cùng nghiên cứu, trao đổi
+          và từng bước hình thành những sản phẩm cụ thể:
+          bài báo khoa học, Knowledge Platform
+          và các đề xuất quản lý dự án.
         </p>
 
+
         <div class="divider"></div>
+
 
         <div class="card-bottom">
 
           <div class="tags">
-            <span class="tag">Nghiên cứu</span>
-            <span class="tag">Knowledge Platform</span>
-            <span class="tag">Thực hành</span>
+
+            <span class="tag">
+              Nghiên cứu
+            </span>
+
+            <span class="tag">
+              Knowledge Platform
+            </span>
+
+            <span class="tag">
+              Thực hành
+            </span>
+
           </div>
 
-          <div class="open">MỞ →</div>
+
+          <div class="open">
+            MỞ →
+          </div>
 
         </div>
 
       </a>
 
 
-      <!-- BUỔI 04 -->
-      <a class="card" href="buoi-04/">
 
-        <div class="session">BUỔI 04</div>
+      <!-- =========================
+           BUỔI 04
+      ========================== -->
 
-        <h2>Nhìn xa hơn – Sẵn sàng hơn</h2>
+      <a
+        class="card"
+        href="buoi-04/"
+      >
+
+        <div class="session">
+          BUỔI 04
+        </div>
+
+
+        <h2>
+          Nhìn xa hơn – Sẵn sàng hơn
+        </h2>
+
 
         <p>
-          Từ quản trị rủi ro, biến động địa chính trị
+          Từ quản trị rủi ro,
+          biến động địa chính trị
           đến dự án dầu khí nước ngoài;
-          mở rộng góc nhìn và chuẩn bị năng lực
+          mở rộng góc nhìn
+          và chuẩn bị năng lực
           cho môi trường làm việc quốc tế.
         </p>
 
+
         <div class="divider"></div>
+
 
         <div class="card-bottom">
 
           <div class="tags">
-            <span class="tag">Quản trị rủi ro</span>
-            <span class="tag">Dự án quốc tế</span>
-            <span class="tag">Năng lực quốc tế</span>
+
+            <span class="tag">
+              Quản trị rủi ro
+            </span>
+
+            <span class="tag">
+              Dự án quốc tế
+            </span>
+
+            <span class="tag">
+              Năng lực quốc tế
+            </span>
+
           </div>
 
-          <div class="open">MỞ →</div>
+
+          <div class="open">
+            MỞ →
+          </div>
 
         </div>
 
       </a>
 
 
-      <!-- BUỔI 05 -->
-      <a class="card featured" href="buoi-05/">
 
-        <div class="session">BUỔI 05</div>
+      <!-- =========================
+           BUỔI 05
+      ========================== -->
 
-        <h2>Từ ý tưởng đến giải pháp</h2>
+      <a
+        class="card featured"
+        href="buoi-05/"
+      >
+
+        <div class="session">
+          BUỔI 05
+        </div>
+
+
+        <h2>
+          Từ ý tưởng đến giải pháp
+        </h2>
+
 
         <p>
-          Các học viên trình bày những sáng kiến, ý tưởng và giải pháp
-          gắn với công việc thực tế – từ công nghệ, dữ liệu,
-          địa chất – địa chấn đến quản lý dự án và tối ưu hoạt động.
+          Những vấn đề trong công việc
+          được chuyển thành sáng kiến,
+          ý tưởng và giải pháp thực tế –
+          nơi kiến thức được thử sức
+          bằng khả năng ứng dụng.
         </p>
 
+
         <div class="divider"></div>
+
 
         <div class="card-bottom">
 
           <div class="tags">
-            <span class="tag">Sáng kiến</span>
-            <span class="tag">Đổi mới</span>
-            <span class="tag">Giải pháp</span>
-            <span class="tag">Ứng dụng thực tế</span>
+
+            <span class="tag">
+              Sáng kiến
+            </span>
+
+            <span class="tag">
+              Giải pháp
+            </span>
+
+            <span class="tag">
+              Ứng dụng thực tế
+            </span>
+
           </div>
 
-          <div class="open">MỞ BUỔI 05 →</div>
+
+          <div class="open">
+            MỞ BUỔI 05 →
+          </div>
 
         </div>
 
@@ -765,61 +1266,54 @@
     </section>
 
 
-    <!-- HÀNH TRÌNH CÒN TIẾP TỤC -->
+
+    <!-- ===================================================
+         TO BE CONTINUED
+    ==================================================== -->
+
     <section class="continue-box">
 
       <div class="continue-label">
-        TO BE CONTINUED...
+        TO BE CONTINUED
       </div>
 
-      <h3>
-        Hành trình chưa dừng lại ở Buổi 05
+
+      <h3 class="continue-title">
+        Hành trình vẫn tiếp tục
       </h3>
 
-      <p>
-        Buổi 06, 07, 08, 09, 10... rồi sẽ tiếp tục được viết thêm.
-        Mỗi chặng sẽ có những chủ đề mới, những thử thách mới
-        và những điều mới để cùng học hỏi, cùng trải nghiệm và cùng trưởng thành.
-      </p>
 
-      <div class="next-sessions">
-
-        <div class="next-session">06</div>
-        <span class="next-arrow">→</span>
-
-        <div class="next-session">07</div>
-        <span class="next-arrow">→</span>
-
-        <div class="next-session">08</div>
-        <span class="next-arrow">→</span>
-
-        <div class="next-session">09</div>
-        <span class="next-arrow">→</span>
-
-        <div class="next-session">10</div>
-        <span class="next-arrow">→</span>
-
-        <div class="next-session">...</div>
-
-      </div>
+      <div
+        class="animated-dots"
+        aria-label="..."
+      ></div>
 
     </section>
 
 
-    <!-- CÂU KẾT -->
+
+    <!-- ===================================================
+         CÂU KẾT
+    ==================================================== -->
+
     <section class="closing">
 
       <div class="closing-line"></div>
 
+
       <p>
+
         <strong>
           Từ những chặng đầu tiên đến những chặng đường phía trước,
-          hành trình ấy vẫn tiếp tục – với sự đồng hành, sẻ chia
+          hành trình ấy vẫn tiếp tục –
+          với sự đồng hành, sẻ chia
           và cùng nhau trưởng thành.
         </strong>
+
       </p>
 
     </section>
+
 
   </main>
 
