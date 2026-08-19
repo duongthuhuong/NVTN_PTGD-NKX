@@ -7,6 +7,25 @@
 <title>Buổi 3 | Nhân viên Tài năng PVEP</title>
 
 <style>
+
+:root{
+    --green:#62c947;
+    --green-dark:#319b36;
+    --green-light:#8ee171;
+
+    --navy:#05283f;
+    --navy-deep:#031a2b;
+
+    --text:#16394d;
+    --text-soft:#496575;
+
+    --white:#ffffff;
+    --page:#f8fbf8;
+    --soft-green:#f3faf1;
+
+    --border:rgba(5,40,63,.09);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -17,9 +36,28 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f8f7;
-    color: #293735;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-weight: 400;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8fbf8 50%,
+            #ffffff 100%
+        );
+
+    color: var(--text);
+
     line-height: 1.7;
 }
 
@@ -35,19 +73,19 @@ body {
     background:
         radial-gradient(
             circle at 84% 16%,
-            rgba(106,210,187,0.11),
+            rgba(98,201,71,.18),
             transparent 23%
         ),
         radial-gradient(
             circle at 14% 86%,
-            rgba(89,142,181,0.09),
+            rgba(98,201,71,.07),
             transparent 24%
         ),
         linear-gradient(
-            135deg,
-            #073741 0%,
-            #075b63 48%,
-            #08796a 100%
+            120deg,
+            var(--navy-deep) 0%,
+            var(--navy) 70%,
+            #064839 100%
         );
 }
 
@@ -58,17 +96,16 @@ body {
 
     background-image:
         linear-gradient(
-            rgba(255,255,255,0.03) 1px,
+            rgba(255,255,255,.025) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(255,255,255,0.03) 1px,
+            rgba(255,255,255,.025) 1px,
             transparent 1px
         );
 
     background-size: 48px 48px;
-    opacity: 0.27;
 }
 
 .hero::after {
@@ -83,11 +120,12 @@ body {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(255,255,255,0.06);
+    border:
+        1px solid rgba(98,201,71,.12);
 
     box-shadow:
-        0 0 0 55px rgba(255,255,255,0.018),
-        0 0 0 110px rgba(255,255,255,0.012);
+        0 0 0 55px rgba(98,201,71,.025),
+        0 0 0 110px rgba(98,201,71,.015);
 }
 
 .hero-inner {
@@ -95,6 +133,7 @@ body {
     z-index: 2;
 
     max-width: 1080px;
+
     margin: auto;
 
     padding: 58px 22px 48px;
@@ -107,26 +146,37 @@ body {
 
     border-radius: 100px;
 
-    border: 1px solid rgba(255,255,255,0.28);
+    border:
+        1px solid rgba(142,225,113,.35);
 
-    background: rgba(255,255,255,0.07);
+    background:
+        rgba(98,201,71,.08);
+
+    color: var(--green-light);
 
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
+
     letter-spacing: 1.2px;
 }
 
 .hero h1 {
     margin: 18px 0 6px;
 
+    color: white;
+
     font-size: 50px;
     line-height: 1.05;
+
+    font-weight: 800;
 }
 
 .hero h2 {
     margin: 0;
 
     max-width: 900px;
+
+    color: white;
 
     font-size: 27px;
     line-height: 1.35;
@@ -141,7 +191,7 @@ body {
 
     font-size: 16px;
 
-    color: rgba(255,255,255,0.92);
+    color: #e9f2f5;
 }
 
 /* ======================================================
@@ -168,9 +218,11 @@ body {
 
     border-radius: 100px;
 
-    background: rgba(255,255,255,0.10);
+    background:
+        rgba(98,201,71,.08);
 
-    border: 1px solid rgba(255,255,255,0.18);
+    border:
+        1px solid rgba(142,225,113,.27);
 
     color: white;
 
@@ -243,9 +295,9 @@ body {
 
     margin-bottom: 25px;
 
-    color: #087666;
+    color: var(--green-dark);
 
-    font-weight: bold;
+    font-weight: 700;
 
     text-decoration: none;
 
@@ -255,7 +307,7 @@ body {
 .back:hover {
     transform: translateX(-4px);
 
-    color: #054f46;
+    color: #23752a;
 }
 
 /* ======================================================
@@ -271,9 +323,11 @@ body {
 
     margin-bottom: 23px;
 
-    box-shadow: 0 5px 20px rgba(20,80,71,0.07);
+    box-shadow:
+        0 5px 20px rgba(5,40,63,.06);
 
-    border: 1px solid rgba(8,118,102,0.07);
+    border:
+        1px solid var(--border);
 }
 
 .section-no {
@@ -281,10 +335,11 @@ body {
 
     margin-bottom: 3px;
 
-    color: #15947f;
+    color: var(--green-dark);
 
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
+
     letter-spacing: 1.2px;
 }
 
@@ -293,15 +348,25 @@ body {
 
     padding-bottom: 11px;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 25px;
 
-    border-bottom: 2px solid #e4f0ed;
+    font-weight: 700;
+
+    border-bottom:
+        2px solid rgba(98,201,71,.18);
 }
 
 .card h3 {
-    color: #116e62;
+    color: var(--navy);
+
+    font-weight: 700;
+}
+
+.card p,
+.card li {
+    color: var(--text);
 }
 
 .highlight {
@@ -309,16 +374,19 @@ body {
 
     padding: 20px 23px;
 
-    border-left: 5px solid #15947f;
+    border-left:
+        5px solid var(--green);
 
     border-radius: 9px;
 
     background:
         linear-gradient(
             135deg,
-            #eaf7f4,
-            #f8fbfa
+            rgba(98,201,71,.10),
+            #fbfdfb
         );
+
+    color: var(--navy);
 }
 
 /* ======================================================
@@ -339,13 +407,20 @@ body {
     color: white;
 
     background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(142,225,113,.16),
+            transparent 28%
+        ),
         linear-gradient(
-            135deg,
-            #064e59,
-            #087666
+            120deg,
+            var(--navy-deep),
+            var(--navy) 72%,
+            #064839
         );
 
-    box-shadow: 0 10px 28px rgba(7,95,84,0.16);
+    box-shadow:
+        0 10px 28px rgba(3,26,43,.15);
 }
 
 .big-message::after {
@@ -358,13 +433,19 @@ body {
 
     font-size: 180px;
 
-    opacity: 0.045;
+    color: var(--green);
+
+    opacity: 0.055;
 }
 
 .big-message h2 {
     margin: 0 0 12px;
 
+    color: white;
+
     font-size: 29px;
+
+    font-weight: 700;
 }
 
 .big-message p {
@@ -372,7 +453,7 @@ body {
 
     margin: 0;
 
-    color: rgba(255,255,255,0.92);
+    color: #e9f2f5;
 }
 
 /* ======================================================
@@ -405,17 +486,18 @@ body {
 
     text-align: center;
 
-    background: #f4faf9;
+    background: #f8fcf7;
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid rgba(98,201,71,.18);
 }
 
 .project-arrow {
-    color: #15947f;
+    color: var(--green);
 
     font-size: 22px;
 
-    font-weight: bold;
+    font-weight: 700;
 
     text-align: center;
 }
@@ -429,12 +511,12 @@ body {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     border-radius: 50%;
 
-    background: #dff3ee;
+    background:
+        rgba(98,201,71,.13);
 
     font-size: 20px;
 }
@@ -442,9 +524,11 @@ body {
 .project-step strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 13px;
+
+    font-weight: 700;
 }
 
 .project-step small {
@@ -452,7 +536,7 @@ body {
 
     margin-top: 3px;
 
-    color: #687874;
+    color: var(--text-soft);
 
     font-size: 11px;
 }
@@ -470,11 +554,13 @@ body {
 .product-intro strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 28px;
 
     line-height: 1.35;
+
+    font-weight: 800;
 }
 
 .product-intro p {
@@ -482,7 +568,7 @@ body {
 
     margin: 10px auto 0;
 
-    color: #60736f;
+    color: var(--text);
 }
 
 /* ======================================================
@@ -492,7 +578,8 @@ body {
 .product-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 16px;
 
@@ -511,11 +598,12 @@ body {
     background:
         linear-gradient(
             145deg,
-            #f7fbfa,
-            #eef7f5
+            #fbfdfb,
+            #f3faf1
         );
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid rgba(98,201,71,.18);
 }
 
 .product-icon {
@@ -527,13 +615,17 @@ body {
 .product-card h3 {
     margin: 4px 0 8px;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 20px;
+
+    font-weight: 700;
 }
 
 .product-card p {
     margin-bottom: 0;
+
+    color: var(--text);
 
     font-size: 14px;
 }
@@ -547,13 +639,14 @@ body {
 
     border-radius: 100px;
 
-    background: #dff3ee;
+    background:
+        rgba(98,201,71,.13);
 
-    color: #087666;
+    color: var(--green-dark);
 
     font-size: 12px;
 
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -563,7 +656,8 @@ body {
 .paper-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 12px;
 
@@ -575,19 +669,22 @@ body {
 
     border-radius: 11px;
 
-    background: #f8fbfa;
+    background: #f8fcf7;
 
-    border-left: 4px solid #15947f;
+    border-left:
+        4px solid var(--green);
 }
 
 .paper-step strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
+
+    font-weight: 700;
 }
 
 .paper-step span {
-    color: #5e716d;
+    color: var(--text-soft);
 
     font-size: 14px;
 }
@@ -599,7 +696,8 @@ body {
 .platform-showcase {
     display: grid;
 
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns:
+        1.15fr 0.85fr;
 
     gap: 28px;
 
@@ -614,23 +712,26 @@ body {
     background:
         linear-gradient(
             135deg,
-            #f3faf8,
+            #f8fcf7,
             #ffffff
         );
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid rgba(98,201,71,.18);
 }
 
 .platform-text h3 {
     margin-top: 0;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 22px;
+
+    font-weight: 700;
 }
 
 .platform-text p {
-    color: #536a65;
+    color: var(--text);
 }
 
 .platform-image {
@@ -642,7 +743,7 @@ body {
 
     min-height: 320px;
 
-    background: #e8f2f0;
+    background: #eef5ee;
 }
 
 .platform-image img {
@@ -652,8 +753,6 @@ body {
     height: 100%;
 
     object-fit: cover;
-
-    opacity: 0.76;
 }
 
 .platform-image::after {
@@ -666,8 +765,8 @@ body {
     background:
         linear-gradient(
             90deg,
-            rgba(255,255,255,0.03),
-            rgba(255,255,255,0.18)
+            rgba(255,255,255,.02),
+            rgba(255,255,255,.12)
         );
 
     pointer-events: none;
@@ -684,7 +783,8 @@ body {
 
     border-radius: 9px;
 
-    background: rgba(5,79,71,0.80);
+    background:
+        rgba(3,26,43,.84);
 
     color: white;
 
@@ -718,15 +818,18 @@ body {
 
     border-radius: 12px;
 
-    background: #f7fbfa;
+    background: #f8fcf7;
 
-    border: 1px solid #e0efeb;
+    border:
+        1px solid rgba(98,201,71,.18);
 }
 
 .community-box strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
+
+    font-weight: 700;
 }
 
 .community-box span {
@@ -734,17 +837,17 @@ body {
 
     margin-top: 4px;
 
-    color: #657974;
+    color: var(--text-soft);
 
     font-size: 13px;
 }
 
 .community-arrow {
-    color: #15947f;
+    color: var(--green);
 
     font-size: 22px;
 
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -754,7 +857,8 @@ body {
 .pm-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 14px;
 
@@ -766,17 +870,18 @@ body {
 
     border-radius: 12px;
 
-    background: #f8fbfa;
+    background: #f8fcf7;
 
-    border-top: 4px solid #15947f;
+    border-top:
+        4px solid var(--green);
 }
 
 .pm-number {
     font-size: 28px;
 
-    color: #15947f;
+    color: var(--green);
 
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .pm-card strong {
@@ -784,11 +889,15 @@ body {
 
     margin: 3px 0 5px;
 
-    color: #075f54;
+    color: var(--navy);
+
+    font-weight: 700;
 }
 
 .pm-card p {
     margin: 0;
+
+    color: var(--text);
 
     font-size: 14px;
 }
@@ -804,13 +913,18 @@ body {
 
     border-radius: 11px;
 
-    background: #f8fbfa;
+    background: #fbfdfb;
 
-    border: 1px solid #e6f0ed;
+    border:
+        1px solid var(--border);
 }
 
 .task h3 {
     margin-top: 0;
+
+    color: var(--navy);
+
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -838,11 +952,13 @@ body {
 
     border-radius: 9px;
 
-    background: #eef7f5;
+    background:
+        rgba(98,201,71,.065);
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid rgba(98,201,71,.18);
 
-    color: #087666;
+    color: var(--navy);
 
     font-weight: 600;
 
@@ -854,15 +970,19 @@ body {
 .document-link:hover {
     transform: translateX(5px);
 
-    background: #dcefeb;
+    background:
+        rgba(98,201,71,.13);
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    color: #23752a;
+
+    box-shadow:
+        0 4px 12px rgba(5,40,63,.06);
 }
 
 .document-note {
     margin-top: 13px;
 
-    color: #6a7774;
+    color: var(--text-soft);
 
     font-size: 14px;
 }
@@ -877,7 +997,7 @@ body {
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(21,148,127,0.11),
+            rgba(98,201,71,.11),
             transparent 42%
         ),
         white;
@@ -886,11 +1006,11 @@ body {
 .closing-title {
     margin: 8px 0 14px;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 27px;
 
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .closing p {
@@ -898,7 +1018,7 @@ body {
 
     margin: auto;
 
-    color: #5c716d;
+    color: var(--text);
 }
 
 /* ======================================================
@@ -908,13 +1028,17 @@ body {
 footer {
     padding: 27px 18px;
 
-    background: #064f47;
+    background:
+        var(--navy-deep);
 
     color: white;
 
     text-align: center;
 
     font-size: 14px;
+
+    border-top:
+        3px solid var(--green);
 }
 
 /* ======================================================
@@ -1015,11 +1139,13 @@ footer {
 
     .platform-showcase {
         padding: 16px;
+
         gap: 18px;
     }
 
     .platform-image {
         min-height: 0;
+
         aspect-ratio: 9 / 16;
     }
 
@@ -1147,7 +1273,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      MAIN
 ====================================================== -->
@@ -1157,7 +1282,6 @@ footer {
 <a class="back" href="../">
     ← QUAY LẠI CÁC BUỔI HỌC
 </a>
-
 
 <!-- ======================================================
      BIG MESSAGE
@@ -1180,7 +1304,6 @@ footer {
     </p>
 
 </section>
-
 
 <!-- ======================================================
      01
@@ -1252,7 +1375,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      02
 ====================================================== -->
@@ -1309,7 +1431,6 @@ footer {
 
         </div>
 
-
         <div class="product-card">
 
             <div class="product-icon">
@@ -1340,7 +1461,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      03
@@ -1412,7 +1532,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      04 PLATFORM
 ====================================================== -->
@@ -1470,7 +1589,6 @@ footer {
 
     </div>
 
-
     <div class="community-flow">
 
         <div class="community-box">
@@ -1502,7 +1620,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      05
@@ -1536,7 +1653,6 @@ footer {
 
         </div>
 
-
         <div class="pm-card">
 
             <div class="pm-number">02</div>
@@ -1552,7 +1668,6 @@ footer {
             </p>
 
         </div>
-
 
         <div class="pm-card">
 
@@ -1573,7 +1688,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      06
@@ -1635,7 +1749,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      07
 ====================================================== -->
@@ -1666,7 +1779,6 @@ footer {
 
     </div>
 
-
     <div class="task">
 
         <h3>
@@ -1681,7 +1793,6 @@ footer {
         </p>
 
     </div>
-
 
     <div class="task">
 
@@ -1702,7 +1813,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      08 DOCUMENTS
@@ -1731,14 +1841,12 @@ footer {
             📄 Kịch bản Buổi 3 – Quản lý dự án
         </a>
 
-
         <a
             class="document-link"
             href="Nền tảng Tri thức Công nghệ mỏ (R&E Knowledge Platform) (2).pdf"
         >
             🌐 Đề cương R&amp;E Knowledge Platform
         </a>
-
 
         <a
             class="document-link"
@@ -1747,14 +1855,12 @@ footer {
             📝 Ý kiến của PTGĐ Ngô Khánh Xạ đối với bài báo khoa học
         </a>
 
-
         <a
             class="document-link"
             href="Note Nhiệm vụ và tiến độ triển khai.png"
         >
             🗓️ Nhiệm vụ và tiến độ triển khai Chương trình NVTN
         </a>
-
 
         <a
             class="document-link"
@@ -1771,7 +1877,6 @@ footer {
     </p>
 
 </section>
-
 
 <!-- ======================================================
      09
@@ -1809,22 +1914,16 @@ footer {
 
 </section>
 
-
 <a class="back" href="../">
     ← QUAY LẠI CÁC BUỔI HỌC
 </a>
 
 </main>
 
-
 <footer>
-
     CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
-
     <br>
-
     Đồng hành cùng PTGĐ Ngô Khánh Xạ
-
 </footer>
 
 </body>
