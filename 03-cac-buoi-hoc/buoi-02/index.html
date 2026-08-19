@@ -7,6 +7,24 @@
 <title>Buổi 2 | Nhân viên Tài năng PVEP</title>
 
 <style>
+:root{
+    --green:#62c947;
+    --green-dark:#319b36;
+    --green-light:#8ee171;
+
+    --navy:#05283f;
+    --navy-deep:#031a2b;
+
+    --text:#16394d;
+    --text-soft:#496575;
+
+    --white:#ffffff;
+    --page:#f8fbf8;
+    --soft-green:#f3faf1;
+
+    --border:rgba(5,40,63,.09);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -17,9 +35,27 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f8f9;
-    color: #293735;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-weight: 400;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8fbf8 50%,
+            #ffffff 100%
+        );
+
+    color: var(--text);
     line-height: 1.7;
 }
 
@@ -31,10 +67,24 @@ body {
     position: relative;
     overflow: hidden;
     color: white;
+
     background:
-        radial-gradient(circle at 84% 18%, rgba(100,210,190,0.10), transparent 23%),
-        radial-gradient(circle at 12% 88%, rgba(80,145,190,0.10), transparent 24%),
-        linear-gradient(135deg, #063541 0%, #075c66 48%, #087a6c 100%);
+        radial-gradient(
+            circle at 84% 18%,
+            rgba(98,201,71,.18),
+            transparent 23%
+        ),
+        radial-gradient(
+            circle at 12% 88%,
+            rgba(98,201,71,.07),
+            transparent 24%
+        ),
+        linear-gradient(
+            120deg,
+            var(--navy-deep) 0%,
+            var(--navy) 70%,
+            #064839 100%
+        );
 }
 
 .hero::before {
@@ -43,65 +93,103 @@ body {
     inset: 0;
 
     background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
 
     background-size: 46px 46px;
-    opacity: 0.28;
 }
 
 .hero::after {
     content: "";
     position: absolute;
+
     width: 360px;
     height: 360px;
+
     right: -120px;
     top: -130px;
+
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.06);
+
+    border:
+        1px solid rgba(98,201,71,.12);
+
     box-shadow:
-        0 0 0 55px rgba(255,255,255,0.018),
-        0 0 0 110px rgba(255,255,255,0.012);
+        0 0 0 55px rgba(98,201,71,.025),
+        0 0 0 110px rgba(98,201,71,.015);
 }
 
 .hero-inner {
     position: relative;
     z-index: 2;
+
     max-width: 1080px;
+
     margin: auto;
+
     padding: 58px 22px 48px;
 }
 
 .eyebrow {
     display: inline-block;
+
     padding: 7px 14px;
+
     border-radius: 100px;
-    border: 1px solid rgba(255,255,255,0.28);
-    background: rgba(255,255,255,0.07);
+
+    border:
+        1px solid rgba(142,225,113,.35);
+
+    background:
+        rgba(98,201,71,.08);
+
+    color: var(--green-light);
+
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
+
     letter-spacing: 1.2px;
 }
 
 .hero h1 {
     margin: 18px 0 6px;
+
+    color: white;
+
     font-size: 50px;
     line-height: 1.05;
+
+    font-weight: 800;
 }
 
 .hero h2 {
     margin: 0;
+
     max-width: 860px;
+
+    color: white;
+
     font-size: 27px;
     line-height: 1.35;
+
     font-weight: 500;
 }
 
 .hero-lead {
     max-width: 820px;
+
     margin-top: 18px;
+
     font-size: 16px;
-    color: rgba(255,255,255,0.92);
+
+    color: #e9f2f5;
 }
 
 /* ======================================================
@@ -110,27 +198,36 @@ body {
 
 .question-stage {
     position: relative;
+
     margin-top: 30px;
+
     min-height: 76px;
     max-width: 800px;
 }
 
 .hero-question {
     position: absolute;
+
     left: 0;
     top: 0;
 
     padding: 11px 17px;
 
     border-radius: 100px;
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.18);
+
+    background:
+        rgba(98,201,71,.08);
+
+    border:
+        1px solid rgba(142,225,113,.27);
 
     color: white;
+
     font-size: 16px;
     font-weight: 600;
 
     opacity: 0;
+
     transform: translateY(12px);
 
     animation: questionFade 18s infinite;
@@ -170,11 +267,12 @@ body {
 }
 
 /* ======================================================
-   TECH DECORATION NHỎ - MỜ
+   TECH DECORATION
 ====================================================== */
 
 .tech-decoration {
     position: absolute;
+
     right: 7%;
     bottom: 30px;
 
@@ -186,16 +284,23 @@ body {
 
 .tech-dot {
     position: absolute;
+
     width: 10px;
     height: 10px;
+
     border-radius: 50%;
-    background: white;
+
+    background: var(--green-light);
 }
 
 .tech-line {
     position: absolute;
+
     height: 1px;
-    background: rgba(255,255,255,0.9);
+
+    background:
+        rgba(142,225,113,.9);
+
     transform-origin: left center;
 }
 
@@ -239,7 +344,9 @@ body {
 
 .container {
     max-width: 1050px;
+
     margin: auto;
+
     padding: 34px 20px 65px;
 }
 
@@ -249,13 +356,17 @@ body {
 
 .back {
     display: inline-flex;
+
     align-items: center;
+
     gap: 6px;
 
     margin-bottom: 25px;
 
-    color: #087666;
-    font-weight: bold;
+    color: var(--green-dark);
+
+    font-weight: 700;
+
     text-decoration: none;
 
     transition: 0.2s;
@@ -263,7 +374,8 @@ body {
 
 .back:hover {
     transform: translateX(-4px);
-    color: #054f46;
+
+    color: #23752a;
 }
 
 /* ======================================================
@@ -272,47 +384,77 @@ body {
 
 .card {
     background: white;
+
     border-radius: 16px;
 
     padding: 30px 33px;
+
     margin-bottom: 23px;
 
-    box-shadow: 0 5px 20px rgba(20,80,71,0.07);
-    border: 1px solid rgba(8,118,102,0.07);
+    box-shadow:
+        0 5px 20px rgba(5,40,63,.06);
+
+    border:
+        1px solid var(--border);
 }
 
 .section-no {
     display: inline-block;
+
     margin-bottom: 3px;
 
-    color: #15947f;
+    color: var(--green-dark);
+
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
+
     letter-spacing: 1.2px;
 }
 
 .card h2 {
     margin: 3px 0 18px;
+
     padding-bottom: 11px;
 
-    color: #075f54;
+    color: var(--navy);
+
     font-size: 25px;
 
-    border-bottom: 2px solid #e4f0ed;
+    font-weight: 700;
+
+    border-bottom:
+        2px solid rgba(98,201,71,.18);
 }
 
 .card h3 {
-    color: #116e62;
+    color: var(--navy);
+
+    font-weight: 700;
+}
+
+.card p,
+.card li {
+    color: var(--text);
 }
 
 .highlight {
     margin: 21px 0;
+
     padding: 20px 23px;
 
-    border-left: 5px solid #15947f;
+    border-left:
+        5px solid var(--green);
+
     border-radius: 9px;
 
-    background: linear-gradient(135deg, #eaf7f4, #f8fbfa);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(98,201,71,.10),
+            #fbfdfb
+        );
+
+    color: var(--navy);
 }
 
 /* ======================================================
@@ -321,9 +463,11 @@ body {
 
 .big-message {
     position: relative;
+
     overflow: hidden;
 
     margin-bottom: 23px;
+
     padding: 34px;
 
     border-radius: 16px;
@@ -331,35 +475,54 @@ body {
     color: white;
 
     background:
-        linear-gradient(135deg, #064e59, #087666);
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(142,225,113,.16),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            var(--navy-deep),
+            var(--navy) 72%,
+            #064839
+        );
 
     box-shadow:
-        0 10px 28px rgba(7,95,84,0.16);
+        0 10px 28px rgba(3,26,43,.15);
 }
 
 .big-message::after {
     content: "?";
 
     position: absolute;
+
     right: 26px;
     bottom: -64px;
 
     font-size: 190px;
-    font-weight: bold;
+    font-weight: 800;
 
-    opacity: 0.045;
+    color: var(--green);
+
+    opacity: 0.055;
 }
 
 .big-message h2 {
     margin: 0 0 12px;
+
+    color: white;
+
     font-size: 29px;
+
+    font-weight: 700;
 }
 
 .big-message p {
     max-width: 830px;
+
     margin: 0;
 
-    color: rgba(255,255,255,0.92);
+    color: #e9f2f5;
 }
 
 /* ======================================================
@@ -368,9 +531,12 @@ body {
 
 .challenge-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 14px;
+
     margin-top: 20px;
 }
 
@@ -379,16 +545,17 @@ body {
 
     border-radius: 12px;
 
-    background: #f8fbfa;
+    background: #f8fcf7;
 
-    border-top: 4px solid #15947f;
+    border-top:
+        4px solid var(--green);
 }
 
 .challenge-number {
-    color: #15947f;
+    color: var(--green);
 
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .challenge strong {
@@ -396,11 +563,15 @@ body {
 
     margin: 3px 0 5px;
 
-    color: #075f54;
+    color: var(--navy);
+
+    font-weight: 700;
 }
 
 .challenge p {
     margin: 0;
+
+    color: var(--text);
 
     font-size: 14px;
 }
@@ -436,16 +607,17 @@ body {
 
     border-radius: 11px;
 
-    background: #f4faf9;
+    background: #f8fcf7;
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid rgba(98,201,71,.18);
 }
 
 .value-arrow {
-    color: #15947f;
+    color: var(--green);
 
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 700;
 
     text-align: center;
 }
@@ -457,12 +629,14 @@ body {
     margin: 0 auto 8px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
 
-    background: #dff3ee;
+    background:
+        rgba(98,201,71,.13);
 
     font-size: 20px;
 }
@@ -470,9 +644,11 @@ body {
 .value-item strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 12px;
+
+    font-weight: 700;
 }
 
 .value-item small {
@@ -480,7 +656,7 @@ body {
 
     margin-top: 3px;
 
-    color: #687874;
+    color: var(--text-soft);
 
     font-size: 11px;
 }
@@ -491,7 +667,9 @@ body {
 
 .domain-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 15px;
 
@@ -504,9 +682,14 @@ body {
     border-radius: 13px;
 
     background:
-        linear-gradient(145deg, #f6fbfa, #eef7f5);
+        linear-gradient(
+            145deg,
+            #fbfdfb,
+            #f3faf1
+        );
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid rgba(98,201,71,.18);
 
     transition: 0.2s;
 }
@@ -514,7 +697,8 @@ body {
 .domain:hover {
     transform: translateY(-4px);
 
-    box-shadow: 0 7px 18px rgba(0,0,0,0.07);
+    box-shadow:
+        0 7px 18px rgba(5,40,63,.07);
 }
 
 .domain-icon {
@@ -524,13 +708,17 @@ body {
 }
 
 .domain strong {
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 17px;
+
+    font-weight: 700;
 }
 
 .domain p {
     margin-bottom: 0;
+
+    color: var(--text);
 
     font-size: 14px;
 }
@@ -559,16 +747,18 @@ body {
 
     border-radius: 12px;
 
-    background: #f7fbfa;
+    background: #f8fcf7;
 
-    border: 1px solid #e0efeb;
+    border:
+        1px solid rgba(98,201,71,.18);
 }
 
 .transition-arrow {
-    color: #15947f;
+    color: var(--green);
 
     font-size: 24px;
-    font-weight: bold;
+
+    font-weight: 700;
 
     text-align: center;
 }
@@ -576,9 +766,11 @@ body {
 .transition-box strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 17px;
+
+    font-weight: 700;
 }
 
 .transition-box span {
@@ -586,7 +778,7 @@ body {
 
     margin-top: 4px;
 
-    color: #657974;
+    color: var(--text-soft);
 
     font-size: 13px;
 }
@@ -597,7 +789,9 @@ body {
 
 .role-questions {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 13px;
 
@@ -609,9 +803,12 @@ body {
 
     border-radius: 11px;
 
-    background: #f8fbfa;
+    background: #f8fcf7;
 
-    border-left: 4px solid #15947f;
+    border-left:
+        4px solid var(--green);
+
+    color: var(--text);
 }
 
 .role-question strong {
@@ -619,7 +816,9 @@ body {
 
     margin-bottom: 4px;
 
-    color: #075f54;
+    color: var(--navy);
+
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -633,13 +832,16 @@ body {
 
     border-radius: 11px;
 
-    background: #f8fbfa;
+    background: #fbfdfb;
 
-    border: 1px solid #e6f0ed;
+    border:
+        1px solid var(--border);
 }
 
 .task h3 {
     margin-top: 0;
+
+    color: var(--navy);
 }
 
 /* ======================================================
@@ -648,6 +850,7 @@ body {
 
 .document-list {
     display: flex;
+
     flex-direction: column;
 
     gap: 10px;
@@ -657,6 +860,7 @@ body {
 
 .document-link {
     display: flex;
+
     align-items: center;
 
     gap: 10px;
@@ -665,11 +869,13 @@ body {
 
     border-radius: 9px;
 
-    background: #eef7f5;
+    background:
+        rgba(98,201,71,.065);
 
-    border: 1px solid #dcece8;
+    border:
+        1px solid rgba(98,201,71,.18);
 
-    color: #087666;
+    color: var(--navy);
 
     font-weight: 600;
 
@@ -681,15 +887,19 @@ body {
 .document-link:hover {
     transform: translateX(5px);
 
-    background: #dcefeb;
+    background:
+        rgba(98,201,71,.13);
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    color: #23752a;
+
+    box-shadow:
+        0 4px 12px rgba(5,40,63,.06);
 }
 
 .document-note {
     margin-top: 13px;
 
-    color: #6a7774;
+    color: var(--text-soft);
 
     font-size: 14px;
 }
@@ -704,7 +914,7 @@ body {
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(21,148,127,0.11),
+            rgba(98,201,71,.11),
             transparent 42%
         ),
         white;
@@ -713,10 +923,11 @@ body {
 .closing-title {
     margin: 8px 0 14px;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 27px;
-    font-weight: bold;
+
+    font-weight: 800;
 }
 
 .closing p {
@@ -724,7 +935,7 @@ body {
 
     margin: auto;
 
-    color: #5c716d;
+    color: var(--text);
 }
 
 /* ======================================================
@@ -734,13 +945,17 @@ body {
 footer {
     padding: 27px 18px;
 
-    background: #064f47;
+    background:
+        var(--navy-deep);
 
     color: white;
 
     text-align: center;
 
     font-size: 14px;
+
+    border-top:
+        3px solid var(--green);
 }
 
 /* ======================================================
@@ -898,7 +1113,6 @@ footer {
 </style>
 </head>
 
-
 <body>
 
 <!-- ======================================================
@@ -973,7 +1187,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      MAIN
 ====================================================== -->
@@ -983,7 +1196,6 @@ footer {
 <a class="back" href="../">
     ← QUAY LẠI CÁC BUỔI HỌC
 </a>
-
 
 <!-- ======================================================
      BIG MESSAGE
@@ -1007,7 +1219,6 @@ footer {
     </p>
 
 </section>
-
 
 <!-- ======================================================
      01
@@ -1093,7 +1304,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      02
 ====================================================== -->
@@ -1171,7 +1381,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      03
@@ -1260,7 +1469,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      04
 ====================================================== -->
@@ -1337,7 +1545,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      05
@@ -1423,7 +1630,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      06
 ====================================================== -->
@@ -1465,7 +1671,6 @@ footer {
     </p>
 
 </section>
-
 
 <!-- ======================================================
      07
@@ -1545,7 +1750,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      08 DOCUMENTS
 ====================================================== -->
@@ -1595,7 +1799,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      09 CLOSING
 ====================================================== -->
@@ -1624,13 +1827,11 @@ footer {
 
 </section>
 
-
 <a class="back" href="../">
     ← QUAY LẠI CÁC BUỔI HỌC
 </a>
 
 </main>
-
 
 <footer>
     CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
