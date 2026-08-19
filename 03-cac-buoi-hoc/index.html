@@ -113,8 +113,9 @@
     }
 
     .page-title {
+      max-width: 950px;
       font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.06;
+      line-height: 1.08;
       letter-spacing: -1.8px;
       font-weight: 800;
       color: #10242a;
@@ -122,7 +123,7 @@
     }
 
     .page-intro {
-      max-width: 850px;
+      max-width: 900px;
       font-size: 17px;
       color: #59686c;
     }
@@ -261,7 +262,7 @@
     }
 
     /* =========================
-       BUỔI 05 NỔI BẬT
+       BUỔI 05
     ========================= */
 
     .card.featured {
@@ -302,25 +303,101 @@
     }
 
     /* =========================
-       KẾT
+       HÀNH TRÌNH TIẾP TỤC
     ========================= */
 
-    .closing {
-      margin: 44px 0 0;
-      padding: 30px 32px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.60);
-      border: 1px solid rgba(12,87,82,0.08);
+    .continue-box {
+      margin-top: 32px;
+      padding: 32px 34px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(126, 173, 66, 0.13), transparent 28%),
+        rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(12, 87, 82, 0.09);
       text-align: center;
     }
 
+    .continue-label {
+      color: #6e9d38;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .continue-box h3 {
+      color: #123a3e;
+      font-size: 25px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .continue-box p {
+      max-width: 850px;
+      margin: 0 auto;
+      color: #59686c;
+      font-size: 15.5px;
+    }
+
+    .next-sessions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .next-session {
+      min-width: 45px;
+      height: 45px;
+      padding: 0 14px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 118, 111, 0.07);
+      border: 1px solid rgba(8, 118, 111, 0.12);
+      color: #08766f;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .next-arrow {
+      color: #78a43f;
+      font-weight: 800;
+    }
+
+    /* =========================
+       CÂU KẾT
+    ========================= */
+
+    .closing {
+      margin: 34px 0 0;
+      padding: 38px 28px;
+      text-align: center;
+    }
+
+    .closing-line {
+      width: 48px;
+      height: 3px;
+      margin: 0 auto 20px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #70a936, #00868c);
+    }
+
     .closing p {
-      font-size: 16px;
-      color: #566568;
+      max-width: 920px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.75;
+      color: #536367;
     }
 
     .closing strong {
       color: #08766f;
+      font-weight: 800;
     }
 
     /* =========================
@@ -392,13 +469,16 @@
         margin-top: 27px;
       }
 
-      .card-bottom {
-        align-items: center;
+      .continue-box {
+        padding: 27px 22px;
+      }
+
+      .continue-box h3 {
+        font-size: 22px;
       }
 
       .closing {
-        margin-top: 28px;
-        padding: 24px 20px;
+        padding: 30px 15px;
       }
     }
 
@@ -409,7 +489,15 @@
       }
 
       .page-title {
-        font-size: 36px;
+        font-size: 35px;
+      }
+
+      .page-intro {
+        font-size: 14.5px;
+      }
+
+      .journey-line {
+        display: none;
       }
 
       .card {
@@ -430,8 +518,20 @@
         margin-top: 3px;
       }
 
-      .journey-line {
-        display: none;
+      .continue-box {
+        margin-top: 22px;
+        border-radius: 21px;
+      }
+
+      .next-session {
+        min-width: 40px;
+        height: 40px;
+        padding: 0 11px;
+        font-size: 12px;
+      }
+
+      .closing p {
+        font-size: 16px;
       }
     }
 
@@ -471,7 +571,7 @@
 
   <main class="page">
 
-    <!-- GIỚI THIỆU -->
+    <!-- PHẦN MỞ -->
     <section class="page-head">
 
       <div class="eyebrow">
@@ -479,14 +579,16 @@
       </div>
 
       <h1 class="page-title">
-        Năm buổi học – một hành trình phát triển
+        Những chặng đầu của một hành trình còn tiếp tục
       </h1>
 
       <p class="page-intro">
-        Mỗi buổi học là một bước tiếp nối:
+        Mỗi buổi học là một chặng tiếp nối:
         từ định hướng phát triển cá nhân, mở rộng nhận thức về khoa học công nghệ
         và chuyển đổi số, đưa kiến thức vào thực hành, chuẩn bị cho môi trường
-        làm việc quốc tế và cuối cùng là chuyển những ý tưởng thành giải pháp thực tế.
+        làm việc quốc tế và từng bước biến những ý tưởng thành giải pháp thực tế.
+        Hành trình ấy không dừng lại ở đây – những buổi học tiếp theo
+        sẽ tiếp tục mở ra những câu chuyện, thử thách và trải nghiệm mới.
       </p>
 
       <div class="journey-line">
@@ -499,25 +601,22 @@
         <span>Nhìn xa hơn</span>
         <span class="journey-dot"></span>
         <span>Ý tưởng thành giải pháp</span>
+        <span class="journey-dot"></span>
+        <span>...</span>
       </div>
 
     </section>
 
 
-    <!-- CÁC BUỔI HỌC -->
+    <!-- CÁC BUỔI ĐÃ ĐI QUA -->
     <section class="cards">
-
 
       <!-- BUỔI 01 -->
       <a class="card" href="buoi-01/">
 
-        <div class="session">
-          BUỔI 01
-        </div>
+        <div class="session">BUỔI 01</div>
 
-        <h2>
-          Định hướng phát triển cá nhân
-        </h2>
+        <h2>Định hướng phát triển cá nhân</h2>
 
         <p>
           Xây dựng Kế hoạch phát triển cá nhân – IDP,
@@ -534,9 +633,7 @@
             <span class="tag">Phát triển cá nhân</span>
           </div>
 
-          <div class="open">
-            MỞ →
-          </div>
+          <div class="open">MỞ →</div>
 
         </div>
 
@@ -546,13 +643,9 @@
       <!-- BUỔI 02 -->
       <a class="card" href="buoi-02/">
 
-        <div class="session">
-          BUỔI 02
-        </div>
+        <div class="session">BUỔI 02</div>
 
-        <h2>
-          Khoa học công nghệ & Chuyển đổi số
-        </h2>
+        <h2>Khoa học công nghệ & Chuyển đổi số</h2>
 
         <p>
           Mở rộng góc nhìn về khoa học công nghệ,
@@ -570,9 +663,7 @@
             <span class="tag">Đổi mới</span>
           </div>
 
-          <div class="open">
-            MỞ →
-          </div>
+          <div class="open">MỞ →</div>
 
         </div>
 
@@ -582,13 +673,9 @@
       <!-- BUỔI 03 -->
       <a class="card" href="buoi-03/">
 
-        <div class="session">
-          BUỔI 03
-        </div>
+        <div class="session">BUỔI 03</div>
 
-        <h2>
-          Học đi đôi với hành
-        </h2>
+        <h2>Học đi đôi với hành</h2>
 
         <p>
           Từ những bài toán chuyên môn thực tế,
@@ -607,9 +694,7 @@
             <span class="tag">Thực hành</span>
           </div>
 
-          <div class="open">
-            MỞ →
-          </div>
+          <div class="open">MỞ →</div>
 
         </div>
 
@@ -619,13 +704,9 @@
       <!-- BUỔI 04 -->
       <a class="card" href="buoi-04/">
 
-        <div class="session">
-          BUỔI 04
-        </div>
+        <div class="session">BUỔI 04</div>
 
-        <h2>
-          Nhìn xa hơn – Sẵn sàng hơn
-        </h2>
+        <h2>Nhìn xa hơn – Sẵn sàng hơn</h2>
 
         <p>
           Từ quản trị rủi ro, biến động địa chính trị
@@ -644,9 +725,7 @@
             <span class="tag">Năng lực quốc tế</span>
           </div>
 
-          <div class="open">
-            MỞ →
-          </div>
+          <div class="open">MỞ →</div>
 
         </div>
 
@@ -656,13 +735,9 @@
       <!-- BUỔI 05 -->
       <a class="card featured" href="buoi-05/">
 
-        <div class="session">
-          BUỔI 05
-        </div>
+        <div class="session">BUỔI 05</div>
 
-        <h2>
-          Từ ý tưởng đến giải pháp
-        </h2>
+        <h2>Từ ý tưởng đến giải pháp</h2>
 
         <p>
           Các học viên trình bày những sáng kiến, ý tưởng và giải pháp
@@ -681,9 +756,7 @@
             <span class="tag">Ứng dụng thực tế</span>
           </div>
 
-          <div class="open">
-            MỞ BUỔI 05 →
-          </div>
+          <div class="open">MỞ BUỔI 05 →</div>
 
         </div>
 
@@ -692,15 +765,57 @@
     </section>
 
 
-    <!-- KẾT -->
-    <section class="closing">
+    <!-- HÀNH TRÌNH CÒN TIẾP TỤC -->
+    <section class="continue-box">
+
+      <div class="continue-label">
+        TO BE CONTINUED...
+      </div>
+
+      <h3>
+        Hành trình chưa dừng lại ở Buổi 05
+      </h3>
 
       <p>
-        Năm buổi học không phải là những chuyên đề rời rạc,
-        mà là một hành trình nối tiếp:
+        Buổi 06, 07, 08, 09, 10... rồi sẽ tiếp tục được viết thêm.
+        Mỗi chặng sẽ có những chủ đề mới, những thử thách mới
+        và những điều mới để cùng học hỏi, cùng trải nghiệm và cùng trưởng thành.
+      </p>
+
+      <div class="next-sessions">
+
+        <div class="next-session">06</div>
+        <span class="next-arrow">→</span>
+
+        <div class="next-session">07</div>
+        <span class="next-arrow">→</span>
+
+        <div class="next-session">08</div>
+        <span class="next-arrow">→</span>
+
+        <div class="next-session">09</div>
+        <span class="next-arrow">→</span>
+
+        <div class="next-session">10</div>
+        <span class="next-arrow">→</span>
+
+        <div class="next-session">...</div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CÂU KẾT -->
+    <section class="closing">
+
+      <div class="closing-line"></div>
+
+      <p>
         <strong>
-          phát triển bản thân – mở rộng tư duy – học qua thực hành –
-          chuẩn bị cho những yêu cầu lớn hơn – và biến ý tưởng thành hành động.
+          Từ những chặng đầu tiên đến những chặng đường phía trước,
+          hành trình ấy vẫn tiếp tục – với sự đồng hành, sẻ chia
+          và cùng nhau trưởng thành.
         </strong>
       </p>
 
