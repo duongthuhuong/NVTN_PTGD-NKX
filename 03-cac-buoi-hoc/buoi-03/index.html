@@ -172,6 +172,7 @@ body {
 .q6 { animation-delay: 17.5s; }
 
 @keyframes questionFade {
+
     0% {
         opacity: 0;
         transform: translateY(12px);
@@ -306,14 +307,14 @@ body {
 }
 
 .big-message::after {
-    content: "✦";
+    content: "✓";
 
     position: absolute;
 
     right: 25px;
-    bottom: -50px;
+    bottom: -56px;
 
-    font-size: 170px;
+    font-size: 180px;
 
     opacity: 0.045;
 }
@@ -325,7 +326,7 @@ body {
 }
 
 .big-message p {
-    max-width: 840px;
+    max-width: 850px;
 
     margin: 0;
 
@@ -410,7 +411,7 @@ body {
 }
 
 /* ======================================================
-   PRODUCT HERO
+   PRODUCT INTRO
 ====================================================== */
 
 .product-intro {
@@ -430,7 +431,7 @@ body {
 }
 
 .product-intro p {
-    max-width: 780px;
+    max-width: 790px;
 
     margin: 10px auto 0;
 
@@ -453,15 +454,13 @@ body {
 
 .product-card {
     position: relative;
-
     overflow: hidden;
 
     padding: 25px;
 
     border-radius: 14px;
 
-    background:
-        linear-gradient(145deg, #f7fbfa, #eef7f5);
+    background: linear-gradient(145deg, #f7fbfa, #eef7f5);
 
     border: 1px solid #dcece8;
 }
@@ -522,8 +521,7 @@ body {
 
     border-radius: 15px;
 
-    background:
-        linear-gradient(135deg, #f3faf8, #ffffff);
+    background: linear-gradient(135deg, #f3faf8, #ffffff);
 
     border: 1px solid #dcece8;
 }
@@ -560,22 +558,20 @@ body {
 
     object-fit: cover;
 
-    opacity: 0.76;
+    opacity: 0.74;
 }
 
 .platform-image::after {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.03),
-            rgba(255,255,255,0.22)
-        );
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.20)
+    );
 
     pointer-events: none;
 }
@@ -655,7 +651,7 @@ body {
 }
 
 /* ======================================================
-   PAPER STRUCTURE
+   PAPER
 ====================================================== */
 
 .paper-grid {
@@ -837,7 +833,7 @@ body {
 }
 
 .closing p {
-    max-width: 830px;
+    max-width: 840px;
 
     margin: auto;
 
@@ -958,13 +954,11 @@ footer {
 
     .platform-showcase {
         padding: 16px;
-
         gap: 18px;
     }
 
     .platform-image {
         min-height: 0;
-
         aspect-ratio: 9 / 16;
     }
 
@@ -1025,6 +1019,7 @@ footer {
         font-size: 14px;
     }
 }
+
 </style>
 </head>
 
@@ -1046,15 +1041,15 @@ footer {
     <h1>BUỔI 3</h1>
 
     <h2>
-        TỪ NGƯỜI HỌC ĐẾN NGƯỜI TẠO RA TRI THỨC
+        HỌC ĐI ĐÔI VỚI HÀNH
     </h2>
 
     <p class="hero-lead">
-        Học Quản lý dự án từ chính những việc đang làm,
-        nhưng điều đáng giá hơn là:
-        từ các nhiệm vụ được giao,
-        nhóm đã bắt đầu tạo ra những sản phẩm
-        có chất lượng khoa học và giá trị sử dụng thực tế.
+        Không chỉ học lý thuyết Quản lý dự án,
+        các thành viên trực tiếp triển khai nhiệm vụ,
+        phối hợp theo nhóm,
+        xử lý những vấn đề thực tế
+        và từng bước tạo ra những sản phẩm cụ thể, có chất lượng.
     </p>
 
     <div class="question-stage">
@@ -1064,23 +1059,23 @@ footer {
         </div>
 
         <div class="hero-question q2">
-            Một bài tập khi nào trở thành một sản phẩm chất lượng?
+            Mục tiêu đã được cả nhóm hiểu giống nhau chưa?
         </div>
 
         <div class="hero-question q3">
-            Một nghiên cứu thế nào mới thực sự có giá trị khoa học?
+            Ai là người chịu trách nhiệm cuối cùng?
         </div>
 
         <div class="hero-question q4">
-            Tri thức cá nhân làm sao trở thành tri thức của tổ chức?
+            Làm thế nào để một bài tập trở thành một sản phẩm có chất lượng?
         </div>
 
         <div class="hero-question q5">
-            Làm sao để kinh nghiệm của hôm nay không bị mất đi ngày mai?
+            Làm sao để kinh nghiệm được chia sẻ và sử dụng lại?
         </div>
 
         <div class="hero-question q6">
-            Một cộng đồng khoa học được hình thành như thế nào?
+            Học được gì khi thực sự cùng nhau làm một sản phẩm?
         </div>
 
     </div>
@@ -1108,17 +1103,17 @@ footer {
 <section class="big-message">
 
     <h2>
-        Không chỉ học – nhóm đã bắt đầu tạo ra sản phẩm tri thức
+        Không chỉ học lý thuyết – mà thực sự bắt tay vào làm
     </h2>
 
     <p>
-        Điểm nổi bật của Buổi 3 là các nhiệm vụ học tập
-        đã từng bước được chuyển hóa thành những sản phẩm có chất lượng:
-        có nội dung chuyên môn,
-        có khả năng sử dụng,
-        có thể tiếp tục phản biện,
-        hoàn thiện
-        và đóng góp vào kho tri thức chung của PVEP.
+        Điểm nổi bật của Buổi 3 là các nội dung Quản lý dự án
+        được học thông qua chính những nhiệm vụ đang triển khai.
+        Các thành viên phải cùng xác định mục tiêu,
+        phân công trách nhiệm,
+        phối hợp,
+        xử lý vấn đề
+        và tạo ra những sản phẩm cụ thể.
     </p>
 
 </section>
@@ -1186,7 +1181,7 @@ footer {
         <div class="project-step">
             <div class="step-icon">📦</div>
             <strong>SẢN PHẨM</strong>
-            <small>Tạo ra giá trị gì?</small>
+            <small>Kết quả cụ thể là gì?</small>
         </div>
 
     </div>
@@ -1201,22 +1196,21 @@ footer {
 <section class="card">
 
     <span class="section-no">
-        02 · KẾT QUẢ NỔI BẬT
+        02 · HỌC ĐI ĐÔI VỚI HÀNH
     </span>
 
     <div class="product-intro">
 
         <strong>
-            NHỮNG SẢN PHẨM CHẤT LƯỢNG ĐƯỢC HÌNH THÀNH
+            NHỮNG SẢN PHẨM CỤ THỂ ĐƯỢC HÌNH THÀNH
         </strong>
 
         <p>
             Từ các nhiệm vụ được giao,
-            nhóm không chỉ hoàn thành bài tập
-            mà đã bắt đầu tạo ra những sản phẩm
-            có chiều sâu chuyên môn,
-            có tính ứng dụng
-            và có khả năng tiếp tục phát triển.
+            các thành viên không chỉ dừng ở việc trao đổi trên lớp
+            mà đã trực tiếp cùng nhau xây dựng,
+            chỉnh sửa và hoàn thiện những sản phẩm có nội dung
+            và giá trị sử dụng rõ ràng.
         </p>
 
     </div>
@@ -1235,18 +1229,18 @@ footer {
             </h3>
 
             <p>
-                Các vấn đề kỹ thuật thực tế
-                được phát triển theo hướng nghiên cứu khoa học:
-                từ xác định vấn đề,
-                khoảng trống tri thức,
+                Từ những vấn đề kỹ thuật thực tế,
+                các nhóm đã phát triển thành hai bài viết khoa học
+                và tiếp tục hoàn thiện theo góp ý của PTGĐ:
+                làm rõ vấn đề,
+                tổng quan,
                 phương pháp,
-                kiểm chứng,
-                so sánh kết quả
-                đến đề xuất workflow áp dụng.
+                kiểm chứng
+                và giá trị ứng dụng.
             </p>
 
             <span class="product-badge">
-                SẢN PHẨM KHOA HỌC
+                SẢN PHẨM ĐANG TIẾP TỤC HOÀN THIỆN
             </span>
 
         </div>
@@ -1263,17 +1257,16 @@ footer {
             </h3>
 
             <p>
-                Một không gian số để
-                ghi nhận vấn đề,
-                trao đổi – phản biện,
-                chia sẻ cách xử lý
-                và từng bước biến kinh nghiệm kỹ thuật
-                thành tri thức có thể lưu giữ
-                và kế thừa trong PVEP.
+                Từ nhu cầu chia sẻ kinh nghiệm và xử lý các vấn đề kỹ thuật,
+                nhóm đã xây dựng một không gian
+                để đặt câu hỏi,
+                trao đổi,
+                phản biện
+                và lưu lại các nội dung có ích cho những người cùng chuyên môn.
             </p>
 
             <span class="product-badge">
-                SẢN PHẨM QUẢN TRỊ TRI THỨC
+                CỘNG ĐỒNG CHIA SẺ KIẾN THỨC
             </span>
 
         </div>
@@ -1294,70 +1287,70 @@ footer {
     </span>
 
     <h2>
-        TỪ KINH NGHIỆM KỸ THUẬT ĐẾN SẢN PHẨM KHOA HỌC
+        TỪ BÀI TẬP ĐẾN MỘT SẢN PHẨM ĐƯỢC ĐẦU TƯ NGHIÊM TÚC
     </h2>
 
     <p>
         Theo định hướng của PTGĐ Ngô Khánh Xạ,
-        một bài báo kỹ thuật có chất lượng
-        cần vượt khỏi việc mô tả kinh nghiệm
-        và chứng minh được đóng góp mới,
-        tính khoa học
-        cũng như giá trị ứng dụng.
+        các bài báo cần tiếp tục được hoàn thiện
+        theo cấu trúc chặt chẽ hơn,
+        vừa có chiều sâu kỹ thuật
+        vừa thể hiện rõ giá trị ứng dụng thực tế.
     </p>
+
 
     <div class="paper-grid">
 
         <div class="paper-step">
-            <strong>① Vấn đề thực tế</strong>
+            <strong>① Xác định vấn đề</strong>
             <span>
-                Mỏ, vỉa hoặc đối tượng đang gặp thách thức gì?
+                Bài toán kỹ thuật thực tế cần giải quyết là gì?
             </span>
         </div>
 
         <div class="paper-step">
-            <strong>② Knowledge Gap</strong>
+            <strong>② Tổng quan & khoảng trống</strong>
             <span>
-                Các phương pháp hiện tại còn hạn chế gì?
+                Những phương pháp hiện có còn điểm nào cần tiếp tục xử lý?
             </span>
         </div>
 
         <div class="paper-step">
-            <strong>③ Phương pháp nghiên cứu</strong>
+            <strong>③ Phương pháp</strong>
             <span>
-                Công thức, mô hình hoặc tham số nào được xây dựng hay điều chỉnh?
+                Cách tiếp cận, mô hình hay tham số nào được sử dụng?
             </span>
         </div>
 
         <div class="paper-step">
-            <strong>④ Kiểm chứng thực tế</strong>
+            <strong>④ Kiểm chứng</strong>
             <span>
-                Phương pháp có được đối chiếu với dữ liệu thực tế?
+                Kết quả được đối chiếu với dữ liệu thực tế như thế nào?
             </span>
         </div>
 
         <div class="paper-step">
-            <strong>⑤ So sánh trước – sau</strong>
+            <strong>⑤ So sánh kết quả</strong>
             <span>
-                Hiệu quả cải thiện có được chứng minh bằng số liệu?
+                Phương pháp có tạo ra cải thiện hay không?
             </span>
         </div>
 
         <div class="paper-step">
-            <strong>⑥ Workflow áp dụng</strong>
+            <strong>⑥ Đề xuất áp dụng</strong>
             <span>
-                Kết quả có thể được người khác sử dụng và kế thừa như thế nào?
+                Kết quả có thể hỗ trợ công việc thực tế như thế nào?
             </span>
         </div>
 
     </div>
 
+
     <div class="highlight">
-
-        Hai bài báo là một bước chuyển quan trọng:
-        từ việc <strong>tiếp nhận kiến thức</strong>
-        sang <strong>tạo lập tri thức</strong>.
-
+        Quan trọng không phải là “có một bài báo”,
+        mà là qua quá trình làm bài,
+        các thành viên học được cách
+        <strong>đặt vấn đề – nghiên cứu – kiểm chứng – chỉnh sửa – hoàn thiện sản phẩm.</strong>
     </div>
 
 </section>
@@ -1374,7 +1367,7 @@ footer {
     </span>
 
     <h2>
-        TỪ MỘT Ý TƯỞNG ĐẾN CỘNG ĐỒNG CHIA SẺ TRI THỨC
+        TỪ Ý TƯỞNG CHIA SẺ ĐẾN MỘT CỘNG ĐỒNG CHUYÊN MÔN
     </h2>
 
 
@@ -1383,26 +1376,25 @@ footer {
         <div class="platform-text">
 
             <h3>
-                Chia sẻ tri thức – cùng giải quyết vấn đề
+                Chia sẻ kiến thức – cùng trao đổi vấn đề thực tế
             </h3>
 
             <p>
-                Knowledge Platform đã được định hình
-                như một không gian trao đổi chuyên môn,
-                nơi cán bộ kỹ thuật có thể
-                đặt câu hỏi,
-                tìm kiếm vấn đề tương tự,
-                chia sẻ kinh nghiệm
-                và tham gia phản biện.
+                Knowledge Platform được xây dựng
+                như một không gian để cán bộ kỹ thuật
+                có thể đặt câu hỏi,
+                trao đổi các tình huống thực tế,
+                tìm kiếm vấn đề tương tự
+                và chia sẻ kinh nghiệm xử lý.
             </p>
 
             <p>
-                Giá trị lớn hơn không nằm ở bản thân công cụ,
-                mà ở việc từng bước hình thành
-                một <strong>cộng đồng khoa học – kỹ thuật</strong>
-                có khả năng tích lũy,
-                chia sẻ
-                và phát triển tri thức chung.
+                Điều đáng ghi nhận là từ một nhiệm vụ học tập,
+                nhóm đã bước đầu hình thành
+                một <strong>cộng đồng chia sẻ kiến thức</strong>,
+                nơi mọi người có thể cùng trao đổi,
+                phản biện
+                và học hỏi lẫn nhau.
             </p>
 
         </div>
@@ -1414,7 +1406,7 @@ footer {
                  alt="Cộng đồng Chia sẻ tri thức PVEP">
 
             <div class="platform-caption">
-                Cộng đồng “Chia sẻ tri thức” – bước đầu hiện thực hóa R&amp;E Knowledge Platform
+                Cộng đồng “Chia sẻ tri thức” – một sản phẩm thực tế của quá trình học và thực hành
             </div>
 
         </div>
@@ -1425,14 +1417,14 @@ footer {
     <div class="community-flow">
 
         <div class="community-box">
-            <strong>ISSUE</strong>
-            <span>Đặt vấn đề thực tế</span>
+            <strong>VẤN ĐỀ</strong>
+            <span>Đặt câu hỏi thực tế</span>
         </div>
 
         <div class="community-arrow">→</div>
 
         <div class="community-box">
-            <strong>THẢO LUẬN</strong>
+            <strong>TRAO ĐỔI</strong>
             <span>Chia sẻ & phản biện</span>
         </div>
 
@@ -1440,14 +1432,14 @@ footer {
 
         <div class="community-box">
             <strong>GIẢI PHÁP</strong>
-            <span>Phân tích & xử lý</span>
+            <span>Cùng phân tích cách xử lý</span>
         </div>
 
         <div class="community-arrow">→</div>
 
         <div class="community-box">
-            <strong>TRI THỨC</strong>
-            <span>Lưu giữ & kế thừa</span>
+            <strong>CHIA SẺ</strong>
+            <span>Lưu lại để cùng tham khảo</span>
         </div>
 
     </div>
@@ -1466,7 +1458,7 @@ footer {
     </span>
 
     <h2>
-        BA CÂU HỎI QUYẾT ĐỊNH CHẤT LƯỢNG DỰ ÁN
+        BA CÂU HỎI NHỎ NHƯNG RẤT THỰC TẾ
     </h2>
 
 
@@ -1484,7 +1476,8 @@ footer {
 
             <p>
                 Các thành viên có đang hiểu
-                cùng một đích đến hay không?
+                cùng một đích đến
+                hay mỗi người đang làm theo một cách hiểu khác nhau?
             </p>
 
         </div>
@@ -1501,7 +1494,7 @@ footer {
             </strong>
 
             <p>
-                Phạm vi dự án phải được làm rõ,
+                Phạm vi dự án cần được làm rõ,
                 thay vì âm thầm làm thêm
                 vì ngại trao đổi hoặc ngại từ chối.
             </p>
@@ -1543,41 +1536,44 @@ footer {
     </span>
 
     <h2>
-        TỪ NGƯỜI HỌC ĐẾN NGƯỜI TẠO RA TRI THỨC
+        HỌC ĐƯỢC NHIỀU HƠN KHI THỰC SỰ BẮT TAY VÀO LÀM
     </h2>
 
     <div class="highlight">
 
-        Một chương trình tài năng thực sự có giá trị
-        khi người học không chỉ tiếp nhận kiến thức,
-        mà bắt đầu tạo ra
+        Buổi 3 cho thấy việc học
+        không chỉ nằm ở nghe giảng hay đọc tài liệu.
+
+        <br><br>
+
+        Khi cùng nhau làm một sản phẩm thực tế,
+        các thành viên phải
         <strong>
-            những sản phẩm đủ tốt để người khác
-            có thể sử dụng,
-            phản biện,
-            kế thừa
-            và phát triển tiếp.
+            thống nhất mục tiêu,
+            phối hợp,
+            phân công,
+            trao đổi,
+            chỉnh sửa
+            và chịu trách nhiệm với kết quả cuối cùng.
         </strong>
 
     </div>
 
-
     <p>
-        Một bài báo tốt
-        biến kinh nghiệm thành tri thức khoa học.
+        Hai bài báo khoa học giúp các bạn
+        rèn cách tiếp cận một vấn đề kỹ thuật có hệ thống hơn.
     </p>
 
     <p>
-        Một Knowledge Platform tốt
-        biến tri thức cá nhân thành tri thức của tổ chức.
+        Knowledge Platform giúp các bạn
+        thử nghiệm cách chia sẻ
+        và cùng nhau trao đổi các vấn đề chuyên môn.
     </p>
 
     <p>
-        Và một cộng đồng khoa học tốt
-        giúp tri thức tiếp tục được
-        chia sẻ,
-        phản biện
-        và phát triển qua thời gian.
+        Chính quá trình làm thật
+        khiến những nội dung về Quản lý dự án
+        trở nên dễ hiểu và gần với công việc hơn.
     </p>
 
 </section>
@@ -1594,7 +1590,7 @@ footer {
     </span>
 
     <h2>
-        TỪ SẢN PHẨM BAN ĐẦU ĐẾN SẢN PHẨM HOÀN CHỈNH
+        TIẾP TỤC HOÀN THIỆN NHỮNG SẢN PHẨM ĐÃ BẮT ĐẦU
     </h2>
 
 
@@ -1608,8 +1604,7 @@ footer {
             Tiếp tục chỉnh sửa
             trên cơ sở góp ý của PTGĐ,
             chuẩn hóa cấu trúc,
-            bổ sung nội dung khoa học,
-            kiểm chứng
+            bổ sung nội dung cần thiết
             và hoàn thiện hồ sơ gửi đăng.
         </p>
 
@@ -1619,7 +1614,7 @@ footer {
     <div class="task">
 
         <h3>
-            ② Phát triển R&amp;E Knowledge Platform
+            ② Tiếp tục phát triển R&amp;E Knowledge Platform
         </h3>
 
         <p>
@@ -1635,7 +1630,7 @@ footer {
     <div class="task">
 
         <h3>
-            ③ Hình thành cách làm việc theo dự án
+            ③ Áp dụng cách làm việc theo dự án
         </h3>
 
         <p>
@@ -1721,23 +1716,24 @@ footer {
     </span>
 
     <div class="closing-title">
-        HỌC → LÀM → TẠO SẢN PHẨM → CHIA SẺ → TẠO TRI THỨC
+        HỌC → LÀM → SẢN PHẨM → CHIA SẺ → TIẾN BỘ
     </div>
 
     <p>
-        Buổi 3 đánh dấu một bước chuyển:
-        từ học và thực hành
-        sang tạo ra những sản phẩm có chất lượng.
+        Giá trị của Buổi 3 không chỉ nằm ở kiến thức Quản lý dự án.
 
         <br><br>
 
-        Hai bài báo khoa học,
-        R&amp;E Knowledge Platform
-        và cộng đồng chia sẻ tri thức
-        là những bước đầu để các Nhân viên Tài năng
-        không chỉ là người tiếp nhận kiến thức,
-        mà trở thành những người
-        <strong>tạo ra và lan tỏa tri thức trong PVEP.</strong>
+        Điều quan trọng hơn là các thành viên
+        đã thực sự cùng nhau làm việc,
+        tạo ra những sản phẩm cụ thể,
+        tiếp nhận góp ý,
+        chỉnh sửa
+        và tiếp tục hoàn thiện.
+
+        <br><br>
+
+        <strong>Học đi đôi với hành – và trưởng thành qua chính quá trình làm thật.</strong>
     </p>
 
 </section>
