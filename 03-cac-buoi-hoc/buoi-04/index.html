@@ -7,6 +7,20 @@
 <title>Buổi 4 | Nhân viên Tài năng PVEP</title>
 
 <style>
+:root{
+    --green:#62c947;
+    --green-dark:#319b36;
+    --green-light:#8ee171;
+    --navy:#05283f;
+    --navy-deep:#031a2b;
+    --text:#16394d;
+    --text-soft:#496575;
+    --white:#ffffff;
+    --page:#f8fbf8;
+    --soft-green:#f3faf1;
+    --border:rgba(5,40,63,.09);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -17,9 +31,18 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f8f8;
-    color: #293735;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8fbf8 50%,
+            #ffffff 100%
+        );
+    color: var(--text);
     line-height: 1.7;
 }
 
@@ -32,9 +55,22 @@ body {
     overflow: hidden;
     color: white;
     background:
-        radial-gradient(circle at 84% 18%, rgba(116,205,190,0.11), transparent 23%),
-        radial-gradient(circle at 12% 88%, rgba(93,143,183,0.09), transparent 25%),
-        linear-gradient(135deg, #073542 0%, #075964 48%, #087767 100%);
+        radial-gradient(
+            circle at 84% 18%,
+            rgba(98,201,71,.18),
+            transparent 23%
+        ),
+        radial-gradient(
+            circle at 12% 88%,
+            rgba(98,201,71,.07),
+            transparent 25%
+        ),
+        linear-gradient(
+            120deg,
+            var(--navy-deep) 0%,
+            var(--navy) 70%,
+            #064839 100%
+        );
 }
 
 .hero::before {
@@ -42,13 +78,19 @@ body {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
     background-size: 48px 48px;
-    opacity: 0.26;
 }
 
-/* QUẢ ĐỊA CẦU MỜ */
+/* QUẢ ĐỊA CẦU */
 
 .globe {
     position: absolute;
@@ -56,9 +98,9 @@ body {
     top: 58px;
     width: 230px;
     height: 230px;
-    border: 1px solid rgba(255,255,255,0.10);
+    border: 1px solid rgba(142,225,113,.15);
     border-radius: 50%;
-    opacity: 0.36;
+    opacity: .38;
 }
 
 .globe::before {
@@ -69,8 +111,8 @@ body {
     width: 42%;
     height: 100%;
     transform: translateX(-50%);
-    border-left: 1px solid rgba(255,255,255,0.12);
-    border-right: 1px solid rgba(255,255,255,0.12);
+    border-left: 1px solid rgba(142,225,113,.14);
+    border-right: 1px solid rgba(142,225,113,.14);
     border-radius: 50%;
 }
 
@@ -81,10 +123,10 @@ body {
     right: 8%;
     top: 50%;
     height: 1px;
-    background: rgba(255,255,255,0.12);
+    background: rgba(142,225,113,.14);
     box-shadow:
-        0 -55px 0 rgba(255,255,255,0.07),
-        0 55px 0 rgba(255,255,255,0.07);
+        0 -55px 0 rgba(142,225,113,.08),
+        0 55px 0 rgba(142,225,113,.08);
 }
 
 /* ======================================================
@@ -103,22 +145,26 @@ body {
     display: inline-block;
     padding: 7px 14px;
     border-radius: 100px;
-    border: 1px solid rgba(255,255,255,0.28);
-    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(142,225,113,.35);
+    background: rgba(98,201,71,.08);
+    color: var(--green-light);
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 1.2px;
 }
 
 .hero h1 {
     margin: 18px 0 6px;
+    color: white;
     font-size: 50px;
     line-height: 1.05;
+    font-weight: 800;
 }
 
 .hero h2 {
     margin: 0;
     max-width: 850px;
+    color: white;
     font-size: 27px;
     line-height: 1.35;
     font-weight: 500;
@@ -128,7 +174,7 @@ body {
     max-width: 790px;
     margin-top: 18px;
     font-size: 16px;
-    color: rgba(255,255,255,0.92);
+    color: #e9f2f5;
 }
 
 /* ======================================================
@@ -148,8 +194,8 @@ body {
     top: 0;
     padding: 11px 17px;
     border-radius: 100px;
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(98,201,71,.08);
+    border: 1px solid rgba(142,225,113,.27);
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -170,22 +216,18 @@ body {
         opacity: 0;
         transform: translateY(12px);
     }
-
     5% {
         opacity: 1;
         transform: translateY(0);
     }
-
     13% {
         opacity: 1;
         transform: translateY(0);
     }
-
     17% {
         opacity: 0;
         transform: translateY(-8px);
     }
-
     100% {
         opacity: 0;
     }
@@ -206,15 +248,15 @@ body {
     align-items: center;
     gap: 6px;
     margin-bottom: 25px;
-    color: #087666;
-    font-weight: bold;
+    color: var(--green-dark);
+    font-weight: 700;
     text-decoration: none;
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .back:hover {
     transform: translateX(-4px);
-    color: #054f46;
+    color: #23752a;
 }
 
 /* ======================================================
@@ -226,37 +268,50 @@ body {
     border-radius: 16px;
     padding: 30px 33px;
     margin-bottom: 23px;
-    box-shadow: 0 5px 20px rgba(20,80,71,0.07);
-    border: 1px solid rgba(8,118,102,0.07);
+    box-shadow: 0 5px 20px rgba(5,40,63,.06);
+    border: 1px solid var(--border);
 }
 
 .section-no {
     display: inline-block;
     margin-bottom: 3px;
-    color: #15947f;
+    color: var(--green-dark);
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 1.2px;
 }
 
 .card h2 {
     margin: 3px 0 18px;
     padding-bottom: 11px;
-    color: #075f54;
+    color: var(--navy);
     font-size: 25px;
-    border-bottom: 2px solid #e4f0ed;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(98,201,71,.18);
 }
 
 .card h3 {
-    color: #116e62;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.card p,
+.card li {
+    color: var(--text);
 }
 
 .highlight {
     margin: 21px 0;
     padding: 20px 23px;
-    border-left: 5px solid #15947f;
+    border-left: 5px solid var(--green);
     border-radius: 9px;
-    background: linear-gradient(135deg, #eaf7f4, #f8fbfa);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(98,201,71,.10),
+            #fbfdfb
+        );
+    color: var(--navy);
 }
 
 /* ======================================================
@@ -270,8 +325,19 @@ body {
     padding: 34px;
     border-radius: 16px;
     color: white;
-    background: linear-gradient(135deg, #064e59, #087666);
-    box-shadow: 0 10px 28px rgba(7,95,84,0.16);
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(142,225,113,.16),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            var(--navy-deep),
+            var(--navy) 72%,
+            #064839
+        );
+    box-shadow: 0 10px 28px rgba(3,26,43,.15);
 }
 
 .big-message::after {
@@ -280,18 +346,21 @@ body {
     right: 22px;
     bottom: -62px;
     font-size: 180px;
-    opacity: 0.04;
+    color: var(--green);
+    opacity: .055;
 }
 
 .big-message h2 {
     margin: 0 0 12px;
+    color: white;
     font-size: 29px;
+    font-weight: 700;
 }
 
 .big-message p {
     max-width: 850px;
     margin: 0;
-    color: rgba(255,255,255,0.92);
+    color: #e9f2f5;
 }
 
 /* ======================================================
@@ -314,27 +383,28 @@ body {
     padding: 18px 14px;
     border-radius: 12px;
     text-align: center;
-    background: #f5faf9;
-    border: 1px solid #dcece8;
+    background: #f8fcf7;
+    border: 1px solid rgba(98,201,71,.18);
 }
 
 .journey-step strong {
     display: block;
-    color: #075f54;
+    color: var(--navy);
     font-size: 14px;
+    font-weight: 700;
 }
 
 .journey-step span {
     display: block;
     margin-top: 4px;
-    color: #657974;
+    color: var(--text-soft);
     font-size: 12px;
 }
 
 .journey-arrow {
-    color: #15947f;
+    color: var(--green);
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -345,14 +415,19 @@ body {
     margin-top: 22px;
     padding: 25px;
     border-radius: 14px;
-    background: linear-gradient(135deg, #f0f8f6, #fbfdfc);
-    border: 1px solid #dcece8;
+    background:
+        linear-gradient(
+            135deg,
+            #f3faf1,
+            #ffffff
+        );
+    border: 1px solid rgba(98,201,71,.18);
 }
 
 .bridge-title {
-    color: #075f54;
+    color: var(--navy);
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
@@ -368,19 +443,21 @@ body {
     padding: 19px;
     border-radius: 12px;
     background: white;
-    border: 1px solid #e1efec;
+    border: 1px solid rgba(98,201,71,.18);
+    color: var(--text);
 }
 
 .generation strong {
     display: block;
-    color: #075f54;
+    color: var(--navy);
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .generation-arrow {
-    color: #15947f;
+    color: var(--green);
     font-size: 26px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -397,8 +474,8 @@ body {
 .risk-card {
     padding: 20px;
     border-radius: 12px;
-    background: #f8fbfa;
-    border-top: 4px solid #15947f;
+    background: #f8fcf7;
+    border-top: 4px solid var(--green);
 }
 
 .risk-icon {
@@ -408,12 +485,14 @@ body {
 
 .risk-card strong {
     display: block;
-    color: #075f54;
+    color: var(--navy);
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .risk-card p {
     margin: 0;
+    color: var(--text);
     font-size: 13px;
 }
 
@@ -437,26 +516,27 @@ body {
     padding: 19px 12px;
     border-radius: 12px;
     text-align: center;
-    background: #f7fbfa;
-    border: 1px solid #e0efeb;
+    background: #f8fcf7;
+    border: 1px solid rgba(98,201,71,.18);
 }
 
 .invest-box strong {
     display: block;
-    color: #075f54;
+    color: var(--navy);
+    font-weight: 700;
 }
 
 .invest-box span {
     display: block;
     margin-top: 4px;
-    color: #657974;
+    color: var(--text-soft);
     font-size: 12px;
 }
 
 .invest-arrow {
-    color: #15947f;
+    color: var(--green);
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -473,14 +553,16 @@ body {
 .people-card {
     padding: 21px;
     border-radius: 12px;
-    background: #f8fbfa;
-    border-left: 4px solid #15947f;
+    background: #f8fcf7;
+    border-left: 4px solid var(--green);
+    color: var(--text);
 }
 
 .people-card strong {
     display: block;
-    color: #075f54;
+    color: var(--navy);
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -502,8 +584,8 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 14px;
-    background: #eef5f3;
-    box-shadow: 0 8px 22px rgba(7,95,84,0.10);
+    background: #f3f8f2;
+    box-shadow: 0 8px 22px rgba(5,40,63,.10);
 }
 
 .companion-photo img {
@@ -511,7 +593,7 @@ body {
     width: 100%;
     height: auto;
     object-fit: cover;
-    opacity: 0.90;
+    opacity: 1;
 }
 
 .companion-photo::after {
@@ -521,8 +603,8 @@ body {
     background:
         linear-gradient(
             180deg,
-            rgba(255,255,255,0.00),
-            rgba(5,79,71,0.08)
+            rgba(255,255,255,0),
+            rgba(3,26,43,.06)
         );
     pointer-events: none;
 }
@@ -534,7 +616,7 @@ body {
     bottom: 14px;
     padding: 9px 11px;
     border-radius: 9px;
-    background: rgba(5,79,71,0.76);
+    background: rgba(3,26,43,.82);
     color: white;
     font-size: 12px;
 }
@@ -543,16 +625,21 @@ body {
     margin-top: 22px;
     padding: 18px 20px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #f2faf8, #ffffff);
-    border-left: 4px solid #15947f;
-    color: #42615b;
+    background:
+        linear-gradient(
+            135deg,
+            #f3faf1,
+            #ffffff
+        );
+    border-left: 4px solid var(--green);
+    color: var(--text);
     font-style: italic;
 }
 
 .student-voice span {
     display: block;
     margin-top: 8px;
-    color: #73837f;
+    color: var(--text-soft);
     font-size: 12px;
     font-style: normal;
 }
@@ -565,12 +652,14 @@ body {
     margin: 14px 0;
     padding: 19px 21px;
     border-radius: 11px;
-    background: #f8fbfa;
-    border: 1px solid #e6f0ed;
+    background: #fbfdfb;
+    border: 1px solid var(--border);
 }
 
 .task h3 {
     margin-top: 0;
+    color: var(--navy);
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -590,23 +679,24 @@ body {
     gap: 10px;
     padding: 14px 18px;
     border-radius: 9px;
-    background: #eef7f5;
-    border: 1px solid #dcece8;
-    color: #087666;
+    background: rgba(98,201,71,.065);
+    border: 1px solid rgba(98,201,71,.18);
+    color: var(--navy);
     font-weight: 600;
     text-decoration: none;
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .document-link:hover {
     transform: translateX(5px);
-    background: #dcefeb;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    background: rgba(98,201,71,.13);
+    color: #23752a;
+    box-shadow: 0 4px 12px rgba(5,40,63,.06);
 }
 
 .document-note {
     margin-top: 13px;
-    color: #6a7774;
+    color: var(--text-soft);
     font-size: 14px;
 }
 
@@ -619,7 +709,7 @@ body {
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(21,148,127,0.11),
+            rgba(98,201,71,.11),
             transparent 42%
         ),
         white;
@@ -627,24 +717,24 @@ body {
 
 .closing-title {
     margin: 8px 0 14px;
-    color: #075f54;
+    color: var(--navy);
     font-size: 27px;
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .closing p {
     max-width: 850px;
     margin: auto;
-    color: #5c716d;
+    color: var(--text);
 }
 
 .companion-note {
     max-width: 820px;
     margin: 25px auto 0;
     padding-top: 22px;
-    border-top: 1px solid #e2efec;
+    border-top: 1px solid rgba(98,201,71,.18);
     font-size: 15px;
-    color: #657874;
+    color: var(--text-soft);
     font-style: italic;
 }
 
@@ -654,10 +744,11 @@ body {
 
 footer {
     padding: 27px 18px;
-    background: #064f47;
+    background: var(--navy-deep);
     color: white;
     text-align: center;
     font-size: 14px;
+    border-top: 3px solid var(--green);
 }
 
 /* ======================================================
@@ -720,7 +811,7 @@ footer {
         height: 150px;
         right: -58px;
         top: 58px;
-        opacity: 0.20;
+        opacity: .20;
     }
 
     .question-stage {
@@ -816,7 +907,7 @@ footer {
 
     .eyebrow {
         font-size: 11px;
-        letter-spacing: 0.7px;
+        letter-spacing: .7px;
     }
 
     .card,
@@ -835,14 +926,13 @@ footer {
     .photo-caption {
         position: static;
         border-radius: 0;
-        background: #075f54;
+        background: var(--navy);
         text-align: center;
     }
 }
 
 </style>
 </head>
-
 
 <body>
 
@@ -906,13 +996,11 @@ footer {
 
 </section>
 
-
 <main class="container">
 
 <a class="back" href="../">
     ← QUAY LẠI CÁC BUỔI HỌC
 </a>
-
 
 <!-- ======================================================
      INTRO
@@ -937,7 +1025,6 @@ footer {
     </p>
 
 </section>
-
 
 <!-- ======================================================
      01
@@ -965,36 +1052,28 @@ footer {
 
         <div class="journey-step">
             <strong>BUỔI 1</strong>
-            <span>
-                Hiểu mình ở đâu trong chuỗi giá trị
-            </span>
+            <span>Hiểu mình ở đâu trong chuỗi giá trị</span>
         </div>
 
         <div class="journey-arrow">→</div>
 
         <div class="journey-step">
             <strong>BUỔI 2</strong>
-            <span>
-                Công nghệ phải giải quyết bài toán thực tế
-            </span>
+            <span>Công nghệ phải giải quyết bài toán thực tế</span>
         </div>
 
         <div class="journey-arrow">→</div>
 
         <div class="journey-step">
             <strong>BUỔI 3</strong>
-            <span>
-                Học đi đôi với hành
-            </span>
+            <span>Học đi đôi với hành</span>
         </div>
 
         <div class="journey-arrow">→</div>
 
         <div class="journey-step">
             <strong>BUỔI 4</strong>
-            <span>
-                Bước ra bức tranh lớn hơn
-            </span>
+            <span>Bước ra bức tranh lớn hơn</span>
         </div>
 
     </div>
@@ -1015,26 +1094,20 @@ footer {
         <div class="generation-grid">
 
             <div class="generation">
-
                 <strong>MÙA 1</strong>
-
                 Đã đi qua những bài học,
                 nhiệm vụ,
                 trao đổi
                 và trải nghiệm thực tế.
-
             </div>
 
             <div class="generation-arrow">→</div>
 
             <div class="generation">
-
                 <strong>MÙA 2</strong>
-
                 Bắt đầu hành trình
                 với những kinh nghiệm
                 đã được chia sẻ lại từ người đi trước.
-
             </div>
 
         </div>
@@ -1042,7 +1115,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      02
@@ -1115,7 +1187,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      03
 ====================================================== -->
@@ -1171,18 +1242,15 @@ footer {
     </div>
 
     <div class="highlight">
-
         Một quyết định đầu tư tốt
         không chỉ nhìn vào cơ hội,
         mà phải đồng thời nhìn thấy
         <strong>
             rủi ro – khả năng kiểm soát – nguồn lực – hiệu quả dài hạn.
         </strong>
-
     </div>
 
 </section>
-
 
 <!-- ======================================================
      04
@@ -1254,7 +1322,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      05
 ====================================================== -->
@@ -1286,7 +1353,6 @@ footer {
             </p>
 
             <div class="highlight">
-
                 Sự đồng hành không chỉ nằm ở những điều được giảng,
                 mà còn ở cách từng câu hỏi,
                 từng nhiệm vụ
@@ -1295,7 +1361,6 @@ footer {
                 <strong>
                     nhìn công việc rộng hơn và nghĩ xa hơn.
                 </strong>
-
             </div>
 
             <p>
@@ -1322,7 +1387,6 @@ footer {
 
         </div>
 
-
         <div class="companion-photo">
 
             <img
@@ -1339,7 +1403,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      06
@@ -1421,7 +1484,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      07 DOCUMENTS
 ====================================================== -->
@@ -1479,7 +1541,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      08
 ====================================================== -->
@@ -1524,13 +1585,11 @@ footer {
 
 </section>
 
-
 <a class="back" href="../">
     ← QUAY LẠI CÁC BUỔI HỌC
 </a>
 
 </main>
-
 
 <footer>
     CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
