@@ -1,1 +1,1760 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Buổi 3 | Nhân viên Tài năng PVEP</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f8f7;
+    color: #293735;
+    line-height: 1.7;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    color: white;
+
+    background:
+        radial-gradient(circle at 84% 16%, rgba(106,210,187,0.11), transparent 23%),
+        radial-gradient(circle at 14% 86%, rgba(89,142,181,0.09), transparent 24%),
+        linear-gradient(135deg, #073741 0%, #075b63 48%, #08796a 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+    background-size: 48px 48px;
+    opacity: 0.28;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    right: -130px;
+    bottom: -170px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+        0 0 0 55px rgba(255,255,255,0.018),
+        0 0 0 110px rgba(255,255,255,0.012);
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1080px;
+    margin: auto;
+
+    padding: 58px 22px 48px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 100px;
+
+    border: 1px solid rgba(255,255,255,0.28);
+
+    background: rgba(255,255,255,0.07);
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.hero h1 {
+    margin: 18px 0 6px;
+
+    font-size: 50px;
+    line-height: 1.05;
+}
+
+.hero h2 {
+    margin: 0;
+
+    max-width: 900px;
+
+    font-size: 27px;
+    line-height: 1.35;
+
+    font-weight: 500;
+}
+
+.hero-lead {
+    max-width: 820px;
+
+    margin-top: 18px;
+
+    font-size: 16px;
+
+    color: rgba(255,255,255,0.92);
+}
+
+/* ======================================================
+   CÂU HỎI CHẠY
+====================================================== */
+
+.question-stage {
+    position: relative;
+
+    margin-top: 30px;
+
+    min-height: 78px;
+
+    max-width: 850px;
+}
+
+.hero-question {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    padding: 11px 17px;
+
+    border-radius: 100px;
+
+    background: rgba(255,255,255,0.10);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation: questionFade 21s infinite;
+}
+
+.q1 { animation-delay: 0s; }
+.q2 { animation-delay: 3.5s; }
+.q3 { animation-delay: 7s; }
+.q4 { animation-delay: 10.5s; }
+.q5 { animation-delay: 14s; }
+.q6 { animation-delay: 17.5s; }
+
+@keyframes questionFade {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    6% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    14% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    19% {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ======================================================
+   MAIN
+====================================================== */
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 34px 20px 65px;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-bottom: 25px;
+
+    color: #087666;
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.back:hover {
+    transform: translateX(-4px);
+    color: #054f46;
+}
+
+/* ======================================================
+   CARD
+====================================================== */
+
+.card {
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 30px 33px;
+
+    margin-bottom: 23px;
+
+    box-shadow: 0 5px 20px rgba(20,80,71,0.07);
+
+    border: 1px solid rgba(8,118,102,0.07);
+}
+
+.section-no {
+    display: inline-block;
+
+    margin-bottom: 3px;
+
+    color: #15947f;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.card h2 {
+    margin: 3px 0 18px;
+
+    padding-bottom: 11px;
+
+    color: #075f54;
+
+    font-size: 25px;
+
+    border-bottom: 2px solid #e4f0ed;
+}
+
+.card h3 {
+    color: #116e62;
+}
+
+.highlight {
+    margin: 21px 0;
+
+    padding: 20px 23px;
+
+    border-left: 5px solid #15947f;
+
+    border-radius: 9px;
+
+    background: linear-gradient(135deg, #eaf7f4, #f8fbfa);
+}
+
+/* ======================================================
+   BIG MESSAGE
+====================================================== */
+
+.big-message {
+    position: relative;
+    overflow: hidden;
+
+    margin-bottom: 23px;
+
+    padding: 34px;
+
+    border-radius: 16px;
+
+    color: white;
+
+    background: linear-gradient(135deg, #064e59, #087666);
+
+    box-shadow: 0 10px 28px rgba(7,95,84,0.16);
+}
+
+.big-message::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: -50px;
+
+    font-size: 170px;
+
+    opacity: 0.045;
+}
+
+.big-message h2 {
+    margin: 0 0 12px;
+
+    font-size: 29px;
+}
+
+.big-message p {
+    max-width: 840px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.92);
+}
+
+/* ======================================================
+   PROJECT FLOW
+====================================================== */
+
+.project-flow {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr;
+
+    gap: 8px;
+
+    align-items: center;
+
+    margin-top: 24px;
+}
+
+.project-step {
+    min-width: 0;
+
+    padding: 18px 10px;
+
+    border-radius: 11px;
+
+    text-align: center;
+
+    background: #f4faf9;
+
+    border: 1px solid #dcece8;
+}
+
+.project-arrow {
+    color: #15947f;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.step-icon {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dff3ee;
+
+    font-size: 20px;
+}
+
+.project-step strong {
+    display: block;
+
+    color: #075f54;
+
+    font-size: 13px;
+}
+
+.project-step small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #687874;
+
+    font-size: 11px;
+}
+
+/* ======================================================
+   PRODUCT HERO
+====================================================== */
+
+.product-intro {
+    text-align: center;
+
+    padding: 6px 0 16px;
+}
+
+.product-intro strong {
+    display: block;
+
+    color: #075f54;
+
+    font-size: 28px;
+
+    line-height: 1.35;
+}
+
+.product-intro p {
+    max-width: 780px;
+
+    margin: 10px auto 0;
+
+    color: #60736f;
+}
+
+/* ======================================================
+   PRODUCTS
+====================================================== */
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+
+    margin-top: 22px;
+}
+
+.product-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(145deg, #f7fbfa, #eef7f5);
+
+    border: 1px solid #dcece8;
+}
+
+.product-icon {
+    font-size: 31px;
+
+    margin-bottom: 7px;
+}
+
+.product-card h3 {
+    margin: 4px 0 8px;
+
+    color: #075f54;
+
+    font-size: 20px;
+}
+
+.product-card p {
+    margin-bottom: 0;
+
+    font-size: 14px;
+}
+
+.product-badge {
+    display: inline-block;
+
+    margin-top: 13px;
+
+    padding: 5px 10px;
+
+    border-radius: 100px;
+
+    background: #dff3ee;
+
+    color: #087666;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ======================================================
+   PLATFORM SHOWCASE
+====================================================== */
+
+.platform-showcase {
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 28px;
+
+    align-items: center;
+
+    margin-top: 22px;
+
+    padding: 24px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(135deg, #f3faf8, #ffffff);
+
+    border: 1px solid #dcece8;
+}
+
+.platform-text h3 {
+    margin-top: 0;
+
+    color: #075f54;
+
+    font-size: 22px;
+}
+
+.platform-text p {
+    color: #536a65;
+}
+
+.platform-image {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 13px;
+
+    min-height: 320px;
+
+    background: #e8f2f0;
+}
+
+.platform-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0.76;
+}
+
+.platform-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.22)
+        );
+
+    pointer-events: none;
+}
+
+.platform-caption {
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    background: rgba(5,79,71,0.80);
+
+    color: white;
+
+    font-size: 13px;
+}
+
+/* ======================================================
+   COMMUNITY FLOW
+====================================================== */
+
+.community-flow {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr;
+
+    gap: 10px;
+
+    align-items: center;
+
+    margin-top: 23px;
+}
+
+.community-box {
+    padding: 20px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    background: #f7fbfa;
+
+    border: 1px solid #e0efeb;
+}
+
+.community-box strong {
+    display: block;
+
+    color: #075f54;
+}
+
+.community-box span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #657974;
+
+    font-size: 13px;
+}
+
+.community-arrow {
+    color: #15947f;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+/* ======================================================
+   PAPER STRUCTURE
+====================================================== */
+
+.paper-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.paper-step {
+    padding: 17px 19px;
+
+    border-radius: 11px;
+
+    background: #f8fbfa;
+
+    border-left: 4px solid #15947f;
+}
+
+.paper-step strong {
+    display: block;
+
+    color: #075f54;
+}
+
+.paper-step span {
+    color: #5e716d;
+
+    font-size: 14px;
+}
+
+/* ======================================================
+   PM
+====================================================== */
+
+.pm-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+.pm-card {
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background: #f8fbfa;
+
+    border-top: 4px solid #15947f;
+}
+
+.pm-number {
+    font-size: 28px;
+
+    color: #15947f;
+
+    font-weight: bold;
+}
+
+.pm-card strong {
+    display: block;
+
+    margin: 3px 0 5px;
+
+    color: #075f54;
+}
+
+.pm-card p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+/* ======================================================
+   TASK
+====================================================== */
+
+.task {
+    margin: 14px 0;
+
+    padding: 19px 21px;
+
+    border-radius: 11px;
+
+    background: #f8fbfa;
+
+    border: 1px solid #e6f0ed;
+}
+
+.task h3 {
+    margin-top: 0;
+}
+
+/* ======================================================
+   DOCUMENT
+====================================================== */
+
+.document-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.document-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 18px;
+
+    border-radius: 9px;
+
+    background: #eef7f5;
+
+    border: 1px solid #dcece8;
+
+    color: #087666;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.document-link:hover {
+    transform: translateX(5px);
+
+    background: #dcefeb;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.document-note {
+    margin-top: 13px;
+
+    color: #6a7774;
+
+    font-size: 14px;
+}
+
+/* ======================================================
+   CLOSING
+====================================================== */
+
+.closing {
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(21,148,127,0.11),
+            transparent 42%
+        ),
+        white;
+}
+
+.closing-title {
+    margin: 8px 0 14px;
+
+    color: #075f54;
+
+    font-size: 27px;
+
+    font-weight: bold;
+}
+
+.closing p {
+    max-width: 830px;
+
+    margin: auto;
+
+    color: #5c716d;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer {
+    padding: 27px 18px;
+
+    background: #064f47;
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+/* ======================================================
+   TABLET
+====================================================== */
+
+@media (max-width: 900px) {
+
+    .project-flow,
+    .community-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .project-arrow,
+    .community-arrow {
+        transform: rotate(90deg);
+
+        text-align: center;
+
+        line-height: 1;
+
+        margin: -2px 0;
+    }
+
+    .platform-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-image {
+        min-height: 280px;
+    }
+}
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 760px) {
+
+    .hero-inner {
+        padding: 45px 17px 42px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .hero-lead {
+        font-size: 15px;
+    }
+
+    .question-stage {
+        min-height: 112px;
+    }
+
+    .hero-question {
+        max-width: 95%;
+
+        padding: 10px 14px;
+
+        border-radius: 13px;
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+    .container {
+        padding: 26px 14px 45px;
+    }
+
+    .card,
+    .big-message {
+        padding: 23px 20px;
+    }
+
+    .card h2 {
+        font-size: 21px;
+    }
+
+    .big-message h2 {
+        font-size: 24px;
+    }
+
+    .product-intro strong {
+        font-size: 23px;
+    }
+
+    .product-grid,
+    .paper-grid,
+    .pm-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-showcase {
+        padding: 16px;
+
+        gap: 18px;
+    }
+
+    .platform-image {
+        min-height: 0;
+
+        aspect-ratio: 9 / 16;
+    }
+
+    .platform-image img {
+        object-fit: cover;
+    }
+
+    .project-step,
+    .community-box,
+    .product-card,
+    .paper-step,
+    .pm-card {
+        width: 100%;
+    }
+
+    .document-link {
+        align-items: flex-start;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .closing-title {
+        font-size: 22px;
+    }
+}
+
+/* ======================================================
+   MOBILE NHỎ
+====================================================== */
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.7px;
+    }
+
+    .card,
+    .big-message {
+        padding: 21px 17px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .back {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+    <span class="eyebrow">
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+    </span>
+
+    <h1>BUỔI 3</h1>
+
+    <h2>
+        TỪ NGƯỜI HỌC ĐẾN NGƯỜI TẠO RA TRI THỨC
+    </h2>
+
+    <p class="hero-lead">
+        Học Quản lý dự án từ chính những việc đang làm,
+        nhưng điều đáng giá hơn là:
+        từ các nhiệm vụ được giao,
+        nhóm đã bắt đầu tạo ra những sản phẩm
+        có chất lượng khoa học và giá trị sử dụng thực tế.
+    </p>
+
+    <div class="question-stage">
+
+        <div class="hero-question q1">
+            Một công việc khi nào trở thành một dự án?
+        </div>
+
+        <div class="hero-question q2">
+            Một bài tập khi nào trở thành một sản phẩm chất lượng?
+        </div>
+
+        <div class="hero-question q3">
+            Một nghiên cứu thế nào mới thực sự có giá trị khoa học?
+        </div>
+
+        <div class="hero-question q4">
+            Tri thức cá nhân làm sao trở thành tri thức của tổ chức?
+        </div>
+
+        <div class="hero-question q5">
+            Làm sao để kinh nghiệm của hôm nay không bị mất đi ngày mai?
+        </div>
+
+        <div class="hero-question q6">
+            Một cộng đồng khoa học được hình thành như thế nào?
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="container">
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+
+<!-- ======================================================
+     BIG MESSAGE
+====================================================== -->
+
+<section class="big-message">
+
+    <h2>
+        Không chỉ học – nhóm đã bắt đầu tạo ra sản phẩm tri thức
+    </h2>
+
+    <p>
+        Điểm nổi bật của Buổi 3 là các nhiệm vụ học tập
+        đã từng bước được chuyển hóa thành những sản phẩm có chất lượng:
+        có nội dung chuyên môn,
+        có khả năng sử dụng,
+        có thể tiếp tục phản biện,
+        hoàn thiện
+        và đóng góp vào kho tri thức chung của PVEP.
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     01
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        01 · QUẢN LÝ DỰ ÁN
+    </span>
+
+    <h2>
+        HỌC TỪ CHÍNH NHỮNG VIỆC ĐANG LÀM
+    </h2>
+
+    <p>
+        Buổi học không bắt đầu bằng lý thuyết quản lý dự án.
+        Thay vào đó,
+        các bài tập đang triển khai được nhìn như những dự án nhỏ:
+        có mục tiêu,
+        có phạm vi,
+        có phân vai,
+        có người chịu trách nhiệm
+        và phải tạo ra sản phẩm cuối cùng.
+    </p>
+
+    <div class="project-flow">
+
+        <div class="project-step">
+            <div class="step-icon">💡</div>
+            <strong>Ý TƯỞNG</strong>
+            <small>Muốn giải quyết gì?</small>
+        </div>
+
+        <div class="project-arrow">→</div>
+
+        <div class="project-step">
+            <div class="step-icon">🎯</div>
+            <strong>MỤC TIÊU</strong>
+            <small>Đích đến là gì?</small>
+        </div>
+
+        <div class="project-arrow">→</div>
+
+        <div class="project-step">
+            <div class="step-icon">👥</div>
+            <strong>PHÂN VAI</strong>
+            <small>Ai chịu trách nhiệm?</small>
+        </div>
+
+        <div class="project-arrow">→</div>
+
+        <div class="project-step">
+            <div class="step-icon">⚙️</div>
+            <strong>TRIỂN KHAI</strong>
+            <small>Làm – kiểm tra – điều chỉnh</small>
+        </div>
+
+        <div class="project-arrow">→</div>
+
+        <div class="project-step">
+            <div class="step-icon">📦</div>
+            <strong>SẢN PHẨM</strong>
+            <small>Tạo ra giá trị gì?</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     02
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        02 · KẾT QUẢ NỔI BẬT
+    </span>
+
+    <div class="product-intro">
+
+        <strong>
+            NHỮNG SẢN PHẨM CHẤT LƯỢNG ĐƯỢC HÌNH THÀNH
+        </strong>
+
+        <p>
+            Từ các nhiệm vụ được giao,
+            nhóm không chỉ hoàn thành bài tập
+            mà đã bắt đầu tạo ra những sản phẩm
+            có chiều sâu chuyên môn,
+            có tính ứng dụng
+            và có khả năng tiếp tục phát triển.
+        </p>
+
+    </div>
+
+
+    <div class="product-grid">
+
+        <div class="product-card">
+
+            <div class="product-icon">
+                📚
+            </div>
+
+            <h3>
+                02 bài báo khoa học
+            </h3>
+
+            <p>
+                Các vấn đề kỹ thuật thực tế
+                được phát triển theo hướng nghiên cứu khoa học:
+                từ xác định vấn đề,
+                khoảng trống tri thức,
+                phương pháp,
+                kiểm chứng,
+                so sánh kết quả
+                đến đề xuất workflow áp dụng.
+            </p>
+
+            <span class="product-badge">
+                SẢN PHẨM KHOA HỌC
+            </span>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon">
+                🌐
+            </div>
+
+            <h3>
+                R&amp;E Knowledge Platform
+            </h3>
+
+            <p>
+                Một không gian số để
+                ghi nhận vấn đề,
+                trao đổi – phản biện,
+                chia sẻ cách xử lý
+                và từng bước biến kinh nghiệm kỹ thuật
+                thành tri thức có thể lưu giữ
+                và kế thừa trong PVEP.
+            </p>
+
+            <span class="product-badge">
+                SẢN PHẨM QUẢN TRỊ TRI THỨC
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     03
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        03 · BÀI BÁO KHOA HỌC
+    </span>
+
+    <h2>
+        TỪ KINH NGHIỆM KỸ THUẬT ĐẾN SẢN PHẨM KHOA HỌC
+    </h2>
+
+    <p>
+        Theo định hướng của PTGĐ Ngô Khánh Xạ,
+        một bài báo kỹ thuật có chất lượng
+        cần vượt khỏi việc mô tả kinh nghiệm
+        và chứng minh được đóng góp mới,
+        tính khoa học
+        cũng như giá trị ứng dụng.
+    </p>
+
+    <div class="paper-grid">
+
+        <div class="paper-step">
+            <strong>① Vấn đề thực tế</strong>
+            <span>
+                Mỏ, vỉa hoặc đối tượng đang gặp thách thức gì?
+            </span>
+        </div>
+
+        <div class="paper-step">
+            <strong>② Knowledge Gap</strong>
+            <span>
+                Các phương pháp hiện tại còn hạn chế gì?
+            </span>
+        </div>
+
+        <div class="paper-step">
+            <strong>③ Phương pháp nghiên cứu</strong>
+            <span>
+                Công thức, mô hình hoặc tham số nào được xây dựng hay điều chỉnh?
+            </span>
+        </div>
+
+        <div class="paper-step">
+            <strong>④ Kiểm chứng thực tế</strong>
+            <span>
+                Phương pháp có được đối chiếu với dữ liệu thực tế?
+            </span>
+        </div>
+
+        <div class="paper-step">
+            <strong>⑤ So sánh trước – sau</strong>
+            <span>
+                Hiệu quả cải thiện có được chứng minh bằng số liệu?
+            </span>
+        </div>
+
+        <div class="paper-step">
+            <strong>⑥ Workflow áp dụng</strong>
+            <span>
+                Kết quả có thể được người khác sử dụng và kế thừa như thế nào?
+            </span>
+        </div>
+
+    </div>
+
+    <div class="highlight">
+
+        Hai bài báo là một bước chuyển quan trọng:
+        từ việc <strong>tiếp nhận kiến thức</strong>
+        sang <strong>tạo lập tri thức</strong>.
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     04 PLATFORM
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        04 · R&amp;E KNOWLEDGE PLATFORM
+    </span>
+
+    <h2>
+        TỪ MỘT Ý TƯỞNG ĐẾN CỘNG ĐỒNG CHIA SẺ TRI THỨC
+    </h2>
+
+
+    <div class="platform-showcase">
+
+        <div class="platform-text">
+
+            <h3>
+                Chia sẻ tri thức – cùng giải quyết vấn đề
+            </h3>
+
+            <p>
+                Knowledge Platform đã được định hình
+                như một không gian trao đổi chuyên môn,
+                nơi cán bộ kỹ thuật có thể
+                đặt câu hỏi,
+                tìm kiếm vấn đề tương tự,
+                chia sẻ kinh nghiệm
+                và tham gia phản biện.
+            </p>
+
+            <p>
+                Giá trị lớn hơn không nằm ở bản thân công cụ,
+                mà ở việc từng bước hình thành
+                một <strong>cộng đồng khoa học – kỹ thuật</strong>
+                có khả năng tích lũy,
+                chia sẻ
+                và phát triển tri thức chung.
+            </p>
+
+        </div>
+
+
+        <div class="platform-image">
+
+            <img src="knowledge-platform.png"
+                 alt="Cộng đồng Chia sẻ tri thức PVEP">
+
+            <div class="platform-caption">
+                Cộng đồng “Chia sẻ tri thức” – bước đầu hiện thực hóa R&amp;E Knowledge Platform
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="community-flow">
+
+        <div class="community-box">
+            <strong>ISSUE</strong>
+            <span>Đặt vấn đề thực tế</span>
+        </div>
+
+        <div class="community-arrow">→</div>
+
+        <div class="community-box">
+            <strong>THẢO LUẬN</strong>
+            <span>Chia sẻ & phản biện</span>
+        </div>
+
+        <div class="community-arrow">→</div>
+
+        <div class="community-box">
+            <strong>GIẢI PHÁP</strong>
+            <span>Phân tích & xử lý</span>
+        </div>
+
+        <div class="community-arrow">→</div>
+
+        <div class="community-box">
+            <strong>TRI THỨC</strong>
+            <span>Lưu giữ & kế thừa</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     05
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        05 · TƯ DUY QUẢN LÝ DỰ ÁN
+    </span>
+
+    <h2>
+        BA CÂU HỎI QUYẾT ĐỊNH CHẤT LƯỢNG DỰ ÁN
+    </h2>
+
+
+    <div class="pm-grid">
+
+        <div class="pm-card">
+
+            <div class="pm-number">
+                01
+            </div>
+
+            <strong>
+                Mục tiêu đã thực sự thống nhất?
+            </strong>
+
+            <p>
+                Các thành viên có đang hiểu
+                cùng một đích đến hay không?
+            </p>
+
+        </div>
+
+
+        <div class="pm-card">
+
+            <div class="pm-number">
+                02
+            </div>
+
+            <strong>
+                Có đang làm thêm vì ngại hỏi?
+            </strong>
+
+            <p>
+                Phạm vi dự án phải được làm rõ,
+                thay vì âm thầm làm thêm
+                vì ngại trao đổi hoặc ngại từ chối.
+            </p>
+
+        </div>
+
+
+        <div class="pm-card">
+
+            <div class="pm-number">
+                03
+            </div>
+
+            <strong>
+                Ai chịu trách nhiệm cuối cùng?
+            </strong>
+
+            <p>
+                Khi cần chốt phương án,
+                dự án phải có người chịu trách nhiệm
+                và đưa ra quyết định.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     06
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        06 · ĐIỀU ĐỌNG LẠI
+    </span>
+
+    <h2>
+        TỪ NGƯỜI HỌC ĐẾN NGƯỜI TẠO RA TRI THỨC
+    </h2>
+
+    <div class="highlight">
+
+        Một chương trình tài năng thực sự có giá trị
+        khi người học không chỉ tiếp nhận kiến thức,
+        mà bắt đầu tạo ra
+        <strong>
+            những sản phẩm đủ tốt để người khác
+            có thể sử dụng,
+            phản biện,
+            kế thừa
+            và phát triển tiếp.
+        </strong>
+
+    </div>
+
+
+    <p>
+        Một bài báo tốt
+        biến kinh nghiệm thành tri thức khoa học.
+    </p>
+
+    <p>
+        Một Knowledge Platform tốt
+        biến tri thức cá nhân thành tri thức của tổ chức.
+    </p>
+
+    <p>
+        Và một cộng đồng khoa học tốt
+        giúp tri thức tiếp tục được
+        chia sẻ,
+        phản biện
+        và phát triển qua thời gian.
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     07
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        07 · NHIỆM VỤ TIẾP THEO
+    </span>
+
+    <h2>
+        TỪ SẢN PHẨM BAN ĐẦU ĐẾN SẢN PHẨM HOÀN CHỈNH
+    </h2>
+
+
+    <div class="task">
+
+        <h3>
+            ① Hoàn thiện và gửi đăng bài báo khoa học
+        </h3>
+
+        <p>
+            Tiếp tục chỉnh sửa
+            trên cơ sở góp ý của PTGĐ,
+            chuẩn hóa cấu trúc,
+            bổ sung nội dung khoa học,
+            kiểm chứng
+            và hoàn thiện hồ sơ gửi đăng.
+        </p>
+
+    </div>
+
+
+    <div class="task">
+
+        <h3>
+            ② Phát triển R&amp;E Knowledge Platform
+        </h3>
+
+        <p>
+            Mỗi nhóm lựa chọn một vấn đề thực tế,
+            tổng hợp lại vấn đề,
+            đề xuất hướng xử lý cụ thể
+            và cập nhật kết quả lên cộng đồng.
+        </p>
+
+    </div>
+
+
+    <div class="task">
+
+        <h3>
+            ③ Hình thành cách làm việc theo dự án
+        </h3>
+
+        <p>
+            Mỗi nhiệm vụ cần xác định rõ:
+            mục tiêu,
+            phạm vi,
+            phân vai,
+            người chịu trách nhiệm,
+            mốc tiến độ
+            và sản phẩm cuối cùng.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     08 DOCUMENTS
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        08 · TƯ LIỆU
+    </span>
+
+    <h2>
+        TÀI LIỆU BUỔI 3
+    </h2>
+
+    <p>
+        Bấm vào tên tài liệu để xem.
+    </p>
+
+
+    <div class="document-list">
+
+        <a class="document-link"
+           href="Kịch bản buổi 3 _ NVTN nhóm anh Xạ.docx">
+            📄 Kịch bản Buổi 3 – Quản lý dự án
+        </a>
+
+        <a class="document-link"
+           href="Nền tảng Tri thức Công nghệ mỏ (R&E Knowledge Platform) (2).pdf">
+            🌐 Đề cương R&amp;E Knowledge Platform
+        </a>
+
+        <a class="document-link"
+           href="Ý kiến của anh Xạ với bài báo.docx">
+            📝 Ý kiến của PTGĐ Ngô Khánh Xạ đối với bài báo khoa học
+        </a>
+
+        <a class="document-link"
+           href="Note Nhiệm vụ và tiến độ triển khai.png">
+            🗓️ Nhiệm vụ và tiến độ triển khai Chương trình NVTN
+        </a>
+
+        <a class="document-link"
+           href="knowledge-platform.png">
+            🖼️ Hình ảnh cộng đồng Chia sẻ tri thức
+        </a>
+
+    </div>
+
+
+    <p class="document-note">
+        Hai bài báo khoa học sẽ được bổ sung vào danh mục
+        khi file chính thức được đưa vào thư mục Buổi 3.
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     09
+====================================================== -->
+
+<section class="card closing">
+
+    <span class="section-no">
+        09 · THÔNG ĐIỆP BUỔI 3
+    </span>
+
+    <div class="closing-title">
+        HỌC → LÀM → TẠO SẢN PHẨM → CHIA SẺ → TẠO TRI THỨC
+    </div>
+
+    <p>
+        Buổi 3 đánh dấu một bước chuyển:
+        từ học và thực hành
+        sang tạo ra những sản phẩm có chất lượng.
+
+        <br><br>
+
+        Hai bài báo khoa học,
+        R&amp;E Knowledge Platform
+        và cộng đồng chia sẻ tri thức
+        là những bước đầu để các Nhân viên Tài năng
+        không chỉ là người tiếp nhận kiến thức,
+        mà trở thành những người
+        <strong>tạo ra và lan tỏa tri thức trong PVEP.</strong>
+    </p>
+
+</section>
+
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+</main>
+
+
+<footer>
+    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+    <br>
+    Đồng hành cùng PTGĐ Ngô Khánh Xạ
+</footer>
+
+</body>
+</html>
