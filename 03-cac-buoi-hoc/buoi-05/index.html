@@ -1,1 +1,1881 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Buổi 5 | Nhân viên Tài năng PVEP</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f8f7;
+    color: #293735;
+    line-height: 1.7;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    color: white;
+
+    background:
+        radial-gradient(circle at 82% 18%, rgba(242,190,72,0.10), transparent 22%),
+        radial-gradient(circle at 13% 88%, rgba(63,190,159,0.10), transparent 25%),
+        linear-gradient(135deg, #073a43 0%, #075c5f 50%, #087768 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+    background-size: 48px 48px;
+}
+
+/* BÓNG ĐÈN MỜ */
+
+.bulb {
+    position: absolute;
+    right: 8%;
+    top: 62px;
+
+    width: 150px;
+    height: 150px;
+
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+
+    opacity: 0.8;
+}
+
+.bulb::before {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -43px;
+
+    width: 58px;
+    height: 47px;
+
+    transform: translateX(-50%);
+
+    border-left: 2px solid rgba(255,255,255,0.08);
+    border-right: 2px solid rgba(255,255,255,0.08);
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+
+    border-radius: 0 0 13px 13px;
+}
+
+.bulb::after {
+    content: "";
+    position: absolute;
+
+    width: 2px;
+    height: 41px;
+
+    left: 50%;
+    bottom: 6px;
+
+    background: rgba(255,255,255,0.08);
+
+    transform: translateX(-50%);
+}
+
+.spark {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.22);
+
+    animation: sparkle 3s infinite;
+}
+
+.s1 { right: 5%; top: 62px; }
+.s2 { right: 20%; top: 102px; animation-delay: 0.7s; }
+.s3 { right: 7%; top: 230px; animation-delay: 1.4s; }
+.s4 { right: 23%; top: 245px; animation-delay: 2s; }
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform: scale(1.8);
+    }
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1080px;
+    margin: auto;
+
+    padding: 58px 22px 49px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 100px;
+
+    border: 1px solid rgba(255,255,255,0.28);
+
+    background: rgba(255,255,255,0.07);
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.hero h1 {
+    margin: 18px 0 6px;
+
+    font-size: 50px;
+    line-height: 1.05;
+}
+
+.hero h2 {
+    margin: 0;
+
+    max-width: 850px;
+
+    font-size: 27px;
+    line-height: 1.35;
+
+    font-weight: 500;
+}
+
+.hero-lead {
+    max-width: 820px;
+
+    margin-top: 18px;
+
+    font-size: 16px;
+
+    color: rgba(255,255,255,0.92);
+}
+
+/* ======================================================
+   CÂU HỎI CHẠY
+====================================================== */
+
+.question-stage {
+    position: relative;
+
+    margin-top: 30px;
+
+    min-height: 86px;
+
+    max-width: 850px;
+}
+
+.hero-question {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    padding: 11px 17px;
+
+    border-radius: 100px;
+
+    background: rgba(255,255,255,0.10);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    font-size: 16px;
+    font-weight: 600;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation: questionFade 24s infinite;
+}
+
+.q1 { animation-delay: 0s; }
+.q2 { animation-delay: 4s; }
+.q3 { animation-delay: 8s; }
+.q4 { animation-delay: 12s; }
+.q5 { animation-delay: 16s; }
+.q6 { animation-delay: 20s; }
+
+@keyframes questionFade {
+
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    13% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    17% {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ======================================================
+   MAIN
+====================================================== */
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 34px 20px 65px;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-bottom: 25px;
+
+    color: #087666;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.back:hover {
+    transform: translateX(-4px);
+}
+
+/* ======================================================
+   CARD
+====================================================== */
+
+.card {
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 30px 33px;
+
+    margin-bottom: 23px;
+
+    box-shadow: 0 5px 20px rgba(20,80,71,0.07);
+
+    border: 1px solid rgba(8,118,102,0.07);
+}
+
+.section-no {
+    display: inline-block;
+
+    margin-bottom: 3px;
+
+    color: #15947f;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.card h2 {
+    margin: 3px 0 18px;
+
+    padding-bottom: 11px;
+
+    color: #075f54;
+
+    font-size: 25px;
+
+    border-bottom: 2px solid #e4f0ed;
+}
+
+.card h3 {
+    color: #116e62;
+}
+
+.highlight {
+    margin: 21px 0;
+
+    padding: 20px 23px;
+
+    border-left: 5px solid #15947f;
+
+    border-radius: 9px;
+
+    background: linear-gradient(135deg, #eaf7f4, #f8fbfa);
+}
+
+/* ======================================================
+   BIG MESSAGE
+====================================================== */
+
+.big-message {
+    position: relative;
+    overflow: hidden;
+
+    margin-bottom: 23px;
+
+    padding: 34px;
+
+    border-radius: 16px;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg, #064e59, #087666);
+
+    box-shadow: 0 10px 28px rgba(7,95,84,0.16);
+}
+
+.big-message::after {
+    content: "?";
+
+    position: absolute;
+
+    right: 30px;
+    bottom: -82px;
+
+    font-size: 205px;
+
+    font-weight: bold;
+
+    opacity: 0.045;
+}
+
+.big-message h2 {
+    margin: 0 0 12px;
+
+    font-size: 29px;
+}
+
+.big-message p {
+    max-width: 850px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.92);
+}
+
+/* ======================================================
+   IDEA FLOW
+====================================================== */
+
+.idea-flow {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr;
+
+    gap: 8px;
+
+    align-items: center;
+
+    margin-top: 25px;
+}
+
+.idea-step {
+    padding: 18px 10px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    background: #f6faf9;
+
+    border: 1px solid #dfedea;
+}
+
+.idea-icon {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e1f4ef;
+
+    font-size: 20px;
+}
+
+.idea-step strong {
+    display: block;
+
+    color: #075f54;
+
+    font-size: 13px;
+}
+
+.idea-step small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #687975;
+
+    font-size: 11px;
+}
+
+.idea-arrow {
+    color: #15947f;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ======================================================
+   QUESTIONS
+====================================================== */
+
+.review-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+.review-card {
+    padding: 21px;
+
+    border-radius: 12px;
+
+    background: #f8fbfa;
+
+    border-top: 4px solid #15947f;
+}
+
+.review-number {
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #15947f;
+}
+
+.review-card strong {
+    display: block;
+
+    margin: 2px 0 5px;
+
+    color: #075f54;
+}
+
+.review-card p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+/* ======================================================
+   IDEA COLLECTION
+====================================================== */
+
+.idea-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 22px;
+}
+
+.idea-card {
+    padding: 22px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(145deg, #f8fbfa, #eef7f5);
+
+    border: 1px solid #deece9;
+}
+
+.idea-card .icon {
+    font-size: 28px;
+
+    margin-bottom: 7px;
+}
+
+.idea-card strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #075f54;
+
+    font-size: 17px;
+}
+
+.idea-card span {
+    display: block;
+
+    color: #60726e;
+
+    font-size: 13px;
+}
+
+.idea-tag {
+    display: inline-block !important;
+
+    margin-top: 11px;
+
+    padding: 4px 9px;
+
+    border-radius: 100px;
+
+    background: #dff3ee;
+
+    color: #087666 !important;
+
+    font-size: 11px !important;
+    font-weight: bold;
+}
+
+/* ======================================================
+   CLASSROOM
+====================================================== */
+
+.classroom {
+    margin-top: 20px;
+
+    padding: 24px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(135deg, #f1f9f7, #ffffff);
+
+    border: 1px solid #deece9;
+}
+
+.classroom-title {
+    color: #075f54;
+
+    font-size: 21px;
+    font-weight: bold;
+
+    margin-bottom: 11px;
+}
+
+.case-flow {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr;
+
+    gap: 10px;
+
+    align-items: center;
+
+    margin-top: 19px;
+}
+
+.case {
+    padding: 17px 12px;
+
+    text-align: center;
+
+    border-radius: 11px;
+
+    background: white;
+
+    border: 1px solid #e0eeeb;
+}
+
+.case strong {
+    display: block;
+
+    color: #075f54;
+}
+
+.case span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #687975;
+
+    font-size: 12px;
+}
+
+.case-arrow {
+    color: #15947f;
+
+    font-size: 22px;
+}
+
+/* ======================================================
+   LEARNING
+====================================================== */
+
+.learning-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+.learning-card {
+    padding: 21px;
+
+    border-radius: 12px;
+
+    background: #f8fbfa;
+
+    border-left: 4px solid #15947f;
+}
+
+.learning-card strong {
+    display: block;
+
+    color: #075f54;
+
+    margin-bottom: 5px;
+}
+
+/* ======================================================
+   FINAL QUESTION
+====================================================== */
+
+.final-question {
+    margin-top: 22px;
+
+    padding: 27px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg, #075f54, #15947f);
+}
+
+.final-question span {
+    display: block;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.8;
+}
+
+.final-question strong {
+    display: block;
+
+    max-width: 780px;
+
+    margin: 8px auto 0;
+
+    font-size: 24px;
+
+    line-height: 1.45;
+}
+
+/* ======================================================
+   DOCUMENTS
+====================================================== */
+
+.document-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.document-link {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 11px;
+
+    padding: 14px 18px;
+
+    border-radius: 9px;
+
+    background: #eef7f5;
+
+    border: 1px solid #dcece8;
+
+    color: #087666;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.document-link:hover {
+    transform: translateX(5px);
+
+    background: #dcefeb;
+}
+
+.document-note {
+    margin-top: 14px;
+
+    color: #6a7774;
+
+    font-size: 14px;
+}
+
+/* ======================================================
+   CLOSING
+====================================================== */
+
+.closing {
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(21,148,127,0.12),
+            transparent 44%
+        ),
+        white;
+}
+
+.closing-title {
+    margin: 8px 0 15px;
+
+    color: #075f54;
+
+    font-size: 27px;
+
+    font-weight: bold;
+}
+
+.closing p {
+    max-width: 850px;
+
+    margin: auto;
+
+    color: #5c716d;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer {
+    padding: 27px 18px;
+
+    background: #064f47;
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+/* ======================================================
+   TABLET
+====================================================== */
+
+@media (max-width: 900px) {
+
+    .idea-flow,
+    .case-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .idea-arrow,
+    .case-arrow {
+        transform: rotate(90deg);
+
+        text-align: center;
+
+        line-height: 1;
+
+        margin: -2px 0;
+    }
+
+    .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 760px) {
+
+    .hero-inner {
+        padding: 45px 17px 42px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .hero-lead {
+        font-size: 15px;
+    }
+
+    .bulb {
+        width: 110px;
+        height: 110px;
+
+        right: -42px;
+        top: 70px;
+
+        opacity: 0.38;
+    }
+
+    .question-stage {
+        min-height: 122px;
+    }
+
+    .hero-question {
+        max-width: 95%;
+
+        border-radius: 13px;
+
+        padding: 10px 14px;
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+    .container {
+        padding: 26px 14px 45px;
+    }
+
+    .card,
+    .big-message {
+        padding: 23px 20px;
+    }
+
+    .card h2 {
+        font-size: 21px;
+    }
+
+    .big-message h2 {
+        font-size: 24px;
+    }
+
+    .review-grid,
+    .idea-grid,
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .final-question strong {
+        font-size: 20px;
+    }
+
+    .document-link {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .closing-title {
+        font-size: 22px;
+    }
+}
+
+/* ======================================================
+   MOBILE NHỎ
+====================================================== */
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.7px;
+    }
+
+    .card,
+    .big-message {
+        padding: 21px 17px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .back {
+        font-size: 14px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+<div class="bulb"></div>
+
+<div class="spark s1"></div>
+<div class="spark s2"></div>
+<div class="spark s3"></div>
+<div class="spark s4"></div>
+
+<div class="hero-inner">
+
+    <span class="eyebrow">
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+    </span>
+
+    <h1>BUỔI 5</h1>
+
+    <h2>
+        TỪ Ý TƯỞNG ĐẾN GIẢI PHÁP CÓ GIÁ TRỊ
+    </h2>
+
+    <p class="hero-lead">
+        Đổi mới sáng tạo không bắt đầu từ một ý tưởng thật lớn.
+        Nó bắt đầu từ việc nhìn thấy một vấn đề thật,
+        đặt đúng câu hỏi
+        và tìm ra một cách làm tốt hơn.
+    </p>
+
+
+    <div class="question-stage">
+
+        <div class="hero-question q1">
+            Vấn đề thực sự mình muốn giải quyết là gì?
+        </div>
+
+        <div class="hero-question q2">
+            Điều gì trong cách làm hiện tại chưa tốt?
+        </div>
+
+        <div class="hero-question q3">
+            Điểm mới của giải pháp nằm ở đâu?
+        </div>
+
+        <div class="hero-question q4">
+            Đã có dữ liệu hoặc kết quả để kiểm chứng chưa?
+        </div>
+
+        <div class="hero-question q5">
+            Hiệu quả có thể đo được bằng gì?
+        </div>
+
+        <div class="hero-question q6">
+            Và liệu người khác có thể áp dụng giải pháp này không?
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="container">
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+
+<!-- ======================================================
+     INTRO
+====================================================== -->
+
+<section class="big-message">
+
+    <h2>
+        Mỗi học viên – một ý tưởng của chính mình
+    </h2>
+
+    <p>
+        Trước Buổi 5,
+        mỗi thành viên được yêu cầu đề xuất một sáng kiến hoặc ý tưởng
+        xuất phát từ chính công việc đang làm.
+
+        Trên lớp,
+        một số sáng kiến được lựa chọn để trao đổi sâu.
+        Qua từng trường hợp cụ thể,
+        cả lớp cùng học cách nhìn một ý tưởng
+        từ vấn đề,
+        giải pháp,
+        tính mới,
+        khả năng áp dụng
+        đến hiệu quả thực tế.
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     01
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        01 · ĐỔI MỚI SÁNG TẠO
+    </span>
+
+    <h2>
+        KHÔNG BẮT ĐẦU TỪ “SÁNG KIẾN” – MÀ BẮT ĐẦU TỪ “VẤN ĐỀ”
+    </h2>
+
+    <p>
+        Một ý tưởng tốt trước hết phải trả lời được:
+        công việc hiện tại đang có điểm nghẽn nào,
+        điều gì đang mất thời gian,
+        tạo rủi ro,
+        làm tăng chi phí
+        hoặc có thể được thực hiện tốt hơn.
+    </p>
+
+    <div class="idea-flow">
+
+        <div class="idea-step">
+            <div class="idea-icon">🔎</div>
+            <strong>VẤN ĐỀ</strong>
+            <small>Điểm nghẽn thực tế là gì?</small>
+        </div>
+
+        <div class="idea-arrow">→</div>
+
+        <div class="idea-step">
+            <div class="idea-icon">💡</div>
+            <strong>Ý TƯỞNG</strong>
+            <small>Có cách nào tốt hơn?</small>
+        </div>
+
+        <div class="idea-arrow">→</div>
+
+        <div class="idea-step">
+            <div class="idea-icon">🧪</div>
+            <strong>KIỂM CHỨNG</strong>
+            <small>Thử nghiệm & dữ liệu</small>
+        </div>
+
+        <div class="idea-arrow">→</div>
+
+        <div class="idea-step">
+            <div class="idea-icon">📈</div>
+            <strong>HIỆU QUẢ</strong>
+            <small>Đo được gì?</small>
+        </div>
+
+        <div class="idea-arrow">→</div>
+
+        <div class="idea-step">
+            <div class="idea-icon">↗️</div>
+            <strong>ÁP DỤNG</strong>
+            <small>Có thể mở rộng?</small>
+        </div>
+
+    </div>
+
+
+    <div class="highlight">
+
+        <strong>
+            Một sáng kiến không cần bắt đầu bằng điều quá lớn.
+        </strong>
+
+        <br><br>
+
+        Đôi khi,
+        đổi mới chỉ bắt đầu từ một câu hỏi rất đơn giản:
+
+        <strong>
+            “Công việc này có cách nào làm tốt hơn không?”
+        </strong>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     02
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        02 · CÁCH NHÌN MỘT SÁNG KIẾN
+    </span>
+
+    <h2>
+        NHỮNG CÂU HỎI THẦY ĐẶT RA
+    </h2>
+
+    <p>
+        Qua từng sáng kiến,
+        điều quan trọng không chỉ là nghe giải pháp.
+        Các câu hỏi giúp học viên quay lại bản chất của vấn đề
+        và tự kiểm tra mức độ hoàn thiện của đề xuất.
+    </p>
+
+
+    <div class="review-grid">
+
+        <div class="review-card">
+
+            <div class="review-number">01</div>
+
+            <strong>
+                Vấn đề thật là gì?
+            </strong>
+
+            <p>
+                Nếu chưa nói rõ vấn đề,
+                rất khó đánh giá giải pháp có thực sự cần thiết hay không.
+            </p>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="review-number">02</div>
+
+            <strong>
+                Mới ở đâu?
+            </strong>
+
+            <p>
+                Cái mới không nhất thiết phải là công nghệ mới,
+                mà có thể là cách ứng dụng,
+                cách kết hợp
+                hoặc cách giải quyết vấn đề.
+            </p>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="review-number">03</div>
+
+            <strong>
+                Có làm được không?
+            </strong>
+
+            <p>
+                Ý tưởng cần đi cùng điều kiện triển khai,
+                nguồn lực
+                và khả năng thử nghiệm thực tế.
+            </p>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="review-number">04</div>
+
+            <strong>
+                Có số liệu chứng minh?
+            </strong>
+
+            <p>
+                Kết quả cần được kiểm chứng
+                thay vì chỉ dựa trên nhận định hoặc kỳ vọng.
+            </p>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="review-number">05</div>
+
+            <strong>
+                Hiệu quả là gì?
+            </strong>
+
+            <p>
+                Có thể là sản lượng,
+                chi phí,
+                thời gian,
+                an toàn,
+                chất lượng dữ liệu
+                hay hiệu quả quản trị.
+            </p>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="review-number">06</div>
+
+            <strong>
+                Có thể nhân rộng?
+            </strong>
+
+            <p>
+                Một giải pháp càng có khả năng áp dụng lại
+                thì giá trị thực tiễn càng lớn.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     03
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        03 · KHO Ý TƯỞNG CỦA LỚP
+    </span>
+
+    <h2>
+        TỪ NHIỀU LĨNH VỰC – CÙNG CHUNG MỘT TINH THẦN CẢI TIẾN
+    </h2>
+
+    <p>
+        Các đề xuất của học viên trải rộng từ
+        công nghệ mỏ,
+        khai thác,
+        địa chất – địa vật lý,
+        quản lý dự án,
+        dữ liệu
+        đến AI và chuyển đổi số.
+
+        Điểm chung là đều xuất phát
+        từ những vấn đề rất cụ thể trong công việc.
+    </p>
+
+
+    <div class="idea-grid">
+
+        <div class="idea-card">
+
+            <div class="icon">🧩</div>
+
+            <strong>
+                Tự động tối ưu History Matching
+            </strong>
+
+            <span>
+                Ứng dụng tNavigator AHM
+                để lựa chọn và hiệu chỉnh các tham số bất định,
+                giảm thử – sai
+                và hỗ trợ đánh giá dải bất định.
+            </span>
+
+            <span class="idea-tag">
+                CÔNG NGHỆ MỎ
+            </span>
+
+        </div>
+
+
+        <div class="idea-card">
+
+            <div class="icon">📊</div>
+
+            <strong>
+                Kiểm soát chất lượng dữ liệu sản lượng
+            </strong>
+
+            <span>
+                Xây dựng bộ quy tắc
+                phát hiện dữ liệu thiếu,
+                sai logic,
+                biến động bất thường
+                và sai lệch giữa các nguồn.
+            </span>
+
+            <span class="idea-tag">
+                DATA QUALITY
+            </span>
+
+        </div>
+
+
+        <div class="idea-card">
+
+            <div class="icon">🤖</div>
+
+            <strong>
+                Digital PMO Assistant
+            </strong>
+
+            <span>
+                Ứng dụng AI hỗ trợ truy xuất hồ sơ,
+                theo dõi action items,
+                lịch sử quyết định
+                và cảnh báo rủi ro tiến độ dự án.
+            </span>
+
+            <span class="idea-tag">
+                AI & PROJECT
+            </span>
+
+        </div>
+
+
+        <div class="idea-card">
+
+            <div class="icon">🗺️</div>
+
+            <strong>
+                PVEP ATLAS
+            </strong>
+
+            <span>
+                Quản lý chuỗi sản phẩm kỹ thuật
+                và mối phụ thuộc liên nhóm,
+                giúp nhìn dự án theo deliverable
+                thay vì chỉ theo task.
+            </span>
+
+            <span class="idea-tag">
+                PROJECT MANAGEMENT
+            </span>
+
+        </div>
+
+
+        <div class="idea-card">
+
+            <div class="icon">⚙️</div>
+
+            <strong>
+                Velocity String
+            </strong>
+
+            <span>
+                Nghiên cứu giải pháp giảm tubing size
+                nhằm hạn chế liquid loading
+                và gia tăng khả năng thu hồi tại mỏ Rồng Đôi.
+            </span>
+
+            <span class="idea-tag">
+                KHAI THÁC
+            </span>
+
+        </div>
+
+
+        <div class="idea-card">
+
+            <div class="icon">🧠</div>
+
+            <strong>
+                AI-assisted Seismic Attribute Recommendation
+            </strong>
+
+            <span>
+                Hỗ trợ lựa chọn thuộc tính địa chấn
+                thông qua chuẩn hóa workflow
+                và công cụ recommendation có AI hỗ trợ.
+            </span>
+
+            <span class="idea-tag">
+                ĐỊA CHẤT – ĐỊA VẬT LÝ
+            </span>
+
+        </div>
+
+
+        <div class="idea-card">
+
+            <div class="icon">💬</div>
+
+            <strong>
+                PetroMind Assistant
+            </strong>
+
+            <span>
+                Trợ lý AI nội bộ
+                hỗ trợ truy xuất dữ liệu,
+                phân tích,
+                cảnh báo
+                và cung cấp thông tin phục vụ điều hành.
+            </span>
+
+            <span class="idea-tag">
+                AI & DATA
+            </span>
+
+        </div>
+
+
+        <div class="idea-card">
+
+            <div class="icon">🛢️</div>
+
+            <strong>
+                Các giải pháp tối ưu vận hành giếng
+            </strong>
+
+            <span>
+                Nhiều đề xuất xuất phát trực tiếp
+                từ các vấn đề tại giếng:
+                làm sạch tubing,
+                tối ưu hoàn thiện giếng,
+                duy trì an toàn
+                và gia tăng sản lượng.
+            </span>
+
+            <span class="idea-tag">
+                GIẢI PHÁP THỰC TẾ
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     04
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        04 · HỌC QUA CASE THỰC TẾ
+    </span>
+
+    <h2>
+        KHÔNG THỂ ĐI HẾT TẤT CẢ – NHƯNG MỖI CASE ĐỀU DẠY MỘT CÁCH NGHĨ
+    </h2>
+
+    <p>
+        Với số lượng đề xuất lớn,
+        buổi học chỉ có thể lựa chọn một số sáng kiến
+        để phân tích kỹ hơn.
+
+        Nhưng giá trị của việc trao đổi không chỉ dành cho người có sáng kiến được chọn.
+        Mỗi case trở thành một ví dụ
+        để tất cả thành viên cùng soi lại đề xuất của chính mình.
+    </p>
+
+
+    <div class="classroom">
+
+        <div class="classroom-title">
+            Một sáng kiến được “mổ xẻ” trên lớp như thế nào?
+        </div>
+
+
+        <div class="case-flow">
+
+            <div class="case">
+                <strong>TRÌNH BÀY</strong>
+                <span>Ý tưởng & vấn đề</span>
+            </div>
+
+            <div class="case-arrow">→</div>
+
+            <div class="case">
+                <strong>ĐẶT CÂU HỎI</strong>
+                <span>Đi vào bản chất</span>
+            </div>
+
+            <div class="case-arrow">→</div>
+
+            <div class="case">
+                <strong>PHẢN BIỆN</strong>
+                <span>Tính mới & khả thi</span>
+            </div>
+
+            <div class="case-arrow">→</div>
+
+            <div class="case">
+                <strong>HOÀN THIỆN</strong>
+                <span>Hiệu quả & áp dụng</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     05
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        05 · ĐỔI MỚI KHÔNG CHỈ LÀ CÔNG NGHỆ
+    </span>
+
+    <h2>
+        GIÁ TRỊ NẰM Ở BÀI TOÁN ĐƯỢC GIẢI QUYẾT
+    </h2>
+
+    <p>
+        Bộ sáng kiến của lớp cho thấy
+        đổi mới sáng tạo có thể xuất hiện
+        ở rất nhiều dạng khác nhau.
+    </p>
+
+
+    <div class="learning-grid">
+
+        <div class="learning-card">
+
+            <strong>
+                Một công nghệ được áp dụng theo cách mới
+            </strong>
+
+            Ví dụ như tNavigator,
+            AI,
+            Velocity String
+            hay công nghệ can thiệp giếng.
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <strong>
+                Một quy trình được làm tốt hơn
+            </strong>
+
+            Giảm thao tác thủ công,
+            giảm thời gian,
+            giảm sai sót
+            hoặc kiểm soát rủi ro tốt hơn.
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <strong>
+                Một dữ liệu được khai thác tốt hơn
+            </strong>
+
+            Chuẩn hóa,
+            kết nối,
+            cảnh báo
+            và đưa dữ liệu gần hơn với người ra quyết định.
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <strong>
+                Một giải pháp nhỏ nhưng hiệu quả rõ ràng
+            </strong>
+
+            Không nhất thiết phải phức tạp,
+            miễn là giải quyết đúng vấn đề
+            và chứng minh được giá trị.
+
+        </div>
+
+    </div>
+
+
+    <div class="final-question">
+
+        <span>
+            CÂU HỎI QUAN TRỌNG
+        </span>
+
+        <strong>
+            Ý tưởng của mình đang giải quyết một vấn đề thật
+            hay chỉ đang cố gắng tạo ra một “sáng kiến”?
+        </strong>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     06
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        06 · ĐIỀU ĐỌNG LẠI
+    </span>
+
+    <h2>
+        HỌC CÁCH NHÌN CÔNG VIỆC BẰNG TƯ DUY CẢI TIẾN
+    </h2>
+
+    <div class="highlight">
+
+        Giá trị lớn nhất của Buổi 5
+        không phải là mỗi người có thêm một bản đề xuất sáng kiến.
+
+        <br><br>
+
+        Điều quan trọng hơn
+        là bắt đầu hình thành một thói quen:
+
+        <strong>
+            nhìn thấy vấn đề – đặt câu hỏi – thử cách làm khác –
+            kiểm chứng – và đo giá trị tạo ra.
+        </strong>
+
+    </div>
+
+    <p>
+        Khi tư duy đó trở thành một phần của công việc hàng ngày,
+        đổi mới sáng tạo không còn là một phong trào
+        hay một hồ sơ đăng ký,
+        mà trở thành cách mỗi người
+        chủ động làm công việc của mình tốt hơn.
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     07
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        07 · TƯ LIỆU
+    </span>
+
+    <h2>
+        DANH MỤC SÁNG KIẾN – Ý TƯỞNG BUỔI 5
+    </h2>
+
+    <p>
+        Bấm vào tên tài liệu để xem.
+    </p>
+
+
+    <div class="document-list">
+
+        <a class="document-link"
+           href="01. Trần Thị Trang SKSC_tNavigator_AHM.pptx">
+            📊 Trần Thị Trang – Tự động hóa tối ưu History Matching bằng tNavigator
+        </a>
+
+        <a class="document-link"
+           href="02. Chử Xuân Anh_XD bộ quy tắc SLKT.docx">
+            📄 Chử Xuân Anh – Bộ quy tắc kiểm soát chất lượng dữ liệu sản lượng khai thác
+        </a>
+
+        <a class="document-link"
+           href="03. Nguyễn Đăng Quang ĐỀ XUẤT SÁNG KIẾN - Ý TƯỞNG.docx">
+            📄 Nguyễn Đăng Quang – Đề xuất sáng kiến/ý tưởng
+        </a>
+
+        <a class="document-link"
+           href="03.b Nguyễn Đăng Quang STTP2B_Digital_PMO_Assistant_Final.pptx">
+            🤖 Nguyễn Đăng Quang – Digital PMO Assistant
+        </a>
+
+        <a class="document-link"
+           href="04. Hoàng Minh Quân PVEP_ATLAS.pdf">
+            🗺️ Hoàng Minh Quân – PVEP ATLAS
+        </a>
+
+        <a class="document-link"
+           href="05. Nguyen Manh Tuan  PVEP-ITC SKSC 01 Ban do khu vuc thuc dia dia chat tai Viet Nam va khu vuc lan can.pdf">
+            🌍 Nguyễn Mạnh Tuấn – Bản đồ khu vực thực địa địa chất Việt Nam và khu vực lân cận
+        </a>
+
+        <a class="document-link"
+           href="06. Trần Đức Thuận Sáng kiến, ý tưởng NVTN.pdf">
+            🧠 Trần Đức Thuận – PetroMind Assistant
+        </a>
+
+        <a class="document-link"
+           href="07. Đỗ Hương Liên Velocity string_Final.pptx">
+            ⚙️ Đỗ Hương Liên – Ứng dụng Velocity String tại mỏ Rồng Đôi
+        </a>
+
+        <a class="document-link"
+           href="08. Nguyễn Bùi Thúy Thúy Ý tưởng sáng kiến sáng chế.docx">
+            💡 Nguyễn Bùi Thúy Thúy – Ý tưởng sáng kiến
+        </a>
+
+        <a class="document-link"
+           href="09. Lê Minh Hoàng Toàn văn giải pháp - Sử dụng bơm Wilden và khí Gaslift để đẩy hệ acid HCR-3000.docx">
+            🛢️ Lê Minh Hoàng – Sử dụng bơm Wilden và khí Gaslift
+        </a>
+
+        <a class="document-link"
+           href="09.b Lê Minh Hoàng PP HTG khai thác cho những tập tiềm năng bên trên packer với chi phí tối ưu_Final.docx">
+            🔧 Lê Minh Hoàng – Hoàn thiện giếng khai thác trên packer với chi phí tối ưu
+        </a>
+
+        <a class="document-link"
+           href="10. Vũ Thị Dung AI-assisted Seismic Attribute Recommendation.pptx">
+            🤖 Vũ Thị Dung – AI-assisted Seismic Attribute Recommendation
+        </a>
+
+        <a class="document-link"
+           href="12. Đề xuất Sáng kiến_Nguyễn Xuân Lộc.pptx">
+            📈 Nguyễn Xuân Lộc – Hệ thống báo cáo số KHCN-ĐMST
+        </a>
+
+        <a class="document-link"
+           href="PVEP_Tong_quan_Sang_kien_final (1) _ Nguyen Xuan Loc.pptx">
+            📘 Tổng quan hoạt động sáng kiến tại PVEP
+        </a>
+
+    </div>
+
+
+    <p class="document-note">
+        Danh mục có thể tiếp tục bổ sung khi các thành viên cập nhật phiên bản hoàn thiện của sáng kiến.
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     08
+====================================================== -->
+
+<section class="card closing">
+
+    <span class="section-no">
+        08 · THÔNG ĐIỆP BUỔI 5
+    </span>
+
+    <div class="closing-title">
+        NHÌN THẤY VẤN ĐỀ → NGHĨ KHÁC → LÀM THỬ → KIỂM CHỨNG → CẢI TIẾN
+    </div>
+
+    <p>
+        Đổi mới sáng tạo không phải là một khoảnh khắc
+        “nảy ra ý tưởng”.
+
+        <br><br>
+
+        Đó là quá trình
+        quan sát công việc,
+        nhận diện vấn đề,
+        đặt câu hỏi,
+        thử nghiệm,
+        lắng nghe phản biện
+        và kiên trì hoàn thiện giải pháp.
+
+        <br><br>
+
+        <strong>
+            Và có lẽ điều quan trọng nhất:
+            bắt đầu từ chính công việc mình đang làm mỗi ngày.
+        </strong>
+    </p>
+
+</section>
+
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+</main>
+
+
+<footer>
+    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+    <br>
+    Đồng hành cùng PTGĐ Ngô Khánh Xạ
+</footer>
+
+</body>
+</html>
