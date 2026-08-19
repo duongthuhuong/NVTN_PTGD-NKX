@@ -1,1 +1,2057 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Buổi 2 | Nhân viên Tài năng PVEP</title>
+
+<style>
+
+/* ======================================================
+   RESET
+====================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f8fa;
+    color: #283633;
+    line-height: 1.7;
+}
+
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    color: white;
+
+    background:
+        radial-gradient(circle at 85% 15%,
+        rgba(64,190,164,0.13),
+        transparent 25%),
+
+        radial-gradient(circle at 15% 80%,
+        rgba(70,130,180,0.10),
+        transparent 25%),
+
+        linear-gradient(
+        135deg,
+        #062f3a 0%,
+        #075f68 48%,
+        #087d6e 100%
+        );
+}
+
+
+/* NỀN GRID CÔNG NGHỆ MỜ */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+    opacity: 0.45;
+}
+
+
+/* CÁC VÒNG TRÒN MỜ */
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 370px;
+    height: 370px;
+
+    right: -130px;
+    top: -130px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 0 0 55px rgba(255,255,255,0.025),
+        0 0 0 110px rgba(255,255,255,0.018);
+}
+
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1120px;
+    margin: auto;
+
+    padding: 58px 22px 50px;
+}
+
+
+.eyebrow {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 100px;
+
+    border:
+        1px solid rgba(255,255,255,0.28);
+
+    background:
+        rgba(255,255,255,0.07);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.2px;
+}
+
+
+.hero h1 {
+    margin: 18px 0 6px;
+
+    font-size: 52px;
+
+    line-height: 1.05;
+}
+
+
+.hero h2 {
+    margin: 0;
+
+    max-width: 850px;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    line-height: 1.35;
+}
+
+
+.hero-lead {
+    max-width: 790px;
+
+    margin-top: 18px;
+
+    font-size: 16px;
+
+    color:
+        rgba(255,255,255,0.91);
+}
+
+
+/* ======================================================
+   CÂU HỎI CHẠY LẦN LƯỢT
+====================================================== */
+
+.question-stage {
+
+    position: relative;
+
+    margin-top: 34px;
+
+    min-height: 110px;
+
+    max-width: 760px;
+}
+
+
+.animated-question {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    padding: 11px 18px;
+
+    border-radius: 100px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid rgba(255,255,255,0.18);
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    opacity: 0;
+
+    transform:
+        translateY(14px);
+
+    animation:
+        questionFade 18s infinite;
+}
+
+
+/* XUẤT HIỆN LẦN LƯỢT */
+
+.q1 {
+    animation-delay: 0s;
+}
+
+.q2 {
+    animation-delay: 3s;
+}
+
+.q3 {
+    animation-delay: 6s;
+}
+
+.q4 {
+    animation-delay: 9s;
+}
+
+.q5 {
+    animation-delay: 12s;
+}
+
+.q6 {
+    animation-delay: 15s;
+}
+
+
+@keyframes questionFade {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(14px);
+    }
+
+    6% {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
+    14% {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
+    19% {
+        opacity: 0;
+        transform:
+            translateY(-10px);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ======================================================
+   CỤM TECH MỜ NHỎ
+====================================================== */
+
+.tech-decoration {
+
+    position: absolute;
+
+    right: 7%;
+    bottom: 40px;
+
+    width: 220px;
+    height: 150px;
+
+    opacity: 0.13;
+}
+
+
+.tech-decoration .node {
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+
+.tech-decoration .line {
+
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.85);
+
+    transform-origin:
+        left center;
+}
+
+
+.n1 {
+    left: 20px;
+    top: 80px;
+}
+
+.n2 {
+    left: 80px;
+    top: 30px;
+}
+
+.n3 {
+    left: 120px;
+    top: 95px;
+}
+
+.n4 {
+    left: 185px;
+    top: 45px;
+}
+
+.n5 {
+    left: 190px;
+    top: 120px;
+}
+
+
+.l1 {
+    left: 30px;
+    top: 84px;
+    width: 70px;
+    transform:
+        rotate(-40deg);
+}
+
+.l2 {
+    left: 85px;
+    top: 38px;
+    width: 70px;
+    transform:
+        rotate(58deg);
+}
+
+.l3 {
+    left: 128px;
+    top: 97px;
+    width: 85px;
+    transform:
+        rotate(-38deg);
+}
+
+.l4 {
+    left: 128px;
+    top: 100px;
+    width: 70px;
+    transform:
+        rotate(22deg);
+}
+
+
+/* ======================================================
+   MAIN
+====================================================== */
+
+.container {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding:
+        34px 20px 65px;
+}
+
+
+/* ======================================================
+   BACK
+====================================================== */
+
+.back {
+
+    display:
+        inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 25px;
+
+    color: #087666;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+.back:hover {
+
+    transform:
+        translateX(-4px);
+
+    color:
+        #054f46;
+}
+
+
+/* ======================================================
+   CARD
+====================================================== */
+
+.card {
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 30px 33px;
+
+    margin-bottom: 23px;
+
+    box-shadow:
+        0 5px 20px rgba(20,80,71,0.07);
+
+    border:
+        1px solid rgba(8,118,102,0.07);
+}
+
+
+.section-no {
+
+    display: inline-block;
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+
+    color: #15947f;
+
+    font-weight: bold;
+
+    letter-spacing: 1.2px;
+}
+
+
+.card h2 {
+
+    margin:
+        3px 0 18px;
+
+    padding-bottom: 11px;
+
+    color: #075f54;
+
+    font-size: 25px;
+
+    border-bottom:
+        2px solid #e4f0ed;
+}
+
+
+.card h3 {
+    color: #116e62;
+}
+
+
+.highlight {
+
+    margin: 21px 0;
+
+    padding:
+        20px 23px;
+
+    border-left:
+        5px solid #15947f;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf7f4,
+            #f8fbfa
+        );
+}
+
+
+/* ======================================================
+   CÂU ĐINH
+====================================================== */
+
+.big-message {
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin-bottom: 23px;
+
+    padding: 34px;
+
+    border-radius: 16px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #064d58,
+            #087666
+        );
+
+    box-shadow:
+        0 10px 28px rgba(7,95,84,0.16);
+}
+
+
+.big-message::after {
+
+    content: "01";
+
+    position: absolute;
+
+    right: 24px;
+
+    bottom: -55px;
+
+    font-size: 170px;
+
+    font-weight: bold;
+
+    opacity: 0.04;
+}
+
+
+.big-message h2 {
+
+    margin:
+        0 0 12px;
+
+    font-size: 29px;
+}
+
+
+.big-message p {
+
+    max-width: 820px;
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,0.92);
+}
+
+
+/* ======================================================
+   VALUE CHAIN
+====================================================== */
+
+.value-chain {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 9px;
+
+    margin-top: 24px;
+}
+
+
+.value-item {
+
+    position: relative;
+
+    padding: 18px 10px;
+
+    text-align: center;
+
+    border-radius: 11px;
+
+    background:
+        #f4faf9;
+
+    border:
+        1px solid #dcece8;
+}
+
+
+.value-item:not(:last-child)::after {
+
+    content: "→";
+
+    position: absolute;
+
+    right: -14px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        #15947f;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    z-index: 2;
+}
+
+
+.value-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    margin:
+        0 auto 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #dff3ee;
+
+    font-size: 20px;
+}
+
+
+.value-item strong {
+
+    display: block;
+
+    color:
+        #075f54;
+
+    font-size: 13px;
+}
+
+
+.value-item small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        #687874;
+
+    font-size: 11px;
+}
+
+
+/* ======================================================
+   THÁCH THỨC
+====================================================== */
+
+.challenge-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+
+.challenge {
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background:
+        #f8fbfa;
+
+    border-top:
+        4px solid #15947f;
+}
+
+
+.challenge-number {
+
+    font-size: 28px;
+
+    color:
+        #15947f;
+
+    font-weight: bold;
+}
+
+
+.challenge strong {
+
+    display: block;
+
+    color:
+        #075f54;
+
+    margin:
+        3px 0 5px;
+}
+
+
+.challenge p {
+
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* ======================================================
+   3 LÁT CẮT
+====================================================== */
+
+.domain-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 21px;
+}
+
+
+.domain {
+
+    padding: 22px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f6fbfa,
+            #eef7f5
+        );
+
+    border:
+        1px solid #dcece8;
+
+    transition: 0.2s;
+}
+
+
+.domain:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,0.07);
+}
+
+
+.domain-icon {
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+
+.domain strong {
+
+    color:
+        #075f54;
+
+    font-size: 17px;
+}
+
+
+.domain p {
+
+    margin-bottom: 0;
+
+    font-size: 14px;
+}
+
+
+/* ======================================================
+   TRANSITION
+====================================================== */
+
+.transition-flow {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+
+.transition-box {
+
+    position: relative;
+
+    padding: 22px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    background:
+        #f7fbfa;
+
+    border:
+        1px solid #e0efeb;
+}
+
+
+.transition-box:not(:last-child)::after {
+
+    content: "→";
+
+    position: absolute;
+
+    top: 50%;
+
+    right: -17px;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        #15947f;
+
+    font-size: 23px;
+
+    font-weight: bold;
+}
+
+
+.transition-box strong {
+
+    display: block;
+
+    color:
+        #075f54;
+
+    font-size: 17px;
+}
+
+
+.transition-box span {
+
+    display: block;
+
+    color:
+        #657974;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+}
+
+
+/* ======================================================
+   PERSONAL ROLE
+====================================================== */
+
+.role-questions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 13px;
+
+    margin-top: 20px;
+}
+
+
+.role-question {
+
+    padding:
+        18px 20px;
+
+    border-radius: 11px;
+
+    background:
+        #f8fbfa;
+
+    border-left:
+        4px solid #15947f;
+}
+
+
+.role-question strong {
+
+    color:
+        #075f54;
+
+    display: block;
+}
+
+
+/* ======================================================
+   TASK
+====================================================== */
+
+.task {
+
+    padding:
+        19px 21px;
+
+    margin:
+        14px 0;
+
+    border-radius: 11px;
+
+    background:
+        #f8fbfa;
+
+    border:
+        1px solid #e6f0ed;
+}
+
+
+.task h3 {
+    margin-top: 0;
+}
+
+
+/* ======================================================
+   DOCUMENTS
+====================================================== */
+
+.document-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.document-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        14px 18px;
+
+    border-radius: 9px;
+
+    background:
+        #eef7f5;
+
+    border:
+        1px solid #dcece8;
+
+    color:
+        #087666;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+.document-link:hover {
+
+    transform:
+        translateX(5px);
+
+    background:
+        #dcefeb;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.06);
+}
+
+
+.document-note {
+
+    margin-top: 13px;
+
+    color:
+        #6a7774;
+
+    font-size: 14px;
+}
+
+
+/* ======================================================
+   CLOSING
+====================================================== */
+
+.closing {
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(21,148,127,0.11),
+            transparent 42%
+        ),
+        white;
+}
+
+
+.closing-title {
+
+    margin:
+        8px 0 14px;
+
+    color:
+        #075f54;
+
+    font-size: 27px;
+
+    font-weight: bold;
+}
+
+
+.closing p {
+
+    max-width: 820px;
+
+    margin: auto;
+
+    color:
+        #5c716d;
+}
+
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer {
+
+    padding:
+        27px 18px;
+
+    background:
+        #064f47;
+
+    color:
+        white;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 760px) {
+
+    .hero {
+        min-height: 520px;
+    }
+
+    .hero-inner {
+        padding:
+            45px 17px 38px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .hero-lead {
+        font-size: 15px;
+    }
+
+    .question-stage {
+        min-height: 135px;
+    }
+
+    .animated-question {
+        font-size: 15px;
+        border-radius: 13px;
+        max-width: 95%;
+    }
+
+    .tech-decoration {
+        width: 160px;
+        right: -15px;
+        bottom: 15px;
+    }
+
+    .container {
+        padding:
+            26px 14px 45px;
+    }
+
+    .card,
+    .big-message {
+        padding:
+            23px 20px;
+    }
+
+    .card h2 {
+        font-size: 21px;
+    }
+
+    .big-message h2 {
+        font-size: 24px;
+    }
+
+    .value-chain,
+    .challenge-grid,
+    .domain-grid,
+    .transition-flow,
+    .role-questions {
+        grid-template-columns: 1fr;
+    }
+
+    .value-item:not(:last-child)::after,
+    .transition-box:not(:last-child)::after {
+
+        content: "↓";
+
+        right: auto;
+
+        top: auto;
+
+        bottom: -22px;
+
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+    }
+
+    .value-item,
+    .transition-box {
+        margin-bottom: 7px;
+    }
+
+    .closing-title {
+        font-size: 22px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+    <span class="eyebrow">
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+    </span>
+
+    <h1>BUỔI 2</h1>
+
+    <h2>
+        CÔNG NGHỆ PHẢI TẠO RA GIÁ TRỊ
+    </h2>
+
+    <p class="hero-lead">
+        Vai trò của Khoa học công nghệ và Chuyển đổi số
+        trong duy trì sản lượng, gia tăng khai thác
+        và nâng cao hệ số thu hồi dầu khí tại PVEP.
+    </p>
+
+
+    <!-- CÁC CÂU HỎI TỰ ĐỘNG HIỆN LẦN LƯỢT -->
+
+    <div class="question-stage">
+
+        <div class="animated-question q1">
+            Công nghệ để làm gì?
+        </div>
+
+        <div class="animated-question q2">
+            Áp dụng công nghệ vào bài toán nào?
+        </div>
+
+        <div class="animated-question q3">
+            Dữ liệu có đủ và đúng không?
+        </div>
+
+        <div class="animated-question q4">
+            Mô hình có phản ánh đúng thực tế mỏ không?
+        </div>
+
+        <div class="animated-question q5">
+            Phân tích có giúp ra quyết định tốt hơn không?
+        </div>
+
+        <div class="animated-question q6">
+            Và cuối cùng... tạo ra giá trị gì?
+        </div>
+
+    </div>
+
+
+    <!-- TRANG TRÍ TECH NHỎ, MỜ -->
+
+    <div class="tech-decoration">
+
+        <div class="node n1"></div>
+        <div class="node n2"></div>
+        <div class="node n3"></div>
+        <div class="node n4"></div>
+        <div class="node n5"></div>
+
+        <div class="line l1"></div>
+        <div class="line l2"></div>
+        <div class="line l3"></div>
+        <div class="line l4"></div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="container">
+
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+
+
+<!-- ======================================================
+     BIG MESSAGE
+====================================================== -->
+
+<section class="big-message">
+
+    <h2>
+        Công nghệ không phải là đích đến
+    </h2>
+
+    <p>
+        Giá trị của Khoa học công nghệ và Chuyển đổi số
+        không nằm ở việc có thêm bao nhiêu hệ thống,
+        mô hình hay báo cáo,
+        mà ở việc chúng có giúp PVEP hiểu mỏ tốt hơn,
+        ra quyết định tốt hơn,
+        khai thác hiệu quả hơn
+        và gia tăng giá trị tài sản hay không.
+    </p>
+
+</section>
+
+
+
+<!-- ======================================================
+     01
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        01 · BỨC TRANH LỚN
+    </span>
+
+    <h2>
+        PVEP ĐANG ĐỐI MẶT VỚI NHỮNG THÁCH THỨC GÌ?
+    </h2>
+
+    <p>
+        Nhiều mỏ hiện hữu đang bước vào giai đoạn khai thác muộn,
+        sản lượng suy giảm và chi phí hoạt động tăng.
+        Trong khi đó, việc tìm kiếm,
+        thăm dò và phát triển các mỏ mới ngày càng phức tạp
+        và tốn kém hơn.
+    </p>
+
+
+    <div class="challenge-grid">
+
+        <div class="challenge">
+
+            <div class="challenge-number">
+                01
+            </div>
+
+            <strong>
+                Suy giảm sản lượng
+            </strong>
+
+            <p>
+                Các mỏ hiện hữu suy giảm tự nhiên,
+                tạo áp lực duy trì sản lượng nền.
+            </p>
+
+        </div>
+
+
+        <div class="challenge">
+
+            <div class="challenge-number">
+                02
+            </div>
+
+            <strong>
+                Mỏ mới phức tạp hơn
+            </strong>
+
+            <p>
+                Đối tượng mới nhỏ hơn,
+                khó nhận diện và chi phí phát triển cao hơn.
+            </p>
+
+        </div>
+
+
+        <div class="challenge">
+
+            <div class="challenge-number">
+                03
+            </div>
+
+            <strong>
+                Dữ liệu & công nghệ
+            </strong>
+
+            <p>
+                Dữ liệu còn phân tán,
+                mức độ làm chủ công nghệ
+                và năng lực khai thác dữ liệu cần tiếp tục nâng cao.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     02
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        02 · ĐÒN BẨY
+    </span>
+
+    <h2>
+        KHCN & CHUYỂN ĐỔI SỐ – ĐỂ LÀM GÌ?
+    </h2>
+
+    <div class="highlight">
+
+        Khoa học công nghệ giúp chúng ta
+        <strong>hiểu mỏ sâu hơn</strong>.
+
+        <br><br>
+
+        Chuyển đổi số giúp chúng ta
+        <strong>ra quyết định nhanh hơn và chính xác hơn</strong>.
+
+    </div>
+
+
+    <div class="value-chain">
+
+        <div class="value-item">
+
+            <div class="value-icon">
+                🗂️
+            </div>
+
+            <strong>
+                DỮ LIỆU
+            </strong>
+
+            <small>
+                Đủ & đúng?
+            </small>
+
+        </div>
+
+
+        <div class="value-item">
+
+            <div class="value-icon">
+                🧩
+            </div>
+
+            <strong>
+                MÔ HÌNH
+            </strong>
+
+            <small>
+                Phản ánh thực tế?
+            </small>
+
+        </div>
+
+
+        <div class="value-item">
+
+            <div class="value-icon">
+                🔎
+            </div>
+
+            <strong>
+                PHÂN TÍCH
+            </strong>
+
+            <small>
+                Nhìn ra điều gì?
+            </small>
+
+        </div>
+
+
+        <div class="value-item">
+
+            <div class="value-icon">
+                🎯
+            </div>
+
+            <strong>
+                QUYẾT ĐỊNH
+            </strong>
+
+            <small>
+                Có tốt hơn?
+            </small>
+
+        </div>
+
+
+        <div class="value-item">
+
+            <div class="value-icon">
+                ⚙️
+            </div>
+
+            <strong>
+                VẬN HÀNH
+            </strong>
+
+            <small>
+                Có hiệu quả?
+            </small>
+
+        </div>
+
+
+        <div class="value-item">
+
+            <div class="value-icon">
+                📈
+            </div>
+
+            <strong>
+                GIÁ TRỊ
+            </strong>
+
+            <small>
+                Đóng góp gì?
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     03
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        03 · BA LÁT CẮT
+    </span>
+
+    <h2>
+        KHCN & CĐS TRONG CHUỖI KHAI THÁC DẦU KHÍ
+    </h2>
+
+
+    <div class="domain-grid">
+
+
+        <div class="domain">
+
+            <div class="domain-icon">
+                🌐
+            </div>
+
+            <strong>
+                Địa chấn
+            </strong>
+
+            <p>
+                Địa chấn 3D/4D,
+                phân tích đa thuộc tính,
+                inversion,
+                AI/ML và Digital Twin
+                giúp hiểu rõ hơn cấu trúc,
+                đá chứa và phân bố chất lưu.
+            </p>
+
+        </div>
+
+
+        <div class="domain">
+
+            <div class="domain-icon">
+                🛢️
+            </div>
+
+            <strong>
+                Công nghệ mỏ
+            </strong>
+
+            <p>
+                Mô hình địa chất – khai thác,
+                mô phỏng động thái vỉa,
+                phân tích dữ liệu
+                và các giải pháp IOR/EOR
+                giúp nhận diện tiềm năng còn lại
+                và nâng cao hệ số thu hồi.
+            </p>
+
+        </div>
+
+
+        <div class="domain">
+
+            <div class="domain-icon">
+                ⚙️
+            </div>
+
+            <strong>
+                Phát triển khai thác
+            </strong>
+
+            <p>
+                Dữ liệu thời gian thực,
+                AI/ML,
+                predictive maintenance
+                và Digital Twin
+                giúp tối ưu vận hành,
+                giảm downtime,
+                tăng độ tin cậy
+                và hiệu quả đầu tư.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     04
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        04 · THAY ĐỔI CÁCH LÀM
+    </span>
+
+    <h2>
+        TỪ PHẢN ỨNG → CHỦ ĐỘNG → DỰ BÁO
+    </h2>
+
+
+    <div class="transition-flow">
+
+        <div class="transition-box">
+
+            <strong>
+                REACTIVE
+            </strong>
+
+            <span>
+                Có vấn đề rồi mới xử lý
+            </span>
+
+        </div>
+
+
+        <div class="transition-box">
+
+            <strong>
+                PROACTIVE
+            </strong>
+
+            <span>
+                Theo dõi và phát hiện sớm
+            </span>
+
+        </div>
+
+
+        <div class="transition-box">
+
+            <strong>
+                PREDICTIVE
+            </strong>
+
+            <span>
+                Phân tích dữ liệu
+                để dự báo và tối ưu
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="highlight">
+
+        Chuyển đổi số không đơn thuần là số hóa công việc.
+        Điều quan trọng hơn là chuyển từ
+        <strong>điều hành dựa trên kinh nghiệm</strong>
+        sang
+        <strong>điều hành dựa trên dữ liệu</strong>.
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     05
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        05 · VAI TRÒ CỦA MỖI NGƯỜI
+    </span>
+
+    <h2>
+        NHÂN VIÊN TÀI NĂNG ĐỨNG Ở ĐÂU TRONG CHUỖI?
+    </h2>
+
+    <p>
+        Buổi 2 không chỉ đặt câu hỏi về công nghệ.
+        Quan trọng hơn là mỗi thành viên phải nhận diện
+        vai trò của chính mình trong chuỗi tạo giá trị.
+    </p>
+
+
+    <div class="role-questions">
+
+
+        <div class="role-question">
+
+            <strong>
+                Tôi đang tạo ra sản phẩm gì?
+            </strong>
+
+            Báo cáo, mô hình,
+            dữ liệu, phương án,
+            phân tích hay giải pháp kỹ thuật?
+
+        </div>
+
+
+        <div class="role-question">
+
+            <strong>
+                Ai sử dụng sản phẩm đó?
+            </strong>
+
+            Ban nào,
+            đơn vị nào,
+            dự án nào
+            hay cấp ra quyết định nào?
+
+        </div>
+
+
+        <div class="role-question">
+
+            <strong>
+                Sản phẩm đó phục vụ quyết định gì?
+            </strong>
+
+            Khoan?
+            Phát triển mỏ?
+            Can thiệp giếng?
+            Vận hành?
+            Đầu tư?
+
+        </div>
+
+
+        <div class="role-question">
+
+            <strong>
+                Giá trị cuối cùng là gì?
+            </strong>
+
+            Sản lượng?
+            Trữ lượng?
+            Hệ số thu hồi?
+            Giảm chi phí?
+            Giảm rủi ro?
+            Hiệu quả đầu tư?
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     06
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        06 · BÀI HỌC
+    </span>
+
+    <h2>
+        ĐIỀU ĐỌNG LẠI SAU BUỔI 2
+    </h2>
+
+
+    <div class="highlight">
+
+        Giá trị của công nghệ
+        không nằm ở số lượng mô hình,
+        báo cáo hay công cụ được tạo ra.
+
+        <br><br>
+
+        Giá trị nằm ở việc
+        <strong>
+        sản phẩm đó có được sử dụng
+        để hỗ trợ quyết định kỹ thuật
+        và tạo ra kết quả thực tế hay không.
+        </strong>
+
+    </div>
+
+
+    <p>
+        Mỗi công việc,
+        dù ở bất kỳ mắt xích nào,
+        đều cần hướng tới đầu ra rõ ràng,
+        có giá trị sử dụng
+        và được kết nối với chuỗi giá trị chung của PVEP.
+    </p>
+
+</section>
+
+
+
+<!-- ======================================================
+     07
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        07 · NHIỆM VỤ
+    </span>
+
+    <h2>
+        NHIỆM VỤ SAU BUỔI HỌC
+    </h2>
+
+
+    <div class="task">
+
+        <h3>
+            ① Hoàn thiện bài trình bày của nhóm
+        </h3>
+
+        <p>
+            Rà soát và hoàn thiện slide
+            trên cơ sở các trao đổi,
+            nhận xét và định hướng tại buổi học.
+        </p>
+
+    </div>
+
+
+    <div class="task">
+
+        <h3>
+            ② Hoàn thiện tham luận
+        </h3>
+
+        <p>
+            Tiếp tục phát triển nội dung
+            về vai trò của KHCN và Chuyển đổi số
+            trong duy trì sản lượng,
+            gia tăng khai thác
+            và nâng cao hệ số thu hồi.
+        </p>
+
+    </div>
+
+
+    <div class="task">
+
+        <h3>
+            ③ Tiếp tục nhìn lại vai trò của từng cá nhân
+        </h3>
+
+        <p>
+            Xác định công việc,
+            sản phẩm đầu ra
+            và đóng góp cụ thể của bản thân
+            trong chuỗi giá trị của PVEP.
+        </p>
+
+    </div>
+
+
+    <div class="task">
+
+        <h3>
+            ④ Tiếp tục các nhiệm vụ dài hạn
+        </h3>
+
+        <p>
+            IDP,
+            nền tảng tri thức R&amp;E,
+            bài báo khoa học
+            và các nhiệm vụ được PTGĐ hướng dẫn
+            tiếp tục được triển khai theo lộ trình.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     08 DOCUMENTS
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        08 · TƯ LIỆU
+    </span>
+
+    <h2>
+        TÀI LIỆU BUỔI 2
+    </h2>
+
+    <p>
+        Bấm vào tên tài liệu để xem.
+    </p>
+
+
+    <div class="document-list">
+
+
+        <a class="document-link"
+           href="20251224 Bài Trình Bày Nhóm.pptx">
+
+            📊 Bài trình bày nhóm –
+            Vai trò của KHCN & Chuyển đổi số
+
+        </a>
+
+
+        <a class="document-link"
+           href="Bài báo hướng dẫn NVTN của PTGĐ Ngô Khánh Xạ 241223.docx">
+
+            📰 Bài báo –
+            Lãnh đạo cấp cao truyền cảm hứng,
+            nâng cao năng lực đội ngũ Nhân viên Tài năng
+
+        </a>
+
+
+        <a class="document-link"
+           href="Kịch bản và lời dẫn Buổi 2 hướng dẫn NVTN - PTGĐ NKX giảng dạy.docx">
+
+            📄 Kịch bản và lời dẫn Buổi 2
+
+        </a>
+
+
+        <a class="document-link"
+           href="Buổi 2. Nhiệm vụ và tiến độ triển khai.png">
+
+            🗓️ Nhiệm vụ và tiến độ triển khai
+            Chương trình NVTN
+
+        </a>
+
+
+    </div>
+
+
+    <p class="document-note">
+
+        Một số file Word hoặc PowerPoint
+        có thể được tải xuống
+        để mở trên thiết bị.
+
+    </p>
+
+</section>
+
+
+
+<!-- ======================================================
+     09 CLOSING
+====================================================== -->
+
+<section class="card closing">
+
+    <span class="section-no">
+        09 · THÔNG ĐIỆP BUỔI 2
+    </span>
+
+    <div class="closing-title">
+
+        CÔNG NGHỆ → QUYẾT ĐỊNH → GIÁ TRỊ
+
+    </div>
+
+    <p>
+
+        Công nghệ chỉ thực sự có ý nghĩa
+        khi giải quyết được bài toán thực tế.
+
+        <br><br>
+
+        Và mỗi Nhân viên Tài năng
+        cần hiểu rõ mình đang đứng ở đâu
+        trong chuỗi đó,
+        sản phẩm công việc của mình
+        đang góp phần tạo ra giá trị gì cho PVEP.
+
+    </p>
+
+</section>
+
+
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+
+</main>
+
+
+
+<footer>
+
+    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+
+    <br>
+
+    Đồng hành cùng PTGĐ Ngô Khánh Xạ
+
+</footer>
+
+
+</body>
+</html>
