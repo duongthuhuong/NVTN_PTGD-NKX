@@ -1,1 +1,1571 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Buổi 4 | Nhân viên Tài năng PVEP</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f8f8;
+    color: #293735;
+    line-height: 1.7;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    color: white;
+    background:
+        radial-gradient(circle at 84% 18%, rgba(116,205,190,0.11), transparent 23%),
+        radial-gradient(circle at 12% 88%, rgba(93,143,183,0.09), transparent 25%),
+        linear-gradient(135deg, #073542 0%, #075964 48%, #087767 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.26;
+}
+
+/* QUẢ ĐỊA CẦU MỜ */
+
+.globe {
+    position: absolute;
+    right: 5%;
+    top: 58px;
+    width: 230px;
+    height: 230px;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 50%;
+    opacity: 0.40;
+}
+
+.globe::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 42%;
+    height: 100%;
+    transform: translateX(-50%);
+    border-left: 1px solid rgba(255,255,255,0.12);
+    border-right: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+}
+
+.globe::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 50%;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+    box-shadow:
+        0 -55px 0 rgba(255,255,255,0.07),
+        0 55px 0 rgba(255,255,255,0.07);
+}
+
+/* ĐƯỜNG KẾT NỐI MỜ */
+
+.route {
+    position: absolute;
+    right: 2%;
+    bottom: 38px;
+    width: 285px;
+    height: 95px;
+    opacity: 0.10;
+}
+
+.route-line {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 46px;
+    height: 1px;
+    background: white;
+    transform: rotate(-6deg);
+}
+
+.route-dot {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: white;
+}
+
+.rd1 { left: 14px; top: 55px; }
+.rd2 { left: 82px; top: 43px; }
+.rd3 { left: 153px; top: 37px; }
+.rd4 { right: 16px; top: 26px; }
+
+/* ======================================================
+   HERO CONTENT
+====================================================== */
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1080px;
+    margin: auto;
+    padding: 58px 22px 48px;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.07);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.hero h1 {
+    margin: 18px 0 6px;
+    font-size: 50px;
+    line-height: 1.05;
+}
+
+.hero h2 {
+    margin: 0;
+    max-width: 850px;
+    font-size: 27px;
+    line-height: 1.35;
+    font-weight: 500;
+}
+
+.hero-lead {
+    max-width: 790px;
+    margin-top: 18px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.92);
+}
+
+/* ======================================================
+   CÂU HỎI CHẠY
+====================================================== */
+
+.question-stage {
+    position: relative;
+    margin-top: 30px;
+    min-height: 82px;
+    max-width: 850px;
+}
+
+.hero-question {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 11px 17px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: questionFade 24s infinite;
+}
+
+.q1 { animation-delay: 0s; }
+.q2 { animation-delay: 4s; }
+.q3 { animation-delay: 8s; }
+.q4 { animation-delay: 12s; }
+.q5 { animation-delay: 16s; }
+.q6 { animation-delay: 20s; }
+
+@keyframes questionFade {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    13% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    17% {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ======================================================
+   MAIN
+====================================================== */
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 34px 20px 65px;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 25px;
+    color: #087666;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.back:hover {
+    transform: translateX(-4px);
+    color: #054f46;
+}
+
+/* ======================================================
+   CARD
+====================================================== */
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px 33px;
+    margin-bottom: 23px;
+    box-shadow: 0 5px 20px rgba(20,80,71,0.07);
+    border: 1px solid rgba(8,118,102,0.07);
+}
+
+.section-no {
+    display: inline-block;
+    margin-bottom: 3px;
+    color: #15947f;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.card h2 {
+    margin: 3px 0 18px;
+    padding-bottom: 11px;
+    color: #075f54;
+    font-size: 25px;
+    border-bottom: 2px solid #e4f0ed;
+}
+
+.card h3 {
+    color: #116e62;
+}
+
+.highlight {
+    margin: 21px 0;
+    padding: 20px 23px;
+    border-left: 5px solid #15947f;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #eaf7f4, #f8fbfa);
+}
+
+/* ======================================================
+   BIG MESSAGE
+====================================================== */
+
+.big-message {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 23px;
+    padding: 34px;
+    border-radius: 16px;
+    color: white;
+    background: linear-gradient(135deg, #064e59, #087666);
+    box-shadow: 0 10px 28px rgba(7,95,84,0.16);
+}
+
+.big-message::after {
+    content: "↗";
+    position: absolute;
+    right: 22px;
+    bottom: -62px;
+    font-size: 180px;
+    opacity: 0.04;
+}
+
+.big-message h2 {
+    margin: 0 0 12px;
+    font-size: 29px;
+}
+
+.big-message p {
+    max-width: 850px;
+    margin: 0;
+    color: rgba(255,255,255,0.92);
+}
+
+/* ======================================================
+   JOURNEY
+====================================================== */
+
+.journey {
+    display: grid;
+    grid-template-columns:
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr;
+    gap: 10px;
+    align-items: center;
+    margin-top: 22px;
+}
+
+.journey-step {
+    padding: 18px 14px;
+    border-radius: 12px;
+    text-align: center;
+    background: #f5faf9;
+    border: 1px solid #dcece8;
+}
+
+.journey-step strong {
+    display: block;
+    color: #075f54;
+    font-size: 14px;
+}
+
+.journey-step span {
+    display: block;
+    margin-top: 4px;
+    color: #657974;
+    font-size: 12px;
+}
+
+.journey-arrow {
+    color: #15947f;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ======================================================
+   BRIDGE
+====================================================== */
+
+.bridge-box {
+    margin-top: 22px;
+    padding: 25px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f0f8f6, #fbfdfc);
+    border: 1px solid #dcece8;
+}
+
+.bridge-title {
+    color: #075f54;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.generation-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.generation {
+    padding: 19px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid #e1efec;
+}
+
+.generation strong {
+    display: block;
+    color: #075f54;
+    margin-bottom: 5px;
+}
+
+.generation-arrow {
+    color: #15947f;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* ======================================================
+   RISK GRID
+====================================================== */
+
+.risk-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
+    margin-top: 21px;
+}
+
+.risk-card {
+    padding: 20px;
+    border-radius: 12px;
+    background: #f8fbfa;
+    border-top: 4px solid #15947f;
+}
+
+.risk-icon {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.risk-card strong {
+    display: block;
+    color: #075f54;
+    margin-bottom: 5px;
+}
+
+.risk-card p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* ======================================================
+   INVESTMENT FLOW
+====================================================== */
+
+.invest-flow {
+    display: grid;
+    grid-template-columns:
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr;
+    gap: 10px;
+    align-items: center;
+    margin-top: 22px;
+}
+
+.invest-box {
+    padding: 19px 12px;
+    border-radius: 12px;
+    text-align: center;
+    background: #f7fbfa;
+    border: 1px solid #e0efeb;
+}
+
+.invest-box strong {
+    display: block;
+    color: #075f54;
+}
+
+.invest-box span {
+    display: block;
+    margin-top: 4px;
+    color: #657974;
+    font-size: 12px;
+}
+
+.invest-arrow {
+    color: #15947f;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ======================================================
+   PEOPLE
+====================================================== */
+
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 21px;
+}
+
+.people-card {
+    padding: 21px;
+    border-radius: 12px;
+    background: #f8fbfa;
+    border-left: 4px solid #15947f;
+}
+
+.people-card strong {
+    display: block;
+    color: #075f54;
+    margin-bottom: 5px;
+}
+
+/* ======================================================
+   COMPANION SECTION
+====================================================== */
+
+.companion-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 26px;
+    align-items: center;
+}
+
+.companion-text {
+    min-width: 0;
+}
+
+.companion-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #eef5f3;
+    box-shadow: 0 8px 22px rgba(7,95,84,0.10);
+}
+
+.companion-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    opacity: 0.88;
+    filter:
+        saturate(0.92)
+        contrast(0.98);
+}
+
+.companion-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.02),
+            rgba(5,79,71,0.10)
+        );
+    pointer-events: none;
+}
+
+.photo-caption {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 9px 11px;
+    border-radius: 9px;
+    background: rgba(5,79,71,0.77);
+    color: white;
+    font-size: 12px;
+}
+
+.student-voice {
+    margin-top: 22px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f2faf8, #ffffff);
+    border-left: 4px solid #15947f;
+    color: #42615b;
+    font-style: italic;
+}
+
+.student-voice span {
+    display: block;
+    margin-top: 8px;
+    color: #73837f;
+    font-size: 12px;
+    font-style: normal;
+}
+
+/* ======================================================
+   TASK
+====================================================== */
+
+.task {
+    margin: 14px 0;
+    padding: 19px 21px;
+    border-radius: 11px;
+    background: #f8fbfa;
+    border: 1px solid #e6f0ed;
+}
+
+.task h3 {
+    margin-top: 0;
+}
+
+/* ======================================================
+   DOCUMENTS
+====================================================== */
+
+.document-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.document-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 9px;
+    background: #eef7f5;
+    border: 1px solid #dcece8;
+    color: #087666;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.document-link:hover {
+    transform: translateX(5px);
+    background: #dcefeb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.document-note {
+    margin-top: 13px;
+    color: #6a7774;
+    font-size: 14px;
+}
+
+/* ======================================================
+   CLOSING
+====================================================== */
+
+.closing {
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(21,148,127,0.11),
+            transparent 42%
+        ),
+        white;
+}
+
+.closing-title {
+    margin: 8px 0 14px;
+    color: #075f54;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.closing p {
+    max-width: 850px;
+    margin: auto;
+    color: #5c716d;
+}
+
+.companion-note {
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid #e2efec;
+    font-size: 15px;
+    color: #657874;
+    font-style: italic;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer {
+    padding: 27px 18px;
+    background: #064f47;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ======================================================
+   TABLET
+====================================================== */
+
+@media (max-width: 900px) {
+
+    .risk-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .journey,
+    .invest-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .journey-arrow,
+    .invest-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+        line-height: 1;
+        margin: -2px 0;
+    }
+
+    .companion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .companion-photo {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 760px) {
+
+    .hero-inner {
+        padding: 45px 17px 42px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .hero-lead {
+        font-size: 15px;
+    }
+
+    .globe {
+        width: 150px;
+        height: 150px;
+        right: -55px;
+        top: 55px;
+        opacity: 0.22;
+    }
+
+    .route {
+        display: none;
+    }
+
+    .question-stage {
+        min-height: 120px;
+    }
+
+    .hero-question {
+        max-width: 95%;
+        padding: 10px 14px;
+        border-radius: 13px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .container {
+        padding: 26px 14px 45px;
+    }
+
+    .card,
+    .big-message {
+        padding: 23px 20px;
+    }
+
+    .card h2 {
+        font-size: 21px;
+    }
+
+    .big-message h2 {
+        font-size: 24px;
+    }
+
+    .risk-grid,
+    .people-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .generation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .generation-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+        line-height: 1;
+    }
+
+    .companion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .companion-photo {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .companion-photo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .photo-caption {
+        font-size: 11px;
+    }
+
+    .student-voice {
+        font-size: 14px;
+    }
+
+    .document-link {
+        align-items: flex-start;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .closing-title {
+        font-size: 22px;
+    }
+}
+
+/* ======================================================
+   MOBILE NHỎ
+====================================================== */
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.7px;
+    }
+
+    .card,
+    .big-message {
+        padding: 21px 17px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .back {
+        font-size: 14px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+<div class="globe"></div>
+
+<div class="route">
+    <div class="route-line"></div>
+    <div class="route-dot rd1"></div>
+    <div class="route-dot rd2"></div>
+    <div class="route-dot rd3"></div>
+    <div class="route-dot rd4"></div>
+</div>
+
+<div class="hero-inner">
+
+    <span class="eyebrow">
+        CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+    </span>
+
+    <h1>BUỔI 4</h1>
+
+    <h2>
+        BƯỚC RA BỨC TRANH LỚN HƠN
+    </h2>
+
+    <p class="hero-lead">
+        Quản trị rủi ro,
+        nâng cao hiệu quả hoạt động dầu khí,
+        chiến lược phát triển dự án nước ngoài
+        và sự chuẩn bị của mỗi CBNV
+        khi bước vào môi trường quốc tế.
+    </p>
+
+    <div class="question-stage">
+
+        <div class="hero-question q1">
+            Nếu PVEP đầu tư ra nước ngoài, chúng ta nên chọn dự án nào?
+        </div>
+
+        <div class="hero-question q2">
+            Trong một thế giới nhiều biến động, rủi ro thực sự nằm ở đâu?
+        </div>
+
+        <div class="hero-question q3">
+            Làm thế nào để không chỉ xử lý sự cố mà còn nghĩ trước các kịch bản?
+        </div>
+
+        <div class="hero-question q4">
+            PVEP cần chuẩn bị gì để một dự án nước ngoài hoạt động hiệu quả?
+        </div>
+
+        <div class="hero-question q5">
+            Mỗi CBNV cần chuẩn bị gì để làm việc trong môi trường quốc tế?
+        </div>
+
+        <div class="hero-question q6">
+            Và mình đã sẵn sàng bước ra một môi trường lớn hơn chưa?
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="container">
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+
+<!-- ======================================================
+     BIG MESSAGE
+====================================================== -->
+
+<section class="big-message">
+
+    <h2>
+        Một chặng mới – một góc nhìn rộng hơn
+    </h2>
+
+    <p>
+        Sau những buổi cùng trao đổi về định hướng nghề nghiệp,
+        công nghệ,
+        cách làm việc
+        và quản lý dự án,
+        hành trình bước sang một chặng mới:
+        nhìn ra bên ngoài phạm vi công việc quen thuộc,
+        tiếp cận những bài toán về rủi ro,
+        đầu tư quốc tế
+        và sự chuẩn bị cần thiết để làm việc trong môi trường lớn hơn.
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     01
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        01 · MỘT CHẶNG ĐƯỜNG ĐÃ ĐI
+    </span>
+
+    <h2>
+        TỪ NHỮNG BÀI HỌC ĐẦU TIÊN ĐẾN GÓC NHÌN RỘNG HƠN
+    </h2>
+
+    <p>
+        Buổi 4 cũng là dịp kết nối các thành viên Mùa 1 và Mùa 2.
+        Những người đã đi qua các buổi học trước
+        chia sẻ lại những điều mình ghi nhớ,
+        những cách nhìn đã thay đổi
+        và những kinh nghiệm muốn gửi tới các thành viên mới.
+    </p>
+
+    <div class="journey">
+
+        <div class="journey-step">
+            <strong>BUỔI 1</strong>
+            <span>
+                Hiểu mình ở đâu trong chuỗi giá trị
+            </span>
+        </div>
+
+        <div class="journey-arrow">→</div>
+
+        <div class="journey-step">
+            <strong>BUỔI 2</strong>
+            <span>
+                Công nghệ phải giải quyết bài toán thực tế
+            </span>
+        </div>
+
+        <div class="journey-arrow">→</div>
+
+        <div class="journey-step">
+            <strong>BUỔI 3</strong>
+            <span>
+                Học đi đôi với hành
+            </span>
+        </div>
+
+        <div class="journey-arrow">→</div>
+
+        <div class="journey-step">
+            <strong>BUỔI 4</strong>
+            <span>
+                Bước ra bức tranh lớn hơn
+            </span>
+        </div>
+
+    </div>
+
+    <div class="bridge-box">
+
+        <div class="bridge-title">
+            Khi người đi trước chia sẻ lại cho người đến sau
+        </div>
+
+        <p>
+            Mỗi thành viên Mùa 1 lựa chọn một điều đã học,
+            một lời khuyên
+            hoặc một đúc kết sau hành trình vừa qua
+            để chia sẻ lại với Mùa 2.
+        </p>
+
+        <div class="generation-grid">
+
+            <div class="generation">
+
+                <strong>MÙA 1</strong>
+
+                Đã đi qua những bài học,
+                nhiệm vụ,
+                trao đổi
+                và trải nghiệm thực tế.
+
+            </div>
+
+            <div class="generation-arrow">
+                →
+            </div>
+
+            <div class="generation">
+
+                <strong>MÙA 2</strong>
+
+                Bắt đầu hành trình
+                với những kinh nghiệm
+                đã được chia sẻ lại từ người đi trước.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     02
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        02 · BỐI CẢNH
+    </span>
+
+    <h2>
+        HOẠT ĐỘNG DẦU KHÍ TRONG MỘT THẾ GIỚI NHIỀU BIẾN ĐỘNG
+    </h2>
+
+    <p>
+        Một dự án dầu khí nước ngoài
+        không chỉ được quyết định bởi yếu tố kỹ thuật.
+        Giá dầu,
+        địa chính trị,
+        pháp lý,
+        đối tác
+        và điều kiện vận hành
+        đều có thể tác động tới hiệu quả dự án.
+    </p>
+
+    <div class="risk-grid">
+
+        <div class="risk-card">
+            <div class="risk-icon">📉</div>
+            <strong>Giá dầu</strong>
+            <p>
+                Biến động giá có thể thay đổi
+                hiệu quả và quyết định đầu tư.
+            </p>
+        </div>
+
+        <div class="risk-card">
+            <div class="risk-icon">🌍</div>
+            <strong>Địa chính trị</strong>
+            <p>
+                Bối cảnh khu vực
+                và quan hệ quốc tế
+                có thể tạo ra những rủi ro mới.
+            </p>
+        </div>
+
+        <div class="risk-card">
+            <div class="risk-icon">⚖️</div>
+            <strong>Pháp lý</strong>
+            <p>
+                Mỗi quốc gia
+                có hệ thống pháp luật
+                và cơ chế dầu khí khác nhau.
+            </p>
+        </div>
+
+        <div class="risk-card">
+            <div class="risk-icon">⚙️</div>
+            <strong>Vận hành</strong>
+            <p>
+                Hạ tầng,
+                đối tác,
+                công nghệ
+                và điều kiện khai thác đều cần được tính tới.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     03
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        03 · CHIẾN LƯỢC DỰ ÁN NƯỚC NGOÀI
+    </span>
+
+    <h2>
+        KHÔNG CHỈ HỎI “DỰ ÁN NÀO?” – MÀ PHẢI HỎI “VÌ SAO?”
+    </h2>
+
+    <p>
+        Việc lựa chọn dự án cần được đặt trong một chuỗi câu hỏi:
+        dự án đang ở giai đoạn nào,
+        PVEP tham gia với vai trò gì,
+        rủi ro ở đâu
+        và dự án có thực sự phù hợp với năng lực,
+        mục tiêu
+        và khẩu vị rủi ro của Tổng công ty hay không.
+    </p>
+
+    <div class="invest-flow">
+
+        <div class="invest-box">
+            <strong>CƠ HỘI</strong>
+            <span>Dự án nào đáng xem xét?</span>
+        </div>
+
+        <div class="invest-arrow">→</div>
+
+        <div class="invest-box">
+            <strong>RỦI RO</strong>
+            <span>Điều gì có thể xảy ra?</span>
+        </div>
+
+        <div class="invest-arrow">→</div>
+
+        <div class="invest-box">
+            <strong>NĂNG LỰC</strong>
+            <span>PVEP có phù hợp?</span>
+        </div>
+
+        <div class="invest-arrow">→</div>
+
+        <div class="invest-box">
+            <strong>HIỆU QUẢ</strong>
+            <span>Giá trị mang lại là gì?</span>
+        </div>
+
+    </div>
+
+    <div class="highlight">
+
+        Một quyết định đầu tư tốt
+        không chỉ nhìn vào cơ hội,
+        mà phải đồng thời nhìn thấy
+        <strong>
+            rủi ro – khả năng kiểm soát – nguồn lực – hiệu quả dài hạn.
+        </strong>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     04
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        04 · CON NGƯỜI
+    </span>
+
+    <h2>
+        MUỐN BƯỚC RA QUỐC TẾ – CON NGƯỜI CẦN CHUẨN BỊ GÌ?
+    </h2>
+
+    <p>
+        Một dự án quốc tế không chỉ cần vốn
+        và phương án đầu tư.
+        Nó cần những con người
+        đủ khả năng làm việc trong môi trường đa quốc gia,
+        phối hợp với đối tác
+        và xử lý những yêu cầu phức tạp hơn.
+    </p>
+
+    <div class="people-grid">
+
+        <div class="people-card">
+            <strong>Chuyên môn</strong>
+            Hiểu sâu công việc,
+            dự án
+            và các yêu cầu kỹ thuật liên quan.
+        </div>
+
+        <div class="people-card">
+            <strong>Ngoại ngữ</strong>
+            Có khả năng làm việc,
+            trao đổi
+            và xử lý tài liệu trong môi trường quốc tế.
+        </div>
+
+        <div class="people-card">
+            <strong>Tư duy rủi ro</strong>
+            Không chỉ giải quyết vấn đề khi xảy ra,
+            mà biết đặt trước các kịch bản.
+        </div>
+
+        <div class="people-card">
+            <strong>Khả năng phối hợp</strong>
+            Làm việc với đối tác,
+            đơn vị điều hành
+            và các nhóm đa chuyên môn.
+        </div>
+
+        <div class="people-card">
+            <strong>Hiểu chuẩn mực quốc tế</strong>
+            Tiếp cận thông lệ,
+            yêu cầu
+            và cách làm việc tại các dự án quốc tế.
+        </div>
+
+        <div class="people-card">
+            <strong>Tinh thần chủ động</strong>
+            Sẵn sàng học,
+            thích ứng
+            và đảm nhận những nhiệm vụ khó hơn.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     05
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        05 · MỘT CÁCH ĐỒNG HÀNH
+    </span>
+
+    <h2>
+        TỪ CÂU HỎI NHỎ ĐẾN NHỮNG BÀI TOÁN LỚN HƠN
+    </h2>
+
+    <div class="companion-grid">
+
+        <div class="companion-text">
+
+            <p>
+                Qua từng buổi,
+                các câu hỏi dần được mở rộng:
+                từ câu chuyện của mỗi cá nhân,
+                tới công nghệ,
+                dự án,
+                rồi tới những bài toán
+                về đầu tư,
+                rủi ro
+                và môi trường quốc tế.
+            </p>
+
+            <div class="highlight">
+
+                Sự đồng hành không chỉ nằm ở những điều được giảng,
+                mà còn ở cách từng câu hỏi,
+                từng nhiệm vụ
+                và từng lần trao đổi
+                dần giúp người học
+                <strong>
+                    nhìn công việc rộng hơn và nghĩ xa hơn.
+                </strong>
+
+            </div>
+
+            <p>
+                Sau một chặng đường,
+                điều quan trọng không phải là ghi nhớ tất cả những gì đã nghe,
+                mà là bắt đầu hình thành
+                cách đặt câu hỏi,
+                cách nhìn vấn đề
+                và sự chủ động trên con đường phát triển của chính mình.
+            </p>
+
+            <div class="student-voice">
+
+                “Điều chúng em học được không chỉ là kiến thức,
+                mà còn là cách nhìn vấn đề,
+                cách đặt câu hỏi
+                và sự chủ động trong công việc.”
+
+                <span>
+                    — Chia sẻ từ học viên sau một chặng đồng hành
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="companion-photo">
+
+            <img src="dong-hanh-buoi-4.jpg"
+                 alt="PTGĐ Ngô Khánh Xạ trao đổi cùng các Nhân viên Tài năng">
+
+            <div class="photo-caption">
+                Cùng trao đổi, cùng nhìn lại và cùng mở rộng góc nhìn
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     06
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        06 · BÀI TẬP SAU BUỔI HỌC
+    </span>
+
+    <h2>
+        TỪ GÓC NHÌN TRÊN LỚP ĐẾN NGHIÊN CỨU CỤ THỂ
+    </h2>
+
+    <div class="task">
+
+        <h3>
+            ① Định hướng đầu tư dự án dầu khí nước ngoài
+        </h3>
+
+        <p>
+            Đề xuất hướng lựa chọn dự án phù hợp,
+            xem xét trạng thái dự án,
+            quy mô và mức độ tham gia,
+            khu vực địa lý,
+            hình thức đầu tư,
+            hiệu quả
+            và các yếu tố rủi ro.
+        </p>
+
+    </div>
+
+    <div class="task">
+
+        <h3>
+            ② Tiêu chuẩn CBNV làm việc tại dự án nước ngoài
+        </h3>
+
+        <p>
+            Nghiên cứu yêu cầu đối với CBNV PVEP,
+            có tham chiếu thông lệ
+            và yêu cầu tại các đơn vị/đối tác vận hành dự án,
+            từ đó xác định những nội dung cần chuẩn bị và phát triển.
+        </p>
+
+    </div>
+
+    <div class="task">
+
+        <h3>
+            ③ Tiếp tục đề xuất chủ đề và câu hỏi
+        </h3>
+
+        <p>
+            Mỗi thành viên tiếp tục đề xuất
+            một chủ đề
+            và ba câu hỏi
+            để mở rộng nội dung trao đổi trong các buổi tiếp theo.
+        </p>
+
+    </div>
+
+    <div class="task">
+
+        <h3>
+            ④ Xây dựng và rà soát IDP
+        </h3>
+
+        <p>
+            Mùa 1 rà soát lại quá trình thực hiện IDP
+            và đồng thời hỗ trợ Mùa 2.
+            Mùa 2 xây dựng IDP
+            gắn với định hướng nghề nghiệp
+            và trao đổi với lãnh đạo trước khi hoàn thiện.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     07 DOCUMENTS
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">
+        07 · TƯ LIỆU
+    </span>
+
+    <h2>
+        TÀI LIỆU BUỔI 4
+    </h2>
+
+    <p>
+        Bấm vào tên tài liệu để xem.
+    </p>
+
+    <div class="document-list">
+
+        <a class="document-link"
+           href="Kịch bản lớp học NVTN Buổi 4.docx">
+            📄 Kịch bản lớp học Nhân viên Tài năng – Buổi 4
+        </a>
+
+        <a class="document-link"
+           href="Bài tập về nhà Buổi 4 lớp NVTN do PTGĐ NKX hướng dẫn.docx">
+            📘 Bài tập về nhà Buổi 4
+        </a>
+
+        <a class="document-link"
+           href="Nhận xét BTVN.xlsx">
+            📊 Nhận xét bài tập về nhà
+        </a>
+
+        <a class="document-link"
+           href="dong-hanh-buoi-4.jpg">
+            🖼️ Hình ảnh đồng hành cùng Nhân viên Tài năng
+        </a>
+
+    </div>
+
+    <p class="document-note">
+        Một số file Word hoặc Excel
+        có thể được tải xuống để mở trên thiết bị.
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     08 CLOSING
+====================================================== -->
+
+<section class="card closing">
+
+    <span class="section-no">
+        08 · THÔNG ĐIỆP BUỔI 4
+    </span>
+
+    <div class="closing-title">
+        NHÌN RỘNG HƠN → NGHĨ XA HƠN → CHUẨN BỊ TỐT HƠN
+    </div>
+
+    <p>
+        Bước ra một môi trường lớn hơn
+        không bắt đầu từ ngày được giao một dự án nước ngoài.
+
+        <br><br>
+
+        Nó bắt đầu từ việc
+        biết nhìn công việc trong bức tranh lớn,
+        biết nhận diện rủi ro,
+        chủ động chuẩn bị
+        và từng bước làm mình sẵn sàng cho những nhiệm vụ khó hơn.
+    </p>
+
+    <div class="companion-note">
+        Đi đến đây đã là một chặng đường.
+        Những câu hỏi thay đổi,
+        những góc nhìn mở rộng
+        và cả việc người đi trước bắt đầu chia sẻ lại cho người đến sau
+        cũng là một phần của hành trình ấy.
+    </div>
+
+</section>
+
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+</main>
+
+
+<footer>
+    CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+    <br>
+    Đồng hành cùng PTGĐ Ngô Khánh Xạ
+</footer>
+
+</body>
+</html>
