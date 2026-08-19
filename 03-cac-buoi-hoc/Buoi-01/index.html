@@ -11,46 +11,174 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f8f7;
-    color: #333;
+    background:
+        linear-gradient(rgba(244,248,247,0.96), rgba(244,248,247,0.96)),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 49px,
+            rgba(7,95,84,0.025) 50px
+        );
+    color: #293633;
     line-height: 1.7;
 }
 
-header {
-    background: linear-gradient(135deg, #075f54, #15947f);
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 520px;
     color: white;
-    padding: 55px 20px;
-    text-align: center;
+    background:
+        radial-gradient(circle at 82% 22%, rgba(93,190,156,0.24), transparent 22%),
+        radial-gradient(circle at 15% 75%, rgba(255,255,255,0.10), transparent 20%),
+        linear-gradient(135deg, #043f3a 0%, #087264 52%, #15947f 100%);
 }
 
-header h1 {
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 50%;
+    right: -180px;
+    top: -260px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 50%;
+    right: -60px;
+    top: -110px;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1120px;
+    margin: auto;
+    padding: 68px 22px 48px;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 100px;
+    font-size: 13px;
+    letter-spacing: 1.4px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.08);
+}
+
+.hero h1 {
+    font-size: 56px;
+    line-height: 1.08;
+    margin: 18px 0 10px;
+}
+
+.hero h2 {
     margin: 0;
-    font-size: 36px;
-}
-
-header h2 {
-    margin: 10px 0 0;
-    font-size: 21px;
+    font-size: 25px;
     font-weight: normal;
+    letter-spacing: 0.3px;
 }
 
-header p {
-    margin-top: 15px;
-    opacity: 0.9;
+.hero-lead {
+    max-width: 760px;
+    font-size: 17px;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.92);
 }
+
+/* ROADMAP HERO */
+
+.hero-roadmap {
+    margin-top: 46px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.hero-roadmap::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 22px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.30),
+        #a7ead6,
+        rgba(255,255,255,0.30)
+    );
+}
+
+.road-step {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.road-dot {
+    margin: auto;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #087264;
+    font-size: 19px;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.16);
+}
+
+.road-step strong {
+    display: block;
+    margin-top: 11px;
+    font-size: 14px;
+}
+
+.road-step span {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    opacity: 0.78;
+}
+
+/* =========================
+   MAIN
+========================= */
 
 .container {
     max-width: 1050px;
     margin: auto;
-    padding: 35px 20px 60px;
+    padding: 34px 20px 65px;
 }
 
-/* NÚT QUAY LẠI */
 .back {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 25px;
     text-decoration: none;
     color: #087666;
@@ -59,56 +187,219 @@ header p {
 }
 
 .back:hover {
-    color: #075f54;
     transform: translateX(-4px);
+    color: #054f46;
 }
 
-/* CARD */
 .card {
-    background: white;
-    border-radius: 14px;
-    padding: 28px 32px;
-    margin-bottom: 22px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+    background: rgba(255,255,255,0.98);
+    border-radius: 17px;
+    padding: 31px 34px;
+    margin-bottom: 23px;
+    box-shadow: 0 5px 22px rgba(17,76,67,0.07);
+    border: 1px solid rgba(8,118,102,0.07);
+}
+
+.section-no {
+    display: inline-block;
+    color: #15947f;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    margin-bottom: 3px;
 }
 
 .card h2 {
-    color: #087666;
-    margin-top: 0;
-    border-bottom: 2px solid #e2f0ed;
-    padding-bottom: 10px;
+    color: #075f54;
+    font-size: 25px;
+    margin: 2px 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e5f1ee;
 }
 
 .card h3 {
     color: #116e62;
 }
 
-/* KHUNG NHẤN MẠNH */
 .highlight {
-    background: #eaf7f4;
+    background: linear-gradient(135deg, #eaf7f4, #f6fbfa);
     border-left: 5px solid #15947f;
-    padding: 18px 22px;
-    border-radius: 8px;
-    margin: 20px 0;
+    padding: 20px 23px;
+    border-radius: 9px;
+    margin: 22px 0;
 }
 
-ul {
-    padding-left: 24px;
+/* =========================
+   BIG IDEA
+========================= */
+
+.big-idea {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #075f54, #0d7e6d);
+    color: white;
+    border-radius: 17px;
+    padding: 35px;
+    margin-bottom: 23px;
+    box-shadow: 0 10px 30px rgba(7,95,84,0.17);
 }
 
-li {
-    margin-bottom: 8px;
+.big-idea::after {
+    content: "→";
+    position: absolute;
+    right: 20px;
+    bottom: -42px;
+    font-size: 170px;
+    font-weight: bold;
+    opacity: 0.07;
 }
 
-/* NHIỆM VỤ */
+.big-idea h2 {
+    margin: 0 0 12px;
+    font-size: 30px;
+}
+
+.big-idea p {
+    margin: 0;
+    max-width: 790px;
+    color: rgba(255,255,255,0.92);
+}
+
+.big-idea-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 23px;
+}
+
+.flow-pill {
+    padding: 8px 13px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.17);
+    font-size: 14px;
+}
+
+/* =========================
+   TIME HORIZON
+========================= */
+
+.timeline-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.time-item {
+    position: relative;
+    background: #f4faf8;
+    border-radius: 12px;
+    padding: 20px;
+    border-top: 4px solid #15947f;
+}
+
+.time-item .time {
+    font-size: 24px;
+    color: #087666;
+    font-weight: bold;
+}
+
+.time-item p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+/* =========================
+   IDP MAP
+========================= */
+
+.idp-map {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
+    margin-top: 22px;
+}
+
+.idp-item {
+    position: relative;
+    background: #f7fbfa;
+    border-radius: 13px;
+    padding: 20px 17px;
+    text-align: center;
+    border: 1px solid #e0efeb;
+}
+
+.idp-icon {
+    width: 46px;
+    height: 46px;
+    margin: auto auto 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e2f3ef;
+    font-size: 21px;
+}
+
+.idp-item strong {
+    display: block;
+    color: #075f54;
+}
+
+.idp-item small {
+    color: #687974;
+}
+
+/* =========================
+   LESSONS
+========================= */
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.lesson {
+    background: #f8fbfa;
+    border-radius: 12px;
+    padding: 18px 19px;
+    border-left: 4px solid #15947f;
+}
+
+.lesson strong {
+    color: #075f54;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.lesson p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* =========================
+   TASKS
+========================= */
+
 .task {
     background: #f8fbfa;
-    padding: 18px;
-    border-radius: 9px;
-    margin: 15px 0;
+    padding: 19px 21px;
+    border-radius: 11px;
+    margin: 14px 0;
+    border: 1px solid #e8f1ef;
 }
 
-/* DANH MỤC TÀI LIỆU */
+.task h3 {
+    margin-top: 0;
+}
+
+/* =========================
+   DOCUMENTS
+========================= */
+
 .document-list {
     display: flex;
     flex-direction: column;
@@ -119,7 +410,7 @@ li {
 .document-link {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 11px;
     padding: 14px 18px;
     background: #eef7f5;
     border: 1px solid #dcece8;
@@ -132,50 +423,139 @@ li {
 
 .document-link:hover {
     background: #dcefeb;
-    transform: translateX(4px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .document-note {
     font-size: 14px;
     color: #6a7774;
-    margin-top: 12px;
+    margin-top: 14px;
 }
 
-/* FOOTER */
+/* =========================
+   QUOTE / CLOSING
+========================= */
+
+.closing {
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(21,148,127,0.10), transparent 42%),
+        white;
+}
+
+.closing-line {
+    color: #075f54;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 8px 0 14px;
+}
+
+.closing-sub {
+    color: #55706a;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
-    background: #075f54;
+    background: #064f47;
     color: white;
     text-align: center;
-    padding: 25px;
+    padding: 27px 18px;
+    font-size: 14px;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
+/* =========================
+   MOBILE
+========================= */
 
-    header {
-        padding: 42px 18px;
+@media (max-width: 760px) {
+
+    .hero {
+        min-height: auto;
     }
 
-    header h1 {
-        font-size: 28px;
+    .hero-inner {
+        padding: 52px 18px 36px;
     }
 
-    header h2 {
-        font-size: 18px;
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero-lead {
+        font-size: 15px;
+    }
+
+    .hero-roadmap {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 30px;
+    }
+
+    .hero-roadmap::before {
+        left: 23px;
+        right: auto;
+        top: 20px;
+        bottom: 20px;
+        width: 2px;
+        height: auto;
+    }
+
+    .road-step {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        text-align: left;
+        column-gap: 12px;
+        align-items: center;
+    }
+
+    .road-dot {
+        margin: 0;
+        grid-row: span 2;
+    }
+
+    .road-step strong {
+        margin: 0;
+    }
+
+    .road-step span {
+        margin: 0;
     }
 
     .container {
-        padding: 25px 15px 45px;
+        padding: 26px 14px 45px;
     }
 
-    .card {
-        padding: 22px 20px;
+    .card,
+    .big-idea {
+        padding: 23px 20px;
+        border-radius: 13px;
     }
 
-    .document-link {
-        padding: 13px 14px;
-        font-size: 15px;
+    .card h2 {
+        font-size: 21px;
+    }
+
+    .big-idea h2 {
+        font-size: 25px;
+    }
+
+    .timeline-box,
+    .idp-map,
+    .lesson-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .closing-line {
+        font-size: 23px;
     }
 }
 </style>
@@ -183,161 +563,353 @@ footer {
 
 <body>
 
-<header>
-    <h1>BUỔI 1</h1>
-    <h2>KHỞI ĐỘNG HÀNH TRÌNH PHÁT TRIỂN</h2>
-    <p>Chương trình Nhân viên Tài năng PVEP</p>
-</header>
+<!-- ======================================================
+     HERO
+====================================================== -->
 
-<div class="container">
+<section class="hero">
 
-<!-- QUAY LẠI 1 CẤP: TRANG CÁC BUỔI HỌC -->
-<a class="back" href="../">← QUAY LẠI CÁC BUỔI HỌC</a>
+    <div class="hero-inner">
+
+        <span class="eyebrow">
+            CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
+        </span>
+
+        <h1>BUỔI 1</h1>
+
+        <h2>TỪ ĐỊNH HƯỚNG ĐẾN HÀNH ĐỘNG</h2>
+
+        <p class="hero-lead">
+            Khởi động hành trình phát triển nghề nghiệp:
+            nhìn lại mình đang ở đâu, xác định nơi muốn đến
+            và biến định hướng thành một chương trình hành động có thể đo lường.
+        </p>
 
 
-<!-- 01 -->
-<div class="card">
+        <div class="hero-roadmap">
 
-    <h2>01. MỞ ĐẦU CHƯƠNG TRÌNH</h2>
+            <div class="road-step">
+                <div class="road-dot">01</div>
+                <strong>ĐỊNH HƯỚNG</strong>
+                <span>Mình muốn đi đâu?</span>
+            </div>
+
+            <div class="road-step">
+                <div class="road-dot">02</div>
+                <strong>NĂNG LỰC</strong>
+                <span>Mình đang ở đâu?</span>
+            </div>
+
+            <div class="road-step">
+                <div class="road-dot">03</div>
+                <strong>HÀNH ĐỘNG</strong>
+                <span>Cần làm gì?</span>
+            </div>
+
+            <div class="road-step">
+                <div class="road-dot">04</div>
+                <strong>CHECKPOINT</strong>
+                <span>Đo bằng gì?</span>
+            </div>
+
+            <div class="road-step">
+                <div class="road-dot">05</div>
+                <strong>GIÁ TRỊ</strong>
+                <span>Tạo ra kết quả gì?</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
+
+
+<!-- ======================================================
+     BIG IDEA
+====================================================== -->
+
+<section class="big-idea">
+
+    <h2>IDP không chỉ là một kế hoạch học tập</h2>
 
     <p>
-        Buổi làm việc đầu tiên đánh dấu bước khởi động hành trình hướng dẫn và
-        phát triển dành cho đội ngũ Nhân viên Tài năng PVEP.
+        Kế hoạch phát triển cá nhân cần bắt đầu từ yêu cầu công việc,
+        khung năng lực và khoảng trống thực tế; sau đó được chuyển thành
+        mục tiêu, hành động, KPI và các checkpoints cụ thể để tạo ra giá trị
+        cho cá nhân, đơn vị và PVEP.
+    </p>
+
+    <div class="big-idea-flow">
+
+        <span class="flow-pill">Khung năng lực</span>
+        <span class="flow-pill">→</span>
+        <span class="flow-pill">Khoảng trống năng lực</span>
+        <span class="flow-pill">→</span>
+        <span class="flow-pill">Mục tiêu phát triển</span>
+        <span class="flow-pill">→</span>
+        <span class="flow-pill">Chương trình hành động</span>
+        <span class="flow-pill">→</span>
+        <span class="flow-pill">Kết quả</span>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     01
+====================================================== -->
+
+<section class="card">
+
+    <span class="section-no">01 · KHỞI ĐỘNG</span>
+
+    <h2>MỞ ĐẦU HÀNH TRÌNH PHÁT TRIỂN</h2>
+
+    <p>
+        Buổi làm việc đầu tiên đánh dấu bước khởi động hành trình hướng dẫn
+        và phát triển dành cho đội ngũ Nhân viên Tài năng PVEP.
     </p>
 
     <div class="highlight">
-        Đây không chỉ là một buổi trao đổi thông tin mà là bước mở đầu để
-        xác lập mục tiêu, định hướng và phương thức đồng hành giữa Lãnh đạo
-        Tổng công ty với các Nhân viên Tài năng trên hành trình phát triển nghề nghiệp.
+        Đây không chỉ là một buổi trao đổi thông tin,
+        mà là bước mở đầu để xác lập mục tiêu, định hướng
+        và phương thức đồng hành giữa Lãnh đạo Tổng công ty
+        với các Nhân viên Tài năng trên hành trình phát triển nghề nghiệp.
     </div>
 
     <p>
-        Trong bối cảnh PVEP đang bước vào giai đoạn đòi hỏi tốc độ,
-        tính chuyên nghiệp, tinh thần trách nhiệm và khả năng thích ứng cao,
-        việc đầu tư phát triển đội ngũ nhân sự có tiềm năng tạo ra những
-        đóng góp quan trọng cho Tổng công ty mang ý nghĩa đặc biệt.
+        Trong bối cảnh PVEP đòi hỏi ngày càng cao về tốc độ,
+        tính chuyên nghiệp, tinh thần trách nhiệm và khả năng thích ứng,
+        mỗi thành viên được kỳ vọng chủ động phát triển bản thân
+        và chuẩn bị năng lực để đảm nhận những nhiệm vụ có giá trị cao hơn.
     </p>
 
-    <p>
-        Buổi làm việc cũng là dịp để mỗi cá nhân nhìn lại hành trình nghề nghiệp,
-        xác định hướng phát triển rõ ràng hơn và thể hiện tinh thần chủ động,
-        cầu thị của một Nhân viên Tài năng.
-    </p>
-
-</div>
+</section>
 
 
-<!-- 02 -->
-<div class="card">
+<!-- ======================================================
+     02
+====================================================== -->
 
-    <h2>02. ĐỊNH HƯỚNG CỦA LÃNH ĐẠO</h2>
+<section class="card">
+
+    <span class="section-no">02 · ĐỊNH HƯỚNG</span>
+
+    <h2>ĐỊNH HƯỚNG CỦA LÃNH ĐẠO</h2>
 
     <h3>PTGĐ Ngô Khánh Xạ</h3>
 
     <p>
-        Phó Tổng giám đốc trao đổi định hướng, chia sẻ kỳ vọng và thông điệp
-        của Lãnh đạo Tổng công ty đối với Chương trình Nhân viên Tài năng
-        cũng như hành trình phát triển của các thành viên trong thời gian tới.
+        Phó Tổng giám đốc trao đổi định hướng,
+        chia sẻ kỳ vọng và thông điệp của Lãnh đạo Tổng công ty
+        đối với Chương trình Nhân viên Tài năng
+        cũng như hành trình phát triển của từng thành viên.
     </p>
 
     <div class="highlight">
-        Mục tiêu của chương trình không chỉ là phát triển năng lực cá nhân,
-        mà còn chuẩn bị đội ngũ nhân sự nòng cốt có khả năng đảm nhận
-        những nhiệm vụ quan trọng hơn trong tương lai.
+        Mục tiêu không chỉ là phát triển năng lực cá nhân,
+        mà còn chuẩn bị đội ngũ nhân sự nòng cốt
+        có khả năng đảm nhận những nhiệm vụ quan trọng hơn trong tương lai.
     </div>
 
-</div>
+</section>
 
 
-<!-- 03 -->
-<div class="card">
+<!-- ======================================================
+     03
+====================================================== -->
 
-    <h2>03. ĐỊNH HƯỚNG PHÁT TRIỂN CÁ NHÂN</h2>
+<section class="card">
+
+    <span class="section-no">03 · NHÌN LẠI MÌNH</span>
+
+    <h2>ĐỊNH HƯỚNG PHÁT TRIỂN CÁ NHÂN</h2>
 
     <p>
         Mỗi Nhân viên Tài năng trình bày trong khoảng
-        <strong>5–7 phút</strong>, tập trung vào các nội dung:
+        <strong>5–7 phút</strong>, tập trung vào:
     </p>
 
     <ul>
-        <li>Mục tiêu và định hướng công việc cá nhân trong thời gian tới.</li>
-
-        <li>
-            Mục tiêu, kỳ vọng và yêu cầu của tổ chức đối với vị trí công tác.
-        </li>
-
-        <li>
-            Kế hoạch phát triển cá nhân – IDP.
-        </li>
-
-        <li>
-            Năng lực cần ưu tiên nâng cao và các checkpoints dự kiến.
-        </li>
-
-        <li>
-            Những khó khăn và nhu cầu hỗ trợ.
-        </li>
-
-        <li>
-            Các câu hỏi, đề xuất gửi tới Phó Tổng giám đốc.
-        </li>
+        <li>Mục tiêu và định hướng nghề nghiệp.</li>
+        <li>Kỳ vọng và yêu cầu của tổ chức đối với vị trí công tác.</li>
+        <li>Kế hoạch phát triển cá nhân – IDP.</li>
+        <li>Năng lực cần ưu tiên nâng cao.</li>
+        <li>Checkpoints dự kiến.</li>
+        <li>Khó khăn và nhu cầu hỗ trợ.</li>
+        <li>Câu hỏi, đề xuất gửi tới Phó Tổng giám đốc.</li>
     </ul>
 
-    <div class="highlight">
-        Yêu cầu: trình bày tập trung, ngắn gọn và đi thẳng vào những nội dung cốt lõi.
+
+    <div class="idp-map">
+
+        <div class="idp-item">
+            <div class="idp-icon">🧭</div>
+            <strong>Mục tiêu</strong>
+            <small>Đích đến nghề nghiệp</small>
+        </div>
+
+        <div class="idp-item">
+            <div class="idp-icon">◎</div>
+            <strong>Năng lực</strong>
+            <small>Gap cần lấp đầy</small>
+        </div>
+
+        <div class="idp-item">
+            <div class="idp-icon">✓</div>
+            <strong>Hành động</strong>
+            <small>Việc cần thực hiện</small>
+        </div>
+
+        <div class="idp-item">
+            <div class="idp-icon">📍</div>
+            <strong>Checkpoint</strong>
+            <small>Mốc kiểm chứng tiến bộ</small>
+        </div>
+
     </div>
 
-</div>
+
+    <div class="timeline-box">
+
+        <div class="time-item">
+            <div class="time">6 tháng</div>
+            <p>
+                Xác định các ưu tiên ngắn hạn
+                và những năng lực cần cải thiện ngay.
+            </p>
+        </div>
+
+        <div class="time-item">
+            <div class="time">1 năm</div>
+            <p>
+                Tạo ra những kết quả công việc,
+                sản phẩm hoặc năng lực có thể đo lường.
+            </p>
+        </div>
+
+        <div class="time-item">
+            <div class="time">3 năm</div>
+            <p>
+                Hướng tới bước phát triển nghề nghiệp
+                và vai trò có giá trị cao hơn.
+            </p>
+        </div>
+
+    </div>
+
+</section>
 
 
-<!-- 04 -->
-<div class="card">
+<!-- ======================================================
+     04
+====================================================== -->
 
-    <h2>04. NHẬN XÉT & ĐỊNH HƯỚNG</h2>
+<section class="card">
+
+    <span class="section-no">04 · TỪ IDP ĐẾN THỰC TIỄN</span>
+
+    <h2>NHỮNG ĐIỀU ĐƯỢC ĐỊNH HÌNH SAU BUỔI 1</h2>
 
     <p>
-        Sau phần trình bày của các Nhân viên Tài năng, Phó Tổng giám đốc
-        trao đổi, nhận xét và định hướng phát triển đối với từng cá nhân.
+        Qua quá trình xây dựng và rà soát IDP,
+        một số nguyên tắc quan trọng của hành trình phát triển
+        được làm rõ hơn:
     </p>
 
-    <p>
-        Các nội dung trao đổi là cơ sở để mỗi thành viên tiếp tục hoàn thiện
-        kế hoạch phát triển cá nhân và xác định các hành động cụ thể sau buổi làm việc.
-    </p>
 
-</div>
+    <div class="lesson-grid">
+
+        <div class="lesson">
+            <strong>① Chủ động</strong>
+            <p>
+                Không chờ được giao từng bước;
+                chủ động hỏi, trao đổi, tìm nguồn lực
+                và đề xuất hướng phát triển.
+            </p>
+        </div>
+
+        <div class="lesson">
+            <strong>② Phối hợp</strong>
+            <p>
+                Phát triển cá nhân không tách rời
+                năng lực làm việc nhóm,
+                phản biện và hỗ trợ lẫn nhau.
+            </p>
+        </div>
+
+        <div class="lesson">
+            <strong>③ Chuyên nghiệp</strong>
+            <p>
+                Chất lượng nội dung phải đi cùng
+                chất lượng đầu ra, format,
+                deadline và cách trình bày.
+            </p>
+        </div>
+
+        <div class="lesson">
+            <strong>④ Đo lường được</strong>
+            <p>
+                Mục tiêu cần chuyển thành KPI,
+                deliverables, timeline
+                và checkpoints cụ thể.
+            </p>
+        </div>
+
+        <div class="lesson">
+            <strong>⑤ Gắn với TCCD & năng lực</strong>
+            <p>
+                Hành động phát triển cần xuất phát
+                từ khoảng trống năng lực thực tế,
+                không chỉ từ sở thích học tập.
+            </p>
+        </div>
+
+        <div class="lesson">
+            <strong>⑥ Tạo giá trị</strong>
+            <p>
+                IDP cuối cùng phải dẫn đến
+                nhiệm vụ, sáng kiến, sản phẩm
+                hoặc đóng góp cụ thể cho PVEP.
+            </p>
+        </div>
+
+    </div>
+
+</section>
 
 
-<!-- 05 -->
-<div class="card">
+<!-- ======================================================
+     05
+====================================================== -->
 
-    <h2>05. NHIỆM VỤ SAU BUỔI HỌC</h2>
+<section class="card">
+
+    <span class="section-no">05 · HÀNH ĐỘNG</span>
+
+    <h2>NHIỆM VỤ SAU BUỔI HỌC</h2>
+
 
     <div class="task">
 
         <h3>① Hoàn thiện Kế hoạch phát triển cá nhân – IDP</h3>
 
-        <p>
-            <strong>Thời hạn: 01 tuần</strong>
-        </p>
+        <p><strong>Thời hạn: 01 tuần</strong></p>
 
         <ul>
-            <li>
-                Cụ thể hóa mục tiêu nghề nghiệp theo giai đoạn
-                6 tháng – 1 năm – 3 năm.
-            </li>
-
-            <li>
-                Làm rõ các năng lực cần ưu tiên phát triển.
-            </li>
-
-            <li>
-                Xác định KPIs cá nhân và checkpoints theo tháng/quý.
-            </li>
-
-            <li>
-                Đảm bảo mục tiêu rõ ràng và có khả năng đo lường.
-            </li>
+            <li>Cụ thể hóa mục tiêu 6 tháng – 1 năm – 3 năm.</li>
+            <li>Làm rõ năng lực cần ưu tiên phát triển.</li>
+            <li>Xác định KPI và checkpoints theo tháng/quý.</li>
+            <li>Đảm bảo mục tiêu rõ ràng và đo lường được.</li>
         </ul>
 
     </div>
@@ -348,17 +920,9 @@ footer {
         <h3>② Xác định 02–03 nhiệm vụ trọng tâm</h3>
 
         <ul>
-            <li>
-                Lựa chọn các nhiệm vụ quan trọng nhất gắn với vị trí công tác.
-            </li>
-
-            <li>
-                Làm rõ kết quả mong đợi và chỉ số đánh giá.
-            </li>
-
-            <li>
-                Đề xuất giải pháp chủ động để nâng cao hiệu quả thực hiện.
-            </li>
+            <li>Lựa chọn nhiệm vụ quan trọng nhất gắn với vị trí công tác.</li>
+            <li>Làm rõ kết quả mong đợi và chỉ số đánh giá.</li>
+            <li>Đề xuất giải pháp chủ động nâng cao hiệu quả thực hiện.</li>
         </ul>
 
     </div>
@@ -366,37 +930,20 @@ footer {
 
     <div class="task">
 
-        <h3>③ Chuẩn bị cho buổi làm việc tiếp theo</h3>
+        <h3>③ Chuẩn bị chủ đề phát triển tiếp theo</h3>
 
         <p>
-            <strong>Thời gian dự kiến: sau 02 tuần</strong>
-        </p>
-
-        <p>
-            Mỗi thành viên lựa chọn một chủ đề chuyên sâu, ví dụ:
+            Các hướng được đề xuất bao gồm:
         </p>
 
         <ul>
-            <li>
-                Năng lực trình bày, thuyết phục và báo cáo lãnh đạo.
-            </li>
-
-            <li>
-                Tư duy phân tích – giải quyết vấn đề.
-            </li>
-
-            <li>
-                Kỹ năng lập kế hoạch.
-            </li>
-
-            <li>
-                Năng lực dữ liệu, Power BI và phân tích số liệu.
-            </li>
+            <li>Thuyết trình, thuyết phục và phản biện.</li>
+            <li>Tư duy phân tích – giải quyết vấn đề.</li>
+            <li>Kỹ năng lập kế hoạch và xây dựng chương trình hành động.</li>
+            <li>Dữ liệu, Power BI và phân tích số liệu.</li>
+            <li>Chiến lược KHCN và đổi mới sáng tạo.</li>
+            <li>Các vấn đề chiến lược mới của ngành dầu khí.</li>
         </ul>
-
-        <p>
-            Đồng thời xác định rõ lý do lựa chọn và kết quả mong muốn đạt được.
-        </p>
 
     </div>
 
@@ -406,88 +953,84 @@ footer {
         <h3>④ Chủ động – Cầu thị – Cam kết hành động</h3>
 
         <p>
-            Tổng công ty tạo điều kiện và môi trường phát triển; kết quả đạt được
-            phụ thuộc vào sự chủ động, nỗ lực và cam kết hành động của mỗi cá nhân.
+            Tổng công ty tạo điều kiện và môi trường phát triển;
+            kết quả đạt được phụ thuộc vào sự chủ động,
+            nỗ lực và cam kết hành động của mỗi cá nhân.
         </p>
 
     </div>
 
-</div>
+</section>
 
 
-<!-- 06 -->
-<div class="card">
+<!-- ======================================================
+     06 DOCUMENTS
+====================================================== -->
 
-    <h2>06. TÀI LIỆU BUỔI 1</h2>
+<section class="card">
+
+    <span class="section-no">06 · TƯ LIỆU</span>
+
+    <h2>TÀI LIỆU BUỔI 1</h2>
 
     <p>
-        Danh mục tài liệu, bài trình bày và kế hoạch phát triển cá nhân
-        của các thành viên trong Buổi 1.
-        Bấm vào tên tài liệu để xem nội dung.
+        Danh mục tài liệu, bài trình bày
+        và kế hoạch phát triển cá nhân của các thành viên.
+        Bấm vào tên tài liệu để xem.
     </p>
 
-    <div class="document-list">
 
+    <div class="document-list">
 
         <a class="document-link"
            href="20251205 Báo cáo Bài tập Buổi 1 Nhân viên tài năng.docx">
             📄 20251205 Báo cáo Bài tập Buổi 1 Nhân viên tài năng
         </a>
 
-
         <a class="document-link"
            href="20251205 Nhận xét IDP nhân viên tài năng.docx">
             📄 20251205 Nhận xét IDP nhân viên tài năng
         </a>
-
 
         <a class="document-link"
            href="Báo cáo Chương trình hành động Trần Thị Trang.pptx">
             📊 Báo cáo Chương trình hành động – Trần Thị Trang
         </a>
 
-
         <a class="document-link"
            href="DungVT_IDP_2026.pptx">
             📊 DungVT – IDP 2026
         </a>
-
 
         <a class="document-link"
            href="Individual-Development-Plan-Nguyen-Dang-Quang-PVEP-CL.docx">
             📄 Individual Development Plan – Nguyễn Đăng Quang
         </a>
 
-
         <a class="document-link"
            href="Kế hoạch phát triển cá nhân TuanNM.pptx">
             📊 Kế hoạch phát triển cá nhân – TuanNM
         </a>
-
 
         <a class="document-link"
            href="Kế hoạch phát triển cá nhân_QuânHM_December_4_2025.pptx">
             📊 Kế hoạch phát triển cá nhân – QuânHM
         </a>
 
-
         <a class="document-link"
            href="Kịch bản hướng dẫn NVTN.docx">
             📄 Kịch bản hướng dẫn NVTN
         </a>
-
 
         <a class="document-link"
            href="Nguyễn Đăng Quang - Báo cáo Buổi 01 (04-Dec-2025).docx">
             📄 Nguyễn Đăng Quang – Báo cáo Buổi 01
         </a>
 
-
         <a class="document-link"
            href="Định hướng phát triển cá nhân gắn với Khung năng lực_Nguyễn Xuân Lộc .docx">
             📄 Nguyễn Xuân Lộc – Định hướng phát triển cá nhân gắn với Khung năng lực
         </a>
-
 
         <a class="document-link"
            href="Định hướng phát triển cá nhân_MinhPH.docx">
@@ -496,47 +1039,47 @@ footer {
 
     </div>
 
+
     <p class="document-note">
-        Một số tài liệu Word hoặc PowerPoint có thể được trình duyệt tải xuống
-        để mở trên thiết bị.
+        Một số tài liệu Word hoặc PowerPoint
+        có thể được tải xuống để mở trên thiết bị.
     </p>
 
-</div>
+</section>
 
 
-<!-- 07 -->
-<div class="card">
+<!-- ======================================================
+     07 CLOSING
+====================================================== -->
 
-    <h2>07. THÔNG ĐIỆP BUỔI 1</h2>
+<section class="card closing">
 
-    <div class="highlight">
+    <span class="section-no">07 · THÔNG ĐIỆP BUỔI 1</span>
 
-        <strong>
-            Từ định hướng → hành động → kết quả.
-        </strong>
-
-        <br><br>
-
-        Mỗi thành viên chủ động xây dựng hành trình phát triển của chính mình,
-        đồng thời gắn mục tiêu cá nhân với mục tiêu và yêu cầu phát triển của PVEP.
-
+    <div class="closing-line">
+        ĐỊNH HƯỚNG → HÀNH ĐỘNG → KẾT QUẢ
     </div>
 
-</div>
+    <div class="closing-sub">
+        Phát triển nghề nghiệp không bắt đầu từ một khóa học,
+        mà bắt đầu từ việc hiểu mình cần trở thành ai,
+        cần tạo ra giá trị gì và chủ động hành động để đạt tới đó.
+    </div>
+
+</section>
 
 
-<!-- QUAY LẠI 1 CẤP: TRANG CÁC BUỔI HỌC -->
-<a class="back" href="../">← QUAY LẠI CÁC BUỔI HỌC</a>
+<a class="back" href="../">
+    ← QUAY LẠI CÁC BUỔI HỌC
+</a>
 
-</div>
+</main>
 
 
 <footer>
 
     CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
-
     <br>
-
     Đồng hành cùng PTGĐ Ngô Khánh Xạ
 
 </footer>
