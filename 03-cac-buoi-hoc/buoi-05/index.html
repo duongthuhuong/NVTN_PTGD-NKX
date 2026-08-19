@@ -7,6 +7,20 @@
 <title>Buổi 5 | Nhân viên Tài năng PVEP</title>
 
 <style>
+:root{
+    --green:#62c947;
+    --green-dark:#319b36;
+    --green-light:#8ee171;
+    --navy:#05283f;
+    --navy-deep:#031a2b;
+    --text:#16394d;
+    --text-soft:#496575;
+    --white:#ffffff;
+    --page:#f8fbf8;
+    --soft-green:#f3faf1;
+    --border:rgba(5,40,63,.09);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -17,9 +31,18 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f8f7;
-    color: #293735;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8fbf8 50%,
+            #ffffff 100%
+        );
+    color: var(--text);
     line-height: 1.7;
 }
 
@@ -33,9 +56,22 @@ body {
     color: white;
 
     background:
-        radial-gradient(circle at 82% 18%, rgba(242,190,72,0.10), transparent 22%),
-        radial-gradient(circle at 13% 88%, rgba(63,190,159,0.10), transparent 25%),
-        linear-gradient(135deg, #073a43 0%, #075c5f 50%, #087768 100%);
+        radial-gradient(
+            circle at 82% 18%,
+            rgba(98,201,71,.18),
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 13% 88%,
+            rgba(98,201,71,.07),
+            transparent 25%
+        ),
+        linear-gradient(
+            120deg,
+            var(--navy-deep) 0%,
+            var(--navy) 70%,
+            #064839 100%
+        );
 }
 
 .hero::before {
@@ -44,8 +80,15 @@ body {
     inset: 0;
 
     background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
 
     background-size: 48px 48px;
 }
@@ -60,10 +103,10 @@ body {
     width: 150px;
     height: 150px;
 
-    border: 2px solid rgba(255,255,255,0.08);
+    border: 2px solid rgba(142,225,113,.12);
     border-radius: 50%;
 
-    opacity: 0.8;
+    opacity: .8;
 }
 
 .bulb::before {
@@ -78,9 +121,9 @@ body {
 
     transform: translateX(-50%);
 
-    border-left: 2px solid rgba(255,255,255,0.08);
-    border-right: 2px solid rgba(255,255,255,0.08);
-    border-bottom: 2px solid rgba(255,255,255,0.08);
+    border-left: 2px solid rgba(142,225,113,.12);
+    border-right: 2px solid rgba(142,225,113,.12);
+    border-bottom: 2px solid rgba(142,225,113,.12);
 
     border-radius: 0 0 13px 13px;
 }
@@ -95,7 +138,7 @@ body {
     left: 50%;
     bottom: 6px;
 
-    background: rgba(255,255,255,0.08);
+    background: rgba(142,225,113,.12);
 
     transform: translateX(-50%);
 }
@@ -108,24 +151,24 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.22);
+    background: var(--green-light);
 
     animation: sparkle 3s infinite;
 }
 
 .s1 { right: 5%; top: 62px; }
-.s2 { right: 20%; top: 102px; animation-delay: 0.7s; }
+.s2 { right: 20%; top: 102px; animation-delay: .7s; }
 .s3 { right: 7%; top: 230px; animation-delay: 1.4s; }
 .s4 { right: 23%; top: 245px; animation-delay: 2s; }
 
 @keyframes sparkle {
     0%, 100% {
-        opacity: 0.15;
+        opacity: .15;
         transform: scale(1);
     }
 
     50% {
-        opacity: 0.85;
+        opacity: .85;
         transform: scale(1.8);
     }
 }
@@ -147,26 +190,34 @@ body {
 
     border-radius: 100px;
 
-    border: 1px solid rgba(255,255,255,0.28);
+    border: 1px solid rgba(142,225,113,.35);
 
-    background: rgba(255,255,255,0.07);
+    background: rgba(98,201,71,.08);
+
+    color: var(--green-light);
 
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 1.2px;
 }
 
 .hero h1 {
     margin: 18px 0 6px;
 
+    color: white;
+
     font-size: 50px;
     line-height: 1.05;
+
+    font-weight: 800;
 }
 
 .hero h2 {
     margin: 0;
 
     max-width: 850px;
+
+    color: white;
 
     font-size: 27px;
     line-height: 1.35;
@@ -181,7 +232,7 @@ body {
 
     font-size: 16px;
 
-    color: rgba(255,255,255,0.92);
+    color: #e9f2f5;
 }
 
 /* ======================================================
@@ -208,9 +259,11 @@ body {
 
     border-radius: 100px;
 
-    background: rgba(255,255,255,0.10);
+    background: rgba(98,201,71,.08);
 
-    border: 1px solid rgba(255,255,255,0.18);
+    border: 1px solid rgba(142,225,113,.27);
+
+    color: white;
 
     font-size: 16px;
     font-weight: 600;
@@ -230,7 +283,6 @@ body {
 .q6 { animation-delay: 20s; }
 
 @keyframes questionFade {
-
     0% {
         opacity: 0;
         transform: translateY(12px);
@@ -273,16 +325,17 @@ body {
 
     margin-bottom: 25px;
 
-    color: #087666;
-    font-weight: bold;
+    color: var(--green-dark);
+    font-weight: 700;
 
     text-decoration: none;
 
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .back:hover {
     transform: translateX(-4px);
+    color: #23752a;
 }
 
 /* ======================================================
@@ -298,9 +351,9 @@ body {
 
     margin-bottom: 23px;
 
-    box-shadow: 0 5px 20px rgba(20,80,71,0.07);
+    box-shadow: 0 5px 20px rgba(5,40,63,.06);
 
-    border: 1px solid rgba(8,118,102,0.07);
+    border: 1px solid var(--border);
 }
 
 .section-no {
@@ -308,10 +361,10 @@ body {
 
     margin-bottom: 3px;
 
-    color: #15947f;
+    color: var(--green-dark);
 
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 1.2px;
 }
 
@@ -320,15 +373,22 @@ body {
 
     padding-bottom: 11px;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 25px;
+    font-weight: 700;
 
-    border-bottom: 2px solid #e4f0ed;
+    border-bottom: 2px solid rgba(98,201,71,.18);
 }
 
 .card h3 {
-    color: #116e62;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.card p,
+.card li {
+    color: var(--text);
 }
 
 .highlight {
@@ -336,11 +396,18 @@ body {
 
     padding: 20px 23px;
 
-    border-left: 5px solid #15947f;
+    border-left: 5px solid var(--green);
 
     border-radius: 9px;
 
-    background: linear-gradient(135deg, #eaf7f4, #f8fbfa);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(98,201,71,.10),
+            #fbfdfb
+        );
+
+    color: var(--navy);
 }
 
 /* ======================================================
@@ -360,9 +427,19 @@ body {
     color: white;
 
     background:
-        linear-gradient(135deg, #064e59, #087666);
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(142,225,113,.16),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            var(--navy-deep),
+            var(--navy) 72%,
+            #064839
+        );
 
-    box-shadow: 0 10px 28px rgba(7,95,84,0.16);
+    box-shadow: 0 10px 28px rgba(3,26,43,.15);
 }
 
 .big-message::after {
@@ -375,15 +452,20 @@ body {
 
     font-size: 205px;
 
-    font-weight: bold;
+    font-weight: 800;
 
-    opacity: 0.045;
+    color: var(--green);
+
+    opacity: .055;
 }
 
 .big-message h2 {
     margin: 0 0 12px;
 
+    color: white;
+
     font-size: 29px;
+    font-weight: 700;
 }
 
 .big-message p {
@@ -391,7 +473,7 @@ body {
 
     margin: 0;
 
-    color: rgba(255,255,255,0.92);
+    color: #e9f2f5;
 }
 
 /* ======================================================
@@ -422,9 +504,9 @@ body {
 
     border-radius: 12px;
 
-    background: #f6faf9;
+    background: #f8fcf7;
 
-    border: 1px solid #dfedea;
+    border: 1px solid rgba(98,201,71,.18);
 }
 
 .idea-icon {
@@ -440,7 +522,7 @@ body {
 
     border-radius: 50%;
 
-    background: #e1f4ef;
+    background: rgba(98,201,71,.13);
 
     font-size: 20px;
 }
@@ -448,9 +530,10 @@ body {
 .idea-step strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 13px;
+    font-weight: 700;
 }
 
 .idea-step small {
@@ -458,16 +541,16 @@ body {
 
     margin-top: 4px;
 
-    color: #687975;
+    color: var(--text-soft);
 
     font-size: 11px;
 }
 
 .idea-arrow {
-    color: #15947f;
+    color: var(--green);
 
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -489,17 +572,17 @@ body {
 
     border-radius: 12px;
 
-    background: #f8fbfa;
+    background: #f8fcf7;
 
-    border-top: 4px solid #15947f;
+    border-top: 4px solid var(--green);
 }
 
 .review-number {
     font-size: 28px;
 
-    font-weight: bold;
+    font-weight: 800;
 
-    color: #15947f;
+    color: var(--green);
 }
 
 .review-card strong {
@@ -507,11 +590,15 @@ body {
 
     margin: 2px 0 5px;
 
-    color: #075f54;
+    color: var(--navy);
+
+    font-weight: 700;
 }
 
 .review-card p {
     margin: 0;
+
+    color: var(--text);
 
     font-size: 14px;
 }
@@ -536,9 +623,13 @@ body {
     border-radius: 13px;
 
     background:
-        linear-gradient(145deg, #f8fbfa, #eef7f5);
+        linear-gradient(
+            145deg,
+            #fbfdfb,
+            #f3faf1
+        );
 
-    border: 1px solid #deece9;
+    border: 1px solid rgba(98,201,71,.18);
 }
 
 .idea-card .icon {
@@ -552,15 +643,17 @@ body {
 
     margin-bottom: 6px;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 17px;
+
+    font-weight: 700;
 }
 
 .idea-card span {
     display: block;
 
-    color: #60726e;
+    color: var(--text-soft);
 
     font-size: 13px;
 }
@@ -574,12 +667,12 @@ body {
 
     border-radius: 100px;
 
-    background: #dff3ee;
+    background: rgba(98,201,71,.13);
 
-    color: #087666 !important;
+    color: var(--green-dark) !important;
 
     font-size: 11px !important;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -594,16 +687,20 @@ body {
     border-radius: 14px;
 
     background:
-        linear-gradient(135deg, #f1f9f7, #ffffff);
+        linear-gradient(
+            135deg,
+            #f3faf1,
+            #ffffff
+        );
 
-    border: 1px solid #deece9;
+    border: 1px solid rgba(98,201,71,.18);
 }
 
 .classroom-title {
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 21px;
-    font-weight: bold;
+    font-weight: 700;
 
     margin-bottom: 11px;
 }
@@ -633,13 +730,15 @@ body {
 
     background: white;
 
-    border: 1px solid #e0eeeb;
+    border: 1px solid rgba(98,201,71,.18);
 }
 
 .case strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
+
+    font-weight: 700;
 }
 
 .case span {
@@ -647,15 +746,16 @@ body {
 
     margin-top: 4px;
 
-    color: #687975;
+    color: var(--text-soft);
 
     font-size: 12px;
 }
 
 .case-arrow {
-    color: #15947f;
+    color: var(--green);
 
     font-size: 22px;
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -677,17 +777,21 @@ body {
 
     border-radius: 12px;
 
-    background: #f8fbfa;
+    background: #f8fcf7;
 
-    border-left: 4px solid #15947f;
+    border-left: 4px solid var(--green);
+
+    color: var(--text);
 }
 
 .learning-card strong {
     display: block;
 
-    color: #075f54;
+    color: var(--navy);
 
     margin-bottom: 5px;
+
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -706,17 +810,29 @@ body {
     color: white;
 
     background:
-        linear-gradient(135deg, #075f54, #15947f);
+        radial-gradient(
+            circle at 88% 12%,
+            rgba(142,225,113,.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            120deg,
+            var(--navy-deep),
+            var(--navy) 72%,
+            #064839
+        );
 }
 
 .final-question span {
     display: block;
 
+    color: var(--green-light);
+
     font-size: 13px;
 
     letter-spacing: 1px;
 
-    opacity: 0.8;
+    font-weight: 700;
 }
 
 .final-question strong {
@@ -726,9 +842,13 @@ body {
 
     margin: 8px auto 0;
 
+    color: white;
+
     font-size: 24px;
 
     line-height: 1.45;
+
+    font-weight: 700;
 }
 
 /* ======================================================
@@ -756,29 +876,33 @@ body {
 
     border-radius: 9px;
 
-    background: #eef7f5;
+    background: rgba(98,201,71,.065);
 
-    border: 1px solid #dcece8;
+    border: 1px solid rgba(98,201,71,.18);
 
-    color: #087666;
+    color: var(--navy);
 
     font-weight: 600;
 
     text-decoration: none;
 
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .document-link:hover {
     transform: translateX(5px);
 
-    background: #dcefeb;
+    background: rgba(98,201,71,.13);
+
+    color: #23752a;
+
+    box-shadow: 0 4px 12px rgba(5,40,63,.06);
 }
 
 .document-note {
     margin-top: 14px;
 
-    color: #6a7774;
+    color: var(--text-soft);
 
     font-size: 14px;
 }
@@ -793,7 +917,7 @@ body {
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(21,148,127,0.12),
+            rgba(98,201,71,.11),
             transparent 44%
         ),
         white;
@@ -802,11 +926,11 @@ body {
 .closing-title {
     margin: 8px 0 15px;
 
-    color: #075f54;
+    color: var(--navy);
 
     font-size: 27px;
 
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .closing p {
@@ -814,7 +938,7 @@ body {
 
     margin: auto;
 
-    color: #5c716d;
+    color: var(--text);
 }
 
 /* ======================================================
@@ -824,13 +948,15 @@ body {
 footer {
     padding: 27px 18px;
 
-    background: #064f47;
+    background: var(--navy-deep);
 
     color: white;
 
     text-align: center;
 
     font-size: 14px;
+
+    border-top: 3px solid var(--green);
 }
 
 /* ======================================================
@@ -889,7 +1015,7 @@ footer {
         right: -42px;
         top: 70px;
 
-        opacity: 0.38;
+        opacity: .30;
     }
 
     .question-stage {
@@ -962,7 +1088,7 @@ footer {
 
     .eyebrow {
         font-size: 11px;
-        letter-spacing: 0.7px;
+        letter-spacing: .7px;
     }
 
     .card,
@@ -1016,7 +1142,6 @@ footer {
         và tìm ra một cách làm tốt hơn.
     </p>
 
-
     <div class="question-stage">
 
         <div class="hero-question q1">
@@ -1049,7 +1174,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      MAIN
 ====================================================== -->
@@ -1059,7 +1183,6 @@ footer {
 <a class="back" href="../">
     ← QUAY LẠI CÁC BUỔI HỌC
 </a>
-
 
 <!-- ======================================================
      INTRO
@@ -1088,7 +1211,6 @@ footer {
     </p>
 
 </section>
-
 
 <!-- ======================================================
      01
@@ -1155,7 +1277,6 @@ footer {
 
     </div>
 
-
     <div class="highlight">
 
         <strong>
@@ -1174,7 +1295,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      02
@@ -1197,84 +1317,50 @@ footer {
         và tự kiểm tra mức độ hoàn thiện của đề xuất.
     </p>
 
-
     <div class="review-grid">
 
         <div class="review-card">
-
             <div class="review-number">01</div>
-
-            <strong>
-                Vấn đề thật là gì?
-            </strong>
-
+            <strong>Vấn đề thật là gì?</strong>
             <p>
                 Nếu chưa nói rõ vấn đề,
                 rất khó đánh giá giải pháp có thực sự cần thiết hay không.
             </p>
-
         </div>
 
-
         <div class="review-card">
-
             <div class="review-number">02</div>
-
-            <strong>
-                Mới ở đâu?
-            </strong>
-
+            <strong>Mới ở đâu?</strong>
             <p>
                 Cái mới không nhất thiết phải là công nghệ mới,
                 mà có thể là cách ứng dụng,
                 cách kết hợp
                 hoặc cách giải quyết vấn đề.
             </p>
-
         </div>
 
-
         <div class="review-card">
-
             <div class="review-number">03</div>
-
-            <strong>
-                Có làm được không?
-            </strong>
-
+            <strong>Có làm được không?</strong>
             <p>
                 Ý tưởng cần đi cùng điều kiện triển khai,
                 nguồn lực
                 và khả năng thử nghiệm thực tế.
             </p>
-
         </div>
 
-
         <div class="review-card">
-
             <div class="review-number">04</div>
-
-            <strong>
-                Có số liệu chứng minh?
-            </strong>
-
+            <strong>Có số liệu chứng minh?</strong>
             <p>
                 Kết quả cần được kiểm chứng
                 thay vì chỉ dựa trên nhận định hoặc kỳ vọng.
             </p>
-
         </div>
 
-
         <div class="review-card">
-
             <div class="review-number">05</div>
-
-            <strong>
-                Hiệu quả là gì?
-            </strong>
-
+            <strong>Hiệu quả là gì?</strong>
             <p>
                 Có thể là sản lượng,
                 chi phí,
@@ -1283,29 +1369,20 @@ footer {
                 chất lượng dữ liệu
                 hay hiệu quả quản trị.
             </p>
-
         </div>
 
-
         <div class="review-card">
-
             <div class="review-number">06</div>
-
-            <strong>
-                Có thể nhân rộng?
-            </strong>
-
+            <strong>Có thể nhân rộng?</strong>
             <p>
                 Một giải pháp càng có khả năng áp dụng lại
                 thì giá trị thực tiễn càng lớn.
             </p>
-
         </div>
 
     </div>
 
 </section>
-
 
 <!-- ======================================================
      03
@@ -1334,39 +1411,23 @@ footer {
         từ những vấn đề rất cụ thể trong công việc.
     </p>
 
-
     <div class="idea-grid">
 
         <div class="idea-card">
-
             <div class="icon">🧩</div>
-
-            <strong>
-                Tự động tối ưu History Matching
-            </strong>
-
+            <strong>Tự động tối ưu History Matching</strong>
             <span>
                 Ứng dụng tNavigator AHM
                 để lựa chọn và hiệu chỉnh các tham số bất định,
                 giảm thử – sai
                 và hỗ trợ đánh giá dải bất định.
             </span>
-
-            <span class="idea-tag">
-                CÔNG NGHỆ MỎ
-            </span>
-
+            <span class="idea-tag">CÔNG NGHỆ MỎ</span>
         </div>
 
-
         <div class="idea-card">
-
             <div class="icon">📊</div>
-
-            <strong>
-                Kiểm soát chất lượng dữ liệu sản lượng
-            </strong>
-
+            <strong>Kiểm soát chất lượng dữ liệu sản lượng</strong>
             <span>
                 Xây dựng bộ quy tắc
                 phát hiện dữ liệu thiếu,
@@ -1374,108 +1435,58 @@ footer {
                 biến động bất thường
                 và sai lệch giữa các nguồn.
             </span>
-
-            <span class="idea-tag">
-                DATA QUALITY
-            </span>
-
+            <span class="idea-tag">DATA QUALITY</span>
         </div>
 
-
         <div class="idea-card">
-
             <div class="icon">🤖</div>
-
-            <strong>
-                Digital PMO Assistant
-            </strong>
-
+            <strong>Digital PMO Assistant</strong>
             <span>
                 Ứng dụng AI hỗ trợ truy xuất hồ sơ,
                 theo dõi action items,
                 lịch sử quyết định
                 và cảnh báo rủi ro tiến độ dự án.
             </span>
-
-            <span class="idea-tag">
-                AI & PROJECT
-            </span>
-
+            <span class="idea-tag">AI & PROJECT</span>
         </div>
 
-
         <div class="idea-card">
-
             <div class="icon">🗺️</div>
-
-            <strong>
-                PVEP ATLAS
-            </strong>
-
+            <strong>PVEP ATLAS</strong>
             <span>
                 Quản lý chuỗi sản phẩm kỹ thuật
                 và mối phụ thuộc liên nhóm,
                 giúp nhìn dự án theo deliverable
                 thay vì chỉ theo task.
             </span>
-
-            <span class="idea-tag">
-                PROJECT MANAGEMENT
-            </span>
-
+            <span class="idea-tag">PROJECT MANAGEMENT</span>
         </div>
 
-
         <div class="idea-card">
-
             <div class="icon">⚙️</div>
-
-            <strong>
-                Velocity String
-            </strong>
-
+            <strong>Velocity String</strong>
             <span>
                 Nghiên cứu giải pháp giảm tubing size
                 nhằm hạn chế liquid loading
                 và gia tăng khả năng thu hồi tại mỏ Rồng Đôi.
             </span>
-
-            <span class="idea-tag">
-                KHAI THÁC
-            </span>
-
+            <span class="idea-tag">KHAI THÁC</span>
         </div>
 
-
         <div class="idea-card">
-
             <div class="icon">🧠</div>
-
-            <strong>
-                AI-assisted Seismic Attribute Recommendation
-            </strong>
-
+            <strong>AI-assisted Seismic Attribute Recommendation</strong>
             <span>
                 Hỗ trợ lựa chọn thuộc tính địa chấn
                 thông qua chuẩn hóa workflow
                 và công cụ recommendation có AI hỗ trợ.
             </span>
-
-            <span class="idea-tag">
-                ĐỊA CHẤT – ĐỊA VẬT LÝ
-            </span>
-
+            <span class="idea-tag">ĐỊA CHẤT – ĐỊA VẬT LÝ</span>
         </div>
 
-
         <div class="idea-card">
-
             <div class="icon">💬</div>
-
-            <strong>
-                PetroMind Assistant
-            </strong>
-
+            <strong>PetroMind Assistant</strong>
             <span>
                 Trợ lý AI nội bộ
                 hỗ trợ truy xuất dữ liệu,
@@ -1483,22 +1494,12 @@ footer {
                 cảnh báo
                 và cung cấp thông tin phục vụ điều hành.
             </span>
-
-            <span class="idea-tag">
-                AI & DATA
-            </span>
-
+            <span class="idea-tag">AI & DATA</span>
         </div>
 
-
         <div class="idea-card">
-
             <div class="icon">🛢️</div>
-
-            <strong>
-                Các giải pháp tối ưu vận hành giếng
-            </strong>
-
+            <strong>Các giải pháp tối ưu vận hành giếng</strong>
             <span>
                 Nhiều đề xuất xuất phát trực tiếp
                 từ các vấn đề tại giếng:
@@ -1507,17 +1508,12 @@ footer {
                 duy trì an toàn
                 và gia tăng sản lượng.
             </span>
-
-            <span class="idea-tag">
-                GIẢI PHÁP THỰC TẾ
-            </span>
-
+            <span class="idea-tag">GIẢI PHÁP THỰC TẾ</span>
         </div>
 
     </div>
 
 </section>
-
 
 <!-- ======================================================
      04
@@ -1543,13 +1539,11 @@ footer {
         để tất cả thành viên cùng soi lại đề xuất của chính mình.
     </p>
 
-
     <div class="classroom">
 
         <div class="classroom-title">
             Một sáng kiến được “mổ xẻ” trên lớp như thế nào?
         </div>
-
 
         <div class="case-flow">
 
@@ -1585,7 +1579,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      05
 ====================================================== -->
@@ -1606,65 +1599,40 @@ footer {
         ở rất nhiều dạng khác nhau.
     </p>
 
-
     <div class="learning-grid">
 
         <div class="learning-card">
-
-            <strong>
-                Một công nghệ được áp dụng theo cách mới
-            </strong>
-
+            <strong>Một công nghệ được áp dụng theo cách mới</strong>
             Ví dụ như tNavigator,
             AI,
             Velocity String
             hay công nghệ can thiệp giếng.
-
         </div>
 
-
         <div class="learning-card">
-
-            <strong>
-                Một quy trình được làm tốt hơn
-            </strong>
-
+            <strong>Một quy trình được làm tốt hơn</strong>
             Giảm thao tác thủ công,
             giảm thời gian,
             giảm sai sót
             hoặc kiểm soát rủi ro tốt hơn.
-
         </div>
 
-
         <div class="learning-card">
-
-            <strong>
-                Một dữ liệu được khai thác tốt hơn
-            </strong>
-
+            <strong>Một dữ liệu được khai thác tốt hơn</strong>
             Chuẩn hóa,
             kết nối,
             cảnh báo
             và đưa dữ liệu gần hơn với người ra quyết định.
-
         </div>
 
-
         <div class="learning-card">
-
-            <strong>
-                Một giải pháp nhỏ nhưng hiệu quả rõ ràng
-            </strong>
-
+            <strong>Một giải pháp nhỏ nhưng hiệu quả rõ ràng</strong>
             Không nhất thiết phải phức tạp,
             miễn là giải quyết đúng vấn đề
             và chứng minh được giá trị.
-
         </div>
 
     </div>
-
 
     <div class="final-question">
 
@@ -1680,7 +1648,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- ======================================================
      06
@@ -1723,7 +1690,6 @@ footer {
 
 </section>
 
-
 <!-- ======================================================
      07
 ====================================================== -->
@@ -1741,7 +1707,6 @@ footer {
     <p>
         Bấm vào tên tài liệu để xem.
     </p>
-
 
     <div class="document-list">
 
@@ -1817,13 +1782,11 @@ footer {
 
     </div>
 
-
     <p class="document-note">
         Danh mục có thể tiếp tục bổ sung khi các thành viên cập nhật phiên bản hoàn thiện của sáng kiến.
     </p>
 
 </section>
-
 
 <!-- ======================================================
      08
@@ -1863,13 +1826,11 @@ footer {
 
 </section>
 
-
 <a class="back" href="../">
     ← QUAY LẠI CÁC BUỔI HỌC
 </a>
 
 </main>
-
 
 <footer>
     CHƯƠNG TRÌNH NHÂN VIÊN TÀI NĂNG PVEP
